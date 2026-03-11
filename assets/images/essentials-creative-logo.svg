@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 50" width="260" height="50">
+  <!-- ESSENTIALS text with location pin for "i" -->
+  <g font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#000">
+    <!-- ESS -->
+    <text x="5" y="20">ESS</text>
+    <!-- E -->
+    <text x="65" y="20">E</text>
+    <!-- N -->
+    <text x="85" y="20">N</text>
+    <!-- T -->
+    <text x="105" y="20">T</text>
+    <!-- Location pin replacing the "i" -->
+    <g transform="translate(122, 4)">
+      <!-- Pin body -->
+      <circle cx="0" cy="4" r="3.5" fill="#e74c3c"/>
+      <!-- Pin point -->
+      <path d="M0,7.5 L-1.5,12 L1.5,12 Z" fill="#e74c3c"/>
+      <!-- Pin dot -->
+      <circle cx="0" cy="4" r="1.2" fill="#ffffff"/>
+    </g>
+    <!-- ALS -->
+    <text x="135" y="20">ALS</text>
+  </g>
+  
+  <!-- CREATIVE text (spaced letters) -->
+  <g font-family="Arial, sans-serif" font-size="11" font-weight="normal" fill="#000" letter-spacing="4px">
+    <text x="5" y="38">C R E A T I V E</text>
+  </g>
+</svg>

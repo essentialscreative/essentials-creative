@@ -1,0 +1,80 @@
+# Development and Test Files
+/dev/
+dev/
+
+# Backup files
+*.backup
+*.old
+*-old-*
+*-backup-*
+*-test*
+*-updated*
+*-optimized.html
+*-improved*
+
+# OS Files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE Files
+.vscode/
+.idea/
+*.sublime-*
+
+# Dependencies (if added later)
+node_modules/
+bower_components/
+
+# Build outputs (if added later)
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+.temp/
+
+# Cache
+.cache/
+.sass-cache/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+
+# Local server files
+*.pid
+# Large source files not needed for deployment
+assets/images/tapestry-designs.BACKUP/
+assets/images/TSHIRT\ MOCKUPS/
+
+# Maintenance and testing files
+MAINTENANCE_LOG.md
+QUICK_TEST_CHECKLIST.md
+CSS_LOCK.md
+TESTING_SUITE.md
+WEBSITE_OPTIMIZATION_WORKFLOW.md
+
+# Box cloud storage files
+.DS_Store
+._*
+*.boxtemp
+*Conflict*
+.box/

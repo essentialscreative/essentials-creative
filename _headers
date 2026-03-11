@@ -1,0 +1,32 @@
+# Netlify Headers File - Essentials Creative
+# Optimize caching and security
+
+# Cache static assets for 1 year
+/assets/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache HTML for 1 hour
+/*.html
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Root index
+/
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Security headers for all pages
+/*
+  X-Frame-Options: DENY
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.instagram.com https://formspree.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; media-src 'self' https:; connect-src 'self' https://formspree.io https://www.youtube.com; frame-src https://www.youtube.com https://www.instagram.com;

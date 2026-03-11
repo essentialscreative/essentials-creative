@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rhizomatic - Essentials Creative</title>
+<meta content="Rhizomatic is a collaborative multimedia art installation exploring cultural and scientific stories of diversity and interconnectedness through Indigenous knowledge and native plants." name="description"/>
+<!-- Favicon -->
+<link href="assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="assets/images/favicon.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="assets/images/favicon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="assets/images/favicon.png" rel="shortcut icon"/>
+<!-- CSS -->
+<link href="assets/css/navigation.css" rel="stylesheet"/>
+<link href="assets/css/main.css" rel="stylesheet"/>
+<link href="assets/css/mobile-optimization.css" rel="stylesheet"/>
+<link href="assets/css/enhanced-lightbox.css" rel="stylesheet"/>
+<style>
+/* Gallery Grid Styling */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem 0;
+}
+
+.gallery-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #f5f5f5;
+}
+
+.gallery-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}
+
+/* Lightbox Styling */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    z-index: 10000;
+}
+
+.lightbox-close:hover {
+    opacity: 0.7;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    z-index: 10000;
+}
+
+.lightbox-nav:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+/* Rhizomatic Page Specific Styles */
+.rhizomatic-hero {
+    background-color: #1a1a1a;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.2) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: white;
+    max-width: 900px;
+    padding: 0 2rem;
+}
+
+.hero-logo {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    font-weight: 400;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 700px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.section-standard {
+    padding: 4rem 0 3rem;
+}
+
+.container-standard {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.content-centered {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.gallery-section-header {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    text-align: center;
+    margin: 2rem 0 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.gallery-subsection {
+    margin-bottom: 3rem;
+}
+
+.plant-group {
+    margin-bottom: 2rem;
+}
+
+.plant-name {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #555;
+    text-align: center;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.gallery-item-with-caption {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #f5f5f5;
+}
+
+.gallery-item-with-caption:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+.gallery-item-with-caption img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+}
+
+.image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+}
+
+.gallery-item-with-caption:hover .image-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.caption-title {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.caption-type {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    font-style: italic;
+}
+
+/* Mobile Menu Fix - Ensure proper closing behavior */
+@media (max-width: 768px) {
+    .hamburger-menu:not(.active) {
+        display: none !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transform: translateX(100%) !important;
+    }
+    
+    .hamburger-menu.active {
+        display: flex !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: translateX(0) !important;
+    }
+    
+    /* Ensure menu doesn't block content when closed */
+    body:not(.menu-open) .hamburger-menu {
+        visibility: hidden !important;
+    }
+    
+    /* Prevent menu from covering content */
+    .hamburger-menu {
+        max-width: 280px !important;
+        right: 0 !important;
+        left: auto !important;
+        width: auto !important;
+    }
+}
+
+</style>
+<script>
+// Force close mobile menu on page load and navigation
+document.addEventListener('DOMContentLoaded', function() {
+    // Remove any lingering menu states
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const hamburgerToggle = document.querySelector('.hamburger-toggle');
+    const body = document.body;
+    
+    if (hamburgerMenu) {
+        hamburgerMenu.classList.remove('active');
+        hamburgerMenu.style.display = 'none';
+        hamburgerMenu.style.visibility = 'hidden';
+    }
+    
+    if (hamburgerToggle) {
+        hamburgerToggle.classList.remove('active');
+        hamburgerToggle.setAttribute('aria-expanded', 'false');
+    }
+    
+    // Ensure body can scroll
+    body.style.overflow = '';
+    body.classList.remove('menu-open');
+    
+    // Extra safety: hide menu after a short delay
+    setTimeout(function() {
+        if (hamburgerMenu && !hamburgerMenu.classList.contains('active')) {
+            hamburgerMenu.style.display = 'none';
+        }
+    }, 100);
+});
+</script>
+</head>
+<body>
+<div class="skip-links">
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<a href="#main-navigation" class="skip-link">Skip to navigation</a>
+</div>
+<header class="header">
+<div class="nav-container">
+<div class="logo">
+<a href="index.html">
+<img alt="Essentials Creative" src="assets/images/essentials_creative_logo.png" style="height: 65px; width: auto; display: block;"/>
+</a>
+</div>
+<nav id="main-navigation" class="nav-links">
+<a class="nav-link" href="index.html">Home</a>
+<a class="nav-link" href="photography.html">Photography</a>
+<a class="nav-link" href="design.html">Design</a>
+<a class="nav-link" href="videoandprojections.html">Video/Projections</a>
+<a class="nav-link active" href="installations.html">Installations</a>
+<a class="nav-link" href="about.html">About</a>
+<a class="nav-link" href="contact.html">Contact</a>
+</nav>
+<!-- Mobile Navigation -->
+<div class="hamburger-nav">
+<button class="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+<span class="hamburger-line"></span>
+<span class="hamburger-line"></span>
+<span class="hamburger-line"></span>
+</button>
+<div class="hamburger-menu">
+<a href="index.html" class="hamburger-link">Home</a>
+<a href="photography.html" class="hamburger-link">Photography</a>
+<a href="design.html" class="hamburger-link">Design</a>
+<a href="videoandprojections.html" class="hamburger-link">Video/Projections</a>
+<a href="installations.html" class="hamburger-link active">Installations</a>
+<a href="about.html" class="hamburger-link">About</a>
+<a href="contact.html" class="hamburger-link">Contact</a>
+</div>
+</div>
+</div>
+</header>
+
+
+<main id="main-content">
+<!-- Hero Section -->
+<section class="hero rhizomatic-hero" style="background: url('assets/images/nopal-hero.jpg') center center / cover no-repeat;">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <img alt="Rhizomatic" src="assets/images/rhizomatic-logo-3d.png" class="hero-logo"/>
+        <p class="hero-description">
+            A collaborative multimedia art installation exploring cultural and scientific stories of diversity and interconnectedness through Indigenous knowledge and native plants
+        </p>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="section-standard">
+<div class="container-standard">
+<h2 class="section-title">
+     About the Project
+    </h2>
+<div class="content-centered">
+<p style="font-size: 1.125rem; color: #1a1a1a; line-height: 1.6; margin-bottom: 1rem;">
+      Rhizomatic is a multimedia tapestry installation weaving Indigenous knowledge with scientific perspectives on native plants. Each double-sided tapestry explores interconnectedness across biological, cultural, and spiritual dimensions.
+     </p>
+<p style="font-size: 1rem; color: #4a5568; line-height: 1.5; margin: 0;">
+      Presented at Chicago Botanic Garden and Austin Central Public Library, adapting to each location's unique context and native plant species.
+     </p>
+</div>
+</div>
+</section>
+
+<!-- Installation Views Gallery -->
+<section class="section-standard">
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+<h2 class="section-title">Installation Views</h2>
+<div class="content-centered" style="margin-bottom: 2rem;">
+<p style="font-size: 1.125rem; color: #1a1a1a; line-height: 1.6; margin-bottom: 0.5rem;">
+      Rhizomatic installations at Chicago Botanic Garden and Austin Central Library
+     </p>
+</div>
+
+<!-- Installation Images Grid -->
+<div class="gallery-grid">
+<!-- Chicago Botanic Garden Installation Views -->
+<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/gallery/Projects/Rhizomatic/Rhizomatic_1.jpg')">
+<img alt="Rhizomatic installation at Chicago Botanic Garden" src="assets/images/gallery/Projects/Rhizomatic/Rhizomatic_1.jpg" loading="lazy"/>
+<div class="image-caption">
+<div class="caption-title">Chicago Botanic Garden</div>
+<div class="caption-type">Gallery Installation View</div>
+</div>
+</div>
+
+<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/gallery/Projects/Rhizomatic/Rhizomatic_4.jpg')">
+<img alt="Visitors engaging with Rhizomatic tapestries" src="assets/images/gallery/Projects/Rhizomatic/Rhizomatic_4.jpg" loading="lazy"/>
+<div class="image-caption">
+<div class="caption-title">Chicago Botanic Garden</div>
+<div class="caption-type">Visitor Engagement</div>
+</div>
+</div>
+
+<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/gallery/Projects/Rhizomatic/Rhizomatic_8.jpg')">
+<img alt="Detailed view of tapestry installation" src="assets/images/gallery/Projects/Rhizomatic/Rhizomatic_8.jpg" loading="lazy"/>
+<div class="image-caption">
+<div class="caption-title">Chicago Botanic Garden</div>
+<div class="caption-type">Installation Detail</div>
+</div>
+</div>
+
+<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/gallery/Projects/Rhizomatic/Rhizomatic_9.jpg')">
+<img alt="Gallery overview of Rhizomatic installation" src="assets/images/gallery/Projects/Rhizomatic/Rhizomatic_9.jpg" loading="lazy"/>
+<div class="image-caption">
+<div class="caption-title">Chicago Botanic Garden</div>
+<div class="caption-type">Gallery Overview</div>
+</div>
+</div>
+
+<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/gallery/Projects/Rhizomatic/Rhizomatic_11.jpg')">
+<img alt="Interactive elements of Rhizomatic installation" src="assets/images/gallery/Projects/Rhizomatic/Rhizomatic_11.jpg" loading="lazy"/>
+<div class="image-caption">
+<div class="caption-title">Chicago Botanic Garden</div>
+<div class="caption-type">Interactive Elements</div>
+</div>
+</div>
+
+<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/gallery/Projects/Rhizomatic/Rhizomatic_12.jpg')">
+<img alt="Close-up view of tapestry details" src="assets/images/gallery/Projects/Rhizomatic/Rhizomatic_12.jpg" loading="lazy"/>
+<div class="image-caption">
+<div class="caption-title">Chicago Botanic Garden</div>
+<div class="caption-type">Tapestry Detail</div>
+</div>
+</div>
+
+<!-- Austin Central Library Solar Canopy Installation -->
+<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8459.JPG')">
+<img alt="Vibrant tapestries suspended under solar panel canopy" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8459.JPG" loading="lazy"/>
+<div class="image-caption">
+<div class="caption-title">Austin Central Library</div>
+<div class="caption-type">Solar Canopy Display</div>
+</div>
+</div>
+
+<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8439.JPG')">
+<img alt="Multiple tapestries suspended beneath solar panels" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8439.JPG" loading="lazy"/>
+<div class="image-caption">
+<div class="caption-title">Austin Central Library</div>
+<div class="caption-type">Suspended Tapestries</div>
+</div>
+</div>
+
+<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8465.JPG')">
+<img alt="Close perspective of tapestries hanging in outdoor installation" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8465.JPG" loading="lazy"/>
+<div class="image-caption">
+<div class="caption-title">Austin Central Library</div>
+<div class="caption-type">Installation Detail</div>
+</div>
+</div>
+
+<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7650.JPG')">
+<img alt="Visitors exploring the outdoor tapestry installation" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7650.JPG" loading="lazy"/>
+<div class="image-caption">
+<div class="caption-title">Austin Central Library</div>
+<div class="caption-type">Public Engagement</div>
+</div>
+</div>
+
+<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8507.JPG')">
+<img alt="Wide view of complete solar canopy with all tapestries displayed" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8507.JPG" loading="lazy"/>
+<div class="image-caption">
+<div class="caption-title">Austin Central Library</div>
+<div class="caption-type">Complete Installation</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Tapestry Gallery -->
+<section class="section-standard">
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+<h2 class="section-title">Tapestry Designs</h2>
+<div class="content-centered" style="margin-bottom: 2rem;">
+<p style="font-size: 1.125rem; color: #1a1a1a; line-height: 1.6; margin-bottom: 0.5rem;">
+      Each double-sided tapestry weaves together Indigenous cultural knowledge with botanical scientific perspectives
+     </p>
+<p style="font-size: 1rem; color: #555; line-height: 1.5;">
+      Click any image to view in full detail and navigate through the collection
+     </p>
+</div>
+
+<!-- Gallery organized by plant -->
+<div class="gallery-grid">
+<!-- Metl (Agave) -->
+<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/tapestry-designs-optimized/metl-cultural.jpg')">
+<img alt="Metl (Agave) - Cultural" src="assets/images/tapestry-designs-optimized/metl-cultural.jpg" loading="lazy"/>
+<div class="image-caption">
+<div class="caption-title">Metl (Agave)</div>
+<div class="caption-type">Cultural Narrative</div>
+</div>
+</div>
+<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/tapestry-designs-optimized/metl-scientific.jpg')">
+<img alt="Metl (Agave) - Scientific" src="assets/images/tapestry-designs-optimized/metl-scientific.jpg" loading="lazy"/>
+<div class="image-caption">
+<div class="caption-title">Metl (Agave)</div>
+<div class="caption-type">Scientific Perspective</div>
+</div>
+</div>
+
+<!-- Huautli (Amaranth) -->
+<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/huautli-cultural.jpg')">
+<img alt="Huautli (Amaranth) - Cultural" src="assets/images/tapestry-designs-optimized/huautli-cultural.jpg" loading="lazy"/>
+</div>
+<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/huautli-scientific.jpg')">
+<img alt="Huautli (Amaranth) - Scientific" src="assets/images/tapestry-designs-optimized/huautli-scientific.jpg" loading="lazy"/>
+</div>
+
+<!-- Snake Grass (Horsetail) -->
+<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/snake-grass-cultural.jpg')">
+<img alt="Snake Grass (Horsetail) - Cultural" src="assets/images/tapestry-designs-optimized/snake-grass-cultural.jpg" loading="lazy"/>
+</div>
+<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/snake-grass-scientific.jpg')">
+<img alt="Snake Grass (Horsetail) - Scientific" src="assets/images/tapestry-designs-optimized/snake-grass-scientific.jpg" loading="lazy"/>
+</div>
+
+<!-- Ichahpe Hu (Purple Coneflower) -->
+<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/ichahpe-hu-cultural.jpg')">
+<img alt="Ichahpe Hu (Purple Coneflower) - Cultural" src="assets/images/tapestry-designs-optimized/ichahpe-hu-cultural.jpg" loading="lazy"/>
+</div>
+<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/ichahpe-hu-scientific.jpg')">
+<img alt="Ichahpe Hu (Purple Coneflower) - Scientific" src="assets/images/tapestry-designs-optimized/ichahpe-hu-scientific.jpg" loading="lazy"/>
+</div>
+
+<!-- Chiltepin (Bird Pepper) -->
+<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/chiltepin-cultural.jpg')">
+<img alt="Chiltepin (Bird Pepper) - Cultural" src="assets/images/tapestry-designs-optimized/chiltepin-cultural.jpg" loading="lazy"/>
+</div>
+<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/chiltepin-scientific.jpg')">
+<img alt="Chiltepin (Bird Pepper) - Scientific" src="assets/images/tapestry-designs-optimized/chiltepin-scientific.jpg" loading="lazy"/>
+</div>
+
+<!-- Nochtli (Prickly Pear) -->
+<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/nochtli-cultural.jpg')">
+<img alt="Nochtli (Prickly Pear) - Cultural" src="assets/images/tapestry-designs-optimized/nochtli-cultural.jpg" loading="lazy"/>
+</div>
+<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/nochtli-scientific.jpg')">
+<img alt="Nochtli (Prickly Pear) - Scientific" src="assets/images/tapestry-designs-optimized/nochtli-scientific.jpg" loading="lazy"/>
+</div>
+
+<!-- Gilzisomashkiki (Goldenrod) -->
+<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/gilzisomashkiki-cultural.jpg')">
+<img alt="Gilzisomashkiki (Goldenrod) - Cultural" src="assets/images/tapestry-designs-optimized/gilzisomashkiki-cultural.jpg" loading="lazy"/>
+</div>
+<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/gilzisomashkiki-scientific.jpg')">
+<img alt="Gilzisomashkiki (Goldenrod) - Scientific" src="assets/images/tapestry-designs-optimized/gilzisomashkiki-scientific.jpg" loading="lazy"/>
+</div>
+
+<!-- Tolin (Cattail) -->
+<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/tapestry-designs-optimized/tolin-cultural.jpg')">
+<img alt="Tolin (Cattail) - Cultural" src="assets/images/tapestry-designs-optimized/tolin-cultural.jpg" loading="lazy"/>
+<div class="image-caption">
+<div class="caption-title">Tolin (Cattail)</div>
+<div class="caption-type">Cultural Narrative</div>
+</div>
+</div>
+<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/tapestry-designs-optimized/tolin-2-scientific.jpg')">
+<img alt="Tolin (Cattail) - Scientific" src="assets/images/tapestry-designs-optimized/tolin-2-scientific.jpg" loading="lazy"/>
+<div class="image-caption">
+<div class="caption-title">Tolin (Cattail)</div>
+<div class="caption-type">Scientific Perspective</div>
+</div>
+</div>
+
+<!-- Ponil (Apache Plume) -->
+<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/ponil-cultural.jpg')">
+<img alt="Ponil (Apache Plume) - Cultural" src="assets/images/tapestry-designs-optimized/ponil-cultural.jpg" loading="lazy"/>
+</div>
+<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/ponil-scientific.jpg')">
+<img alt="Ponil (Apache Plume) - Scientific" src="assets/images/tapestry-designs-optimized/ponil-scientific.jpg" loading="lazy"/>
+</div>
+
+<!-- Atlazomilili (Turk's Cap) -->
+<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/atlazomilili-cultural.jpg')">
+<img alt="Atlazomilili (Turk's Cap) - Cultural" src="assets/images/tapestry-designs-optimized/atlazomilili-cultural.jpg" loading="lazy"/>
+</div>
+<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/atlazomilili-scientific.jpg')">
+<img alt="Atlazomilili (Turk's Cap) - Scientific" src="assets/images/tapestry-designs-optimized/atlazomilili-scientific.jpg" loading="lazy"/>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Educational Programming -->
+<section style="background: #f9f9f9; padding: 4rem 0; margin: 0; border-radius: 0;">
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+<h2 style="font-size: 2rem; font-weight: 700; color: #1a1a1a; margin-bottom: 2rem; text-align: center;">
+      Educational Programming
+     </h2>
+<p style="font-size: 1.125rem; color: #1a1a1a; line-height: 1.7; margin-bottom: 3rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; margin-bottom: 3rem;">
+      Essentials Creative offers hands-on creative workshops exploring the artistic techniques and cultural contexts behind the Rhizomatic installation. Participants engage with Indigenous knowledge systems through collaborative art-making processes that honor traditional perspectives while exploring contemporary artistic expression.
+     </p>
+<div style="max-width: 700px; margin: 0 auto;">
+<h3 style="font-size: 1.5rem; font-weight: 600; color: #1a1a1a; margin-bottom: 1.5rem;">
+       Recent Workshops
+      </h3>
+<div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+<div style="font-size: 1.125rem; font-weight: 600; color: #1a1a1a; margin-bottom: 0.5rem;">
+         Portrait & Collage Workshop
+        </div>
+<div style="font-size: 1rem; color: #555; line-height: 1.6;">
+         Austin Central Library • October 2025 • Community engagement through multimedia art-making
+        </div>
+</div>
+<p style="margin-top: 2rem; font-size: 1rem; text-align: center;">
+      Interested in hosting a workshop?
+      <a href="mailto:essentialscreative@gmail.com" style="color: #1a1a1a; font-weight: 600;">
+       Contact us
+      </a>
+</p>
+</div>
+</div>
+</section>
+
+<!-- About the Collective -->
+<section style="padding: 4rem 0;">
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+<h2 style="font-size: 2rem; font-weight: 700; color: #1a1a1a; margin-bottom: 2rem; text-align: center;">
+      About Essentials Creative
+     </h2>
+<div style="max-width: 800px; margin: 0 auto; text-align: center;">
+<p style="font-size: 1.125rem; color: #1a1a1a; line-height: 1.7; margin-bottom: 3rem;">
+       Essentials Creative is a multimedia collective producing holistic applied arts experiences. Our multifaceted approach incorporates photography, graphic design, video, projection, animation, and installation to create comprehensive artistic narratives. We create platforms for underrepresented artists to express themselves and find support within their field. Our collective is composed of and embraces artists of color, women, and members of the LGBTQIA+ community. Fluidity, diversity, experimentation, and collaboration are the foundational principles that guide all Essentials Creative projects, regardless of medium or scale.
+      </p>
+<div style="background: #f9f9f9; padding: 2rem; border-radius: 8px;">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
+<div>
+<h4 style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a; margin-bottom: 0.5rem;">Misa Yamamoto</h4>
+<p style="font-size: 1rem; color: #666; margin: 0;">Graphic Designer / Art Director, Austin</p>
+</div>
+<div>
+<h4 style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a; margin-bottom: 0.5rem;">Fabian Villa</h4>
+<p style="font-size: 1rem; color: #666; margin: 0;">Photographer / Visual Artist, Austin</p>
+</div>
+<div>
+<h4 style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a; margin-bottom: 0.5rem;">Steven Casanova</h4>
+<p style="font-size: 1rem; color: #666; margin: 0;">Videographer / Photographer, San Antonio</p>
+</div>
+<div>
+<h4 style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a; margin-bottom: 0.5rem;">Sixto-Juan Zavala</h4>
+<p style="font-size: 1rem; color: #666; margin: 0;">Designer / Illustrator, London</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer" style="background-image: url('assets/images/photography-hero.jpg'); background-size: cover; background-position: center center;">
+<div class="footer-overlay" style="background: rgba(0,0,0,0.4);">
+</div>
+<div class="footer-container">
+<!-- Newsletter Section -->
+<div class="footer-newsletter" style="max-width: 900px; margin: 0 auto 4rem; padding: 0 1.5rem;">
+<h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: white; text-align: center;">
+       Stay Connected
+      </h2>
+<p style="font-size: 1.125rem; line-height: 1.8; color: rgba(255,255,255,0.9); margin-bottom: 2rem; text-align: center;">
+       Be the first to know about new work, exhibitions, and creative collaborations. Join our community for exclusive updates and insights into our artistic process.
+      </p>
+<form action="https://formspree.io/f/mblyvvyn" class="newsletter-form" method="POST" style="display: flex; gap: 0.75rem; max-width: 500px; margin: 0 auto; flex-wrap: wrap;">
+<input name="email" placeholder="Enter your email" required="" style="flex: 1; min-width: 0; width: 100%; padding: 1rem 1.5rem; border-radius: 50px; border: 2px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); color: white; font-size: 1rem; transition: all 0.3s ease;" type="email"/>
+<input name="_subject" type="hidden" value="Newsletter Subscription"/>
+<button style="padding: 1rem 2.5rem; background: white; color: #1a1a1a; font-weight: 700; border-radius: 50px; border: none; cursor: pointer; font-size: 0.875rem; letter-spacing: 0.1em; transition: all 0.3s ease; text-transform: uppercase; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" type="submit">
+        SUBSCRIBE
+       </button>
+</form>
+</div>
+<!-- Footer Content -->
+<div class="footer-content" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.2);">
+<div class="footer-section">
+<h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.75rem; color: white;">
+        Essentials Creative
+       </h3>
+<p style="color: rgba(255,255,255,0.8); line-height: 1.6;">
+        BIPOC-led collective amplifying cultural narratives through multimedia art
+       </p>
+</div>
+<div class="footer-section">
+<h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; color: white;">
+        Services
+       </h4>
+<div class="footer-services" style="display: flex; flex-direction: column; gap: 0.5rem;">
+<p>
+<a href="photography.html" style="color: rgba(255,255,255,0.8); transition: color 0.3s ease;">
+          Photography
+         </a>
+</p>
+<p>
+<a href="design.html" style="color: rgba(255,255,255,0.8); transition: color 0.3s ease;">
+          Design
+         </a>
+</p>
+<p>
+<a href="installations.html" style="color: rgba(255,255,255,0.8); transition: color 0.3s ease;">
+          Installation Art
+         </a>
+</p>
+<p>
+<a href="videoandprojections.html" style="color: rgba(255,255,255,0.8); transition: color 0.3s ease;">
+          Video Production
+         </a>
+</p>
+<p>
+<a href="videoandprojections.html" style="color: rgba(255,255,255,0.8); transition: color 0.3s ease;">
+          Motion Graphics
+         </a>
+</p>
+<p>
+<a href="index.html#contact" style="color: rgba(255,255,255,0.8); transition: color 0.3s ease;">
+          Creative Direction
+         </a>
+</p>
+</div>
+</div>
+<div class="footer-section">
+<h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; color: white;">
+        Connect
+       </h4>
+<div class="footer-social" style="display: flex; flex-direction: column; gap: 1rem;">
+<a href="https://www.instagram.com/essentialscreative/" rel="noopener" aria-label="Instagram (opens in new window)" style="display: flex; align-items: center; gap: 0.75rem; color: rgba(255,255,255,0.9); font-size: 1rem; transition: all 0.3s ease;" target="_blank">
+<svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24">
+<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
+</path>
+</svg>
+         Instagram
+        </a>
+<a href="https://www.youtube.com/@essentialscreative" rel="noopener" aria-label="YouTube (opens in new window)" style="display: flex; align-items: center; gap: 0.75rem; color: rgba(255,255,255,0.9); font-size: 1rem; transition: all 0.3s ease;" target="_blank">
+<svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24">
+<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.30 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z">
+</path>
+</svg>
+         YouTube
+        </a>
+</div>
+</div>
+</div>
+<div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+<p style="color: rgba(255,255,255,0.5); font-size: 0.75rem; margin: 0;">
+      © 2026 Essentials Creative. All rights reserved.
+     </p>
+</div>
+</div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Tapestry image gallery">
+    <div class="lightbox-backdrop"></div>
+    <div class="lightbox-container">
+        <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close lightbox gallery" tabindex="0">
+            ×
+        </button>
+        <button class="lightbox-nav lightbox-prev" onclick="changeImage(-1)" aria-label="View previous tapestry image" tabindex="0">
+            ❮
+        </button>
+        <div class="lightbox-content">
+            <div class="lightbox-image-container">
+                <img alt="Tapestry Design" class="lightbox-image" id="lightbox-image" tabindex="0"/>
+                <div id="lightbox-counter" style="position: absolute; top: -40px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;" aria-live="polite"></div>
+            </div>
+        </div>
+        <button class="lightbox-nav lightbox-next" onclick="changeImage(1)" aria-label="View next tapestry image" tabindex="0">
+            ❯
+        </button>
+    </div>
+</div>
+
+<script>
+   let currentImageIndex = 0;
+   let galleryImages = [];
+
+   function openLightbox(imageSrc) {
+       console.log('Opening lightbox for:', imageSrc);
+       const lightbox = document.getElementById('lightbox');
+       const img = document.getElementById('lightbox-image');
+       
+       if (!lightbox || !img) {
+           console.error('Lightbox elements not found');
+           return;
+       }
+       
+       // Get all gallery images (both installation and tapestry images)
+       const images = document.querySelectorAll('.gallery-item img, .gallery-item-with-caption img');
+       galleryImages = Array.from(images).map(img => img.src);
+       
+       // Find current image index - get the full src path
+       const fullImageSrc = window.location.origin + '/' + imageSrc;
+       currentImageIndex = galleryImages.findIndex(src => src.includes(imageSrc.split('/').pop()));
+       if (currentImageIndex === -1) currentImageIndex = 0;
+       
+       img.src = imageSrc;
+       // Set descriptive alt text based on image source
+       if (imageSrc.includes('cultural')) {
+           img.alt = 'Cultural narrative tapestry design';
+       } else if (imageSrc.includes('scientific')) {
+           img.alt = 'Scientific perspective tapestry design';
+       } else {
+           img.alt = 'Tapestry design from Rhizomatic installation';
+       }
+       
+       // Use CSS class to show lightbox instead of inline styles
+       lightbox.classList.add('active');
+       document.body.style.overflow = 'hidden';
+       
+       // Update counter
+       updateLightboxCounter();
+       
+       // Focus management for accessibility
+       setTimeout(() => {
+           const closeButton = document.querySelector('.lightbox-close');
+           if (closeButton) closeButton.focus();
+       }, 100);
+       
+       console.log('Lightbox opened successfully');
+   }
+
+   function closeLightbox() {
+       const lightbox = document.getElementById('lightbox');
+       lightbox.classList.remove('active');
+       document.body.style.overflow = 'auto';
+       console.log('Lightbox closed');
+   }
+
+   function changeImage(direction) {
+       if (galleryImages.length === 0) {
+           console.error('No gallery images available');
+           return;
+       }
+       
+       currentImageIndex += direction;
+       
+       if (currentImageIndex >= galleryImages.length) {
+           currentImageIndex = 0;
+       } else if (currentImageIndex < 0) {
+           currentImageIndex = galleryImages.length - 1;
+       }
+       
+       const img = document.getElementById('lightbox-image');
+       if (!img) {
+           console.error('Lightbox image element not found');
+           return;
+       }
+       
+       const newImageSrc = galleryImages[currentImageIndex];
+       console.log('Changing to image:', newImageSrc);
+       
+       img.src = newImageSrc;
+       
+       // Update alt text based on image source
+       if (newImageSrc.includes('cultural')) {
+           img.alt = 'Cultural narrative tapestry design';
+       } else if (newImageSrc.includes('scientific')) {
+           img.alt = 'Scientific perspective tapestry design';
+       } else {
+           img.alt = 'Tapestry design from Rhizomatic installation';
+       }
+       
+       // Update counter
+       updateLightboxCounter();
+   }
+   
+   function updateLightboxCounter() {
+       const counter = document.getElementById('lightbox-counter');
+       if (counter && galleryImages.length > 0) {
+           counter.textContent = `${currentImageIndex + 1} of ${galleryImages.length}`;
+       }
+   }
+
+   // Keyboard navigation
+   document.addEventListener('keydown', function(e) {
+       const lightbox = document.getElementById('lightbox');
+       if (lightbox && lightbox.classList.contains('active')) {
+           if (e.key === 'Escape') {
+               closeLightbox();
+           } else if (e.key === 'ArrowLeft') {
+               changeImage(-1);
+           } else if (e.key === 'ArrowRight') {
+               changeImage(1);
+           }
+       }
+   });
+
+   // Close lightbox when clicking outside the image
+   document.getElementById('lightbox').addEventListener('click', function(e) {
+       if (e.target === this || e.target.classList.contains('lightbox-backdrop')) {
+           closeLightbox();
+       }
+   });
+
+   // Prevent lightbox content click from closing
+   document.addEventListener('DOMContentLoaded', function() {
+       const lightboxContent = document.querySelector('.lightbox-content');
+       const lightboxContainer = document.querySelector('.lightbox-container');
+       
+       if (lightboxContent) {
+           lightboxContent.addEventListener('click', function(event) {
+               event.stopPropagation();
+           });
+       }
+       
+       if (lightboxContainer) {
+           lightboxContainer.addEventListener('click', function(event) {
+               event.stopPropagation();
+           });
+       }
+   });
+
+   // Initialize gallery when page loads
+   document.addEventListener('DOMContentLoaded', function() {
+       console.log('Initializing Rhizomatic gallery...');
+       
+       // Check if all gallery elements are present
+       const galleryItems = document.querySelectorAll('.gallery-item');
+       const lightbox = document.getElementById('lightbox');
+       
+       console.log('Found', galleryItems.length, 'gallery items');
+       console.log('Lightbox element:', lightbox ? 'found' : 'not found');
+       
+       // Test click on first gallery item
+       if (galleryItems.length > 0) {
+           console.log('First gallery item onclick:', galleryItems[0].getAttribute('onclick'));
+       }
+       
+       // Add backup click handlers to gallery items (both types)
+       const allGalleryItems = document.querySelectorAll('.gallery-item, .gallery-item-with-caption');
+       allGalleryItems.forEach((item, index) => {
+           const img = item.querySelector('img');
+           if (img && !item.hasAttribute('data-click-handler-added')) {
+               item.addEventListener('click', function(e) {
+                   e.preventDefault();
+                   console.log('Gallery item clicked:', img.src);
+                   openLightbox(img.src);
+               });
+               item.setAttribute('data-click-handler-added', 'true');
+           }
+       });
+       
+       // Ensure navigation buttons work properly
+       setTimeout(() => {
+           const prevBtn = document.querySelector('.lightbox-prev');
+           const nextBtn = document.querySelector('.lightbox-next');
+           
+           if (prevBtn && !prevBtn.hasAttribute('data-listener-added')) {
+               prevBtn.addEventListener('click', (e) => {
+                   e.stopPropagation();
+                   changeImage(-1);
+               });
+               prevBtn.setAttribute('data-listener-added', 'true');
+           }
+           
+           if (nextBtn && !nextBtn.hasAttribute('data-listener-added')) {
+               nextBtn.addEventListener('click', (e) => {
+                   e.stopPropagation();
+                   changeImage(1);
+               });
+               nextBtn.setAttribute('data-listener-added', 'true');
+           }
+       }, 100);
+   });
+
+</script>
+
+<!-- Mobile Menu JavaScript -->
+<script src="assets/js/mobile-menu.js"></script>
+</body>
+</html>

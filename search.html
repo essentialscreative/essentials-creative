@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Essentials Creative</title>
+    <meta name="description" content="Search through Essentials Creative's portfolio, plant research, installations, and cultural content">
+    <meta name="keywords" content="search, photography, installations, plants, rhizomatic research, cultural narratives">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Search - Essentials Creative">
+    <meta property="og:description" content="Search through multimedia portfolio and cultural plant research">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://essentialscreative.com/search">
+    
+    <link rel="stylesheet" href="assets/css/streamlined.css">
+    <link rel="stylesheet" href="assets/css/search.css">
+    
+    <style>
+        /* Search page specific styles */
+        .search-page {
+            padding-top: 100px;
+            min-height: 100vh;
+            background: #f8f9fa;
+        }
+        
+        .search-hero {
+            text-align: center;
+            padding: 60px 0;
+            background: white;
+            margin-bottom: 40px;
+        }
+        
+        .search-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .search-hero p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        .search-demo {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .search-demo .search-bar {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .search-demo .search-bar:focus {
+            outline: none;
+            border-color: #666;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .search-categories {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .search-categories .category-tag {
+            background: #e9ecef;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-categories .category-tag:hover {
+            background: #666;
+            color: white;
+        }
+        
+        .search-suggestions-box {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 800px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .search-suggestions-box h3 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .suggestions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .suggestion-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .suggestion-category h4 {
+            margin-bottom: 12px;
+            color: #333;
+            font-size: 1.1rem;
+        }
+        
+        .suggestion-category ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .suggestion-category li {
+            padding: 4px 0;
+            color: #666;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .suggestion-category li:hover {
+            color: #333;
+        }
+        
+        .cultural-note {
+            background: #f0f8ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border-left: 4px solid #666;
+        }
+        
+        .cultural-note h4 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .cultural-note p {
+            margin: 0;
+            color: #555;
+            font-size: 0.95rem;
+        }
+        
+        @media (max-width: 768px) {
+            .search-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .search-hero p {
+                font-size: 1rem;
+                padding: 0 20px;
+            }
+            
+            .search-demo {
+                margin: 0 20px;
+            }
+            
+            .search-categories {
+                gap: 8px;
+            }
+            
+            .search-categories .category-tag {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+            
+            .search-suggestions-box {
+                margin: 20px;
+                padding: 20px;
+            }
+            
+            .suggestions-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body class="search-page">
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html" aria-label="Essentials Creative Home">
+                        <img src="assets/images/essentials_creative_logo.jpg" 
+                             alt="Essentials Creative Logo" 
+                             class="logo-img" 
+                             style="height: 75px; width: auto;"
+                             onerror="this.src='assets/images/logo.jpg'; this.onerror=function(){this.style.display='none'; this.nextElementSibling.style.display='inline-block';};">
+                        <span style="display: none; font-weight: 900; font-size: 1.5rem; color: var(--color-black);">ESSENTIALS CREATIVE</span>
+                    </a>
+                </div>
+                
+                <button class="nav-toggle" aria-label="Toggle navigation menu">
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                    <span class="nav-toggle-bar"></span>
+                </button>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="index.html#photography" class="nav-link">Photography</a></li>
+                    <li><a href="index.html#installations" class="nav-link">Installations</a></li>
+                    <li><a href="design.html" class="nav-link">Design</a></li>
+                    <li><a href="rhizomatic-research.html" class="nav-link">Rhizomatic</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="search-main">
+        <section class="search-hero">
+            <div class="container">
+                <h1>Search Our Work</h1>
+                <p>Explore our multimedia portfolio, cultural plant research, installations, and creative projects. Search by plant names, cultural terms, project types, or any keyword.</p>
+                
+                <div class="search-demo">
+                    <input type="text" 
+                           id="main-search-input" 
+                           class="search-bar" 
+                           placeholder="Search for plants, photography, installations, cultural names..."
+                           autocomplete="off">
+                </div>
+                
+                <div class="search-categories">
+                    <div class="category-tag" onclick="performCategorySearch('plants')">🌿 Plants</div>
+                    <div class="category-tag" onclick="performCategorySearch('photography')">📸 Photography</div>
+                    <div class="category-tag" onclick="performCategorySearch('installations')">🎨 Installations</div>
+                    <div class="category-tag" onclick="performCategorySearch('design')">🎨 Design</div>
+                    <div class="category-tag" onclick="performCategorySearch('cultural')">🌍 Cultural</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="search-suggestions-box">
+            <div class="container">
+                <h3>Popular Searches</h3>
+                <div class="suggestions-grid">
+                    <div class="suggestion-category">
+                        <h4>🌿 Plant Research</h4>
+                        <ul>
+                            <li onclick="performSearch('purple coneflower')">Purple Coneflower</li>
+                            <li onclick="performSearch('nopal')">Nopal / Prickly Pear</li>
+                            <li onclick="performSearch('ginkgo')">Ginkgo / 银杏</li>
+                            <li onclick="performSearch('white sage')">White Sage</li>
+                            <li onclick="performSearch('amaranth')">Amaranth / Huauhtli</li>
+                            <li onclick="performSearch('pawpaw')">Pawpaw</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="suggestion-category">
+                        <h4>📸 Photography</h4>
+                        <ul>
+                            <li onclick="performSearch('ethereal beauty')">Ethereal Beauty</li>
+                            <li onclick="performSearch('portrait series')">Portrait Series</li>
+                            <li onclick="performSearch('fashion editorial')">Fashion Editorial</li>
+                            <li onclick="performSearch('golden skyy')">Golden Skyy</li>
+                            <li onclick="performSearch('melanie gaydos')">Melanie Gaydos</li>
+                            <li onclick="performSearch('cultural narratives')">Cultural Narratives</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="suggestion-category">
+                        <h4>🎨 Installations</h4>
+                        <ul>
+                            <li onclick="performSearch('rhizomatic')">Rhizomatic Networks</li>
+                            <li onclick="performSearch('commodore perry')">Commodore Perry Estate</li>
+                            <li onclick="performSearch('chicago botanic')">Chicago Botanic Garden</li>
+                            <li onclick="performSearch('zen garden')">Zen Garden</li>
+                            <li onclick="performSearch('siloed')">Siloed at Tank Tank</li>
+                            <li onclick="performSearch('projection mapping')">Projection Mapping</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="suggestion-category">
+                        <h4>🌍 Cultural Terms</h4>
+                        <ul>
+                            <li onclick="performSearch('nahuatl')">Nahuatl Names</li>
+                            <li onclick="performSearch('cherokee')">Cherokee Names</li>
+                            <li onclick="performSearch('spanish')">Spanish Names</li>
+                            <li onclick="performSearch('chinese')">Chinese Names</li>
+                            <li onclick="performSearch('indigenous')">Indigenous Knowledge</li>
+                            <li onclick="performSearch('traditional medicine')">Traditional Medicine</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="cultural-note">
+                    <h4>Cultural Sensitivity Notice</h4>
+                    <p>Our search includes Indigenous, Latin American, and Asian cultural knowledge shared with respect and proper attribution. We honor Indigenous data sovereignty and traditional knowledge systems. Please approach this information with cultural sensitivity and respect.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Enhanced Lightbox CSS -->
+    <link rel="stylesheet" href="assets/css/enhanced-lightbox.css">
+    
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/unified-gallery-lightbox.js" defer></script>
+    
+    <script>
+        // Search functionality for the demo page
+        function performSearch(query) {
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) {
+                searchInput.value = query;
+                // Trigger search if search system is loaded
+                if (window.searchUI) {
+                    window.searchUI.performSearch(query);
+                }
+            }
+        }
+        
+        function performCategorySearch(category) {
+            performSearch(category);
+        }
+        
+        // Initialize search when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainSearchInput = document.getElementById('main-search-input');
+            
+            if (mainSearchInput) {
+                mainSearchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        performSearch(e.target.value);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

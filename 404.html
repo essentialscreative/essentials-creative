@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
+    <title>Page Not Found - Essentials Creative</title>
+    <meta name="description" content="The page you're looking for doesn't exist. Explore our multimedia creative studio.">
+    <link href="assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
+    <link href="assets/images/favicon.png" rel="apple-touch-icon" sizes="180x180"/>
+    <link href="assets/css/navigation.css" rel="stylesheet"/>
+    <link href="assets/css/main.css" rel="stylesheet"/>
+    <style>
+        .error-section {
+            padding: 4rem 2rem;
+            text-align: center;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .error-content { max-width: 600px; margin: 0 auto; }
+        .error-title { font-size: clamp(4rem, 12vw, 8rem); font-weight: 700; color: #1a1a1a; margin-bottom: 0.5rem; line-height: 1; }
+        .error-subtitle { font-size: clamp(1.25rem, 3vw, 1.75rem); color: #333; margin-bottom: 1rem; }
+        .error-message { font-size: 1.1rem; color: #666; margin-bottom: 2rem; line-height: 1.6; }
+        .error-actions { display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap; }
+        .error-actions .btn { display: inline-block; padding: 1rem 2rem; border-radius: 8px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; }
+        .btn-primary { background: #1a1a1a; color: white; }
+        .btn-primary:hover { background: #333; transform: translateY(-2px); }
+        .btn-secondary { background: #f0f0f0; color: #1a1a1a; border: 2px solid #e0e0e0; }
+        .btn-secondary:hover { background: #e8e8e8; border-color: #ccc; }
+        .suggested-links { background: #f8f8f8; padding: 2rem; border-radius: 12px; margin-top: 2rem; }
+        .suggested-links h3 { color: #1a1a1a; margin-bottom: 1rem; font-size: 1.25rem; }
+        .suggested-links ul { list-style: none; display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+        .suggested-links a { color: #1a1a1a; text-decoration: none; font-weight: 500; padding: 0.5rem 1rem; border-radius: 6px; transition: background 0.2s; }
+        .suggested-links a:hover { background: #e8e8e8; }
+        @media (max-width: 768px) {
+            .error-title { font-size: 5rem; }
+            .error-actions { flex-direction: column; align-items: center; }
+            .error-actions .btn { width: 100%; max-width: 280px; }
+        }
+    </style>
+</head>
+<body>
+<div class="skip-links">
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<a href="#main-navigation" class="skip-link">Skip to navigation</a>
+</div>
+<header class="header">
+    <div class="nav-container">
+        <div class="logo">
+            <a href="index.html">
+                <img alt="Essentials Creative" src="assets/images/essentials_creative_logo.png" style="height: 65px; width: auto; display: block;"/>
+            </a>
+        </div>
+        <nav id="main-navigation" class="nav-links">
+            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="photography.html">Photography</a>
+            <a class="nav-link" href="design.html">Design</a>
+            <a class="nav-link" href="videoandprojections.html">Video/Film</a>
+            <a class="nav-link" href="installations.html">Installations</a>
+            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="contact.html">Contact</a>
+        </nav>
+        <div class="hamburger-nav">
+            <button class="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            <div class="hamburger-menu">
+                <a href="index.html" class="hamburger-link">Home</a>
+                <a href="photography.html" class="hamburger-link">Photography</a>
+                <a href="design.html" class="hamburger-link">Design</a>
+                <a href="videoandprojections.html" class="hamburger-link">Video/Film</a>
+                <a href="installations.html" class="hamburger-link">Installations</a>
+                <a href="about.html" class="hamburger-link">About</a>
+                <a href="contact.html" class="hamburger-link">Contact</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main id="main-content">
+    <section class="error-section">
+        <div class="error-content">
+            <h1 class="error-title">404</h1>
+            <h2 class="error-subtitle">Page Not Found</h2>
+            <p class="error-message">
+                The page you're looking for doesn't exist or has been moved.
+                Here are some places to explore.
+            </p>
+            <div class="error-actions">
+                <a href="index.html" class="btn btn-primary">Go Home</a>
+                <a href="photography.html" class="btn btn-secondary">Photography</a>
+                <a href="contact.html" class="btn btn-secondary">Contact</a>
+            </div>
+            <div class="suggested-links">
+                <h3>Explore Our Work</h3>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="photography.html">Photography</a></li>
+                    <li><a href="design.html">Design</a></li>
+                    <li><a href="installations.html">Installations</a></li>
+                    <li><a href="videoandprojections.html">Video/Film</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer" style="background: #f8f8f8; padding: 3rem 2rem 2rem; text-align: center;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+            <div>
+                <h4 style="margin-bottom: 1rem; color: #333;">Essentials Creative</h4>
+                <p style="color: #666;">Amplifying cultural narratives through multimedia art</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 1rem; color: #333;">Services</h4>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <a href="photography.html" style="color: #666; text-decoration: none;">Photography</a>
+                    <a href="design.html" style="color: #666; text-decoration: none;">Design</a>
+                    <a href="installations.html" style="color: #666; text-decoration: none;">Installation Art</a>
+                    <a href="videoandprojections.html" style="color: #666; text-decoration: none;">Video Production</a>
+                </div>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 1rem; color: #333;">Connect</h4>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <a href="https://www.instagram.com/essentialscreative/" target="_blank" rel="noopener" aria-label="Instagram (opens in new window)" style="color: #666; text-decoration: none;">Instagram</a>
+                    <a href="https://www.youtube.com/channel/UCmhlzjngU5_WX6n1mvtY2Bw" target="_blank" rel="noopener" aria-label="YouTube (opens in new window)" style="color: #666; text-decoration: none;">YouTube</a>
+                    <a href="contact.html" style="color: #666; text-decoration: none;">Contact</a>
+                </div>
+            </div>
+        </div>
+        <div style="border-top: 1px solid #ddd; padding-top: 2rem; color: #666; font-size: 0.9rem;">
+            <p>&copy; 2026 Essentials Creative. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+<script src="assets/js/navigation.js" defer></script>
+</body>
+</html>

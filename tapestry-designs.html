@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tapestry Designs - Essentials Creative</title>
+    <link rel="stylesheet" href="assets/css/unified.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="index.html" class="nav-logo">
+                    <span class="logo-main">ESSENT<span style="color: var(--primary);">+</span>ALS</span>
+                    <span class="logo-sub">CREATIVE</span>
+                </a>
+                
+                <div class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <div class="nav-dropdown">
+                        <div class="nav-dropdown-content">
+                            <a href="rhizomatic.html">Rhizomatic</a>
+                            <a href="installations.html">Installations</a>
+                            <a href="photography.html">Photography</a>
+                        </div>
+                    </div>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </div>
+
+                <!-- Mobile Navigation -->
+                <button class="hamburger-toggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="hamburger-menu">
+            <a href="index.html" class="hamburger-link">Home</a>
+            <a href="rhizomatic.html" class="hamburger-link">Rhizomatic</a>
+            <a href="installations.html" class="hamburger-link">Installations</a>
+            <a href="photography.html" class="hamburger-link">Photography</a>
+            <a href="about.html" class="hamburger-link">About</a>
+            <a href="index.html#contact" class="hamburger-link">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="tapestry-hero">
+            <div class="tapestry-hero-content">
+                <h1 class="tapestry-title">TAPESTRY DESIGNS</h1>
+                <p class="tapestry-description">
+                    Each tapestry explores a specific Texas native plant through both Indigenous cultural narratives and scientific botanical perspectives. The double-sided designs allow viewers to experience both knowledge systems.
+                </p>
+            </div>
+        </section>
+
+        <!-- Interactive Tapestry Gallery -->
+        <section class="tapestry-gallery">
+            <div class="container">
+                <div class="tapestry-grid">
+                    <!-- Tapestry 1 -->
+                    <div class="tapestry-item" data-tapestry="1">
+                        <div class="tapestry-card">
+                            <div class="tapestry-front" onclick="openLightbox('assets/images/tapestry-designs/atlazomilili-cultural.jpg', 'Atlazomili Cultural Perspective')">
+                                <img src="assets/images/tapestry-designs/atlazomilili-cultural.jpg" alt="Atlazomili - Indigenous Perspective" loading="lazy">
+                                <div class="tapestry-label">Indigenous Knowledge</div>
+                            </div>
+                            <div class="tapestry-back" onclick="openLightbox('assets/images/tapestry-designs/atlazomilili-scientific.jpg', 'Atlazomili Scientific Perspective')">
+                                <img src="assets/images/tapestry-designs/atlazomilili-scientific.jpg" alt="Atlazomili - Scientific Perspective" loading="lazy">
+                                <div class="tapestry-label">Scientific Botany</div>
+                            </div>
+                            <div class="flip-indicator">
+                                <span class="flip-text">Hover to flip</span>
+                                <div class="flip-arrow">↻</div>
+                            </div>
+                        </div>
+                        <h3 class="tapestry-name">Atlazomili</h3>
+                        <p class="tapestry-plant">Helianthus annuus (Sunflower)</p>
+                    </div>
+
+                    <!-- Tapestry 2 -->
+                    <div class="tapestry-item" data-tapestry="2">
+                        <div class="tapestry-card">
+                            <div class="tapestry-front" onclick="openLightbox('assets/images/tapestry-designs/chiltepin-cultural.jpg', 'Chiltepin Cultural Perspective')">
+                                <img src="assets/images/tapestry-designs/chiltepin-cultural.jpg" alt="Chiltepin - Indigenous Perspective" loading="lazy">
+                                <div class="tapestry-label">Indigenous Knowledge</div>
+                            </div>
+                            <div class="tapestry-back" onclick="openLightbox('assets/images/tapestry-designs/chiltepin-scientific.jpg', 'Chiltepin Scientific Perspective')">
+                                <img src="assets/images/tapestry-designs/chiltepin-scientific.jpg" alt="Chiltepin - Scientific Perspective" loading="lazy">
+                                <div class="tapestry-label">Scientific Botany</div>
+                            </div>
+                            <div class="flip-indicator">
+                                <span class="flip-text">Hover to flip</span>
+                                <div class="flip-arrow">↻</div>
+                            </div>
+                        </div>
+                        <h3 class="tapestry-name">Chiltepin</h3>
+                        <p class="tapestry-plant">Capsicum annuum (Wild Pepper)</p>
+                    </div>
+
+                    <!-- Tapestry 3 -->
+                    <div class="tapestry-item" data-tapestry="3">
+                        <div class="tapestry-card">
+                            <div class="tapestry-front" onclick="openLightbox('assets/images/tapestry-designs/gilzisomashkiki-cultural.jpg', 'Gilzisomashkiki Cultural Perspective')">
+                                <img src="assets/images/tapestry-designs/gilzisomashkiki-cultural.jpg" alt="Gilzisomashkiki - Indigenous Perspective" loading="lazy">
+                                <div class="tapestry-label">Indigenous Knowledge</div>
+                            </div>
+                            <div class="tapestry-back" onclick="openLightbox('assets/images/tapestry-designs/gilzisomashkiki-scientific.jpg', 'Gilzisomashkiki Scientific Perspective')">
+                                <img src="assets/images/tapestry-designs/gilzisomashkiki-scientific.jpg" alt="Gilzisomashkiki - Scientific Perspective" loading="lazy">
+                                <div class="tapestry-label">Scientific Botany</div>
+                            </div>
+                            <div class="flip-indicator">
+                                <span class="flip-text">Hover to flip</span>
+                                <div class="flip-arrow">↻</div>
+                            </div>
+                        </div>
+                        <h3 class="tapestry-name">Gilzisomashkiki</h3>
+                        <p class="tapestry-plant">Zea mays (Sacred Corn)</p>
+                    </div>
+
+                    <!-- Tapestry 4 -->
+                    <div class="tapestry-item" data-tapestry="4">
+                        <div class="tapestry-card">
+                            <div class="tapestry-front">
+                                <img src="assets/images/gallery/Projects/Tapestry/Tapestry_4_Front.jpg" alt="Tapestry 4 - Indigenous Perspective" loading="lazy">
+                                <div class="tapestry-label">Indigenous Knowledge</div>
+                            </div>
+                            <div class="tapestry-back">
+                                <img src="assets/images/gallery/Projects/Tapestry/Tapestry_4_Back.jpg" alt="Tapestry 4 - Scientific Perspective" loading="lazy">
+                                <div class="tapestry-label">Scientific Botany</div>
+                            </div>
+                            <div class="flip-indicator">
+                                <span class="flip-text">Hover to flip</span>
+                                <div class="flip-arrow">↻</div>
+                            </div>
+                        </div>
+                        <h3 class="tapestry-name">Butterfly Garden</h3>
+                        <p class="tapestry-plant">Asclepias tuberosa</p>
+                    </div>
+
+                    <!-- Tapestry 5 -->
+                    <div class="tapestry-item" data-tapestry="5">
+                        <div class="tapestry-card">
+                            <div class="tapestry-front">
+                                <img src="assets/images/gallery/Projects/Tapestry/Tapestry_5_Front.jpg" alt="Tapestry 5 - Indigenous Perspective" loading="lazy">
+                                <div class="tapestry-label">Indigenous Knowledge</div>
+                            </div>
+                            <div class="tapestry-back">
+                                <img src="assets/images/gallery/Projects/Tapestry/Tapestry_5_Back.jpg" alt="Tapestry 5 - Scientific Perspective" loading="lazy">
+                                <div class="tapestry-label">Scientific Botany</div>
+                            </div>
+                            <div class="flip-indicator">
+                                <span class="flip-text">Hover to flip</span>
+                                <div class="flip-arrow">↻</div>
+                            </div>
+                        </div>
+                        <h3 class="tapestry-name">Cedar Medicine</h3>
+                        <p class="tapestry-plant">Juniperus ashei</p>
+                    </div>
+
+                    <!-- Tapestry 6 -->
+                    <div class="tapestry-item" data-tapestry="6">
+                        <div class="tapestry-card">
+                            <div class="tapestry-front">
+                                <img src="assets/images/gallery/Projects/Tapestry/Tapestry_6_Front.jpg" alt="Tapestry 6 - Indigenous Perspective" loading="lazy">
+                                <div class="tapestry-label">Indigenous Knowledge</div>
+                            </div>
+                            <div class="tapestry-back">
+                                <img src="assets/images/gallery/Projects/Tapestry/Tapestry_6_Back.jpg" alt="Tapestry 6 - Scientific Perspective" loading="lazy">
+                                <div class="tapestry-label">Scientific Botany</div>
+                            </div>
+                            <div class="flip-indicator">
+                                <span class="flip-text">Hover to flip</span>
+                                <div class="flip-arrow">↻</div>
+                            </div>
+                        </div>
+                        <h3 class="tapestry-name">Prairie Fire</h3>
+                        <p class="tapestry-plant">Gaillardia pulchella</p>
+                    </div>
+
+                    <!-- Tapestry 7 -->
+                    <div class="tapestry-item" data-tapestry="7">
+                        <div class="tapestry-card">
+                            <div class="tapestry-front">
+                                <img src="assets/images/gallery/Projects/Tapestry/Tapestry_7_Front.jpg" alt="Tapestry 7 - Indigenous Perspective" loading="lazy">
+                                <div class="tapestry-label">Indigenous Knowledge</div>
+                            </div>
+                            <div class="tapestry-back">
+                                <img src="assets/images/gallery/Projects/Tapestry/Tapestry_7_Back.jpg" alt="Tapestry 7 - Scientific Perspective" loading="lazy">
+                                <div class="tapestry-label">Scientific Botany</div>
+                            </div>
+                            <div class="flip-indicator">
+                                <span class="flip-text">Hover to flip</span>
+                                <div class="flip-arrow">↻</div>
+                            </div>
+                        </div>
+                        <h3 class="tapestry-name">Desert Bloom</h3>
+                        <p class="tapestry-plant">Agave americana</p>
+                    </div>
+
+                    <!-- Tapestry 8 -->
+                    <div class="tapestry-item" data-tapestry="8">
+                        <div class="tapestry-card">
+                            <div class="tapestry-front">
+                                <img src="assets/images/gallery/Projects/Tapestry/Tapestry_8_Front.jpg" alt="Tapestry 8 - Indigenous Perspective" loading="lazy">
+                                <div class="tapestry-label">Indigenous Knowledge</div>
+                            </div>
+                            <div class="tapestry-back">
+                                <img src="assets/images/gallery/Projects/Tapestry/Tapestry_8_Back.jpg" alt="Tapestry 8 - Scientific Perspective" loading="lazy">
+                                <div class="tapestry-label">Scientific Botany</div>
+                            </div>
+                            <div class="flip-indicator">
+                                <span class="flip-text">Hover to flip</span>
+                                <div class="flip-arrow">↻</div>
+                            </div>
+                        </div>
+                        <h3 class="tapestry-name">River Willow</h3>
+                        <p class="tapestry-plant">Salix nigra</p>
+                    </div>
+
+                    <!-- Tapestry 9 -->
+                    <div class="tapestry-item" data-tapestry="9">
+                        <div class="tapestry-card">
+                            <div class="tapestry-front">
+                                <img src="assets/images/gallery/Projects/Tapestry/Tapestry_9_Front.jpg" alt="Tapestry 9 - Indigenous Perspective" loading="lazy">
+                                <div class="tapestry-label">Indigenous Knowledge</div>
+                            </div>
+                            <div class="tapestry-back">
+                                <img src="assets/images/gallery/Projects/Tapestry/Tapestry_9_Back.jpg" alt="Tapestry 9 - Scientific Perspective" loading="lazy">
+                                <div class="tapestry-label">Scientific Botany</div>
+                            </div>
+                            <div class="flip-indicator">
+                                <span class="flip-text">Hover to flip</span>
+                                <div class="flip-arrow">↻</div>
+                            </div>
+                        </div>
+                        <h3 class="tapestry-name">Mountain Laurel</h3>
+                        <p class="tapestry-plant">Sophora secundiflora</p>
+                    </div>
+
+                    <!-- Tapestry 10 -->
+                    <div class="tapestry-item" data-tapestry="10">
+                        <div class="tapestry-card">
+                            <div class="tapestry-front">
+                                <img src="assets/images/gallery/Projects/Tapestry/Tapestry_10_Front.jpg" alt="Tapestry 10 - Indigenous Perspective" loading="lazy">
+                                <div class="tapestry-label">Indigenous Knowledge</div>
+                            </div>
+                            <div class="tapestry-back">
+                                <img src="assets/images/gallery/Projects/Tapestry/Tapestry_10_Back.jpg" alt="Tapestry 10 - Scientific Perspective" loading="lazy">
+                                <div class="tapestry-label">Scientific Botany</div>
+                            </div>
+                            <div class="flip-indicator">
+                                <span class="flip-text">Hover to flip</span>
+                                <div class="flip-arrow">↻</div>
+                            </div>
+                        </div>
+                        <h3 class="tapestry-name">Wild Rose</h3>
+                        <p class="tapestry-plant">Rosa carolina</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced Sales Section -->
+        <section class="tapestry-sales">
+            <div class="container">
+                <div class="sales-content">
+                    <div class="sales-info">
+                        <h2 class="sales-title">Tapestries Available for Purchase</h2>
+                        <div class="pricing-card">
+                            <div class="price-highlight">
+                                <span class="currency">$</span>
+                                <span class="amount">600</span>
+                                <span class="period">each</span>
+                            </div>
+                            <div class="price-details">
+                                <div class="detail-item">
+                                    <span class="detail-icon">🔄</span>
+                                    <span>Double-sided design</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-icon">🎨</span>
+                                    <span>Hand-crafted artwork</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-icon">📏</span>
+                                    <span>Includes dowel & hanging chain</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-icon">✨</span>
+                                    <span>Ready to display</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <h3 class="form-title">Inquire About Tapestries</h3>
+                        <form class="tapestry-form" action="https://formspree.io/f/mblyvvyn" method="POST">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="tapestries">Tapestries of Interest</label>
+                                <select id="tapestries" name="tapestries" multiple>
+                                    <option value="coneflower">Coneflower Wisdom</option>
+                                    <option value="sage">Sage Stories</option>
+                                    <option value="oak">Oak Ancestry</option>
+                                    <option value="butterfly">Butterfly Garden</option>
+                                    <option value="cedar">Cedar Medicine</option>
+                                    <option value="prairie">Prairie Fire</option>
+                                    <option value="desert">Desert Bloom</option>
+                                    <option value="willow">River Willow</option>
+                                    <option value="laurel">Mountain Laurel</option>
+                                    <option value="rose">Wild Rose</option>
+                                    <option value="all">All Available</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="quantity">Quantity</label>
+                                <select id="quantity" name="quantity">
+                                    <option value="1">1 Tapestry</option>
+                                    <option value="2">2 Tapestries</option>
+                                    <option value="3">3 Tapestries</option>
+                                    <option value="4">4 Tapestries</option>
+                                    <option value="5+">5+ Tapestries</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Additional Message</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Tell us about your interest in these tapestries..."></textarea>
+                            </div>
+                            <input type="hidden" name="_subject" value="Tapestry Purchase Inquiry">
+                            <button type="submit" class="submit-btn">Send Inquiry</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="contact-info">
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <span class="contact-icon">📧</span>
+                            <div>
+                                <strong>Email</strong>
+                                <p>essentialscreative@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <span class="contact-icon">📱</span>
+                            <div>
+                                <strong>Response Time</strong>
+                                <p>Within 24 hours</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <span class="contact-icon">🚚</span>
+                            <div>
+                                <strong>Shipping</strong>
+                                <p>Worldwide delivery available</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-overlay"></div>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Essentials Creative</h3>
+                    <p>Amplifying cultural narratives through multimedia art</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <div class="footer-services">
+                        <p><a href='/photography'>Photography</a></p>
+                        <p><a href='/design'>Design</a></p>
+                        <p><a href='/installations'>Installation Art</a></p>
+                        <p><a href='/projections.html'>Video Production</a></p>
+                        <p><a href='/projections.html'>Motion Graphics</a></p>
+                        <p><a href='/contact.html'>Creative Direction</a></p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/essentialscreative/" rel="noopener" target="_blank">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                            Instagram
+                        </a>
+                        <a href="https://www.youtube.com/@essentialscreative" rel="noopener" target="_blank">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.30 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                            YouTube
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Essentials Creative. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(10px);">
+        <span class="lightbox-close" onclick="closeLightbox()" style="position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; z-index: 10000; padding: 8px 12px; border-radius: 6px; transition: all 0.3s ease; background: rgba(0, 0, 0, 0.5);">&times;</span>
+        <img class="lightbox-content" id="lightbox-image" style="max-width: 90%; max-height: 90%; margin: auto; display: block; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 8px;" />
+        <div class="lightbox-caption" id="lightbox-caption" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); color: white; font-size: 16px; background: rgba(0, 0, 0, 0.7); padding: 10px 20px; border-radius: 6px; backdrop-filter: blur(10px);"></div>
+    </div>
+
+    <script src="assets/js/unified.js"></script>
+    <script>
+        // Lightbox functionality
+        function openLightbox(imageSrc, caption) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-image');
+            const captionEl = document.getElementById('lightbox-caption');
+            
+            img.src = imageSrc;
+            captionEl.textContent = caption;
+            lightbox.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        // Close lightbox when clicking outside the image
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // Tapestry flip functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tapestryItems = document.querySelectorAll('.tapestry-item');
+            
+            tapestryItems.forEach(item => {
+                const card = item.querySelector('.tapestry-card');
+                
+                item.addEventListener('mouseenter', () => {
+                    card.style.transform = 'rotateY(180deg)';
+                });
+                
+                item.addEventListener('mouseleave', () => {
+                    card.style.transform = 'rotateY(0deg)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
