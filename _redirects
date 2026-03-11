@@ -1,0 +1,45 @@
+# Netlify Redirects File - Essentials Creative
+# This file provides fallback redirects and fixes 404 errors
+
+# Photography redirects
+/photography    /#photography    301
+/photography/*  /#photography    301
+
+# Design redirects
+/graphic-design    /#design    301
+/graphic-design/*  /#design    301
+/design            /#design    301
+/design/*          /#design    301
+
+# Installations redirect
+/installations    /#installations    301
+/installations/*  /#installations    301
+
+# Projects redirect
+/projects    /#installations    301
+/projects/*  /#installations    301
+
+# About redirects
+/about-us    /index.html    301
+/about       /index.html    301
+
+# Contact redirect
+/contact-us    /index.html#contact    301
+/contact       /index.html#contact    301
+
+# Shop redirect (if shop.html exists)
+/shop    /shop.html    200
+/shop/*  /shop.html    200
+
+# Social media redirects
+/social-media    /index.html    200
+/social-media/*  /index.html    200
+
+# Rhizomatic project
+/rhizomatic    /rhizomatic.html    200
+
+# API/Form handling
+/api/contact    /.netlify/functions/contact    200
+
+# Fallback for any other 404s - redirect to homepage
+/*    /index.html    200

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover" name="viewport"/>
+<meta content="#ffffff" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#1a1a1a" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<title>Essentials Creative - Multimedia Collective</title>
+<meta content="Multimedia collective celebrating cultural narratives through photography, design, installation art, and video." name="description"/>
+<meta content="photography, installation art, design, video, multimedia, creative studio, Austin" name="keywords"/>
+
+<!-- Open Graph Meta Tags -->
+<meta content="Essentials Creative - Multimedia Collective" property="og:title"/>
+<meta content="Multimedia collective celebrating cultural narratives through photography, design, installation art, and video." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://essentialscreative.com" property="og:url"/>
+
+<!-- Favicon -->
+<link href="assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="assets/images/favicon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="assets/images/favicon.png" rel="shortcut icon"/>
+
+<!-- CSS -->
+<link href="assets/css/navigation.css?v=4.0" rel="stylesheet"/>
+<link href="assets/css/main.css" rel="stylesheet"/>
+<link href="assets/css/enhanced-lightbox.css" rel="stylesheet"/>
+
+<style>
+/* Simplified Critical CSS */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Apercu', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #333; }
+
+.hero { 
+    height: 80vh; 
+    background: url('assets/images/gallery/Design/Design_hero.jpg') center center / cover no-repeat;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    color: white; 
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.7) 100%);
+    z-index: 1;
+}
+
+.hero-content { 
+    position: relative; 
+    z-index: 2; 
+    max-width: 800px; 
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.hero h1 { 
+    font-size: clamp(2.5rem, 5vw, 4rem); 
+    margin-bottom: 1rem; 
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 
+        2px 2px 4px rgba(0,0,0,0.8),
+        1px 1px 8px rgba(0,0,0,0.6),
+        0px 0px 12px rgba(0,0,0,0.4);
+    letter-spacing: -0.02em;
+}
+
+.hero p { 
+    font-size: clamp(1.1rem, 2vw, 1.4rem); 
+    margin-bottom: 2rem; 
+    color: rgba(255,255,255,0.95);
+    text-shadow: 
+        1px 1px 3px rgba(0,0,0,0.8),
+        0px 0px 6px rgba(0,0,0,0.5);
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.section { 
+    padding: 4rem 2rem; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.section h2 { 
+    font-size: clamp(2rem, 4vw, 3rem); 
+    margin-bottom: 2rem; 
+    text-align: center; 
+    color: #1a1a1a;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.service-card {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 12px;
+    background: #f8f8f8;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.service-card p {
+    color: #4a4a4a;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+.cta-section {
+    background: url('assets/images/nopal-hero.jpg') center center / cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+    position: relative;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 1;
+}
+
+.cta-section > * {
+    position: relative;
+    z-index: 2;
+}
+
+.cta-section h2 {
+    color: white;
+    text-shadow: 
+        2px 2px 4px rgba(0,0,0,0.8),
+        1px 1px 8px rgba(0,0,0,0.6);
+    font-weight: 700;
+}
+
+.cta-section p {
+    color: rgba(255,255,255,0.95);
+    text-shadow: 
+        1px 1px 3px rgba(0,0,0,0.8),
+        0px 0px 6px rgba(0,0,0,0.5);
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: white;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 2rem;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255,255,255,0.2);
+}
+
+@media (max-width: 768px) {
+    .section { padding: 3rem 1rem; }
+    .services-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .hero { height: 70vh; }
+    .hero-content { 
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    .hero h1 { 
+        font-size: clamp(2rem, 6vw, 3rem);
+        text-shadow: 
+            2px 2px 6px rgba(0,0,0,0.9),
+            1px 1px 12px rgba(0,0,0,0.7);
+    }
+    .hero p {
+        font-size: clamp(1rem, 4vw, 1.2rem);
+        text-shadow: 
+            1px 1px 4px rgba(0,0,0,0.9),
+            0px 0px 8px rgba(0,0,0,0.6);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content {
+        padding: 1rem;
+    }
+    .service-card {
+        padding: 1.5rem;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="skip-links" style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); z-index: 10000;">
+<a href="#main-content" class="skip-link" style="position: absolute; left: -100vw; background: #1a1a1a; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 0 0 8px 8px; white-space: nowrap;">Skip to main content</a>
+<a href="#main-navigation" class="skip-link" style="position: absolute; left: -100vw; background: #1a1a1a; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 0 0 8px 8px; white-space: nowrap;">Skip to navigation</a>
+</div>
+<style>
+.skip-link:focus {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 0 !important;
+    outline: 3px solid white !important;
+    outline-offset: 2px !important;
+    z-index: 10001 !important;
+}
+.skip-link:first-child:focus {
+    margin-left: -8rem;
+}
+.skip-link:last-child:focus {
+    margin-left: 8rem;
+}
+</style>
+<header class="header">
+<div class="nav-container">
+<div class="logo">
+<a href="index.html" style="display: block; line-height: 1;">
+<img alt="Essentials Creative" src="assets/images/essentials-creative-logo.svg" style="height: 45px; width: auto; display: block;"/>
+</a>
+</div>
+<nav id="main-navigation" class="nav-links">
+<a class="nav-link active" href="index.html">Home</a>
+<a class="nav-link" href="photography.html">Photography</a>
+<a class="nav-link" href="design.html">Design</a>
+<a class="nav-link" href="videoandprojections.html">Video/Projections</a>
+<a class="nav-link" href="installations.html">Installations</a>
+<a class="nav-link" href="about.html">About</a>
+<a class="nav-link" href="contact.html">Contact</a>
+</nav>
+<!-- Mobile Navigation -->
+<div class="hamburger-nav">
+<button class="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+<span class="hamburger-line"></span>
+<span class="hamburger-line"></span>
+<span class="hamburger-line"></span>
+</button>
+<div class="hamburger-menu">
+<a href="index.html" class="hamburger-link active">Home</a>
+<a href="photography.html" class="hamburger-link">Photography</a>
+<a href="design.html" class="hamburger-link">Design</a>
+<a href="videoandprojections.html" class="hamburger-link">Video/Projections</a>
+<a href="installations.html" class="hamburger-link">Installations</a>
+<a href="about.html" class="hamburger-link">About</a>
+<a href="contact.html" class="hamburger-link">Contact</a>
+</div>
+</div>
+</div>
+</header>
+
+<main id="main-content">
+<!-- Hero Section -->
+<section class="hero">
+<div class="hero-content">
+<h1>Essentials Creative</h1>
+<p>BIPOC-led collective empowering underrepresented artists with fluid, collaborative, experimental creative experiences.</p>
+<p style="font-size: clamp(0.9rem, 1.5vw, 1.1rem); margin-top: 1.5rem; color: rgba(255,255,255,0.85); font-weight: 500;">Austin · San Antonio · London</p>
+</div>
+</section>
+
+<!-- Services Section -->
+<section class="section">
+<h2>What We Create</h2>
+<div class="services-grid">
+<a href="photography.html" class="service-card" style="text-decoration: none; color: inherit;">
+<h3>Photography</h3>
+<p>Portrait, lifestyle, and artistic photography capturing authentic moments and cultural narratives.</p>
+</a>
+<a href="design.html" class="service-card" style="text-decoration: none; color: inherit;">
+<h3>Design</h3>
+<p>Visual identity, branding, and graphic design providing platforms for diverse artistic voices.</p>
+</a>
+<a href="videoandprojections.html" class="service-card" style="text-decoration: none; color: inherit;">
+<h3>Video/Film</h3>
+<p>Documentary storytelling and projection art creating immersive visual experiences.</p>
+</a>
+<a href="installations.html" class="service-card" style="text-decoration: none; color: inherit;">
+<h3>Installations</h3>
+<p>Interactive art installations exploring themes of cultural identity and community connection.</p>
+</a>
+</div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section" style="text-align: center;">
+<h2>Ready to Create Together?</h2>
+<p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">Let's collaborate on projects that amplify diverse voices and cultural narratives.</p>
+<a href="contact.html" class="btn">Get In Touch</a>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="footer" style="background: #f8f8f8; padding: 3rem 2rem 2rem; text-align: center;">
+<div style="max-width: 1200px; margin: 0 auto;">
+<!-- Newsletter -->
+<div style="margin-bottom: 3rem;">
+<h3 style="margin-bottom: 1rem; color: #333;">Stay Connected</h3>
+<p style="color: #666; margin-bottom: 2rem;">Get updates about new work and collaborations.</p>
+<form action="https://formspree.io/f/mblyvvyn" method="POST" style="display: flex; gap: 1rem; max-width: 400px; margin: 0 auto; flex-wrap: wrap;">
+<label for="footer-email" class="sr-only">Email for newsletter</label>
+<input id="footer-email" type="email" name="email" placeholder="Enter your email" required style="flex: 1; min-width: 200px; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;"/>
+<input type="hidden" name="_subject" value="Newsletter Subscription"/>
+<button type="submit" style="padding: 0.75rem 1.5rem; background: #1a1a1a; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">Subscribe</button>
+</form>
+</div>
+
+<!-- Footer Content -->
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+<div>
+<h4 style="margin-bottom: 1rem; color: #333;">Essentials Creative</h4>
+<p style="color: #666;">BIPOC-led collective amplifying cultural narratives through multimedia art</p>
+</div>
+<div>
+<h4 style="margin-bottom: 1rem; color: #333;">Services</h4>
+<div style="display: flex; flex-direction: column; gap: 0.5rem;">
+<a href="photography.html" style="color: #666; text-decoration: none;">Photography</a>
+<a href="design.html" style="color: #666; text-decoration: none;">Design</a>
+<a href="installations.html" style="color: #666; text-decoration: none;">Installation Art</a>
+<a href="videoandprojections.html" style="color: #666; text-decoration: none;">Video Production</a>
+</div>
+</div>
+<div>
+<h4 style="margin-bottom: 1rem; color: #333;">Connect</h4>
+<div style="display: flex; flex-direction: column; gap: 0.5rem;">
+<a href="https://www.instagram.com/essentialscreative/" target="_blank" rel="noopener" aria-label="Instagram (opens in new window)" style="color: #666; text-decoration: none;">Instagram</a>
+<a href="https://www.youtube.com/channel/UCmhlzjngU5_WX6n1mvtY2Bw" target="_blank" rel="noopener" aria-label="YouTube (opens in new window)" style="color: #666; text-decoration: none;">YouTube</a>
+<a href="contact.html" style="color: #666; text-decoration: none;">Contact</a>
+</div>
+</div>
+</div>
+
+<div style="border-top: 1px solid #ddd; padding-top: 2rem; color: #666; font-size: 0.9rem;">
+<p>&copy; 2026 Essentials Creative. All rights reserved.</p>
+</div>
+</div>
+</footer>
+
+<!-- JavaScript -->
+<script src="assets/js/core.js" defer></script>
+<script src="assets/js/navigation.js?v=4.0" defer></script>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

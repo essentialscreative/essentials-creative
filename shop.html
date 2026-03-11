@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#2c5f2d">
+    <title>Shop - Essentials Creative</title>
+    <meta name="description" content="Shop art prints, tapestries, and merchandise from Essentials Creative. Support Indigenous artists and cultural storytelling.">
+
+    <!-- Fonts -->
+    <link rel="preload" href="assets/fonts/apercu/apercu_regular_pro.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/apercu/apercu_bold_pro.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- CSS -->
+    <link href="assets/css/navigation.css?v=4.0" rel="stylesheet"/>
+    <link href="assets/css/core.css?v=4.0" rel="stylesheet"/>
+    <link href="assets/css/enhanced-lightbox.css?v=4.0" rel="stylesheet"/>
+    <link href="assets/css/mobile-optimization.css?v=4.0" rel="stylesheet"/>
+
+    <style>
+        /* Shop-specific styles */
+        .shop-hero {
+            background: var(--gradient-subtle);
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .shop-hero h1 {
+            font-size: var(--heading-1);
+            font-weight: var(--font-semibold);
+            color: var(--color-heading);
+            margin-bottom: 1rem;
+        }
+
+        .shop-hero p {
+            font-size: var(--text-xl);
+            color: var(--color-text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+                /* Category Navigation - Sticky for easy browsing */
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 0;
+            padding: 1.5rem 1rem;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 70px;
+            background: white;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .category-link {
+            padding: 0.875rem 2.5rem;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #374151;
+            text-decoration: none;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            letter-spacing: 0.025em;
+        }
+
+        .category-link:hover,
+        .category-link.active {
+            background: linear-gradient(135deg, #2c5f2d 0%, #3a7a3c 100%);
+            color: white;
+            border-color: #2c5f2d;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(44, 95, 45, 0.3);
+        }
+
+        /* Product Categories */
+        .product-category {
+            padding: 4rem 0;
+        }
+
+        .product-category:nth-child(even) {
+            background: var(--color-bg-secondary);
+        }
+
+        .category-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .category-title {
+            font-size: var(--heading-2);
+            font-weight: var(--font-semibold);
+            color: var(--color-heading);
+            margin-bottom: 1rem;
+        }
+
+        .category-subtitle {
+            font-size: var(--text-lg);
+            color: var(--color-text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+                .product-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+            border-color: rgba(44, 95, 45, 0.2);
+        }
+
+        .product-image {
+            position: relative;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            background: var(--color-neutral-100);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            background: var(--color-primary);
+            color: white;
+            font-size: var(--text-sm);
+            font-weight: var(--font-bold);
+            border-radius: var(--radius-full);
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wide);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .product-name {
+            font-size: var(--text-xl);
+            font-weight: var(--font-semibold);
+            color: var(--color-heading);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-description {
+            font-size: var(--text-base);
+            color: var(--color-text-secondary);
+            line-height: var(--leading-relaxed);
+            margin-bottom: 1rem;
+        }
+
+        .product-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: var(--text-sm);
+            color: var(--color-text-tertiary);
+            text-align: center;
+        }
+
+        .product-price {
+            font-size: var(--text-3xl);
+            font-weight: var(--font-bold);
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .product-cta {
+            display: block;
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, #2c5f2d 0%, #3a7a3c 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(44, 95, 45, 0.25);
+        }
+
+        .product-cta:hover {
+            background: linear-gradient(135deg, #1a4d1a 0%, #2c5f2d 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(44, 95, 45, 0.35);
+        }
+
+                /* Tapestry Showcase */
+        .tapestry-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .tapestry-side {
+            position: relative;
+            aspect-ratio: 3/4;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: transform var(--transition-base);
+            cursor: pointer;
+        }
+        
+        .tapestry-side:hover {
+            transform: scale(1.02);
+            z-index: 1;
+        }
+
+        .tapestry-side img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+        
+        .tapestry-side:hover img {
+            transform: scale(1.05);
+        }
+
+        .side-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 0.75rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 60%, transparent 100%);
+            color: white;
+            font-size: var(--text-sm);
+            font-weight: var(--font-semibold);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            pointer-events: none;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 95vw;
+            max-height: 95vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 95vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 10000;
+        }
+
+        .lightbox-close:hover {
+            opacity: 0.7;
+        }
+
+        .clickable-image {
+            cursor: pointer;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .clickable-image:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+        }
+
+        .tapestry-side {
+            position: relative;
+            cursor: pointer;
+        }
+
+                /* Responsive */
+        @media (max-width: 768px) {
+            .shop-hero {
+                padding: 3rem 1rem 2rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+
+            .tapestry-showcase {
+                gap: 0.5rem;
+                margin-bottom: 1rem;
+            }
+            
+            .tapestry-side {
+                aspect-ratio: 3/4;
+            }
+            
+            .side-label {
+                padding: 0.5rem;
+                font-size: 0.7rem;
+            }
+
+            .category-nav {
+                flex-direction: row;
+                gap: 0.75rem;
+            }
+
+            .category-link {
+                flex: 1;
+                min-width: 120px;
+                text-align: center;
+                padding: 0.75rem 1.5rem;
+                font-size: 0.875rem;
+            }
+            
+            .product-name {
+                font-size: 1.125rem;
+            }
+            
+            .product-price {
+                font-size: 1.75rem;
+            }
+        }
+
+            .tapestry-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .category-nav {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1rem;
+            }
+
+            .category-link {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <a aria-label='Essentials Creative Home' href='/'>
+                        <img src="assets/images/essentials_creative_logo.png"
+                             alt="Essentials Creative Logo"
+                             class="logo-img">
+                    </a>
+                </div>
+
+                <!-- Main Navigation -->
+                <div class="nav-menu">
+                    <a class='nav-link' href='/'>Home</a>
+                    <a href="rhizomatic.html" class="nav-link">Rhizomatic</a>
+                    <a href="tshirts.html" class="nav-link">T-Shirts</a>
+                    <a href="shop.html" class="nav-link active">Shop</a>
+                    <a href="/#contact" class="nav-link">Contact</a>
+                </div>
+
+                <!-- Hamburger Navigation -->
+                <div class="hamburger-nav">
+                    <button class="hamburger-toggle" aria-label="Toggle navigation menu">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                    <div class="hamburger-menu">
+                        <a class='hamburger-link' href='/'>Home</a>
+                        <a href="rhizomatic.html" class="hamburger-link">Rhizomatic</a>
+                        <a href="tshirts.html" class="hamburger-link">T-Shirts</a>
+                        <a href="shop.html" class="hamburger-link active">Shop</a>
+                        <a href="/#contact" class="hamburger-link">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Shop Hero -->
+        <section class="shop-hero">
+            <div class="container">
+                <h1>Shop Essentials Creative</h1>
+                <p>Support Indigenous artists and cultural storytelling through art, apparel, and unique collaborations.</p>
+            </div>
+        </section>
+
+        <!-- Category Navigation -->
+        <div class="container">
+            <nav class="category-nav">
+                <a href="#tshirts" class="category-link">T-Shirts</a>
+                <a href="#tapestries" class="category-link">Tapestries</a>
+            </nav>
+        </div>
+
+        <!-- T-Shirts Section -->
+        <section id="tshirts" class="product-category">
+            <div class="container">
+                <div class="category-header">
+                    <h2 class="category-title">RHIZOMATIC T-Shirts</h2>
+                    <p class="category-subtitle">19 unique designs featuring logo tees and tapestry artwork. Choose Side A (Cultural) or Side B (Scientific) for your print.</p>
+                </div>
+
+                <div class="product-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width: 900px;">
+
+                    <!-- Black Logo Tee Preview -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/images/merch/tshirt-black.png" alt="RHIZOMATIC Black T-Shirt" class="clickable-image" onclick="openLightbox('assets/images/merch/tshirt-black.png')">
+                            <span class="product-badge">Logo Tee</span>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Logo Tees</h3>
+                            <p class="product-description">Classic black or white tee with the official RHIZOMATIC botanical logo.</p>
+                            <div class="product-price">$40</div>
+                            <a href="tshirts.html" class="product-cta">View All Tees</a>
+                        </div>
+                    </div>
+
+                    <!-- Tapestry Tee Preview -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="assets/images/tapestry-designs-optimized/metl-cultural.jpg" alt="Tapestry Design T-Shirt" class="clickable-image" onclick="openLightbox('assets/images/tapestry-designs-optimized/metl-cultural.jpg')">
+                            <span class="product-badge">17 Designs</span>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Tapestry Tees</h3>
+                            <p class="product-description">Wearable art featuring Indigenous botanical designs. Choose Side A or Side B.</p>
+                            <div class="product-price">$40</div>
+                            <a href="tshirts.html" class="product-cta">View All Tees</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Tapestries Section -->
+        <section id="tapestries" class="product-category">
+            <div class="container">
+                <div class="category-header">
+                    <h2 class="category-title">Rhizomatic Tapestries</h2>
+                    <p class="category-subtitle">Double-sided art pieces exploring Indigenous knowledge and botanical science. Each tapestry tells cultural and scientific stories of native plants.</p>
+                </div>
+
+                <div class="product-grid">
+
+                    <!-- Metl Tapestry -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="tapestry-showcase">
+                                <div class="tapestry-side">
+                                    <img src="assets/images/tapestry-designs-optimized/metl-cultural.jpg" alt="Metl Cultural Side" class="clickable-image" onclick="openLightbox('assets/images/tapestry-designs-optimized/metl-cultural.jpg')" loading="lazy">
+                                    <div class="side-label">Cultural</div>
+                                </div>
+                                <div class="tapestry-side">
+                                    <img src="assets/images/tapestry-designs-optimized/metl-scientific.jpg" alt="Metl Scientific Side" class="clickable-image" onclick="openLightbox('assets/images/tapestry-designs-optimized/metl-scientific.jpg')" loading="lazy">
+                                    <div class="side-label">Scientific</div>
+                                </div>
+                            </div>
+                            <span class="product-badge">Double-Sided</span>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Metl (Agave)</h3>
+                            <p class="product-description">Explores the cultural significance and botanical characteristics of agave in Indigenous communities.</p>
+                            <div class="product-details">
+                                <span>✓ Double-sided design</span>
+                                <span>✓ Includes hanging hardware</span>
+                                <span>✓ Ready to display</span>
+                            </div>
+                            <div class="product-price">$600</div>
+                            <a href="mailto:essentialscreative@gmail.com?subject=Tapestry%20Purchase:%20Metl" class="product-cta">
+                                Inquire to Purchase
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Huautli Tapestry -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="tapestry-showcase">
+                                <div class="tapestry-side">
+                                    <img src="assets/images/tapestry-designs-optimized/huautli-cultural.jpg" alt="Huautli Cultural Side" class="clickable-image" onclick="openLightbox('assets/images/tapestry-designs-optimized/huautli-cultural.jpg')" loading="lazy">
+                                    <div class="side-label">Cultural</div>
+                                </div>
+                                <div class="tapestry-side">
+                                    <img src="assets/images/tapestry-designs-optimized/huautli-scientific.jpg" alt="Huautli Scientific Side" class="clickable-image" onclick="openLightbox('assets/images/tapestry-designs-optimized/huautli-scientific.jpg')" loading="lazy">
+                                    <div class="side-label">Scientific</div>
+                                </div>
+                            </div>
+                            <span class="product-badge">Double-Sided</span>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Huautli (Amaranth)</h3>
+                            <p class="product-description">Celebrates amaranth's role in Indigenous agriculture and spiritual practices.</p>
+                            <div class="product-details">
+                                <span>✓ Double-sided design</span>
+                                <span>✓ Includes hanging hardware</span>
+                                <span>✓ Ready to display</span>
+                            </div>
+                            <div class="product-price">$600</div>
+                            <a href="mailto:essentialscreative@gmail.com?subject=Tapestry%20Purchase:%20Huautli" class="product-cta">
+                                Inquire to Purchase
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Nochtli Tapestry -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="tapestry-showcase">
+                                <div class="tapestry-side">
+                                    <img src="assets/images/tapestry-designs-optimized/nochtli-cultural.jpg" alt="Nochtli Cultural Side" class="clickable-image" onclick="openLightbox('assets/images/tapestry-designs-optimized/nochtli-cultural.jpg')" loading="lazy">
+                                    <div class="side-label">Cultural</div>
+                                </div>
+                                <div class="tapestry-side">
+                                    <img src="assets/images/tapestry-designs-optimized/nochtli-scientific.jpg" alt="Nochtli Scientific Side" class="clickable-image" onclick="openLightbox('assets/images/tapestry-designs-optimized/nochtli-scientific.jpg')" loading="lazy">
+                                    <div class="side-label">Scientific</div>
+                                </div>
+                            </div>
+                            <span class="product-badge">Double-Sided</span>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Nochtli (Prickly Pear)</h3>
+                            <p class="product-description">Documents the prickly pear's nutritional, medicinal, and cultural importance.</p>
+                            <div class="product-details">
+                                <span>✓ Double-sided design</span>
+                                <span>✓ Includes hanging hardware</span>
+                                <span>✓ Ready to display</span>
+                            </div>
+                            <div class="product-price">$600</div>
+                            <a href="mailto:essentialscreative@gmail.com?subject=Tapestry%20Purchase:%20Nochtli" class="product-cta">
+                                Inquire to Purchase
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Snake Grass Tapestry -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="tapestry-showcase">
+                                <div class="tapestry-side">
+                                    <img src="assets/images/tapestry-designs-optimized/snake-grass-cultural.jpg" alt="Snake Grass Cultural Side" class="clickable-image" onclick="openLightbox('assets/images/tapestry-designs-optimized/snake-grass-cultural.jpg')" loading="lazy">
+                                    <div class="side-label">Cultural</div>
+                                </div>
+                                <div class="tapestry-side">
+                                    <img src="assets/images/tapestry-designs-optimized/snake-grass-scientific.jpg" alt="Snake Grass Scientific Side" class="clickable-image" onclick="openLightbox('assets/images/tapestry-designs-optimized/snake-grass-scientific.jpg')" loading="lazy">
+                                    <div class="side-label">Scientific</div>
+                                </div>
+                            </div>
+                            <span class="product-badge">Double-Sided</span>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Snake Grass</h3>
+                            <p class="product-description">Explores the cultural and ecological significance of snake grass in Indigenous traditions.</p>
+                            <div class="product-details">
+                                <span>✓ Double-sided design</span>
+                                <span>✓ Includes hanging hardware</span>
+                                <span>✓ Ready to display</span>
+                            </div>
+                            <div class="product-price">$600</div>
+                            <a href="mailto:essentialscreative@gmail.com?subject=Tapestry%20Purchase:%20Snake%20Grass" class="product-cta">
+                                Inquire to Purchase
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Ichahpe Hu Tapestry -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="tapestry-showcase">
+                                <div class="tapestry-side">
+                                    <img src="assets/images/tapestry-designs-optimized/ichahpe-hu-cultural.jpg" alt="Ichahpe Hu Cultural Side" class="clickable-image" onclick="openLightbox('assets/images/tapestry-designs-optimized/ichahpe-hu-cultural.jpg')" loading="lazy">
+                                    <div class="side-label">Cultural</div>
+                                </div>
+                                <div class="tapestry-side">
+                                    <img src="assets/images/tapestry-designs-optimized/ichahpe-hu-scientific.jpg" alt="Ichahpe Hu Scientific Side" class="clickable-image" onclick="openLightbox('assets/images/tapestry-designs-optimized/ichahpe-hu-scientific.jpg')" loading="lazy">
+                                    <div class="side-label">Scientific</div>
+                                </div>
+                            </div>
+                            <span class="product-badge">Double-Sided</span>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Ichahpe Hu</h3>
+                            <p class="product-description">Documents traditional botanical knowledge and scientific understanding of this sacred plant.</p>
+                            <div class="product-details">
+                                <span>✓ Double-sided design</span>
+                                <span>✓ Includes hanging hardware</span>
+                                <span>✓ Ready to display</span>
+                            </div>
+                            <div class="product-price">$600</div>
+                            <a href="mailto:essentialscreative@gmail.com?subject=Tapestry%20Purchase:%20Ichahpe%20Hu" class="product-cta">
+                                Inquire to Purchase
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Chiltepin Tapestry -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="tapestry-showcase">
+                                <div class="tapestry-side">
+                                    <img src="assets/images/tapestry-designs-optimized/chiltepin-cultural.jpg" alt="Chiltepin Cultural Side" class="clickable-image" onclick="openLightbox('assets/images/tapestry-designs-optimized/chiltepin-cultural.jpg')" loading="lazy">
+                                    <div class="side-label">Cultural</div>
+                                </div>
+                                <div class="tapestry-side">
+                                    <img src="assets/images/tapestry-designs-optimized/chiltepin-scientific.jpg" alt="Chiltepin Scientific Side" class="clickable-image" onclick="openLightbox('assets/images/tapestry-designs-optimized/chiltepin-scientific.jpg')" loading="lazy">
+                                    <div class="side-label">Scientific</div>
+                                </div>
+                            </div>
+                            <span class="product-badge">Double-Sided</span>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Chiltepin</h3>
+                            <p class="product-description">Honors this sacred pepper's cultural heritage and botanical characteristics.</p>
+                            <div class="product-details">
+                                <span>✓ Double-sided design</span>
+                                <span>✓ Includes hanging hardware</span>
+                                <span>✓ Ready to display</span>
+                            </div>
+                            <div class="product-price">$600</div>
+                            <a href="mailto:essentialscreative@gmail.com?subject=Tapestry%20Purchase:%20Chiltepin" class="product-cta">
+                                Inquire to Purchase
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Gilzisomashkiki Tapestry -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="tapestry-showcase">
+                                <div class="tapestry-side">
+                                    <img src="assets/images/tapestry-designs-optimized/gilzisomashkiki-cultural.jpg" alt="Gilzisomashkiki Cultural Side" class="clickable-image" onclick="openLightbox('assets/images/tapestry-designs-optimized/gilzisomashkiki-cultural.jpg')" loading="lazy">
+                                    <div class="side-label">Cultural</div>
+                                </div>
+                                <div class="tapestry-side">
+                                    <img src="assets/images/tapestry-designs-optimized/gilzisomashkiki-scientific.jpg" alt="Gilzisomashkiki Scientific Side" class="clickable-image" onclick="openLightbox('assets/images/tapestry-designs-optimized/gilzisomashkiki-scientific.jpg')" loading="lazy">
+                                    <div class="side-label">Scientific</div>
+                                </div>
+                            </div>
+                            <span class="product-badge">Double-Sided</span>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Gilzisomashkiki</h3>
+                            <p class="product-description">Celebrates traditional medicinal knowledge and scientific properties of this healing plant.</p>
+                            <div class="product-details">
+                                <span>✓ Double-sided design</span>
+                                <span>✓ Includes hanging hardware</span>
+                                <span>✓ Ready to display</span>
+                            </div>
+                            <div class="product-price">$600</div>
+                            <a href="mailto:essentialscreative@gmail.com?subject=Tapestry%20Purchase:%20Gilzisomashkiki" class="product-cta">
+                                Inquire to Purchase
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Tolin Tapestry -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="tapestry-showcase">
+                                <div class="tapestry-side">
+                                    <img src="assets/images/tapestry-designs-optimized/tolin-cultural.jpg" alt="Tolin Cultural Side" class="clickable-image" onclick="openLightbox('assets/images/tapestry-designs-optimized/tolin-cultural.jpg')" loading="lazy">
+                                    <div class="side-label">Cultural</div>
+                                </div>
+                                <div class="tapestry-side">
+                                    <img src="assets/images/tapestry-designs-optimized/tolin-scientific.jpg" alt="Tolin Scientific Side" class="clickable-image" onclick="openLightbox('assets/images/tapestry-designs-optimized/tolin-scientific.jpg')" loading="lazy">
+                                    <div class="side-label">Scientific</div>
+                                </div>
+                            </div>
+                            <span class="product-badge">Double-Sided</span>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Tolin</h3>
+                            <p class="product-description">Showcases cultural narratives and botanical beauty of this significant plant.</p>
+                            <div class="product-details">
+                                <span>✓ Double-sided design</span>
+                                <span>✓ Includes hanging hardware</span>
+                                <span>✓ Ready to display</span>
+                            </div>
+                            <div class="product-price">$600</div>
+                            <a href="mailto:essentialscreative@gmail.com?subject=Tapestry%20Purchase:%20Tolin" class="product-cta">
+                                Inquire to Purchase
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Ponil Tapestry -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="tapestry-showcase">
+                                <div class="tapestry-side">
+                                    <img src="assets/images/tapestry-designs-optimized/ponil-cultural.jpg" alt="Ponil Cultural Side" class="clickable-image" onclick="openLightbox('assets/images/tapestry-designs-optimized/ponil-cultural.jpg')" loading="lazy">
+                                    <div class="side-label">Cultural</div>
+                                </div>
+                                <div class="tapestry-side">
+                                    <img src="assets/images/tapestry-designs-optimized/ponil-scientific.jpg" alt="Ponil Scientific Side" class="clickable-image" onclick="openLightbox('assets/images/tapestry-designs-optimized/ponil-scientific.jpg')" loading="lazy">
+                                    <div class="side-label">Scientific</div>
+                                </div>
+                            </div>
+                            <span class="product-badge">Double-Sided</span>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Ponil</h3>
+                            <p class="product-description">Brings Indigenous plant knowledge to life through cultural and scientific perspectives.</p>
+                            <div class="product-details">
+                                <span>✓ Double-sided design</span>
+                                <span>✓ Includes hanging hardware</span>
+                                <span>✓ Ready to display</span>
+                            </div>
+                            <div class="product-price">$600</div>
+                            <a href="mailto:essentialscreative@gmail.com?subject=Tapestry%20Purchase:%20Ponil" class="product-cta">
+                                Inquire to Purchase
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Atlazomilili Tapestry -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="tapestry-showcase">
+                                <div class="tapestry-side">
+                                    <img src="assets/images/tapestry-designs-optimized/atlazomilili-cultural.jpg" alt="Atlazomilili Cultural Side" class="clickable-image" onclick="openLightbox('assets/images/tapestry-designs-optimized/atlazomilili-cultural.jpg')" loading="lazy">
+                                    <div class="side-label">Cultural</div>
+                                </div>
+                                <div class="tapestry-side">
+                                    <img src="assets/images/tapestry-designs-optimized/atlazomilili-scientific.jpg" alt="Atlazomilili Scientific Side" class="clickable-image" onclick="openLightbox('assets/images/tapestry-designs-optimized/atlazomilili-scientific.jpg')" loading="lazy">
+                                    <div class="side-label">Scientific</div>
+                                </div>
+                            </div>
+                            <span class="product-badge">Double-Sided</span>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-name">Atlazomilili</h3>
+                            <p class="product-description">Celebrates water plants and their cultural significance in Indigenous communities.</p>
+                            <div class="product-details">
+                                <span>✓ Double-sided design</span>
+                                <span>✓ Includes hanging hardware</span>
+                                <span>✓ Ready to display</span>
+                            </div>
+                            <div class="product-price">$600</div>
+                            <a href="mailto:essentialscreative@gmail.com?subject=Tapestry%20Purchase:%20Atlazomilili" class="product-cta">
+                                Inquire to Purchase
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Purchase Info -->
+        <section style="padding: 4rem 0; background: var(--gradient-subtle);">
+            <div class="container">
+                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <h2 class="section-title" style="margin-bottom: 2rem;">How to Order</h2>
+                    <p style="font-size: var(--text-lg); line-height: var(--leading-relaxed); color: var(--color-text-secondary); margin-bottom: 2rem;">
+                        All items are made to order to reduce waste and ensure quality. Click "Inquire to Purchase" or "Order Now" to email us with your selection, size, and shipping details. We'll respond within 24 hours with payment and shipping information.
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                        <div>
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-primary); margin-bottom: 1rem;">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                            <h4 style="font-weight: var(--font-semibold); margin-bottom: 0.5rem;">Quick Response</h4>
+                            <p style="color: var(--color-text-secondary); font-size: var(--text-sm);">We reply within 24 hours</p>
+                        </div>
+                        <div>
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-primary); margin-bottom: 1rem;">
+                                <path d="M20 7h-9M14 17H5M18 3v4M6 21v-4M4 10h16v10H4z"/>
+                            </svg>
+                            <h4 style="font-weight: var(--font-semibold); margin-bottom: 0.5rem;">Secure Shipping</h4>
+                            <p style="color: var(--color-text-secondary); font-size: var(--text-sm);">Carefully packaged & insured</p>
+                        </div>
+                        <div>
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-primary); margin-bottom: 1rem;">
+                                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-1 14.93A8 8 0 0 1 5.07 11H8a1 1 0 0 1 0 2H5.07A8 8 0 0 1 11 5.07V8a1 1 0 0 1-2 0V5.07z"/>
+                                <polyline points="16 12 12 8 12 12 16 12"/>
+                            </svg>
+                            <h4 style="font-weight: var(--font-semibold); margin-bottom: 0.5rem;">Support Artists</h4>
+                            <p style="color: var(--color-text-secondary); font-size: var(--text-sm);">Directly support our collective</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightbox-img">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-overlay"></div>
+        <div class="footer-container">
+            <div class="footer-content" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; padding-top: 3rem;">
+                <div class="footer-section">
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem; color: white;">Essentials Creative</h3>
+                    <p style="color: rgba(255,255,255,0.8); line-height: 1.6;">Amplifying cultural narratives through multimedia art</p>
+                </div>
+                <div class="footer-section">
+                    <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; color: white;">Quick Links</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <p><a href="/" style="color: rgba(255,255,255,0.8); transition: color 0.3s ease;">Home</a></p>
+                        <p><a href="/#rhizomatic" style="color: rgba(255,255,255,0.8); transition: color 0.3s ease;">Rhizomatic</a></p>
+                        <p><a href="shop.html" style="color: rgba(255,255,255,0.8); transition: color 0.3s ease;">Shop</a></p>
+                        <p><a href="/#contact" style="color: rgba(255,255,255,0.8); transition: color 0.3s ease;">Contact</a></p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; color: white;">Connect</h4>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <a href="https://www.instagram.com/essentialscreative/" rel="noopener" target="_blank" style="display: flex; align-items: center; gap: 0.75rem; color: rgba(255,255,255,0.9);">
+                            Instagram
+                        </a>
+                        <a href="https://www.youtube.com/@essentialscreative" rel="noopener" target="_blank" style="display: flex; align-items: center; gap: 0.75rem; color: rgba(255,255,255,0.9);">
+                            YouTube
+                        </a>
+                        <a href="mailto:essentialscreative@gmail.com" style="display: flex; align-items: center; gap: 0.75rem; color: rgba(255,255,255,0.9);">
+                            Email
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core JavaScript Framework v4.0 -->
+    <script src="assets/js/core.js?v=4.0" defer></script>
+    <script src="assets/js/navigation.js?v=4.0" defer></script>
+    <script src="assets/js/unified-gallery-lightbox.js" defer></script>
+    <script src="assets/js/accessibility.js?v=4.0" defer></script>
+
+    <script>
+        // Smooth scroll for category navigation
+        document.querySelectorAll('.category-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                    // Update active state
+                    document.querySelectorAll('.category-link').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Highlight active category on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    document.querySelectorAll('.category-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.product-category').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Lightbox functionality
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imageSrc;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close on background click
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        // Close on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>

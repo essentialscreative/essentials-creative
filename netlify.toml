@@ -1,0 +1,187 @@
+# Netlify Configuration for Essentials Creative Studio
+# Optimized for multimedia content and performance
+
+[build]
+  publish = "."
+  command = "echo 'Static site ready for deployment'"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# Domain configuration
+[context.production]
+  command = "echo 'Production build ready'"
+  [context.production.environment]
+    NODE_ENV = "production"
+
+[context.deploy-preview]
+  command = "echo 'Preview build ready'"
+  [context.deploy-preview.environment]
+    NODE_ENV = "preview"
+
+[context.branch-deploy]
+  command = "echo 'Branch deploy ready'"
+  [context.branch-deploy.environment]
+    NODE_ENV = "development"
+
+# Pretty URLs: redirect path-only URLs to .html pages
+[[redirects]]
+  from = "/photography"
+  to = "/photography.html"
+  status = 301
+
+[[redirects]]
+  from = "/photography/*"
+  to = "/photography.html"
+  status = 301
+
+[[redirects]]
+  from = "/graphic-design"
+  to = "/design.html"
+  status = 301
+
+[[redirects]]
+  from = "/graphic-design/*"
+  to = "/design.html"
+  status = 301
+
+[[redirects]]
+  from = "/design"
+  to = "/design.html"
+  status = 301
+
+[[redirects]]
+  from = "/design/*"
+  to = "/design.html"
+  status = 301
+
+[[redirects]]
+  from = "/social-media/*"
+  to = "/social-media.html"
+  status = 200
+
+[[redirects]]
+  from = "/shop/*"
+  to = "/shop.html"
+  status = 200
+
+# Redirect old Squarespace URLs (to be updated based on actual URLs)
+[[redirects]]
+  from = "/portfolio"
+  to = "/#portfolio"
+  status = 301
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 301
+
+[[redirects]]
+  from = "/contact-us"
+  to = "/contact.html"
+  status = 301
+
+[[redirects]]
+  from = "/about-us"
+  to = "/about.html"
+  status = 200
+
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 301
+
+[[redirects]]
+  from = "/projects"
+  to = "/installations.html"
+  status = 301
+
+[[redirects]]
+  from = "/installations"
+  to = "/installations.html"
+  status = 301
+
+[[redirects]]
+  from = "/installations/*"
+  to = "/installations.html"
+  status = 301
+
+# Image optimization headers
+[[headers]]
+  for = "/assets/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    Vary = "Accept"
+
+# Font optimization headers
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+# CSS and JS optimization headers
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+# Security headers for all pages
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Content Security Policy
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = '''
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' https://www.instagram.com https://www.tiktok.com https://www.youtube.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' data: https: blob:;
+      media-src 'self' https:;
+      connect-src 'self' https://formspree.io https://api.instagram.com https://www.youtube.com;
+      frame-src https://www.instagram.com https://www.tiktok.com https://www.youtube.com https://player.vimeo.com;
+    '''
+
+# Form handling
+[[redirects]]
+  from = "/api/contact"
+  to = "/.netlify/functions/contact"
+  status = 200
+
+# 404 handling - This should be the last redirect rule
+# and only applies when no other files or rules match
+
+# Image format transformation for modern browsers
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Vary = "Accept"
+
+[[headers]]
+  for = "/*.jpeg"
+  [headers.values]
+    Vary = "Accept"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Vary = "Accept"
+
+# Preload critical resources
+[[headers]]
+  for = "/"
+  [headers.values]
+    Link = "</assets/js/main.js>; rel=preload; as=script"

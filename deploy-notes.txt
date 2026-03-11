@@ -1,0 +1,3 @@
+Deployment prepared on Wed Feb 11 16:14:12 CST 2026
+Updated rhizomatic.html with professional curatorial layout
+Fixed broken YouTube thumbnail image - Wed Feb 11 20:58:33 CST 2026

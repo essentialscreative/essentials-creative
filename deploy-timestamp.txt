@@ -1,0 +1,6 @@
+Deployment timestamp: February 8, 2026 at 12:05 PM
+Updates included:
+- Bio: "Experimentation, fluidity & collaboration..." 
+- Services: Bullet list format, center-aligned
+- Installation Art (not Activation Art)
+- Favicon: E logo included
