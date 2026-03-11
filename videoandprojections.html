@@ -13,9 +13,9 @@
 <meta content="Video/Projections - Essentials Creative" property="og:title"/>
 <meta content="Visual gallery of projection art and immersive experiences by Essentials Creative." property="og:description"/>
 <meta content="website" property="og:type"/>
-<meta content="https://essentialscreative.com/projections" property="og:url"/><link href="assets/css/navigation.css?v=4.0" rel="stylesheet"/>
-<link href="assets/css/main.css" rel="stylesheet"/>
-<link href="assets/css/enhanced-lightbox.css?v=4.0" rel="stylesheet"/>
+<meta content="https://essentialscreative.com/projections" property="og:url"/><link href="assets/css/navigation.css?v=4.1" rel="stylesheet"/>
+<link href="assets/css/main.css?v=4.1" rel="stylesheet"/>
+<link href="assets/css/enhanced-lightbox.css?v=4.1" rel="stylesheet"/>
 <!-- Favicon -->
 <link href="assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="assets/images/favicon.png" rel="apple-touch-icon" sizes="180x180"/>
@@ -288,13 +288,71 @@
         </p>
 
         <!-- Projection Gallery Grid -->
-        <div id="unified-gallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-            <!-- Projection images will be dynamically inserted here -->
+        <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            
+            <div class="gallery-item">
+                <img src="assets/images/gallery/Installations/ANISDAYANDNIGHT.png" alt="Day and Night Projection" loading="lazy">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="assets/images/gallery/Installations/Essentials Creative_Native Waters.jpg" alt="Native Waters Projection" loading="lazy">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="assets/images/gallery/Installations/AN3A8845+copy.jpg" alt="Projection Installation" loading="lazy">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="assets/images/gallery/Installations/AN3A8947+copy.jpg" alt="Light Installation" loading="lazy">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="assets/images/gallery/Installations/AN3A8318+copy.jpg" alt="Environmental Projection" loading="lazy">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="assets/images/gallery/Installations/AN3A7689+copy.jpg" alt="Architectural Projection" loading="lazy">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="assets/images/gallery/Installations/installation by essentials creative2.jpg" alt="Creative Installation" loading="lazy">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="assets/images/gallery/Installations/installation by essentials creative3.jpg" alt="Art Installation" loading="lazy">
+            </div>
+            
+            <div class="gallery-item">
+                <img src="assets/images/gallery/Installations/Zen+Garden_Afterworld36.webp" alt="Zen Garden Projection" loading="lazy">
+            </div>
+            
         </div>
     </div>
 </section>
 
 <style>
+.gallery-item {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
 .media-item {
     position: relative;
     cursor: pointer;
@@ -313,32 +371,26 @@
     border-radius: 12px;
 }
 
-.media-item.projection-item::after {
-    content: 'PROJECTION';
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    background: rgba(0,0,0,0.7);
-    color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    font-weight: 600;
-}
-
 @media (max-width: 768px) {
-    #unified-gallery {
+    .gallery-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    .video-grid {
         grid-template-columns: 1fr !important;
         gap: 1.5rem !important;
     }
 }
 
 @media (max-width: 480px) {
-    .multimedia-gallery .container {
+    .projection-gallery .container {
         padding: 0 1rem !important;
     }
-    .multimedia-gallery h2 {
+    .projection-gallery h2 {
         font-size: 2rem !important;
+    }
+    .gallery-item img {
+        height: 200px;
     }
 }
 </style>
@@ -359,77 +411,11 @@
 </div>
 </main>
 <script>
-   let galleryImages = [];
-        let currentImageIndex = 0;
-
-        // Get all images from the projections folder dynamically
-        async function loadGalleryImages() {
-            // List of unique projection photo files only (no portfolio pages)
-            const imageFiles = [
-                '3E1A3590.JPG',
-                '3E1A3630.JPG',
-                '3E1A4363.jpg',
-                '3E1A4621.jpg',
-                'AN3A0429 copy.jpg',
-                'AN3A0826.jpg',
-                'AN3A3969.jpg',
-                'AN3A4633 copy.jpg',
-                'AN3A5586.JPG',
-                'AN3A7230.JPG',
-                'Essentials Creative_Native Waters.jpg',
-                'Essentials+Creative+at+Commodore+Perry+Estate.jpeg',
-                'Essentials+Creative+X+Commodore+Perry+Estate+in+Austin,+Texas+2020.jpeg',
-                'IMG_0688 copy.jpg',
-                'IMG_4327.jpg'
-            ];
-
-            galleryImages = imageFiles.map(filename => ({
-                src: `assets/images/projections/${filename}`,
-                alt: 'Projection Art',
-                type: 'projection'
-            }));
-        }
-
-        // Generate unified gallery with both videos and projections
-        function generateGallery() {
-            const gallery = document.getElementById('unified-gallery');
-            
-            // Add projection images to the existing video items
-            galleryImages.forEach((item, index) => {
-                const mediaItem = document.createElement('div');
-                mediaItem.className = 'media-item projection-item';
-                
-                // Create image element
-                const img = document.createElement('img');
-                img.src = item.src;
-                img.alt = item.alt;
-                img.loading = 'lazy';
-                
-                mediaItem.appendChild(img);
-                gallery.appendChild(mediaItem);
-            });
-        }
-
-        // Note: Lightbox functionality now handled by unified-gallery-lightbox.js
-
-        // Initialize gallery
-        document.addEventListener('DOMContentLoaded', async function() {
-            await loadGalleryImages();
-            generateGallery();
-            
-            // Refresh the unified lightbox to include new images
-            setTimeout(() => {
-                if (window.refreshGalleryLightbox) {
-                    window.refreshGalleryLightbox();
-                }
-            }, 100);
-        });
-
         // Hamburger menu toggle
         document.querySelector('.hamburger-toggle')?.addEventListener('click', function() {
             console.log('Mobile menu toggle');
         });
-  </script>
+</script>
 
 <!-- Footer -->
 <footer class="footer" style="background: #f8f8f8; padding: 3rem 2rem 2rem; text-align: center;">
