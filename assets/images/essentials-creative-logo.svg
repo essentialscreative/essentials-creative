@@ -1,29 +1,58 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 50" width="260" height="50">
-  <!-- ESSENTIALS text with location pin for "i" -->
-  <g font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#000">
-    <!-- ESS -->
-    <text x="5" y="20">ESS</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 350" width="1400" height="350">
+  <!-- ESSENTIALS text with location pin dots -->
+  <g font-family="Arial Black, Arial, sans-serif" font-size="180" font-weight="900" fill="#2c2c2c">
     <!-- E -->
-    <text x="65" y="20">E</text>
-    <!-- N -->
-    <text x="85" y="20">N</text>
-    <!-- T -->
-    <text x="105" y="20">T</text>
-    <!-- Location pin replacing the "i" -->
-    <g transform="translate(122, 4)">
-      <!-- Pin body -->
-      <circle cx="0" cy="4" r="3.5" fill="#e74c3c"/>
-      <!-- Pin point -->
-      <path d="M0,7.5 L-1.5,12 L1.5,12 Z" fill="#e74c3c"/>
-      <!-- Pin dot -->
-      <circle cx="0" cy="4" r="1.2" fill="#ffffff"/>
+    <text x="20" y="160">E</text>
+    <!-- S with location pin -->
+    <g>
+      <text x="120" y="160">S</text>
+      <circle cx="165" cy="60" r="18" fill="#e74c3c"/>
+      <circle cx="165" cy="60" r="6" fill="#ffffff"/>
     </g>
-    <!-- ALS -->
-    <text x="135" y="20">ALS</text>
+    <!-- S with location pin -->
+    <g>
+      <text x="220" y="160">S</text>
+      <circle cx="265" cy="60" r="18" fill="#e74c3c"/>
+      <circle cx="265" cy="60" r="6" fill="#ffffff"/>
+    </g>
+    <!-- E with location pin -->
+    <g>
+      <text x="320" y="160">E</text>
+      <circle cx="375" cy="60" r="18" fill="#e74c3c"/>
+      <circle cx="375" cy="60" r="6" fill="#ffffff"/>
+    </g>
+    <!-- N -->
+    <text x="420" y="160">N</text>
+    <!-- T with location pin -->
+    <g>
+      <text x="540" y="160">T</text>
+      <circle cx="585" cy="60" r="18" fill="#e74c3c"/>
+      <circle cx="585" cy="60" r="6" fill="#ffffff"/>
+    </g>
+    <!-- I with location pin -->
+    <g>
+      <text x="640" y="160">I</text>
+      <circle cx="665" cy="60" r="18" fill="#e74c3c"/>
+      <circle cx="665" cy="60" r="6" fill="#ffffff"/>
+    </g>
+    <!-- A with location pin -->
+    <g>
+      <text x="700" y="160">A</text>
+      <circle cx="755" cy="60" r="18" fill="#e74c3c"/>
+      <circle cx="755" cy="60" r="6" fill="#ffffff"/>
+    </g>
+    <!-- L -->
+    <text x="820" y="160">L</text>
+    <!-- S with location pin -->
+    <g>
+      <text x="900" y="160">S</text>
+      <circle cx="945" cy="60" r="18" fill="#e74c3c"/>
+      <circle cx="945" cy="60" r="6" fill="#ffffff"/>
+    </g>
   </g>
   
   <!-- CREATIVE text (spaced letters) -->
-  <g font-family="Arial, sans-serif" font-size="11" font-weight="normal" fill="#000" letter-spacing="4px">
-    <text x="5" y="38">C R E A T I V E</text>
+  <g font-family="Arial, sans-serif" font-size="48" font-weight="normal" fill="#2c2c2c" letter-spacing="20px">
+    <text x="20" y="280">C R E A T I V E</text>
   </g>
 </svg>
