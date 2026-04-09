@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover" name="viewport"/>
+<title>Plant Story Cards - Community Stories from Austin, Texas | Essentials Creative</title>
+<meta content="49 authentic community responses documenting relationships between plants, places, and cultural heritage in Austin. Indigenous Coahuiltecan knowledge integrated respectfully through community collaboration." name="description"/>
+<meta content="plant stories, cultural narratives, participatory art, community installation, Austin plants, ancestral knowledge, indigenous knowledge, Coahuiltecan" name="keywords"/>
+
+<!-- Open Graph Meta Tags -->
+<meta content="Plant Story Cards - Community Stories from Austin, Texas" property="og:title"/>
+<meta content="49 authentic community responses documenting relationships between plants, places, and cultural heritage in Austin. Indigenous knowledge integrated respectfully through community collaboration." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://essentialscreative.com/plant-story-card-research" property="og:url"/>
+
+<!-- Favicon -->
+<link href="assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="assets/images/favicon.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="assets/images/favicon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="assets/images/favicon.png" rel="shortcut icon"/>
+
+<!-- Preload Critical Font -->
+<link rel="preload" href="assets/fonts/apercu/apercu_regular_pro.woff2" as="font" type="font/woff2" crossorigin>
+
+<!-- CSS -->
+<link href="assets/css/navigation.css?v=4.2" rel="stylesheet"/>
+<link href="assets/css/main.css?v=4.1" rel="stylesheet"/>
+<link href="assets/css/design-system.css?v=2.0" rel="stylesheet"/>
+<link href="assets/css/mobile-optimization.css?v=1.0" rel="stylesheet"/>
+<link href="assets/css/gallery-uniform.css?v=2.1" rel="stylesheet"/>
+<link href="assets/css/enhanced-lightbox.css?v=1.0" rel="stylesheet"/>
+
+<style>
+/* Plant Story Cards Page Specific Styles - Brutalist Design */
+@import url('https://fonts.cdnfonts.com/css/apercu');
+
+.plant-story-hero {
+    background: #fff;
+    padding: 60px 0;
+    margin-bottom: 60px;
+    border-bottom: 2px solid #000;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.hero-title {
+    font-family: 'Apercu', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-size: clamp(3rem, 8vw, 72px);
+    font-weight: 700;
+    letter-spacing: -3px;
+    margin-bottom: 20px;
+    color: #000;
+    line-height: 1.1;
+}
+
+.hero-description {
+    font-family: 'Apercu', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-size: 24px;
+    color: #666;
+    margin-bottom: 40px;
+    line-height: 1.4;
+}
+
+.section-standard {
+    margin: 0;
+}
+
+.section-standard + .section-standard {
+    margin-top: 60px;
+}
+
+.container-standard {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+
+.main-content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.section-title {
+    font-family: 'Apercu', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #000;
+    margin: 80px 0 30px 0;
+    text-align: left;
+}
+
+.content-centered {
+    max-width: none;
+    margin: 0;
+    text-align: left;
+}
+
+.theme-grid {
+    display: block;
+    margin-bottom: 2rem;
+}
+
+.theme-section {
+    border-top: 2px solid #000;
+    padding: 40px 0;
+    margin: 0;
+}
+
+.theme-section:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+.theme-section h3 {
+    font-family: 'Apercu', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 30px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #000;
+}
+
+.theme-section h4 {
+    font-family: 'Apercu', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 30px 0 16px 0;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tag {
+    display: inline-block;
+    border: 1px solid #000;
+    padding: 8px 16px;
+    margin: 4px;
+    font-size: 14px;
+    font-family: 'Apercu', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    background: #fff;
+    color: #000;
+}
+
+.tag:hover {
+    background: #000;
+    color: #fff;
+}
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin: 0 0 60px 0;
+    background: #000;
+}
+
+.stat-card {
+    background: #fff;
+    padding: 40px;
+    text-align: left;
+}
+
+.stat-card h4 {
+    font-family: 'Apercu', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -3px;
+    color: #000;
+    line-height: 1;
+}
+
+.stat-card p {
+    font-family: 'Apercu', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+    font-weight: 500;
+    color: #000;
+}
+
+.wisdom-quotes {
+    background: #2d5a27;
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 16px;
+    margin: 3rem 0;
+}
+
+.wisdom-quotes h3 {
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.quote {
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    text-align: center;
+    opacity: 0.95;
+}
+
+.cta-section {
+    background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+    padding: 4rem 2rem;
+    text-align: center;
+    border-radius: 16px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    padding: 16px 32px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Apercu', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: 2px solid #000;
+    margin: 10px;
+}
+
+.btn-primary:hover {
+    background: #fff;
+    color: #000;
+}
+
+.btn-secondary {
+    display: inline-block;
+    background: #fff;
+    color: #000;
+    border: 2px solid #000;
+    padding: 16px 32px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Apercu', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    margin: 10px;
+}
+
+.btn-secondary:hover {
+    background: #000;
+    color: #fff;
+}
+
+.btn-green {
+    display: inline-block;
+    background: #4CAF50;
+    color: #fff;
+    padding: 16px 32px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Apercu', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: 2px solid #4CAF50;
+    margin: 10px;
+}
+
+.btn-green:hover {
+    background: #45a049;
+    border-color: #45a049;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .container-standard {
+        padding: 30px 16px;
+    }
+    
+    .hero-title {
+        font-size: 42px;
+        letter-spacing: -2px;
+    }
+    
+    .hero-description {
+        font-size: 18px;
+    }
+    
+    .section-title {
+        font-size: 20px;
+        margin-top: 60px;
+    }
+    
+    .overview-grid {
+        grid-template-columns: 1fr;
+        gap: 1px;
+    }
+    
+    .stat-card {
+        padding: 24px;
+    }
+    
+    .stat-card h4 {
+        font-size: 48px;
+        letter-spacing: -2px;
+    }
+    
+    .tag {
+        padding: 10px 14px;
+        margin: 3px;
+        font-size: 13px;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+    
+    .insight-grid {
+        grid-template-columns: 1fr;
+        gap: 1px;
+    }
+    
+    .insight-card {
+        padding: 20px;
+        min-height: auto;
+    }
+    
+    .insight-card h4 {
+        font-size: 14px;
+    }
+    
+    .insight-card p {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container-standard {
+        padding: 24px 12px;
+    }
+    
+    .hero-title {
+        font-size: 32px;
+        letter-spacing: -1px;
+    }
+    
+    .hero-description {
+        font-size: 16px;
+    }
+    
+    .section-title {
+        font-size: 18px;
+    }
+    
+    .stat-card h4 {
+        font-size: 36px;
+    }
+    
+    .tag {
+        padding: 8px 12px;
+        font-size: 12px;
+        margin: 2px;
+    }
+    
+    .btn-primary, .btn-secondary, .btn-green {
+        padding: 12px 24px;
+        font-size: 14px;
+        margin: 5px;
+    }
+}
+
+/* Additional brutalist styling */
+.insight-card:hover {
+    background: #f8f8f8;
+}
+
+.insight-card:active {
+    background: #f0f0f0;
+}
+
+body {
+    font-family: 'Apercu', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Apercu', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+
+p, li {
+    font-family: 'Apercu', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+
+/* Remove any rounded corners, shadows, and soft styling */
+* {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+.tag {
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.btn-primary, .btn-secondary, .btn-green {
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.btn-primary:hover, .btn-secondary:hover, .btn-green:hover {
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* Remove any existing shadows from inherited styles */
+.hero-title, .hero-description {
+    text-shadow: none !important;
+}
+
+.gallery-item, .service-card, .stat-card, .theme-card, .insight-card {
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+.gallery-item:hover, .service-card:hover, .stat-card:hover, .theme-card:hover, .insight-card:hover {
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+</style>
+</head>
+
+<body class="page-plant-story-cards">
+<div class="skip-links skip-links--bar">
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<a href="#main-navigation" class="skip-link">Skip to navigation</a>
+</div>
+
+<header class="header" role="banner">
+<div class="nav-container">
+<div class="logo">
+<a href="index.html" aria-label="Essentials Creative - Home">
+<img alt="" src="assets/images/Essentials-Creative_Logo.png" width="180" height="45" style="height: 45px; width: auto; display: block;"/>
+</a>
+</div>
+<nav id="main-navigation" class="nav-links" role="navigation" aria-label="Main navigation">
+<a class="nav-link" href="index.html">Home</a>
+<a class="nav-link" href="photography.html">Photography</a>
+<a class="nav-link" href="design.html">Design</a>
+<a class="nav-link" href="video.html">Video</a>
+<div class="nav-dropdown">
+<button type="button" class="nav-dropdown-toggle active" id="nav-projects-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-projects-menu">Projects <span class="nav-dropdown-arrow" aria-hidden="true">▼</span></button>
+<div class="nav-dropdown-menu" id="nav-projects-menu" role="group" aria-label="Projects">
+<a href="node.html" class="nav-dropdown-item">Node</a>
+<a href="rhizomatic.html" class="nav-dropdown-item">Rhizomatic</a>
+<a href="plant-story-card-research.html" class="nav-dropdown-item active">Plant Story Cards</a>
+</div></div>
+<a class="nav-link" href="installations.html">Installations</a>
+<a class="nav-link" href="about.html">About</a>
+<a class="nav-link" href="contact.html">Contact</a>
+</nav>
+<div class="hamburger-nav">
+<button type="button" class="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+<span class="hamburger-line"></span>
+<span class="hamburger-line"></span>
+<span class="hamburger-line"></span>
+</button>
+<div class="hamburger-menu" id="mobile-menu">
+<a href="index.html" class="hamburger-link">Home</a>
+<a href="photography.html" class="hamburger-link">Photography</a>
+<a href="design.html" class="hamburger-link">Design</a>
+<a href="video.html" class="hamburger-link">Video</a>
+<div class="hamburger-section">
+<span class="hamburger-section-title">Projects</span>
+<a href="node.html" class="hamburger-link">Node</a>
+<a href="rhizomatic.html" class="hamburger-link">Rhizomatic</a>
+<a href="plant-story-card-research.html" class="hamburger-link active">Plant Story Cards</a>
+</div>
+<a href="installations.html" class="hamburger-link">Installations</a>
+<a href="about.html" class="hamburger-link">About</a>
+<a href="contact.html" class="hamburger-link">Contact</a>
+</div></div></div></header>
+
+<main id="main-content">
+<!-- Hero Section -->
+<section class="plant-story-hero">
+<div class="hero-content">
+<h1 class="hero-title">Plant Story Cards</h1>
+<p class="hero-description">
+Community Stories from Austin, Texas
+</p>
+<div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 40px;">
+<a href="https://symphonious-lollipop-46056e.netlify.app/final_report.html" target="_blank" class="btn-primary">📄 View Full Report</a>
+<a href="https://symphonious-lollipop-46056e.netlify.app/plant_database.html" target="_blank" class="btn-secondary">🌱 Plant Database</a>
+<a href="https://symphonious-lollipop-46056e.netlify.app/autoplay_slideshow.html" target="_blank" class="btn-secondary">▶ Presentation</a>
+</div>
+<div style="margin-top: 30px; text-align: center;">
+<a href="https://forms.gle/19nZT8ZZvx9mEq4t7" target="_blank" class="btn-green">✍️ Share Your Plant Story</a>
+<p style="font-size: 14px; color: #666; margin-top: 10px; font-family: 'Apercu', sans-serif;">Add your voice to our growing collection</p>
+</div>
+</div>
+</section>
+
+<!-- Project Overview -->
+<section class="section-standard" id="project-overview">
+<div class="container-standard">
+<h2 class="section-title" style="margin-top: 0; border-bottom: none; padding-bottom: 0; margin-bottom: 40px;">Project Overview</h2>
+<div class="overview-grid">
+<div class="stat-card">
+<h4>49</h4>
+<p>Total Responses</p>
+</div>
+<div class="stat-card">
+<h4>42 + 7</h4>
+<p>Physical + Digital</p>
+</div>
+<div class="stat-card">
+<h4>March 2026</h4>
+<p>Collection Period</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Key Questions Section -->
+<section class="section-standard">
+<div class="main-content-container">
+<h2 class="section-title">Key Questions Asked</h2>
+<style>
+.questions-list {
+    counter-reset: item;
+    margin: 30px 0;
+    padding-left: 0;
+    font-family: 'Apercu', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+.questions-list li {
+    counter-increment: item;
+    margin-bottom: 16px;
+    padding-left: 40px;
+    position: relative;
+    list-style: none;
+    font-size: 16px;
+    line-height: 1.7;
+}
+.questions-list li:before {
+    content: counter(item, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    font-weight: 500;
+    font-size: 14px;
+}
+</style>
+<ol class="questions-list">
+<li>What plants, places, or communities here hold meaning for you?</li>
+<li>What flora, fauna, or food brings your ancestors to mind?</li>
+<li>What colors feel like home to you?</li>
+<li>What plant or food marks important moments in your family?</li>
+<li>What did your grandparents, parents, or elders teach you about the natural world?</li>
+<li>What symbol or pattern holds meaning to you or your culture?</li>
+</ol>
+</div>
+</section>
+
+<!-- Common Themes -->
+<section class="section-standard">
+<div class="main-content-container">
+<h2 class="section-title">Common Themes</h2>
+
+<div class="theme-section">
+<h3>Plants & Flora</h3>
+<h4><strong>Native Texas Plants:</strong></h4>
+<div>
+<span class="tag">Mountain Laurel</span>
+<span class="tag">Red Buds</span>
+<span class="tag">Mexican Plum</span>
+<span class="tag">Mesquite</span>
+<span class="tag">Yucca</span>
+<span class="tag">Yucca Flower</span>
+<span class="tag">Nopal (Prickly Pear)</span>
+<span class="tag">Texas Sage</span>
+<span class="tag">Bluebonnets</span>
+<span class="tag">Chili Pequin</span>
+<span class="tag">Agave</span>
+<span class="tag">Lemonade Berry Plant</span>
+</div>
+<h4><strong>Sacred Plants & Traditional Foods:</strong></h4>
+<div>
+<span class="tag">Corn/Maize</span>
+<span class="tag">Peyote</span>
+<span class="tag">Buffalo</span>
+<span class="tag">Deer</span>
+</div>
+<h4><strong>Cultural Plants:</strong></h4>
+<div>
+<span class="tag">Sampaguita (jasmine)</span>
+<span class="tag">Bamboo</span>
+<span class="tag">Rice</span>
+<span class="tag">Coconut</span>
+<span class="tag">Roses</span>
+<span class="tag">African Violets</span>
+<span class="tag">Plantain</span>
+<span class="tag">Collard Greens</span>
+<span class="tag">Mint Leaves</span>
+<span class="tag">Grape Leaves</span>
+<span class="tag">Guava Tree</span>
+<span class="tag">Palm Trees</span>
+</div>
+</div>
+
+<div class="theme-section">
+<h3>Places & Communities</h3>
+<h4><strong>Sacred Waters & Springs:</strong></h4>
+<div>
+<span class="tag">Barton Springs</span>
+<span class="tag">San Marcos River</span>
+<span class="tag">Four Sacred Springs</span>
+<span class="tag">Deep Eddy</span>
+</div>
+<h4><strong>Austin Locations:</strong></h4>
+<div>
+<span class="tag">Wildflower Center</span>
+<span class="tag">Greenbelt</span>
+<span class="tag">Zilker</span>
+<span class="tag">McKinney Falls</span>
+<span class="tag">Barton Creek</span>
+<span class="tag">Hyde Park</span>
+<span class="tag">East Austin</span>
+<span class="tag">Bouldin Creek</span>
+<span class="tag">Rose Park</span>
+<span class="tag">Zilker Botanical Garden</span>
+</div>
+<h4><strong>Indigenous Heritage:</strong></h4>
+<div>
+<span class="tag">Coahuiltecan People</span>
+<span class="tag">Central/South Texas Indigenous</span>
+<span class="tag">Traditional Land Relationships</span>
+</div>
+<h4><strong>Cultural Communities:</strong></h4>
+<div>
+<span class="tag">Native Peoples</span>
+<span class="tag">Red Salmon Arts</span>
+<span class="tag">DAWA heals</span>
+<span class="tag">Deaf Community</span>
+<span class="tag">Sign Languages</span>
+<span class="tag">International Communities</span>
+<span class="tag">Asian Heritage</span>
+<span class="tag">European Heritage</span>
+<span class="tag">Hispanic/Latino Heritage</span>
+</div>
+</div>
+
+<div class="theme-section">
+<h3>Cultural Foods</h3>
+<h4><strong>Traditional Dishes:</strong></h4>
+<div>
+<span class="tag">Tamales</span>
+<span class="tag">Rice Dishes</span>
+<span class="tag">Tortillas</span>
+<span class="tag">Mac and Cheese</span>
+<span class="tag">Lumpia</span>
+<span class="tag">Lechon</span>
+</div>
+<h4><strong>Celebration Foods:</strong></h4>
+<div>
+<span class="tag">Banh Tet (Lunar New Year)</span>
+<span class="tag">Traditional Herbs</span>
+<span class="tag">Fresh Garden Vegetables</span>
+<span class="tag">Sweet Potatoes</span>
+<span class="tag">Apple Pie</span>
+<span class="tag">BBQ</span>
+<span class="tag">Spinach Soup</span>
+<span class="tag">Fish Pockets</span>
+<span class="tag">Nopales/Cactus</span>
+<span class="tag">Fried Chicken</span>
+<span class="tag">Squash</span>
+<span class="tag">Pecans</span>
+</div>
+</div>
+
+<div class="theme-section">
+<h3>Colors of Home</h3>
+<div>
+<span class="tag">Green</span>
+<span class="tag">Brown</span>
+<span class="tag">Blue</span>
+<span class="tag">Purple</span>
+<span class="tag">Red</span>
+<span class="tag">Yellow</span>
+<span class="tag">Orange</span>
+<span class="tag">Grey</span>
+<span class="tag">Sage Green</span>
+<span class="tag">Fuschia</span>
+<span class="tag">Terra Cotta</span>
+<span class="tag">Wildflower Colors</span>
+</div>
+</div>
+
+<div class="theme-section">
+<h3>Cultural Symbols & Patterns</h3>
+<div>
+<span class="tag">Lotus Flower</span>
+<span class="tag">Philippine Sun</span>
+<span class="tag">Catholic Figures</span>
+<span class="tag">Hearts</span>
+<span class="tag">Lions</span>
+<span class="tag">Female Symbol</span>
+<span class="tag">Spirals</span>
+<span class="tag">Crescents</span>
+<span class="tag">Peace Signs</span>
+<span class="tag">Zia Symbol</span>
+<span class="tag">Sacred Geometry</span>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- Wisdom from Elders -->
+<section class="section-standard">
+<div class="main-content-container">
+<div class="theme-section" style="padding: 40px 0; margin: 60px 0;">
+<h3 style="margin-top: 0; text-align: center;">Teachings from Elders</h3>
+<div style="font-family: 'Apercu', sans-serif; font-style: italic; font-size: 16px; line-height: 1.6; margin-bottom: 1rem; text-align: center;">"Everything is sacred and comes directly from the Creator"</div>
+<div style="font-family: 'Apercu', sans-serif; font-style: italic; font-size: 16px; line-height: 1.6; margin-bottom: 1rem; text-align: center;">"Work with nature, love nature"</div>
+<div style="font-family: 'Apercu', sans-serif; font-style: italic; font-size: 16px; line-height: 1.6; margin-bottom: 1rem; text-align: center;">"Respect it & respect back"</div>
+<div style="font-family: 'Apercu', sans-serif; font-style: italic; font-size: 16px; line-height: 1.6; margin-bottom: 1rem; text-align: center;">"Plant trees for generations to come"</div>
+<div style="font-family: 'Apercu', sans-serif; font-style: italic; font-size: 16px; line-height: 1.6; margin-bottom: 0; text-align: center;">"Nature unites the world and reminds us of our creator"</div>
+</div>
+</div>
+</section>
+
+<!-- Notable Insights -->
+<section class="section-standard">
+<div class="main-content-container">
+<h2 class="section-title">Key Insights</h2>
+<div class="insight-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; margin: 40px 0; background: #000;">
+<div class="insight-card" style="background: #fff; padding: 30px; min-height: 120px; display: flex; flex-direction: column; transition: all 0.3s ease;">
+<h4 style="font-family: 'Apercu', sans-serif; font-size: 16px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 500;">Food Plants Bridge Generations</h4>
+<p style="font-family: 'Apercu', sans-serif; font-size: 14px; line-height: 1.6; color: #333; margin: 0;">Strong pattern of food-related plants (chili pequin, rice, nopal) carrying family stories</p>
+</div>
+<div class="insight-card" style="background: #fff; padding: 30px; min-height: 120px; display: flex; flex-direction: column; transition: all 0.3s ease;">
+<h4 style="font-family: 'Apercu', sans-serif; font-size: 16px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 500;">Food as Cultural Bridge</h4>
+<p style="font-family: 'Apercu', sans-serif; font-size: 14px; line-height: 1.6; color: #333; margin: 0;">Meals and traditional dishes serve as family connection points</p>
+</div>
+<div class="insight-card" style="background: #fff; padding: 30px; min-height: 120px; display: flex; flex-direction: column; transition: all 0.3s ease;">
+<h4 style="font-family: 'Apercu', sans-serif; font-size: 16px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 500;">Nature as Sacred</h4>
+<p style="font-family: 'Apercu', sans-serif; font-size: 14px; line-height: 1.6; color: #333; margin: 0;">Recurring theme of treating environment with respect</p>
+</div>
+<div class="insight-card" style="background: #fff; padding: 30px; min-height: 120px; display: flex; flex-direction: column; transition: all 0.3s ease;">
+<h4 style="font-family: 'Apercu', sans-serif; font-size: 16px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 500;">Cultural Resilience</h4>
+<p style="font-family: 'Apercu', sans-serif; font-size: 14px; line-height: 1.6; color: #333; margin: 0;">Symbols like lotus flower represent strength through challenges</p>
+</div>
+<div class="insight-card" style="background: #fff; padding: 30px; min-height: 120px; display: flex; flex-direction: column; transition: all 0.3s ease;">
+<h4 style="font-family: 'Apercu', sans-serif; font-size: 16px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 500;">Place-based Identity</h4>
+<p style="font-family: 'Apercu', sans-serif; font-size: 14px; line-height: 1.6; color: #333; margin: 0;">Deep connections to specific Austin/Texas locations</p>
+</div>
+<div class="insight-card" style="background: #fff; padding: 30px; min-height: 120px; display: flex; flex-direction: column; transition: all 0.3s ease;">
+<h4 style="font-family: 'Apercu', sans-serif; font-size: 16px; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 500;">Immigrant Stories</h4>
+<p style="font-family: 'Apercu', sans-serif; font-size: 14px; line-height: 1.6; color: #333; margin: 0;">Multiple references to maintaining cultural connections through plants and food</p>
+</div>
+</div>
+</div>
+</section>
+
+
+
+<!-- Call to Action -->
+<section class="section-standard">
+<div class="main-content-container">
+<div style="padding: 40px 0; margin: 60px 0; text-align: center;">
+<h2 class="section-title" style="margin-top: 0; text-align: center; border-bottom: none;">Continue Contributing</h2>
+<p style="font-family: 'Apercu', sans-serif; font-size: 16px; color: #666; margin-bottom: 30px; line-height: 1.6;">
+We're continuing to collect stories about plants, places, and cultural connections.<br>Add your voice to this growing community archive.
+</p>
+<div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+<a href="https://forms.gle/19nZT8ZZvx9mEq4t7" target="_blank" class="btn-green">Submit Your Story</a>
+<a href="https://symphonious-lollipop-46056e.netlify.app/" target="_blank" class="btn-secondary">View Live Database</a>
+<a href="rhizomatic.html" class="btn-secondary">Explore Rhizomatic</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="footer" role="contentinfo" style="background: #f8f8f8; padding: 3rem 2rem 2rem; text-align: center; margin-top: 4rem;">
+<div style="max-width: 1200px; margin: 0 auto;">
+<!-- Newsletter -->
+<div style="margin-bottom: 3rem;">
+<h3 style="margin-bottom: 1rem; color: #333;">Stay Connected</h3>
+<p style="color: #666; margin-bottom: 2rem;">Get updates about new work and collaborations.</p>
+<form action="https://formspree.io/f/mblyvvyn" method="POST" style="display: flex; gap: 1rem; max-width: 400px; margin: 0 auto; flex-wrap: wrap;">
+<label for="footer-email" class="sr-only">Email for newsletter</label>
+<input id="footer-email" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="flex: 1; min-width: 200px; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;"/>
+<input type="hidden" name="_subject" value="Newsletter Subscription"/>
+<button type="submit" style="padding: 0.75rem 1.5rem; background: #1a1a1a; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">Subscribe</button>
+</form>
+</div>
+
+<!-- Footer Content -->
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+<div>
+<h4 style="margin-bottom: 1rem; color: #333;">Essentials Creative</h4>
+<p style="color: #666;">Indigenous, Latinx & Asian artists creating collaborative multimedia experiences</p>
+</div>
+<div>
+<h4 style="margin-bottom: 1rem; color: #333;">Services</h4>
+<div style="display: flex; flex-direction: column; gap: 0.5rem;">
+<a href="photography.html" style="color: #666; text-decoration: none;">Photography</a>
+<a href="design.html" style="color: #666; text-decoration: none;">Design</a>
+<a href="installations.html" style="color: #666; text-decoration: none;">Installation Art</a>
+<a href="video.html" style="color: #666; text-decoration: none;">Video Production</a>
+</div>
+</div>
+<div>
+<h4 style="margin-bottom: 1rem; color: #333;">Connect</h4>
+<div style="display: flex; flex-direction: column; gap: 0.5rem;">
+<a href="https://www.instagram.com/essentialscreative/" target="_blank" rel="noopener" aria-label="Instagram (opens in new window)" style="color: #666; text-decoration: none;">Instagram</a>
+<a href="https://www.youtube.com/channel/UCmhlzjngU5_WX6n1mvtY2Bw" target="_blank" rel="noopener" aria-label="YouTube (opens in new window)" style="color: #666; text-decoration: none;">YouTube</a>
+<a href="contact.html" style="color: #666; text-decoration: none;">Contact</a>
+</div>
+</div>
+</div>
+
+<div style="border-top: 1px solid #ddd; padding-top: 2rem; color: #666; font-size: 0.9rem;">
+<p>&copy; 2026 Essentials Creative. All rights reserved.</p>
+</div>
+</div>
+</footer>
+
+<!-- JavaScript -->
+<script src="assets/js/navigation.js?v=4.3" defer></script>
+<script src="assets/js/unified-gallery-lightbox.js" defer></script>
+</body>
+</html>
