@@ -1,0 +1,83 @@
+{
+  "name": "essentials-creative-website",
+  "version": "3.0.0",
+  "description": "Portfolio website for Essentials Creative multimedia collective",
+  "main": "index.html",
+  "private": true,
+  "scripts": {
+    "serve": "python3 -m http.server 8000",
+    "test": "echo 'Run manual testing procedures from TESTING.md'",
+    "lint:html": "html-validate '*.html'",
+    "lint:css": "stylelint 'assets/css/*.css'",
+    "lint:js": "eslint 'assets/js/*.js'",
+    "lint": "npm run lint:html && npm run lint:css && npm run lint:js",
+    "build": "echo 'Static site - no build required'",
+    "deploy": "netlify deploy --prod --dir=.",
+    "deploy:preview": "netlify deploy --dir=.",
+    "optimize:images": "node optimize-images.js",
+    "check:links": "node daily-gallery-checker.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/essentialscreative/website.git"
+  },
+  "keywords": [
+    "portfolio",
+    "multimedia",
+    "art",
+    "collective",
+    "indigenous",
+    "latinx",
+    "asian",
+    "photography",
+    "design",
+    "installations"
+  ],
+  "author": "Essentials Creative",
+  "license": "UNLICENSED",
+  "homepage": "https://essentialscreative.com",
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "html-validate": "^8.18.0",
+    "netlify-cli": "^17.23.0",
+    "stylelint": "^16.5.0",
+    "stylelint-config-standard": "^36.0.0"
+  },
+  "dependencies": {},
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "last 2 Safari versions",
+    "last 2 Edge versions",
+    "iOS >= 12",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "config": {
+    "imageOptimization": {
+      "quality": 85,
+      "formats": ["webp", "jpg"],
+      "sizes": [320, 640, 960, 1280, 1920]
+    },
+    "performance": {
+      "lighthouse": {
+        "performance": 90,
+        "accessibility": 100,
+        "bestPractices": 95,
+        "seo": 100
+      },
+      "coreWebVitals": {
+        "lcp": 2.5,
+        "fid": 100,
+        "cls": 0.1
+      }
+    }
+  },
+  "netlify": {
+    "site_id": "essentialscreative",
+    "functions": "./functions"
+  }
+}

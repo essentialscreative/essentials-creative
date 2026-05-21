@@ -12,6 +12,20 @@ dev/
 *-optimized.html
 *-improved*
 
+# Backup / archive directories
+_archived_*/
+_unused_*/
+BACKUP_*/
+*-backup/
+archive/
+backups/
+
+# Claude Code local settings (per-machine)
+.claude/
+
+# Admin (internal — not for public site)
+admin/
+
 # OS Files
 .DS_Store
 Thumbs.db

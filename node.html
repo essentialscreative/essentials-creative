@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <title>Node: Video Art Night - Essentials Creative</title>
+    <meta name="description" content="From open nights and screenings to guerrilla projections across Austin and San Antonio, work that spreads through collective practice and takes form wherever community gathers.">
+    <meta name="keywords" content="Node, Video Art Night, projection art, video art, Austin, San Antonio, BIPOC artists, guerrilla projection, site-specific, Essentials Creative">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Node: Video Art Night - Essentials Creative">
+    <meta property="og:description" content="From open nights and screenings to guerrilla projections across Austin and San Antonio, work that spreads through collective practice and takes form wherever community gathers.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://essentialscreative.com/node">
+    <meta property="og:image" content="https://essentialscreative.com/assets/images/projections/node-videoartnight/AN3A7920.JPG">
+
+    <link rel="canonical" href="https://essentialscreative.com/node"/>
+
+<!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="assets/images/favicon.png" sizes="180x180">
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="assets/fonts/apercu/apercu_regular_pro.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- CSS Links -->
+    <link href="assets/css/navigation.css?v=4.2" rel="stylesheet">
+    <link href="assets/css/main.css?v=4.1" rel="stylesheet">
+    <link href="assets/css/design-system.css?v=2.0" rel="stylesheet">
+    <link href="assets/css/mobile-optimization.css?v=1.0" rel="stylesheet">
+    <link href="assets/css/gallery-uniform.css" rel="stylesheet">
+    <link href="assets/css/enhanced-lightbox.css" rel="stylesheet">
+
+    <!-- Project Page Specific Styles -->
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        body {font-family: 'Apercu', -apple-system, BlinkMacSystemFont, sans-serif; background: #fff; color: #1a1a1a;}
+
+        .project-hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: #0a0a0a;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: image-set(url('assets/images/projections/node-videoartnight/AN3A7920.webp') type('image/webp'), url('assets/images/projections/node-videoartnight/AN3A7920.JPG') type('image/jpeg'));
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero-background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg,
+                rgba(0, 0, 0, 0.35) 0%,
+                rgba(0, 0, 0, 0.45) 50%,
+                rgba(0, 0, 0, 0.75) 100%);
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            position: relative;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .project-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .project-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-description {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            opacity: 0.95;
+            max-width: 640px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .project-supporting {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.85;
+            max-width: 560px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+
+        .project-overview {
+            padding: 6rem 0;
+            background: #f8f8f8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .overview-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #1a1a1a;
+        }
+
+        .overview-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 2rem;
+        }
+
+        .overview-highlights {
+            list-style: none;
+        }
+
+        .overview-highlights li {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #333;
+        }
+
+        .overview-highlights li::before {
+            content: '\2192';
+            position: absolute;
+            left: 0;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .overview-sidebar {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 2rem;
+        }
+
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .sidebar-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-value {
+            font-size: 1.1rem;
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        .gallery-section {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .gallery-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid .gallery-item {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .gallery-grid .gallery-item[style*="opacity: 0"] {
+            pointer-events: none;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #f5f5f5;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            cursor: zoom-in;
+            transition: all 0.3s ease;
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .cta-section {
+            padding: 6rem 0;
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: white;
+            color: #1a1a1a;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .overview-sidebar {
+                position: static;
+                padding: 1.5rem;
+            }
+
+            .gallery-grid:not(.gallery-uniform) {
+                grid-template-columns: 1fr;
+            }
+
+            .project-title {
+                font-size: 3rem;
+            }
+
+            .project-subtitle {
+                font-size: 1rem;
+            }
+
+            .project-hero {
+                min-height: 60vh;
+            }
+
+            .hero-content {
+                padding: 1.5rem;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .project-overview,
+            .gallery-section,
+            .cta-section {
+                padding: 4rem 0;
+            }
+
+            .overview-content h2,
+            .gallery-header h2,
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .gallery-item {
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+
+            .gallery-item:active {
+                transform: translateY(-2px) scale(0.98);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .project-title {
+                font-size: 2.5rem;
+            }
+
+            .project-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Links -->
+    <div class="skip-links skip-links--bar">
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+        <a href="#main-navigation" class="skip-link">Skip to navigation</a>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="header" role="banner">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html" aria-label="Essentials Creative - Home">
+                    <img alt="" src="assets/images/Essentials-Creative_Logo.png" width="180" height="45" style="height: 45px; width: auto; display: block;">
+                </a>
+            </div>
+            <nav id="main-navigation" class="nav-links" role="navigation" aria-label="Main navigation">
+                <a class="nav-link" href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" id="nav-services-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-services-menu">
+                        Services <span class="nav-dropdown-arrow" aria-hidden="true">&#9660;</span>
+                    </button>
+                    <div class="nav-dropdown-menu" id="nav-services-menu" role="group" aria-label="Services">
+                        <a href="photography.html" class="nav-dropdown-item">Photography</a>
+                        <a href="design.html" class="nav-dropdown-item">Design</a>
+                        <a href="video.html" class="nav-dropdown-item">Video</a>
+                        <a href="projections.html" class="nav-dropdown-item">Projections</a>
+                        <a href="installations.html" class="nav-dropdown-item">Installations</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" id="nav-projects-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-projects-menu">
+                        Projects <span class="nav-dropdown-arrow" aria-hidden="true">&#9660;</span>
+                    </button>
+                    <div class="nav-dropdown-menu" id="nav-projects-menu" role="group" aria-label="Projects">
+                        <a href="afterworld.html" class="nav-dropdown-item">Afterworld</a>
+                        <a href="node.html" class="nav-dropdown-item active">Node</a>
+                        <a href="rhizomatic.html" class="nav-dropdown-item">Rhizomatic</a>
+                        <a href="plant-story-cards.html" class="nav-dropdown-item">Plant Story Cards</a>
+                    </div>
+                </div>
+                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="contact.html">Contact</a>
+            </nav>
+            <div class="hamburger-nav">
+                <button type="button" class="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                <div class="hamburger-menu" id="mobile-menu">
+                    <a href="index.html" class="hamburger-link">Home</a>
+                    <div class="hamburger-section">
+                        <span class="hamburger-section-title">Services</span>
+                        <a href="photography.html" class="hamburger-link">Photography</a>
+                        <a href="design.html" class="hamburger-link">Design</a>
+                        <a href="video.html" class="hamburger-link">Video</a>
+                        <a href="projections.html" class="hamburger-link">Projections</a>
+                        <a href="installations.html" class="hamburger-link">Installations</a>
+                    </div>
+                    <div class="hamburger-section">
+                        <span class="hamburger-section-title">Projects</span>
+                        <a href="afterworld.html" class="hamburger-link">Afterworld</a>
+                        <a href="node.html" class="hamburger-link active">Node</a>
+                        <a href="rhizomatic.html" class="hamburger-link">Rhizomatic</a>
+                        <a href="plant-story-cards.html" class="hamburger-link">Plant Story Cards</a>
+                    </div>
+                    <a href="about.html" class="hamburger-link">About</a>
+                    <a href="contact.html" class="hamburger-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content" role="main">
+        <!-- Hero Section -->
+        <section class="project-hero">
+            <div class="hero-background"></div>
+            <div class="hero-content">
+                <div class="project-subtitle">Video Art Night</div>
+                <h1 class="project-title">Node</h1>
+                <p class="project-description">From open nights and screenings to guerrilla projections across Austin and San Antonio, work that spreads through collective practice and takes form wherever community gathers.</p>
+                <p class="project-supporting">Book a projection. Partner on a program. Bring a night to your space.</p>
+            </div>
+        </section>
+
+        <!-- Project Overview -->
+        <section class="project-overview">
+            <div class="container">
+                <div class="overview-grid">
+                    <div class="overview-content">
+                        <h2>About the Program</h2>
+                        <p class="overview-description">Node, also known as Video Art Night, is an open-format projection program operating across Austin and San Antonio. Each iteration finds a new site and listens to it: a wall, a courtyard, a window, an industrial bay. The program brings together BIPOC artists, community organizations, and cultural institutions through screenings, guerrilla projections, and site-specific projection commissions.</p>
+
+                        <ul class="overview-highlights">
+                            <li>Open-format screenings welcoming BIPOC artists</li>
+                            <li>Guerrilla projections in unexpected sites across Austin and San Antonio</li>
+                            <li>Site-specific projection commissions for venues and organizations</li>
+                            <li>Collaborations with BIPOC-led partners and cultural institutions</li>
+                            <li>Each iteration shaped by the architecture and community of its site</li>
+                        </ul>
+                    </div>
+
+                    <div class="overview-sidebar">
+                        <div class="sidebar-section">
+                            <div class="sidebar-label">Format</div>
+                            <div class="sidebar-value">Open screenings, guerrilla projections, site-specific projection</div>
+                        </div>
+                        <div class="sidebar-section">
+                            <div class="sidebar-label">Locations</div>
+                            <div class="sidebar-value">Austin and San Antonio, TX</div>
+                        </div>
+                        <div class="sidebar-section">
+                            <div class="sidebar-label">Audience</div>
+                            <div class="sidebar-value">BIPOC artists, partners, and the public</div>
+                        </div>
+                        <div class="sidebar-section">
+                            <div class="sidebar-label">Status</div>
+                            <div class="sidebar-value">Ongoing program. Open to bookings and partnerships.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <div class="container">
+                <div class="gallery-header">
+                    <h2>From the Nights</h2>
+                    <p>Selected projections, screenings, and installs across recent Node events.</p>
+                </div>
+
+                <div class="gallery-grid gallery-uniform">
+                    <div class="gallery-item lightbox-trigger" data-category="poster">
+                        <picture><source srcset="assets/images/projections/node-videoartnight/Node_Video_Art_Night_poster.webp" type="image/webp"/><img src="assets/images/projections/node-videoartnight/Node_Video_Art_Night_poster.jpeg" alt="Node Video Art Night event poster" loading="lazy"></picture>
+                    </div>
+                    <div class="gallery-item lightbox-trigger" data-category="projection">
+                        <picture><source srcset="assets/images/projections/node-videoartnight/AN3A7920.webp" type="image/webp"/><img src="assets/images/projections/node-videoartnight/AN3A7920.JPG" alt="Tall solo projection in industrial space" loading="lazy"></picture>
+                    </div>
+                    <div class="gallery-item lightbox-trigger" data-category="projection">
+                        <picture><source srcset="assets/images/projections/node-videoartnight/AN3A0008_1.webp" type="image/webp"/><img src="assets/images/projections/node-videoartnight/AN3A0008_1.jpg" alt="Two viewers in front of dual projections, kaleidoscope and figures in flame" loading="lazy"></picture>
+                    </div>
+                    <div class="gallery-item lightbox-trigger" data-category="projection">
+                        <picture><source srcset="assets/images/projections/node-videoartnight/AN3A9279_1.webp" type="image/webp"/><img src="assets/images/projections/node-videoartnight/AN3A9279_1.jpg" alt="Panoramic projection of painted cat figures" loading="lazy"></picture>
+                    </div>
+                    <div class="gallery-item lightbox-trigger" data-category="projection">
+                        <picture><source srcset="assets/images/projections/node-videoartnight/AN3A0085.webp" type="image/webp"/><img src="assets/images/projections/node-videoartnight/AN3A0085.jpg" alt="Crowd watching multi-screen install with painted cow, paper sculpture, and map projection" loading="lazy"></picture>
+                    </div>
+                    <div class="gallery-item lightbox-trigger" data-category="projection">
+                        <picture><source srcset="assets/images/projections/node-videoartnight/AN3A9244_1.webp" type="image/webp"/><img src="assets/images/projections/node-videoartnight/AN3A9244_1.jpg" alt="Chrome figure projected on gallery wall alongside abstract liquid imagery" loading="lazy"></picture>
+                    </div>
+                    <div class="gallery-item lightbox-trigger" data-category="projection">
+                        <picture><source srcset="assets/images/projections/node-videoartnight/AN3A0039.webp" type="image/webp"/><img src="assets/images/projections/node-videoartnight/AN3A0039.jpg" alt="Empty room saturated in violet and blue water-pattern projections" loading="lazy"></picture>
+                    </div>
+                    <div class="gallery-item lightbox-trigger" data-category="projection">
+                        <picture><source srcset="assets/images/projections/node-videoartnight/AN3A0096_1.webp" type="image/webp"/><img src="assets/images/projections/node-videoartnight/AN3A0096_1.jpg" alt="Wide install with yellow projection, paper sculpture, and many-armed figure" loading="lazy"></picture>
+                    </div>
+                    <div class="gallery-item lightbox-trigger" data-category="projection">
+                        <picture><source srcset="assets/images/projections/node-videoartnight/AN3A9318.webp" type="image/webp"/><img src="assets/images/projections/node-videoartnight/AN3A9318.JPG" alt="Theatrical panoramic projection with eyes, hands, and animal figures" loading="lazy"></picture>
+                    </div>
+                    <div class="gallery-item lightbox-trigger" data-category="projection">
+                        <picture><source srcset="assets/images/projections/node-videoartnight/AN3A0036.webp" type="image/webp"/><img src="assets/images/projections/node-videoartnight/AN3A0036.jpg" alt="Quiet black-and-white figure projection on a single wall" loading="lazy"></picture>
+                    </div>
+                    <div class="gallery-item lightbox-trigger" data-category="projection">
+                        <picture><source srcset="assets/images/projections/node-videoartnight/AN3A0103_1.webp" type="image/webp"/><img src="assets/images/projections/node-videoartnight/AN3A0103_1.jpg" alt="Crowd around paper pyramid sculpture with blue-sphere screen behind" loading="lazy"></picture>
+                    </div>
+                    <div class="gallery-item lightbox-trigger" data-category="projection">
+                        <picture><source srcset="assets/images/projections/node-videoartnight/AN3A9219.webp" type="image/webp"/><img src="assets/images/projections/node-videoartnight/AN3A9219.JPG" alt="Dual screens with abstract figures and locker-room scene" loading="lazy"></picture>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Bring a Node night to your space</h2>
+                    <p>Book a projection. Partner on a program. Bring a night to your community.</p>
+                    <div class="cta-buttons">
+                        <a href="contact.html" class="btn">Book or partner</a>
+                        <a href="projections.html" class="btn btn-secondary">View projection work</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo" style="background: #f8f8f8; padding: 3rem 2rem 2rem; text-align: center; margin-top: 4rem;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <!-- Newsletter -->
+            <div style="margin-bottom: 3rem;">
+                <h3 style="margin-bottom: 1rem; color: #333;">Stay Connected</h3>
+                <p style="color: #666; margin-bottom: 2rem;">Get updates about new work and collaborations.</p>
+                <form action="https://formspree.io/f/mblyvvyn" method="POST" style="display: flex; gap: 1rem; max-width: 400px; margin: 0 auto; flex-wrap: wrap;">
+                    <label for="footer-email" class="sr-only">Email for newsletter</label>
+                    <input id="footer-email" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="flex: 1; min-width: 200px; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;"/>
+                    <input type="hidden" name="_subject" value="Newsletter Subscription"/>
+                    <button type="submit" style="padding: 0.75rem 1.5rem; background: #1a1a1a; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">Subscribe</button>
+                </form>
+            </div>
+
+            <!-- Footer Content -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-bottom: 2rem; text-align: left;">
+                <div>
+                    <h4 style="margin-bottom: 1rem; color: #333;">Essentials Creative</h4>
+                    <p style="color: #666;">Site-responsive multimedia projects grounded in Indigenous, Latinx, and Asian stories.</p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 1rem; color: #333;">Services</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <a href="photography.html" style="color: #666; text-decoration: none;">Photography</a>
+                        <a href="design.html" style="color: #666; text-decoration: none;">Design</a>
+                        <a href="video.html" style="color: #666; text-decoration: none;">Video</a>
+                        <a href="projections.html" style="color: #666; text-decoration: none;">Projections</a>
+                        <a href="installations.html" style="color: #666; text-decoration: none;">Installations</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 1rem; color: #333;">Projects</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <a href="rhizomatic.html" style="color: #666; text-decoration: none;">Rhizomatic</a>
+                        <a href="afterworld.html" style="color: #666; text-decoration: none;">Afterworld</a>
+                        <a href="node.html" style="color: #666; text-decoration: none;">Node</a>
+                        <a href="yanaguana.html" style="color: #666; text-decoration: none;">Yanaguana Garden</a>
+                        <a href="plant-story-cards.html" style="color: #666; text-decoration: none;">Plant Story Cards</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 1rem; color: #333;">Connect</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <a href="about.html" style="color: #666; text-decoration: none;">About</a>
+                        <a href="contact.html" style="color: #666; text-decoration: none;">Contact</a>
+                        <a href="https://www.instagram.com/essentialscreative/" target="_blank" rel="noopener" aria-label="Instagram (opens in new window)" style="color: #666; text-decoration: none;">Instagram</a>
+                        <a href="https://www.youtube.com/channel/UCmhlzjngU5_WX6n1mvtY2Bw" target="_blank" rel="noopener" aria-label="YouTube (opens in new window)" style="color: #666; text-decoration: none;">YouTube</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid #ddd; padding-top: 2rem; color: #666; font-size: 0.9rem;">
+                <p>&copy; 2026 Essentials Creative. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/navigation.js?v=4.3" defer></script>
+    <script src="assets/js/unified-gallery-lightbox.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const originalOpenLightbox = window.openLightbox;
+            window.openLightbox = function(index) {
+                if (originalOpenLightbox) {
+                    originalOpenLightbox(index);
+                    setTimeout(() => {
+                        const lightbox = document.getElementById('unified-lightbox');
+                        const caption = lightbox?.querySelector('.lightbox-caption');
+                        if (caption) {
+                            caption.style.display = 'none';
+                        }
+                    }, 50);
+                }
+            };
+        });
+    </script>
+</body>
+</html>

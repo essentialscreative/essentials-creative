@@ -1,0 +1,143 @@
+/**
+ * Essentials Creative — Uniform gallery system
+ * ---------------------------------------------------------------------------
+ * Usage:
+ *   <section class="gallery-grid gallery-uniform" id="my-gallery">…</section>
+ *
+ * Modifiers (on the same element as .gallery-uniform):
+ *   .gallery-uniform--natural  Images show full frame (no crop); card height follows image.
+ *   .gallery-uniform--square    1:1 tiles instead of default 4:3.
+ *
+ * Child items keep existing classes: .gallery-item.lightbox-trigger
+ * Load after main.css and before or after enhanced-lightbox.css.
+ */
+
+:root {
+  --ec-gallery-max-width: 1200px;
+  --ec-gallery-gap: 1.5rem;
+  --ec-gallery-min-col: 300px;
+  --ec-gallery-radius: 12px;
+  --ec-gallery-bg: #f0f0f0;
+  --ec-gallery-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --ec-gallery-shadow-hover: 0 10px 28px rgba(0, 0, 0, 0.14);
+  /* Default tile: 4:3 (consistent “film” grid across Photography, Design, Rhizomatic, etc.) */
+  --ec-gallery-aspect: 4 / 3;
+}
+
+.gallery-grid.gallery-uniform,
+.gallery-uniform.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(100%, var(--ec-gallery-min-col)), 1fr)
+  );
+  gap: var(--ec-gallery-gap);
+  /* Equal-height rows: every tile uses the same aspect box */
+  align-items: stretch;
+  max-width: var(--ec-gallery-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.gallery-uniform .gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--ec-gallery-radius);
+  background: var(--ec-gallery-bg);
+  box-shadow: var(--ec-gallery-shadow);
+  cursor: zoom-in;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  aspect-ratio: var(--ec-gallery-aspect);
+  min-height: 0;
+  min-width: 0;
+}
+
+.gallery-uniform .gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.gallery-uniform .gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--ec-gallery-shadow-hover);
+}
+
+.gallery-uniform .gallery-item:hover img {
+  transform: scale(1.03);
+}
+
+/* Subtle hover veil (overrides flatter lightbox overlay when both apply) */
+.gallery-uniform .gallery-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.08) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.gallery-uniform .gallery-item:hover::after {
+  opacity: 1;
+}
+
+/* --- Modifiers --- */
+
+.gallery-uniform--square {
+  --ec-gallery-aspect: 1 / 1;
+}
+
+.gallery-uniform--natural .gallery-item {
+  aspect-ratio: auto;
+  height: auto;
+}
+
+.gallery-uniform--natural.gallery-grid,
+.gallery-grid.gallery-uniform--natural {
+  align-items: start;
+}
+
+.gallery-uniform--natural .gallery-item img {
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+.gallery-uniform--natural .gallery-item:hover img {
+  transform: scale(1.015);
+}
+
+@media (max-width: 768px) {
+  .gallery-grid.gallery-uniform,
+  .gallery-uniform.gallery-grid {
+    grid-template-columns: 1fr;
+    padding: 1.25rem 1rem;
+    gap: 1.25rem;
+  }
+}
+
+/* Optional: use with @keyframes fadeIn on the page */
+.gallery-uniform .ec-gallery-animate-in {
+  animation: ecGalleryFadeIn 0.6s ease-out;
+}
+
+@keyframes ecGalleryFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

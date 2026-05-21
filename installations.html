@@ -6,263 +6,233 @@
 <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover" name="viewport"/>
 <meta content="#ffffff" media="(prefers-color-scheme: light)" name="theme-color"/>
 <meta content="#1a1a1a" media="(prefers-color-scheme: dark)" name="theme-color"/>
-<title>
-   Installations - Essentials Creative
-  </title>
-<meta content="Installation art and immersive experiences by Essentials Creative. Site-responsive artworks that transform spaces and engage communities." name="description"/>
+<title>Installations - Essentials Creative</title>
+<meta content="Site-responsive installations for cultural organizations, gardens, and community spaces. Built with place, community, and ecological context." name="description"/>
 <meta content="installation art, immersive art, site-responsive art, cultural installations, Austin installations" name="keywords"/>
 <!-- Open Graph Meta Tags -->
 <meta content="Installations - Essentials Creative" property="og:title"/>
-<meta content="Visual gallery of installation art and immersive experiences by Essentials Creative." property="og:description"/>
+<meta content="Site-responsive installations built with place, community, and ecological context." property="og:description"/>
 <meta content="website" property="og:type"/>
 <meta content="https://essentialscreative.com/installations" property="og:url"/>
-<link href="assets/css/navigation.css?v=4.1" rel="stylesheet"/>
+<!-- CSS Files -->
+<link href="assets/css/navigation.css?v=4.2" rel="stylesheet"/>
 <link href="assets/css/main.css?v=4.1" rel="stylesheet"/>
-<link href="assets/css/enhanced-lightbox.css?v=4.1" rel="stylesheet"/>
+<link href="assets/css/design-system.css?v=2.0" rel="stylesheet"/>
+<link href="assets/css/mobile-optimization.css?v=1.0" rel="stylesheet"/>
+<link href="assets/css/gallery-uniform.css?v=2.1" rel="stylesheet"/>
+<link href="assets/css/enhanced-lightbox.css" rel="stylesheet"/>
+<link rel="canonical" href="https://essentialscreative.com/installations"/>
+
+<meta property="og:image" content="https://essentialscreative.com/assets/images/gallery/Installations/AN3A8845+copy.jpg">
+<meta property="og:image:alt" content="Installation work by Essentials Creative">
 <!-- Favicon -->
 <link href="assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="assets/images/favicon.png" rel="apple-touch-icon" sizes="180x180"/>
 <link href="assets/images/favicon.png" rel="shortcut icon"/>
+
+<!-- Preload Critical Font -->
+<link rel="preload" href="assets/fonts/apercu/apercu_regular_pro.woff2" as="font" type="font/woff2" crossorigin>
 </head>
-<body>
-<div class="skip-links" style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); z-index: 10000;">
-<a href="#main-content" class="skip-link" style="position: absolute; left: -100vw; background: #1a1a1a; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 0 0 8px 8px; white-space: nowrap;">Skip to main content</a>
-<a href="#main-navigation" class="skip-link" style="position: absolute; left: -100vw; background: #1a1a1a; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 0 0 8px 8px; white-space: nowrap;">Skip to navigation</a>
+<body class="page-installations">
+<div class="skip-links skip-links--bar">
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<a href="#main-navigation" class="skip-link">Skip to navigation</a>
 </div>
-<style>
-.skip-link:focus {
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    top: 0 !important;
-    outline: 3px solid white !important;
-    outline-offset: 2px !important;
-    z-index: 10001 !important;
-}
-.skip-link:first-child:focus {
-    margin-left: -8rem;
-}
-.skip-link:last-child:focus {
-    margin-left: 8rem;
-}
-</style>
-<header class="header">
+
+<header class="header" role="banner">
 <div class="nav-container">
 <div class="logo">
-<a href="index.html" style="display: block; line-height: 1;">
-<img alt="Essentials Creative" src="assets/images/essentials-creative-logo.svg" style="height: 45px; width: auto; display: block;"/>
+<a href="index.html" aria-label="Essentials Creative - Home">
+<img alt="" src="assets/images/Essentials-Creative_Logo.png" width="180" height="45" style="height: 45px; width: auto; display: block;"/>
 </a>
 </div>
-<nav id="main-navigation" class="nav-links">
+<nav id="main-navigation" class="nav-links" role="navigation" aria-label="Main navigation">
 <a class="nav-link" href="index.html">Home</a>
-<a class="nav-link" href="photography.html">Photography</a>
-<a class="nav-link" href="design.html">Design</a>
-<a class="nav-link" href="videoandprojections.html">Video/Projections</a>
-<a class="nav-link active" href="installations.html">Installations</a>
+<div class="nav-dropdown">
+<button type="button" class="nav-dropdown-toggle active" id="nav-services-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-services-menu">Services <span class="nav-dropdown-arrow" aria-hidden="true">▼</span></button>
+<div class="nav-dropdown-menu" id="nav-services-menu" role="group" aria-label="Services">
+<a href="photography.html" class="nav-dropdown-item">Photography</a>
+<a href="design.html" class="nav-dropdown-item">Design</a>
+<a href="video.html" class="nav-dropdown-item">Video</a>
+<a href="installations.html" class="nav-dropdown-item active">Installations</a>
+</div>
+</div>
+<div class="nav-dropdown">
+<button type="button" class="nav-dropdown-toggle" id="nav-projects-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-projects-menu">Projects <span class="nav-dropdown-arrow" aria-hidden="true">▼</span></button>
+<div class="nav-dropdown-menu" id="nav-projects-menu" role="group" aria-label="Projects">
+<a href="afterworld.html" class="nav-dropdown-item">Afterworld</a>
+<a href="node.html" class="nav-dropdown-item">Node</a>
+<a href="projections.html" class="nav-dropdown-item">Projections</a>
+<a href="rhizomatic.html" class="nav-dropdown-item">Rhizomatic</a>
+<a href="plant-story-cards.html" class="nav-dropdown-item">Plant Story Cards</a>
+</div>
+</div>
 <a class="nav-link" href="about.html">About</a>
 <a class="nav-link" href="contact.html">Contact</a>
 </nav>
-<!-- Mobile Navigation -->
 <div class="hamburger-nav">
-<button class="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+<button type="button" class="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
 <span class="hamburger-line"></span>
 <span class="hamburger-line"></span>
 <span class="hamburger-line"></span>
 </button>
-<div class="hamburger-menu">
+<div class="hamburger-menu" id="mobile-menu">
 <a href="index.html" class="hamburger-link">Home</a>
+<div class="hamburger-section">
+<span class="hamburger-section-title">Services</span>
 <a href="photography.html" class="hamburger-link">Photography</a>
 <a href="design.html" class="hamburger-link">Design</a>
-<a href="videoandprojections.html" class="hamburger-link">Video/Projections</a>
+<a href="video.html" class="hamburger-link">Video</a>
 <a href="installations.html" class="hamburger-link active">Installations</a>
+</div>
+<div class="hamburger-section">
+<span class="hamburger-section-title">Projects</span>
+<a href="afterworld.html" class="hamburger-link">Afterworld</a>
+<a href="node.html" class="hamburger-link">Node</a>
+<a href="projections.html" class="hamburger-link">Projections</a>
+<a href="rhizomatic.html" class="hamburger-link">Rhizomatic</a>
+<a href="plant-story-cards.html" class="hamburger-link">Plant Story Cards</a>
+</div>
 <a href="about.html" class="hamburger-link">About</a>
 <a href="contact.html" class="hamburger-link">Contact</a>
-</div>
-</div>
-</div>
-</header>
+</div></div></div></header>
 
-<!-- Hero Section -->
-<section class="hero" style="background-image: url('assets/images/gallery/Installations/AN3A0167+copy+2.jpg'); background-size: cover; background-position: center; position: relative; height: 60vh; min-height: 400px; display: flex; align-items: center; justify-content: center;">
-    <div class="hero-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.8) 100%); z-index: 1;"></div>
-    <div class="hero-content" style="position: relative; z-index: 2; text-align: center; color: white; max-width: 800px; padding: 2rem;">
-        <h1 class="hero-title" style="font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1rem; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Installations</h1>
-        <p class="hero-subtitle" style="font-size: clamp(1.1rem, 2vw, 1.3rem); margin-bottom: 1.5rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); line-height: 1.5;">Immersive experiences and site-responsive artworks that transform spaces and engage communities through cultural dialogue.</p>
-        <div style="margin-top: 1.5rem;">
-            <p style="font-size: 0.9rem; opacity: 0.9; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">
-                Featured projects: <a href="rhizomatic.html" style="color: rgba(255,255,255,0.95); text-decoration: underline;">Rhizomatic</a>, 
-                <a href="yanaguana.html" style="color: rgba(255,255,255,0.95); text-decoration: underline;">Yanaguana</a>, 
-                <a href="afterworld.html" style="color: rgba(255,255,255,0.95); text-decoration: underline;">Afterworld</a>
-            </p>
-        </div>
-    </div>
-</section>
 <main id="main-content">
-<div class="main-content">
+<!-- Hero Section -->
+<section class="hero" style="background-image: image-set(url('assets/images/gallery/Installations/AN3A8845+copy.webp') type('image/webp'), url('assets/images/gallery/Installations/AN3A8845+copy.jpg') type('image/jpeg')); background-size: cover; background-position: center; position: relative; height: 50vh; min-height: 320px; display: flex; align-items: center; justify-content: center;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.15));"></div>
+    <div class="hero-content" style="position: relative; z-index: 2; text-align: center; color: white; padding: 2rem; max-width: 900px;">
+        <h1 class="hero-title" style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); margin-bottom: 1rem; letter-spacing: -0.02em;">Installations</h1>
+        <p class="hero-subtitle" style="font-size: clamp(1.1rem, 2vw, 1.4rem); text-shadow: 1px 1px 4px rgba(0,0,0,0.8); line-height: 1.6; font-weight: 300;">Site-responsive installations built in conversation with place, community, and ecological context.</p>
+    </div>
+</section>
 
-<!-- Installations Gallery -->
-<section style="padding: 4rem 2rem;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem; color: #1a1a1a; font-weight: 700;">Installation Work</h2>
-        <p style="text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">
-            Site-responsive artworks that transform spaces and engage communities through immersive cultural experiences.
-        </p>
-        
-        <div class="installations-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
-            
-            <div class="installation-item" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <img src="assets/images/gallery/Installations/AN3A7638+copy.jpg" alt="Installation Art - Interactive cultural space" style="width: 100%; height: 250px; object-fit: cover;">
-                <div style="padding: 1.5rem;">
-                    <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: #1a1a1a;">Cultural Space Installation</h3>
-                    <p style="color: #666; line-height: 1.6;">Interactive environment exploring themes of cultural identity and community connection.</p>
+<!-- Service Overview -->
+<section style="padding: 4rem 2rem; background: white;">
+    <div style="max-width: 900px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+            <div>
+                <p style="font-size: 1.25rem; line-height: 1.8; color: #333; margin-bottom: 2rem;">
+                    Installations and projection work that respond to their environments. Each piece is scoped to its site — we don't repeat ourselves.
+                </p>
+                <div style="padding: 2rem; background: #f8f8f8; border-radius: 12px; margin-bottom: 2rem;">
+                    <h2 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em; color: #666; margin-bottom: 1rem;">Who We Work With</h2>
+                    <ul style="list-style: none; padding: 0; color: #444; line-height: 1.8;">
+                        <li style="margin-bottom: 0.5rem;">✦ Cultural organizations and galleries</li>
+                        <li style="margin-bottom: 0.5rem;">✦ Gardens and outdoor sites</li>
+                        <li style="margin-bottom: 0.5rem;">✦ Festivals and city arts programs</li>
+                        <li>✦ Grant-funded community installations</li>
+                    </ul>
+                </div>
+                <div style="text-align: center;">
+                    <a href="contact.html" style="display: inline-block; background: #1a1a1a; color: white; padding: 1rem 2.5rem; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; font-size: 1.05rem;">Start an Installation Project</a>
                 </div>
             </div>
-            
-            <div class="installation-item" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <img src="assets/images/gallery/Installations/AN3A8845+copy.jpg" alt="Installation Art - Light and environment" style="width: 100%; height: 250px; object-fit: cover;">
-                <div style="padding: 1.5rem;">
-                    <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: #1a1a1a;">Environmental Installation</h3>
-                    <p style="color: #666; line-height: 1.6;">Site-specific work that responds to architectural and social context.</p>
-                </div>
-            </div>
-            
-            <div class="installation-item" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <img src="assets/images/gallery/Installations/Zen+Garden_Afterworld36.webp" alt="Zen Garden Afterworld Installation" style="width: 100%; height: 250px; object-fit: cover;">
-                <div style="padding: 1.5rem;">
-                    <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: #1a1a1a;">Zen Garden Afterworld</h3>
-                    <p style="color: #666; line-height: 1.6;">Contemplative installation merging traditional garden principles with contemporary media.</p>
-                </div>
-            </div>
-            
-            <div class="installation-item" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <img src="assets/images/gallery/Installations/ANISDAYANDNIGHT.png" alt="Day and Night Installation" style="width: 100%; height: 250px; object-fit: cover;">
-                <div style="padding: 1.5rem;">
-                    <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: #1a1a1a;">Day and Night</h3>
-                    <p style="color: #666; line-height: 1.6;">Temporal installation exploring cycles of time and cultural rhythms.</p>
-                </div>
-            </div>
-            
-            <div class="installation-item" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <img src="assets/images/gallery/Installations/Essentials Creative_Native Waters.jpg" alt="Native Waters Installation" style="width: 100%; height: 250px; object-fit: cover;">
-                <div style="padding: 1.5rem;">
-                    <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: #1a1a1a;">Native Waters</h3>
-                    <p style="color: #666; line-height: 1.6;">Water-based installation honoring Indigenous water protection and cultural practices.</p>
-                </div>
-            </div>
-            
-            <div class="installation-item" style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                <img src="assets/images/gallery/Installations/installation by essentials creative2.jpg" alt="Community Installation" style="width: 100%; height: 250px; object-fit: cover;">
-                <div style="padding: 1.5rem;">
-                    <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: #1a1a1a;">Community Engagement</h3>
-                    <p style="color: #666; line-height: 1.6;">Participatory installation fostering dialogue and cultural exchange.</p>
-                </div>
-            </div>
-            
         </div>
     </div>
 </section>
 
-<style>
-.installation-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-}
+<div class="main-content" style="max-width: 1200px; margin: 0 auto; padding: 3rem 2rem;">
 
-@media (max-width: 768px) {
-    .installations-grid {
-        grid-template-columns: 1fr !important;
-        gap: 1.5rem !important;
-    }
-}
-</style>
-<!-- Featured Projects Section -->
-<section class="featured-projects">
-    <div class="container">
-        <h2>Featured Projects</h2>
-        <div class="project-grid">
-            <a href="rhizomatic.html" class="project-card">
-                <div class="project-image">
-                    <img src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8318.JPG" alt="Rhizomatic Project"/>
-                </div>
-                <h3>Rhizomatic</h3>
-                <p>Collaborative multimedia installation exploring cultural and scientific plant stories at Austin Central Library.</p>
-            </a>
-            <a href="yanaguana.html" class="project-card">
-                <div class="project-image">
-                    <img src="assets/images/gallery/Installations/AN3A1172+copy 2.jpg" alt="Yanaguana Project"/>
-                </div>
-                <h3>Yanaguana</h3>
-                <p>Site-responsive installation celebrating Indigenous cultural heritage and land connections.</p>
-            </a>
-            <a href="afterworld.html" class="project-card">
-                <div class="project-image">
-                    <img src="assets/images/gallery/Installations/AN3A7477+copy.jpeg" alt="Afterworld Project"/>
-                </div>
-                <h3>Afterworld</h3>
-                <p>Immersive multimedia experience examining themes of transformation and cultural memory.</p>
-            </a>
-        </div>
+<!-- Gallery -->
+<section class="gallery-grid gallery-uniform" id="installations-gallery" aria-label="Installation photography gallery">
+    <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+        <picture><source srcset="assets/images/gallery/Installations/Installations3.webp" type="image/webp"/><img src="assets/images/gallery/Installations/Installations3.jpg" alt="Installation view" loading="lazy" decoding="async"/></picture>
+    </div>
+    <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+        <picture><source srcset="assets/images/gallery/Installations/Installations4.webp" type="image/webp"/><img src="assets/images/gallery/Installations/Installations4.jpg" alt="Installation view" loading="lazy" decoding="async"/></picture>
+    </div>
+    <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+        <img src="assets/images/gallery/Installations/Zen+Garden_Afterworld36.webp" alt="Zen Garden Afterworld installation" loading="lazy" decoding="async"/>
+    </div>
+    <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+        <picture><source srcset="assets/images/gallery/Installations/installation%20by%20essentials%20creative2.webp" type="image/webp"/><img src="assets/images/gallery/Installations/installation%20by%20essentials%20creative2.jpg" alt="Installation documentation" loading="lazy" decoding="async"/></picture>
+    </div>
+    <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+        <picture><source srcset="assets/images/gallery/Installations/installation%20by%20essentials%20creative3.webp" type="image/webp"/><img src="assets/images/gallery/Installations/installation%20by%20essentials%20creative3.jpg" alt="Installation documentation" loading="lazy" decoding="async"/></picture>
+    </div>
+    <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+        <picture><source srcset="assets/images/gallery/Installations/AN3A0167+copy+2.webp" type="image/webp"/><img src="assets/images/gallery/Installations/AN3A0167+copy+2.jpg" alt="Installation view" loading="lazy" decoding="async"/></picture>
+    </div>
+    <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+        <picture><source srcset="assets/images/gallery/Installations/AN3A0573+copy.webp" type="image/webp"/><img src="assets/images/gallery/Installations/AN3A0573+copy.jpg" alt="Installation view" loading="lazy" decoding="async"/></picture>
+    </div>
+    <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+        <picture><source srcset="assets/images/gallery/Installations/AN3A1172+copy.webp" type="image/webp"/><img src="assets/images/gallery/Installations/AN3A1172+copy.jpg" alt="Installation view" loading="lazy" decoding="async"/></picture>
+    </div>
+    <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+        <picture><source srcset="assets/images/gallery/Installations/AN3A2847%202.webp" type="image/webp"/><img src="assets/images/gallery/Installations/AN3A2847%202.JPG" alt="Installation view" loading="lazy" decoding="async"/></picture>
+    </div>
+    <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+        <picture><source srcset="assets/images/gallery/Installations/AN3A6882+copy.webp" type="image/webp"/><img src="assets/images/gallery/Installations/AN3A6882+copy.jpeg" alt="Installation view" loading="lazy" decoding="async"/></picture>
+    </div>
+    <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+        <picture><source srcset="assets/images/gallery/Installations/AN3A8812+copy+2.webp" type="image/webp"/><img src="assets/images/gallery/Installations/AN3A8812+copy+2.jpg" alt="Installation view" loading="lazy" decoding="async"/></picture>
+    </div>
+    <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+        <picture><source srcset="assets/images/gallery/Installations/AN3A8971+copy%202.webp" type="image/webp"/><img src="assets/images/gallery/Installations/AN3A8971+copy%202.jpg" alt="Installation view" loading="lazy" decoding="async"/></picture>
+    </div>
+    <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+        <picture><source srcset="assets/images/gallery/Installations/AN3A9010+copy.webp" type="image/webp"/><img src="assets/images/gallery/Installations/AN3A9010+copy.jpg" alt="Installation view" loading="lazy" decoding="async"/></picture>
+    </div>
+    <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+        <picture><source srcset="assets/images/gallery/Installations/AN3A7116+copy%202.webp" type="image/webp"/><img src="assets/images/gallery/Installations/AN3A7116+copy%202.jpg" alt="Installation view" loading="lazy" decoding="async"/></picture>
+    </div>
+    <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+        <picture><source srcset="assets/images/gallery/Installations/AN3A8318+copy.webp" type="image/webp"/><img src="assets/images/gallery/Installations/AN3A8318+copy.jpg" alt="Installation view" loading="lazy" decoding="async"/></picture>
+    </div>
+    <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+        <picture><source srcset="assets/images/gallery/Installations/AN3A7638+copy.webp" type="image/webp"/><img src="assets/images/gallery/Installations/AN3A7638+copy.jpg" alt="Cultural space installation" loading="lazy" decoding="async"/></picture>
+    </div>
+    <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+        <picture><source srcset="assets/images/gallery/Installations/AN3A8183%202.webp" type="image/webp"/><img src="assets/images/gallery/Installations/AN3A8183%202.jpeg" alt="Installation view" loading="lazy" decoding="async"/></picture>
+    </div>
+    <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+        <picture><source srcset="assets/images/gallery/Installations/AN3A8854+copy%202.webp" type="image/webp"/><img src="assets/images/gallery/Installations/AN3A8854+copy%202.jpg" alt="Installation view" loading="lazy" decoding="async"/></picture>
+    </div>
+    <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+        <picture><source srcset="assets/images/gallery/Installations/AN3A8912+copy%202.webp" type="image/webp"/><img src="assets/images/gallery/Installations/AN3A8912+copy%202.jpg" alt="Installation view" loading="lazy" decoding="async"/></picture>
+    </div>
+    <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+        <picture><source srcset="assets/images/gallery/Installations/IMG_4202.webp" type="image/webp"/><img src="assets/images/gallery/Installations/IMG_4202.jpeg" alt="Installation documentation" loading="lazy" decoding="async"/></picture>
+    </div>
+    <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+        <picture><source srcset="assets/images/gallery/Installations/IMG_9256.webp" type="image/webp"/><img src="assets/images/gallery/Installations/IMG_9256.jpg" alt="Installation documentation" loading="lazy" decoding="async"/></picture>
+    </div>
+    <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+        <picture><source srcset="assets/images/gallery/Installations/Installations1.webp" type="image/webp"/><img src="assets/images/gallery/Installations/Installations1.jpg" alt="Installation view" loading="lazy" decoding="async"/></picture>
+    </div>
+    <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+        <picture><source srcset="assets/images/gallery/Installations/Installations5.webp" type="image/webp"/><img src="assets/images/gallery/Installations/Installations5.jpg" alt="Installation view" loading="lazy" decoding="async"/></picture>
+    </div>
+    <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+        <picture><source srcset="assets/images/gallery/Installations/Installations6.webp" type="image/webp"/><img src="assets/images/gallery/Installations/Installations6.jpg" alt="Installation view" loading="lazy" decoding="async"/></picture>
+    </div>
+    <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+        <picture><source srcset="assets/images/gallery/Installations/portfolio_image_15.webp" type="image/webp"/><img src="assets/images/gallery/Installations/portfolio_image_15.jpg" alt="Installation view" loading="lazy" decoding="async"/></picture>
     </div>
 </section>
 
-<!-- Installation Gallery Grid -->
-<section class="gallery-grid" id="installations-gallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: 0 auto;">
-
-<div class="gallery-item lightbox-trigger" style="position: relative; overflow: hidden; border-radius: 8px; background: #f0f0f0; aspect-ratio: 1 / 1; cursor: zoom-in;">
-    <img alt="Rhizomatic Installation - Austin Central Library" src="assets/images/gallery/Installations/AN3A0167+copy+2.jpg" loading="eager" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"/>
-</div>
-
-<div class="gallery-item lightbox-trigger" style="position: relative; overflow: hidden; border-radius: 8px; background: #f0f0f0; aspect-ratio: 1 / 1; cursor: zoom-in;">
-    <img alt="Installation Art - Community Engagement" src="assets/images/gallery/Installations/AN3A1172+copy 2.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"/>
-</div>
-
-<div class="gallery-item lightbox-trigger" style="position: relative; overflow: hidden; border-radius: 8px; background: #f0f0f0; aspect-ratio: 1 / 1; cursor: zoom-in;">
-    <img alt="Installation Detail" src="assets/images/gallery/Installations/AN3A2847 2.JPG" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"/>
-</div>
-
-<div class="gallery-item lightbox-trigger" style="position: relative; overflow: hidden; border-radius: 8px; background: #f0f0f0; aspect-ratio: 1 / 1; cursor: zoom-in;">
-    <img alt="Interactive Installation" src="assets/images/gallery/Installations/AN3A7116+copy 2.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"/>
-</div>
-
-<div class="gallery-item lightbox-trigger" style="position: relative; overflow: hidden; border-radius: 8px; background: #f0f0f0; aspect-ratio: 1 / 1; cursor: zoom-in;">
-    <img alt="Afterworld Installation" src="assets/images/gallery/Installations/AN3A7477+copy.jpeg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"/>
-</div>
-
-<div class="gallery-item lightbox-trigger" style="position: relative; overflow: hidden; border-radius: 8px; background: #f0f0f0; aspect-ratio: 1 / 1; cursor: zoom-in;">
-    <img alt="Installation Lighting" src="assets/images/gallery/Installations/AN3A7638+copy.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"/>
-</div>
-
-<div class="gallery-item lightbox-trigger" style="position: relative; overflow: hidden; border-radius: 8px; background: #f0f0f0; aspect-ratio: 1 / 1; cursor: zoom-in;">
-    <img alt="Installation Documentation" src="assets/images/gallery/Installations/AN3A7689+copy.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"/>
-</div>
-
-<div class="gallery-item lightbox-trigger" style="position: relative; overflow: hidden; border-radius: 8px; background: #f0f0f0; aspect-ratio: 1 / 1; cursor: zoom-in;">
-    <img alt="Installation Opening Event" src="assets/images/gallery/Installations/AN3A8318+copy.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"/>
-</div>
-
-<div class="gallery-item lightbox-trigger" style="position: relative; overflow: hidden; border-radius: 8px; background: #f0f0f0; aspect-ratio: 1 / 1; cursor: zoom-in;">
-    <img alt="Audience Interaction" src="assets/images/gallery/Installations/AN3A8812+copy+2.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"/>
-</div>
-
-<div class="gallery-item lightbox-trigger" style="position: relative; overflow: hidden; border-radius: 8px; background: #f0f0f0; aspect-ratio: 1 / 1; cursor: zoom-in;">
-    <img alt="Cultural Installation Art" src="assets/images/gallery/Installations/AN3A8845+copy.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"/>
-</div>
-
-</section>
 </div>
 
 <!-- Contact Section -->
-<section class="contact-section">
-    <div class="container">
-        <h2>Ready to Create Together?</h2>
-        <p>Let's collaborate on creating immersive installations that transform spaces and engage communities.</p>
-        <a href="contact.html" class="btn btn-primary btn-large">Get In Touch</a>
-    </div>
-</section>
+<section style="text-align: center; padding: 4rem 0; background: #f9f9f9;">
+<div style="max-width: 600px; margin: 0 auto; padding: 0 2rem;">
+<h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: #1a1a1a; font-weight: 700;">
+    Ready to Transform Your Space?
+</h2>
+<p style="font-size: 1.25rem; color: #555; margin-bottom: 2.5rem; line-height: 1.6;">
+    We collaborate with museums, galleries, and community organizations to create site-responsive installations that engage and inspire.
+</p>
+<a href="contact.html" style="display: inline-block; background: #1a1a1a; color: white; padding: 1.25rem 2.5rem; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1.125rem; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(26,26,26,0.15);">
+    Get In Touch
+</a>
 </div>
+</section>
 </main>
 
 <!-- Footer -->
-<footer class="footer" style="background: #f8f8f8; padding: 3rem 2rem 2rem; text-align: center;">
+<footer class="footer" role="contentinfo" style="background: #f8f8f8; padding: 3rem 2rem 2rem; text-align: center; margin-top: 4rem;">
 <div style="max-width: 1200px; margin: 0 auto;">
 <!-- Newsletter -->
 <div style="margin-bottom: 3rem;">
@@ -270,7 +240,7 @@
 <p style="color: #666; margin-bottom: 2rem;">Get updates about new work and collaborations.</p>
 <form action="https://formspree.io/f/mblyvvyn" method="POST" style="display: flex; gap: 1rem; max-width: 400px; margin: 0 auto; flex-wrap: wrap;">
 <label for="footer-email" class="sr-only">Email for newsletter</label>
-<input id="footer-email" type="email" name="email" placeholder="Enter your email" required style="flex: 1; min-width: 200px; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;"/>
+<input id="footer-email" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="flex: 1; min-width: 200px; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;"/>
 <input type="hidden" name="_subject" value="Newsletter Subscription"/>
 <button type="submit" style="padding: 0.75rem 1.5rem; background: #1a1a1a; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">Subscribe</button>
 </form>
@@ -280,7 +250,7 @@
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
 <div>
 <h4 style="margin-bottom: 1rem; color: #333;">Essentials Creative</h4>
-<p style="color: #666;">BIPOC-led collective amplifying cultural narratives through multimedia art</p>
+<p style="color: #666;">Site-responsive multimedia art honoring cultural ways of knowing</p>
 </div>
 <div>
 <h4 style="margin-bottom: 1rem; color: #333;">Services</h4>
@@ -288,7 +258,7 @@
 <a href="photography.html" style="color: #666; text-decoration: none;">Photography</a>
 <a href="design.html" style="color: #666; text-decoration: none;">Design</a>
 <a href="installations.html" style="color: #666; text-decoration: none;">Installation Art</a>
-<a href="videoandprojections.html" style="color: #666; text-decoration: none;">Video Production</a>
+<a href="video.html" style="color: #666; text-decoration: none;">Video Production</a>
 </div>
 </div>
 <div>
@@ -307,8 +277,13 @@
 </div>
 </footer>
 
-<!-- Core JavaScript Framework v4.0 -->
-<script src="assets/js/navigation.js?v=4.0" defer></script>
+<style>
+.page-installations .lightbox-caption {
+    display: none !important;
+}
+</style>
+
+<script src="assets/js/navigation.js?v=4.3" defer></script>
 <script src="assets/js/unified-gallery-lightbox.js" defer></script>
 </body>
 </html>

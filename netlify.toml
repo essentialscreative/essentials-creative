@@ -63,7 +63,22 @@
 [[redirects]]
   from = "/shop/*"
   to = "/shop.html"
-  status = 200
+  status = 301
+
+[[redirects]]
+  from = "/shop"
+  to = "/shop.html"
+  status = 301
+
+[[redirects]]
+  from = "/tapestry-designs"
+  to = "/index.html"
+  status = 301
+
+[[redirects]]
+  from = "/tapestry-designs.html"
+  to = "/index.html"
+  status = 301
 
 # Redirect old Squarespace URLs (to be updated based on actual URLs)
 [[redirects]]
@@ -106,6 +121,33 @@
   to = "/installations.html"
   status = 301
 
+# Video: single canonical page (video.html); legacy URLs
+[[redirects]]
+  from = "/video"
+  to = "/video.html"
+  status = 301
+
+[[redirects]]
+  from = "/videoandprojections"
+  to = "/video.html"
+  status = 301
+
+[[redirects]]
+  from = "/videoandprojections.html"
+  to = "/video.html"
+  status = 301
+
+# Projections gallery is its own page (projections.html); do not send to video.
+[[redirects]]
+  from = "/projections"
+  to = "/projections.html"
+  status = 301
+
+[[redirects]]
+  from = "/node"
+  to = "/node.html"
+  status = 301
+
 # Image optimization headers
 [[headers]]
   for = "/assets/images/*"
@@ -146,23 +188,24 @@
   [headers.values]
     Content-Security-Policy = '''
       default-src 'self';
-      script-src 'self' 'unsafe-inline' https://www.instagram.com https://www.tiktok.com https://www.youtube.com;
+      script-src 'self' 'unsafe-inline' https://www.instagram.com https://www.tiktok.com https://www.youtube.com https://sandbox.web.squarecdn.com https://web.squarecdn.com;
       style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
       font-src 'self' https://fonts.gstatic.com;
       img-src 'self' data: https: blob:;
       media-src 'self' https:;
-      connect-src 'self' https://formspree.io https://api.instagram.com https://www.youtube.com;
+      connect-src 'self' https://formspree.io https://api.instagram.com https://www.youtube.com https://connect.squareupsandbox.com https://connect.squareup.com;
       frame-src https://www.instagram.com https://www.tiktok.com https://www.youtube.com https://player.vimeo.com;
     '''
 
-# Form handling
-[[redirects]]
-  from = "/api/contact"
-  to = "/.netlify/functions/contact"
-  status = 200
+# Form handling — using Netlify Forms (native), no functions needed.
+# (Removed /api/contact -> /.netlify/functions/contact redirect; function archived.)
 
 # 404 handling - This should be the last redirect rule
 # and only applies when no other files or rules match
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
 
 # Image format transformation for modern browsers
 [[headers]]
@@ -184,4 +227,4 @@
 [[headers]]
   for = "/"
   [headers.values]
-    Link = "</assets/js/main.js>; rel=preload; as=script"
+    Link = "</assets/js/navigation.js>; rel=preload; as=script"

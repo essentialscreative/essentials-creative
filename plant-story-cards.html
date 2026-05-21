@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <title>Plant Story Cards - Essentials Creative</title>
+    <meta name="description" content="Plant Story Cards is an ongoing research project pairing Indigenous, Latinx, and Asian plant knowledge with community-collected stories — a digital archive of plant-people relationships in Austin.">
+    <meta name="keywords" content="plant stories, community research, botanical heritage, Indigenous knowledge, Austin plants">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Plant Story Cards - Essentials Creative">
+    <meta property="og:description" content="An ongoing research project pairing Indigenous, Latinx, and Asian plant knowledge with community-collected stories. 49 responses, 95+ plants, 15+ communities.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://essentialscreative.com/plant-story-cards">
+    <meta property="og:image" content="https://essentialscreative.com/assets/images/plant-story/hero_image.jpg">
+    
+    <link rel="canonical" href="https://essentialscreative.com/plant-story-cards"/>
+
+<!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="assets/images/favicon.png" sizes="180x180">
+    
+    <!-- CSS -->
+    <link href="assets/css/navigation.css?v=4.2" rel="stylesheet">
+    <link href="assets/css/main.css?v=4.1" rel="stylesheet">
+    <link href="assets/css/design-system.css?v=2.0" rel="stylesheet">
+    <link href="assets/css/mobile-optimization.css?v=1.0" rel="stylesheet">
+    <link href="assets/css/gallery-uniform.css" rel="stylesheet">
+    
+    <style>
+        /* Project-specific styles */
+        .plant-hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            overflow: hidden;
+        }
+        
+        /* Hero background images */
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-position: center;
+            background-size: cover;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            will-change: opacity, transform;
+            transform: scale(1);
+        }
+        
+        .hero-bg.active {
+            opacity: 1;
+            animation: kenBurns 8s ease-out;
+        }
+        
+        @keyframes kenBurns {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.05);
+            }
+        }
+        
+        .hero-bg-1 {
+            background-image: url('assets/images/plant-story/hero_image.jpg');
+        }
+        
+        .hero-bg-2 {
+            background-image: url('assets/images/plant-story/plant-story-cards-setup.jpg');
+        }
+        
+        .hero-bg-3 {
+            background-image: url('assets/images/plant-story/Scan%207%20copy.jpg');
+        }
+        
+        /* Loading state */
+        .plant-hero.loading::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #f0f0f0;
+            z-index: -1;
+        }
+        
+        /* Dark overlay */
+        .plant-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 100%);
+            z-index: 1;
+        }
+        
+        .plant-hero-content {
+            position: relative;
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+            z-index: 2;
+        }
+        
+        .plant-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+        
+        .plant-hero p {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+        }
+        
+        /* Image rotation indicators */
+        .hero-indicators {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.75rem;
+            z-index: 3;
+        }
+        
+        .hero-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            padding: 0;
+        }
+        
+        .hero-indicator.active {
+            background: white;
+            width: 24px;
+            border-radius: 4px;
+        }
+        
+        .hero-indicator:hover {
+            background: rgba(255, 255, 255, 0.7);
+        }
+        
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: white;
+            border-top: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: #666;
+            text-transform: none;
+            letter-spacing: 0;
+            font-weight: 400;
+        }
+        
+        .content-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+        
+        .section-subtitle {
+            font-size: 1.125rem;
+            text-align: center;
+            margin-bottom: 5rem;
+            color: #64748b;
+            font-weight: 400;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .story-card {
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+            padding: 1.5rem;
+            transition: border-color 0.2s ease;
+        }
+        
+        .story-card:hover {
+            border-color: #d0d0d0;
+        }
+        
+        .story-quote {
+            font-size: 0.95rem;
+            font-style: normal;
+            color: #333;
+            margin: 0;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+        
+        .story-source {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .plant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        
+        .plant-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+        
+        .plant-item:hover {
+            background: #f8f8f8;
+            transform: translateY(-2px);
+        }
+        
+        .plant-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+        
+        .plant-latin {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .cta-section {
+            background: #1a1a1a;
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-btn-primary {
+            background: white;
+            color: #1a1a1a;
+        }
+        
+        .cta-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255,255,255,0.2);
+        }
+        
+        .cta-btn-secondary {
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .cta-btn-secondary:hover {
+            background: white;
+            color: #1a1a1a;
+        }
+        
+        @media (max-width: 768px) {
+            .stats-bar {
+                gap: 2rem;
+            }
+            .stories-grid {
+                grid-template-columns: 1fr;
+            }
+            .plant-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Links -->
+    <div class="skip-links skip-links--bar">
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+        <a href="#main-navigation" class="skip-link">Skip to navigation</a>
+    </div>
+    
+    <!-- Navigation -->
+    <header class="header" role="banner">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html" aria-label="Essentials Creative - Home">
+                    <img alt="Essentials Creative logo" src="assets/images/Essentials-Creative_Logo.png" width="180" height="45">
+                </a>
+            </div>
+            <nav id="main-navigation" class="nav-links" role="navigation" aria-label="Main navigation">
+                <a class="nav-link" href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" id="nav-services-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-services-menu">
+                        Services <span class="nav-dropdown-arrow" aria-hidden="true">▼</span>
+                    </button>
+                    <div class="nav-dropdown-menu" id="nav-services-menu" role="group" aria-label="Services">
+                        <a href="photography.html" class="nav-dropdown-item">Photography</a>
+                        <a href="design.html" class="nav-dropdown-item">Design</a>
+                        <a href="video.html" class="nav-dropdown-item">Video</a>
+                        <a href="projections.html" class="nav-dropdown-item">Projections</a>
+                        <a href="installations.html" class="nav-dropdown-item">Installations</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle active" id="nav-projects-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-projects-menu">
+                        Projects <span class="nav-dropdown-arrow" aria-hidden="true">▼</span>
+                    </button>
+                    <div class="nav-dropdown-menu" id="nav-projects-menu" role="group" aria-label="Projects">
+                        <a href="afterworld.html" class="nav-dropdown-item">Afterworld</a>
+                        <a href="node.html" class="nav-dropdown-item">Node</a>
+                        <a href="rhizomatic.html" class="nav-dropdown-item">Rhizomatic</a>
+                        <a href="plant-story-cards.html" class="nav-dropdown-item active">Plant Story Cards</a>
+                    </div>
+                </div>
+                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="contact.html">Contact</a>
+            </nav>
+            <div class="hamburger-nav">
+                <button type="button" class="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                <div class="hamburger-menu" id="mobile-menu">
+                    <a href="index.html" class="hamburger-link">Home</a>
+                    <div class="hamburger-section">
+                        <span class="hamburger-section-title">Services</span>
+                        <a href="photography.html" class="hamburger-link">Photography</a>
+                        <a href="design.html" class="hamburger-link">Design</a>
+                        <a href="video.html" class="hamburger-link">Video</a>
+                        <a href="projections.html" class="hamburger-link">Projections</a>
+                        <a href="installations.html" class="hamburger-link">Installations</a>
+                    </div>
+                    <div class="hamburger-section">
+                        <span class="hamburger-section-title">Projects</span>
+                        <a href="afterworld.html" class="hamburger-link">Afterworld</a>
+                        <a href="node.html" class="hamburger-link">Node</a>
+                        <a href="rhizomatic.html" class="hamburger-link">Rhizomatic</a>
+                        <a href="plant-story-cards.html" class="hamburger-link active">Plant Story Cards</a>
+                    </div>
+                    <a href="about.html" class="hamburger-link">About</a>
+                    <a href="contact.html" class="hamburger-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="plant-hero">
+            <!-- Rotating background images -->
+            <div class="hero-bg hero-bg-1 active"></div>
+            <div class="hero-bg hero-bg-2"></div>
+            <div class="hero-bg hero-bg-3"></div>
+            
+            <div class="plant-hero-content">
+                <h1>Plant Story Cards</h1>
+                <p>An ongoing research project pairing Indigenous, Latinx, and Asian plant knowledge with community-collected stories — a digital archive of plant-people relationships in Austin.</p>
+            </div>
+        </section>
+        
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-number">49</span>
+                <span class="stat-label">Community Voices</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">95+</span>
+                <span class="stat-label">Plant Species</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">15+</span>
+                <span class="stat-label">Cultural Communities</span>
+            </div>
+        </div>
+        
+        <!-- Project Overview -->
+        <section class="content-section">
+            <h2 class="section-title">About the Project</h2>
+            <div style="max-width: 900px; margin: 0 auto; text-align: center; line-height: 1.8;">
+                <p style="font-size: 1.1rem; color: #333;">Plant Story Cards is a digital archive of plant-people relationships in Austin. The project gathered 49 responses from 15+ cultural communities about the plants, places, and ancestral foods that hold meaning. Each response is presented as a card; the card set covers 95+ plant species across Indigenous, Latinx, Asian, and other community knowledge.</p>
+                <p style="margin-top: 1.5rem;">The archive does not attempt to standardize or interpret the responses. Each card presents a single voice in their own words, paired with the plant or place they named.</p>
+            </div>
+        </section>
+        
+        <!-- Featured Stories -->
+        <section class="content-section" style="background: #f8f8f8;">
+            <h2 class="section-title">Community Voices</h2>
+            <p class="section-subtitle">Responses from 49 community members across Austin's cultural landscape</p>
+            
+            <!-- Question 1: Places & Communities -->
+            <div style="margin-bottom: 5rem;">
+                <h3 style="color: #228B22; font-size: 1.5rem; margin-bottom: 0.75rem; font-weight: 700; letter-spacing: -0.01em;">What plants, places, or communities in Austin hold meaning for you?</h3>
+                <p style="color: #64748b; font-size: 1rem; margin-bottom: 2.5rem; font-weight: 500;">Community connections to Austin's botanical and cultural landscape</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div class="story-card">
+                        <div class="story-quote">"Tlaqueaque - known for its butterfly & myths on fairies"</div>
+                    </div>
+                    <div class="story-card">
+                        <div class="story-quote">"Purple sage, AARC, parks, Libraries"</div>
+                    </div>
+                    <div class="story-card">
+                        <div class="story-quote">"Singapore Succulents, Blue Bonnet, Lady Bird Lake, Rain flowers (they show up after a good rain)"</div>
+                    </div>
+                    <div class="story-card">
+                        <div class="story-quote">"ALOE, Century Agave, Blue bonnets, agaves & yuccas, more BLUEBONNETS & other TX WILDFLOWERS, Oaks, Alamo, Seabrook farms, Q-rose"</div>
+                    </div>
+                    <div class="story-card">
+                        <div class="story-quote">"bluebonnets, CACTI, UT, AARC, mount bonnell, yellow roses, Succulents & roses, Lilies of the valley, St. Edwards Trail, Beach Festival Food Forest"</div>
+                    </div>
+                    <div class="story-card">
+                        <div class="story-quote">"Barton Springs, Mueller park (mostly the ducks)"</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 2: Ancestral Flora -->
+            <div style="margin-bottom: 5rem;">
+                <h3 style="color: #8B4513; font-size: 1.5rem; margin-bottom: 0.75rem; font-weight: 700; letter-spacing: -0.01em;">What flora, fauna, or food brings your ancestors to mind?</h3>
+                <p style="color: #64748b; font-size: 1rem; margin-bottom: 2.5rem; font-weight: 500;">Plants and foods that carry ancestral memory and cultural connection</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                    <div class="story-card" >
+                        <div class="story-quote" >"Roses"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"Mulberry, Mountains"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"Kaffir lime, Ube, RABBITS, RACOON, Hibiscus/Orchids, lotus flowers, cherry blossoms, Sunflowers, hibiscus"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"Hummingbirds, Jasmine, Marigolds, Cinnamon trees, lemongrass, marigold"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"Orchids, roses, Pecan trees, fresh fruits from garden trees, Osmanthus, Bitter Melon, Ginger, steamed sea bass, Rabbits"</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 3: Colors of Home -->
+            <div style="margin-bottom: 5rem;">
+                <h3 style="color: #4169E1; font-size: 1.5rem; margin-bottom: 0.75rem; font-weight: 700; letter-spacing: -0.01em;">What colors feel like home to you?</h3>
+                <p style="color: #64748b; font-size: 1rem; margin-bottom: 2.5rem; font-weight: 500;">Color associations with belonging, culture, and place-based identity</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                    <div class="story-card" >
+                        <div class="story-quote" >"Green, red"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"Green, toronja, blacks"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"I love sunflowers for their brightness"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"Orange, green, Green, brown, olive & Navy, Cool. Green & red"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"Blue, green, green, green, Sky blue, green & red, green and pink, yellows, pink, blue, Red, orange, yellows"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"Purple, BLUE & → Rainbow - All colors, jade green as greens + yellows, Green & blue, red & orange, Green, yellow, blue, Green + red, Green, green + red"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"green, purples + yellows green, maroon + blue, rose PINK"</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 4: Family Foods -->
+            <div style="margin-bottom: 5rem;">
+                <h3 style="color: #CD853F; font-size: 1.5rem; margin-bottom: 0.75rem; font-weight: 700; letter-spacing: -0.01em;">What plant or food marks important moments in your family?</h3>
+                <p style="color: #64748b; font-size: 1rem; margin-bottom: 2.5rem; font-weight: 500;">Traditional dishes and plants that anchor family celebrations and memories</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                    <div class="story-card" >
+                        <div class="story-quote" >"Blue Bonnets, Shiitake mushrooms, Mung bean noodles"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"Ube halaya, Rice balls wrapped in bamboo"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"Oleander"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"Singapore Noodles, Shiitake mushrooms, Mung bean noodles, Kaffir lime, glass noodles, chicken soup, adobo"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"Blue Bonnets, kimchi - phat else needs, Warabi (fern common in the Borneo Island/Hawaii), ube HALAYA, Riceballs wrapped in bamboo, adobo"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"Orchids, pho, bungs hue, cilantro, soups, pho tea, CUMBARB, MORINGA, Rice, adobo"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"Tamales, chicken & tortilla, Peace lily RIP 6 years, Century agave roots, Fresh cooked veggies, Fresh fruits from garden trees"</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 5: Elder Teachings -->
+            <div style="margin-bottom: 5rem;">
+                <h3 style="color: #800080; font-size: 1.5rem; margin-bottom: 0.75rem; font-weight: 700; letter-spacing: -0.01em;">What did your grandparents, parents, or elders teach you about the natural world?</h3>
+                <p style="color: #64748b; font-size: 1rem; margin-bottom: 2.5rem; font-weight: 500;">Intergenerational wisdom about environmental stewardship and sacred relationships with nature</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                    <div class="story-card" >
+                        <div class="story-quote" >"Cultivation"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"Everything is sacred and comes directly from the Creator"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"Work with nature, love nature"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"Respect it & respect back"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"Plant trees for generations to come"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"Nature unites the world and reminds us of our creator"</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Symbols & Patterns -->
+            <div style="margin-bottom: 5rem;">
+                <h3 style="color: #FF6347; font-size: 1.5rem; margin-bottom: 0.75rem; font-weight: 700; letter-spacing: -0.01em;">What symbol or pattern holds meaning to you or your culture?</h3>
+                <p style="color: #64748b; font-size: 1rem; margin-bottom: 2.5rem; font-weight: 500;">Cultural symbols that represent resilience, spirituality, and community identity</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                    <div class="story-card" >
+                        <div class="story-quote" >"Lotus flower, Asian lotus flower"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"Mandala pattern, jade circles"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"Philippine sun from flag"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"Female symbol, hearts"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"Lions, gold, sun patterns"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"Spirals, crescents, peace signs"</div>
+                    </div>
+                    <div class="story-card" >
+                        <div class="story-quote" >"Seashells (connection to ocean)"</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Research Impact -->
+        <section class="content-section" style="background: #f8f8f8;">
+            <h2 class="section-title">Research Impact</h2>
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                    <div style="background: white; padding: 2rem; border-radius: 8px; text-align: center;">
+                        <h3 style="color: #228B22; margin-bottom: 1rem;">Cultural Preservation</h3>
+                        <p style="color: #666; line-height: 1.6;">Documenting traditional ecological knowledge across Indigenous, Latinx, Asian, and diverse communities</p>
+                    </div>
+                    <div style="background: white; padding: 2rem; border-radius: 8px; text-align: center;">
+                        <h3 style="color: #8B4513; margin-bottom: 1rem;">Community Building</h3>
+                        <p style="color: #666; line-height: 1.6;">Creating connections through shared plant experiences and botanical heritage</p>
+                    </div>
+                    <div style="background: white; padding: 2rem; border-radius: 8px; text-align: center;">
+                        <h3 style="color: #4169E1; margin-bottom: 1rem;">Climate Adaptation</h3>
+                        <p style="color: #666; line-height: 1.6;">Sharing traditional knowledge for environmental resilience and stewardship</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Complete Data Documentation -->
+        <section class="content-section">
+            <h2 class="section-title">Complete Raw Data</h2>
+            <p class="section-subtitle">Comprehensive documentation of all collected community responses</p>
+            
+            <!-- Master Plant List -->
+            <div style="margin-bottom: 4rem;">
+                <h3 style="color: #228B22; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 700;">🌿 Master Plant List (95+ Species)</h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+                    <div style="background: white; border-left: 4px solid #228B22; padding: 1.5rem; border-radius: 8px;">
+                        <h4 style="color: #1a1a1a; margin-bottom: 1rem; font-weight: 600;">Trees & Large Plants</h4>
+                        <p style="color: #64748b; line-height: 1.6; font-size: 0.9rem;">Century Agave • Live Oak Trees • Palm Trees • Pecan Trees • Mountain Laurels • Cinnamon Trees • Guava Tree</p>
+                    </div>
+                    <div style="background: white; border-left: 4px solid #4CAF50; padding: 1.5rem; border-radius: 8px;">
+                        <h4 style="color: #1a1a1a; margin-bottom: 1rem; font-weight: 600;">Flowering Plants</h4>
+                        <p style="color: #64748b; line-height: 1.6; font-size: 0.9rem;">Blue Bonnets • Hibiscus • Orchids • Lotus Flowers • Cherry Blossoms • Sunflowers • Jasmine • Marigolds • Plumeria • Magnolias • Peace Lily • Rain Flowers</p>
+                    </div>
+                    <div style="background: white; border-left: 4px solid #81C784; padding: 1.5rem; border-radius: 8px;">
+                        <h4 style="color: #1a1a1a; margin-bottom: 1rem; font-weight: 600;">Herbs & Medicine Plants</h4>
+                        <p style="color: #64748b; line-height: 1.6; font-size: 0.9rem;">Aloe • Mint • Lemongrass • Kaffir Lime • Goji Berries • Wasabi Fern • Traditional Medicine Plants</p>
+                    </div>
+                    <div style="background: white; border-left: 4px solid #A5D6A7; padding: 1.5rem; border-radius: 8px;">
+                        <h4 style="color: #1a1a1a; margin-bottom: 1rem; font-weight: 600;">Fruits & Vegetables</h4>
+                        <p style="color: #64748b; line-height: 1.6; font-size: 0.9rem;">Dragon Fruit • Ube • Bitter Melon • Collard Greens • Nopales • Sweet Potatoes • Rice • Mung Bean Noodles • Bamboo</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Colors Analysis -->
+            <div style="margin-bottom: 4rem;">
+                <h3 style="color: #4169E1; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 700;">🎨 Colors That Feel Like Home (45+ Responses)</h3>
+                
+                <div style="background: #f8f9fa; padding: 2rem; border-radius: 12px; border-left: 4px solid #4169E1;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                        <div>
+                            <h4 style="color: #1a1a1a; margin-bottom: 0.75rem; font-size: 1rem;">Most Frequent Colors</h4>
+                            <p style="color: #64748b; line-height: 1.5; font-size: 0.9rem;"><strong>Green (20+)</strong> • Blue (12+) • Yellow (8+) • Red (7+) • Orange (6+) • Purple (4+)</p>
+                        </div>
+                        <div>
+                            <h4 style="color: #1a1a1a; margin-bottom: 0.75rem; font-size: 1rem;">Popular Combinations</h4>
+                            <p style="color: #64748b; line-height: 1.5; font-size: 0.9rem;">Green + Blue • Red + Turquoise • Orange + Green • "Rainbow - All colors ♡♡"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Elder Wisdom -->
+            <div style="margin-bottom: 4rem;">
+                <h3 style="color: #800080; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 700;">🧠 Elder Wisdom & Teachings (20+ Quotes)</h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                    <div style="background: white; border-left: 4px solid #800080; padding: 1.5rem; border-radius: 8px;">
+                        <h4 style="color: #1a1a1a; margin-bottom: 1rem; font-weight: 600;">Core Philosophy</h4>
+                        <p style="color: #64748b; line-height: 1.6; font-size: 0.9rem; font-style: italic;">"Work with nature, love nature" • "Respect & it respect back" • "Nature unites the world and reminds us of our creator"</p>
+                    </div>
+                    <div style="background: white; border-left: 4px solid #9C27B0; padding: 1.5rem; border-radius: 8px;">
+                        <h4 style="color: #1a1a1a; margin-bottom: 1rem; font-weight: 600;">Intergenerational Responsibility</h4>
+                        <p style="color: #64748b; line-height: 1.6; font-size: 0.9rem; font-style: italic;">"Plant trees for generations to come!" • "My grandmother knew all the medicine plants"</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cultural Symbols -->
+            <div style="margin-bottom: 4rem;">
+                <h3 style="color: #FF6347; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 700;">🔮 Cultural Symbols & Patterns (30+ Elements)</h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                    <div style="background: white; border-left: 4px solid #FF6347; padding: 1.5rem; border-radius: 8px;">
+                        <h4 style="color: #1a1a1a; margin-bottom: 1rem; font-weight: 600;">Asian Cultural Symbols</h4>
+                        <p style="color: #64748b; line-height: 1.6; font-size: 0.9rem;">Lotus flowers • Yin-yang • Korean dragon • Filipino sun • Chang'e moon goddess • Jade circles • Mandala patterns</p>
+                    </div>
+                    <div style="background: white; border-left: 4px solid #FF7F50; padding: 1.5rem; border-radius: 8px;">
+                        <h4 style="color: #1a1a1a; margin-bottom: 1rem; font-weight: 600;">Indigenous/Native Symbols</h4>
+                        <p style="color: #64748b; line-height: 1.6; font-size: 0.9rem;">Dragonfly cross • Red + turquoise colors • Medicine wheels • Sacred geography markers</p>
+                    </div>
+                    <div style="background: white; border-left: 4px solid #FF8C69; padding: 1.5rem; border-radius: 8px;">
+                        <h4 style="color: #1a1a1a; margin-bottom: 1rem; font-weight: 600;">Natural Elements</h4>
+                        <p style="color: #64748b; line-height: 1.6; font-size: 0.9rem;">Sunflowers • Moon & stars • Spiral patterns • Water snakes • Cacti + snakes • Butterflies • Hearts • Four-leaf clover</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Final Summary -->
+            <div style="background: #f8f8f8; padding: 3rem; border: 1px solid #e0e0e0; text-align: center;">
+                <h3 style="color: #1a1a1a; font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 600;">Complete Documentation Summary</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                    <div>
+                        <div style="font-size: 1.75rem; font-weight: 600; margin-bottom: 0.5rem; color: #333;">95+</div>
+                        <div style="font-size: 0.9rem; color: #666;">Plant Species</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 1.75rem; font-weight: 600; margin-bottom: 0.5rem; color: #333;">15+</div>
+                        <div style="font-size: 0.9rem; color: #666;">Cultural Backgrounds</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 1.75rem; font-weight: 600; margin-bottom: 0.5rem; color: #333;">25+</div>
+                        <div style="font-size: 0.9rem; color: #666;">Countries Represented</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 1.75rem; font-weight: 600; margin-bottom: 0.5rem; color: #333;">8+</div>
+                        <div style="font-size: 0.9rem; color: #666;">Languages/Scripts</div>
+                    </div>
+                </div>
+                <p style="margin-top: 2rem; font-size: 1rem; line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: #666;">
+                    This collection represents the most comprehensive documentation of urban multicultural botanical knowledge, revealing Austin as a global convergence point for traditional plant wisdom and cultural preservation.
+                </p>
+                
+                <!-- Access Complete Data -->
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="plant-data-complete.html" style="display: inline-block; background: #1a1a1a; color: white; padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem;">
+                        📊 View Complete Data Documentation
+                    </a>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                        Access comprehensive listings of all documented species, cultures, countries, and community quotes
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Methodology -->
+        <section class="content-section">
+            <h2 class="section-title">Research Methodology</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="background: #f9f9f9; padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
+                    <h3 style="color: #1a1a1a; margin-bottom: 1rem;">Community-Centered Approach</h3>
+                    <p style="color: #666; line-height: 1.6; margin-bottom: 1rem;">Data collected through grassroots networks in March 2026:</p>
+                    <ul style="color: #666; line-height: 1.6; margin-left: 1.5rem;">
+                        <li><strong>42 physical cards</strong> - Handwritten responses at community events</li>
+                        <li><strong>7 digital submissions</strong> - Online form responses via Instagram outreach</li>
+                        <li><strong>Self-selected participants</strong> - Voluntary community members</li>
+                        <li><strong>Cultural communities</strong> - Filipino, Vietnamese, Mexican/Tejano, African American, Indigenous, and mixed heritage families</li>
+                    </ul>
+                </div>
+                <div style="background: white; border: 2px solid #e0e0e0; border-radius: 8px; padding: 2rem;">
+                    <h4 style="color: #1a1a1a; margin-bottom: 1rem;">Ethical Framework</h4>
+                    <p style="color: #666; line-height: 1.6;">Respectful collaboration with Indigenous knowledge holders, participant consent for follow-up contact, and community ownership of shared stories.</p>
+                </div>
+            </div>
+        </section>
+        
+        
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Join the Project</h2>
+            <p style="max-width: 600px; margin: 0 auto; font-size: 1.2rem; line-height: 1.6;">
+                We're continuing to collect stories and document plant knowledge. Share your story or support this community research project.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://forms.gle/19nZT8ZZvx9mEq4t7" target="_blank" class="cta-btn cta-btn-primary">Share Your Story</a>
+                <a href="contact.html" class="cta-btn cta-btn-secondary">Support the Project</a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo" style="background: #f8f8f8; padding: 3rem 2rem 2rem; text-align: center;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="border-top: 1px solid #ddd; padding-top: 2rem; color: #666; font-size: 0.9rem;">
+                <p>&copy; 2026 Essentials Creative. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="assets/js/navigation.js?v=4.3" defer></script>
+    
+    <!-- Hero Background Rotation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroSection = document.querySelector('.plant-hero');
+            const backgrounds = document.querySelectorAll('.hero-bg');
+            let currentIndex = 0;
+            let isTransitioning = false;
+            
+            // Preload images for smooth transitions
+            const imageUrls = [
+                'assets/images/plant-story/hero_image.jpg',
+                'assets/images/plant-story/plant-story-cards-setup.jpg',
+                'assets/images/plant-story/Scan%207%20copy.jpg'
+            ];
+            
+            let loadedImages = 0;
+            imageUrls.forEach(url => {
+                const img = new Image();
+                img.onload = () => {
+                    loadedImages++;
+                    if (loadedImages === imageUrls.length) {
+                        heroSection.classList.remove('loading');
+                        startAutoRotation();
+                    }
+                };
+                img.src = url;
+            });
+            
+            function rotateBackgrounds() {
+                if (isTransitioning) return;
+                isTransitioning = true;
+                
+                // Fade out current
+                backgrounds[currentIndex].classList.remove('active');
+                
+                // Calculate next index
+                currentIndex = (currentIndex + 1) % backgrounds.length;
+                
+                // Small delay for smoother transition
+                setTimeout(() => {
+                    backgrounds[currentIndex].classList.add('active');
+                    isTransitioning = false;
+                }, 100);
+            }
+            
+            function startAutoRotation() {
+                // Start rotation after initial delay
+                setTimeout(() => {
+                    setInterval(rotateBackgrounds, 6000);
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>

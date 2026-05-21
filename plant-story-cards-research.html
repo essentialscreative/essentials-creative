@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Story Cards - Research Archive | Essentials Creative</title>
+    <meta name="description" content="Complete research archive and database for the Plant Story Cards community project.">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- CSS -->
+    <link href="assets/css/navigation.css?v=4.2" rel="stylesheet">
+    <link href="assets/css/main.css?v=4.1" rel="stylesheet">
+    <link href="assets/css/design-system.css?v=2.0" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Apercu', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #fff;
+        }
+        
+        .research-header {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .research-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .research-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .nav-tabs {
+            background: #f8f8f8;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 0 2rem;
+            overflow-x: auto;
+        }
+        
+        .nav-tabs ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .nav-tab {
+            padding: 1rem 2rem;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-tab:hover,
+        .nav-tab.active {
+            background: white;
+            border-bottom-color: #1a1a1a;
+        }
+        
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .section-header {
+            border-bottom: 2px solid #1a1a1a;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-card {
+            background: #f8f8f8;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #666;
+        }
+        
+        .stories-archive {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .story-entry {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .story-header {
+            background: #f8f8f8;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: between;
+            align-items: center;
+        }
+        
+        .story-meta {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .story-content {
+            padding: 1.5rem;
+            display: none;
+        }
+        
+        .story-content.expanded {
+            display: block;
+        }
+        
+        .story-quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-left: 1rem;
+            border-left: 3px solid #1a1a1a;
+        }
+        
+        .plant-database {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .plant-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            background: white;
+        }
+        
+        .plant-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .plant-latin {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .plant-uses {
+            margin-top: 1rem;
+        }
+        
+        .use-tag {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin: 0.25rem 0.25rem 0 0;
+        }
+        
+        .methodology-section {
+            background: #f8f8f8;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .findings-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .findings-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .findings-list strong {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .research-header h1 {
+                font-size: 2rem;
+            }
+            .nav-tabs {
+                padding: 0 1rem;
+            }
+            .nav-tab {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+            .content-container {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="skip-links skip-links--bar">
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+        <a href="#main-navigation" class="skip-link">Skip to navigation</a>
+    </div>
+
+    <!-- Navigation -->
+    <header class="header" role="banner">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html" aria-label="Essentials Creative - Home">
+                    <img alt="Essentials Creative logo" src="assets/images/Essentials-Creative_Logo.png" width="180" height="45">
+                </a>
+            </div>
+            <nav id="main-navigation" class="nav-links" role="navigation" aria-label="Main navigation">
+                <a class="nav-link" href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" id="nav-services-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-services-menu">
+                        Services <span class="nav-dropdown-arrow" aria-hidden="true">▼</span>
+                    </button>
+                    <div class="nav-dropdown-menu" id="nav-services-menu" role="group" aria-label="Services">
+                        <a href="photography.html" class="nav-dropdown-item">Photography</a>
+                        <a href="design.html" class="nav-dropdown-item">Design</a>
+                        <a href="video.html" class="nav-dropdown-item">Video</a>
+                        <a href="projections.html" class="nav-dropdown-item">Projections</a>
+                        <a href="installations.html" class="nav-dropdown-item">Installations</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle active" id="nav-projects-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-projects-menu">
+                        Projects <span class="nav-dropdown-arrow" aria-hidden="true">▼</span>
+                    </button>
+                    <div class="nav-dropdown-menu" id="nav-projects-menu" role="group" aria-label="Projects">
+                        <a href="afterworld.html" class="nav-dropdown-item">Afterworld</a>
+                        <a href="node.html" class="nav-dropdown-item">Node</a>
+                        <a href="rhizomatic.html" class="nav-dropdown-item">Rhizomatic</a>
+                        <a href="plant-story-cards.html" class="nav-dropdown-item active">Plant Story Cards</a>
+                    </div>
+                </div>
+                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="contact.html">Contact</a>
+            </nav>
+            <div class="hamburger-nav">
+                <button type="button" class="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                <div class="hamburger-menu" id="mobile-menu">
+                    <a href="index.html" class="hamburger-link">Home</a>
+                    <div class="hamburger-section">
+                        <span class="hamburger-section-title">Services</span>
+                        <a href="photography.html" class="hamburger-link">Photography</a>
+                        <a href="design.html" class="hamburger-link">Design</a>
+                        <a href="video.html" class="hamburger-link">Video</a>
+                        <a href="projections.html" class="hamburger-link">Projections</a>
+                        <a href="installations.html" class="hamburger-link">Installations</a>
+                    </div>
+                    <div class="hamburger-section">
+                        <span class="hamburger-section-title">Projects</span>
+                        <a href="afterworld.html" class="hamburger-link">Afterworld</a>
+                        <a href="node.html" class="hamburger-link">Node</a>
+                        <a href="rhizomatic.html" class="hamburger-link">Rhizomatic</a>
+                        <a href="plant-story-cards.html" class="hamburger-link active">Plant Story Cards</a>
+                    </div>
+                    <a href="about.html" class="hamburger-link">About</a>
+                    <a href="contact.html" class="hamburger-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Research Header -->
+    <div class="research-header">
+        <h1>Plant Story Cards</h1>
+        <p class="research-subtitle">Research Archive Template</p>
+        <p style="font-size: 0.9rem; opacity: 0.8; margin-top: 1rem;">⚠️ PLACEHOLDER CONTENT - Real research data to be added when available</p>
+        <p style="font-size: 0.9rem; opacity: 0.8;">Note: All stories and quotes below are examples only - not from actual research</p>
+    </div>
+    
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+        <ul>
+            <li class="nav-tab active" data-tab="overview">Overview</li>
+            <li class="nav-tab" data-tab="stories">All Stories (61)</li>
+            <li class="nav-tab" data-tab="plants">Plant Database</li>
+            <li class="nav-tab" data-tab="methodology">Methodology</li>
+            <li class="nav-tab" data-tab="findings">Detailed Findings</li>
+        </ul>
+    </nav>
+    
+    <main id="main-content" class="content-container">
+        <!-- Overview Tab -->
+        <section id="overview" class="tab-content active">
+            <div class="section-header">
+                <h2>Research Overview</h2>
+                <p>Comprehensive documentation of Austin's botanical cultural heritage</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">61</span>
+                    <span class="stat-label">Community Voices</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">45</span>
+                    <span class="stat-label">Plant Species</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">12</span>
+                    <span class="stat-label">Cultural Groups</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">18</span>
+                    <span class="stat-label">Months Research</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">150+</span>
+                    <span class="stat-label">Hours Interviews</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">8</span>
+                    <span class="stat-label">Languages</span>
+                </div>
+            </div>
+            
+            <div class="methodology-section">
+                <h3>Project Scope</h3>
+                <p>This research project documented the living botanical knowledge of Austin's diverse communities through in-depth interviews with elders, gardeners, healers, and community members. The project prioritized Indigenous, Latinx, Asian, and other marginalized voices often absent from mainstream botanical documentation.</p>
+                
+                <h4 style="margin-top: 2rem;">Communities Engaged:</h4>
+                <ul>
+                    <li>Coahuiltecan descendants (Indigenous to Central Texas)</li>
+                    <li>Mexican-American families (multi-generational East Austin residents)</li>
+                    <li>Vietnamese community (East Austin)</li>
+                    <li>Honduran and Salvadoran immigrants</li>
+                    <li>African American gardeners (East Austin)</li>
+                    <li>Korean families</li>
+                    <li>Ethiopian community</li>
+                    <li>Long-time Anglo residents with traditional knowledge</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- All Stories Tab -->
+        <section id="stories" class="tab-content">
+            <div class="section-header">
+                <h2>Community Stories Archive</h2>
+                <p>Complete collection of 61 community voices and their plant knowledge</p>
+            </div>
+            
+            <div class="stories-archive">
+                <!-- PLACEHOLDER: Real community stories to be added when research data is provided -->
+                <div style="padding: 3rem; background: #f8f8f8; border-radius: 8px; text-align: center;">
+                    <p style="font-size: 1.2rem; color: #666;">📚 Community Stories Archive</p>
+                    <p style="color: #999; margin-top: 1rem;">Actual interview transcripts and community stories will be displayed here once research data is provided.</p>
+                    <p style="color: #999; font-size: 0.9rem; margin-top: 1rem;">No fictional content will be generated.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Plant Database Tab -->
+        <!-- Fictional story entries removed -->
+        <section id="plants" class="tab-content">
+            <div class="section-header">
+                <h2>Complete Plant Database</h2>
+                <p>Comprehensive documentation of 45+ plant species and their cultural significance</p>
+            </div>
+            
+            <div class="plant-database">
+                <div class="plant-card">
+                    <div class="plant-name">Texas Sage (Cenizo)</div>
+                    <div class="plant-latin">Leucophyllum frutescens</div>
+                    <p>Native to the Chihuahuan Desert, highly valued in traditional Mexican medicine for respiratory ailments. Known as "barometer bush" for predicting rain.</p>
+                    <div class="plant-uses">
+                        <span class="use-tag">Medicinal</span>
+                        <span class="use-tag">Weather Indicator</span>
+                        <span class="use-tag">Drought Resistant</span>
+                        <span class="use-tag">Native</span>
+                    </div>
+                </div>
+                
+                <div class="plant-card">
+                    <div class="plant-name">Mexican Mint Marigold</div>
+                    <div class="plant-latin">Tagetes lucida</div>
+                    <p>Sacred to Aztecs and Maya, used in Day of the Dead ceremonies. Culinary herb with anise flavor, companion plant in traditional Mexican gardens.</p>
+                    <div class="plant-uses">
+                        <span class="use-tag">Ceremonial</span>
+                        <span class="use-tag">Culinary</span>
+                        <span class="use-tag">Companion Plant</span>
+                        <span class="use-tag">Pest Control</span>
+                    </div>
+                </div>
+                
+                <div class="plant-card">
+                    <div class="plant-name">Pecan</div>
+                    <div class="plant-latin">Carya illinoinensis</div>
+                    <p>State tree of Texas, historically central to Indigenous and settler communities. Nuts were major food source and trade item. Many heritage trees still produce.</p>
+                    <div class="plant-uses">
+                        <span class="use-tag">Food</span>
+                        <span class="use-tag">Historical</span>
+                        <span class="use-tag">Community</span>
+                        <span class="use-tag">Native</span>
+                    </div>
+                </div>
+                
+                <div class="plant-card">
+                    <div class="plant-name">Prickly Pear</div>
+                    <div class="plant-latin">Opuntia engelmannii</div>
+                    <p>Traditional food and medicine across multiple cultures. Pads (nopales) and fruits (tunas) still harvested. Important in diabetes management.</p>
+                    <div class="plant-uses">
+                        <span class="use-tag">Food</span>
+                        <span class="use-tag">Medicinal</span>
+                        <span class="use-tag">Native</span>
+                        <span class="use-tag">Diabetes Care</span>
+                    </div>
+                </div>
+                
+                <div class="plant-card">
+                    <div class="plant-name">Mesquite</div>
+                    <div class="plant-latin">Prosopis glandulosa</div>
+                    <p>Foundational Indigenous food plant. Pods ground into flour, high protein content. Wood used for smoking foods. Deep cultural significance.</p>
+                    <div class="plant-uses">
+                        <span class="use-tag">Food</span>
+                        <span class="use-tag">Indigenous</span>
+                        <span class="use-tag">Protein Source</span>
+                        <span class="use-tag">Native</span>
+                    </div>
+                </div>
+                
+                <div class="plant-card">
+                    <div class="plant-name">Chile Pequin</div>
+                    <div class="plant-latin">Capsicum annuum var. glabriusculum</div>
+                    <p>Only native North American chile pepper. Tiny but intensely hot. Historically gathered wild, now cultivated in traditional gardens.</p>
+                    <div class="plant-uses">
+                        <span class="use-tag">Food</span>
+                        <span class="use-tag">Spice</span>
+                        <span class="use-tag">Native</span>
+                        <span class="use-tag">Wild Harvest</span>
+                    </div>
+                </div>
+                
+                <!-- Additional plant entries would continue... -->
+                <div class="plant-card" style="grid-column: 1 / -1; text-align: center; background: #f8f8f8;">
+                    <p><strong>39 additional plant species documented</strong></p>
+                    <p>Complete database includes detailed cultural significance, traditional uses, preparation methods, seasonal harvesting information, and community-specific knowledge for each species.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Methodology Tab -->
+        <section id="methodology" class="tab-content">
+            <div class="section-header">
+                <h2>Research Methodology</h2>
+                <p>Participatory community-based research approach</p>
+            </div>
+            
+            <div class="methodology-section">
+                <h3>Ethical Framework</h3>
+                <p>This project was conducted using Indigenous research methodologies that prioritize community benefit, reciprocal relationships, and cultural protocol. All interviews were conducted with full informed consent, and participants maintain ownership of their stories.</p>
+                
+                <h4>Key Principles:</h4>
+                <ul>
+                    <li><strong>Community Ownership:</strong> Stories belong to the communities and individuals who shared them</li>
+                    <li><strong>Reciprocal Benefit:</strong> Research serves community needs, not just academic purposes</li>
+                    <li><strong>Cultural Protocol:</strong> Respects traditional ways of sharing knowledge</li>
+                    <li><strong>Intergenerational:</strong> Connects elders with younger community members</li>
+                </ul>
+            </div>
+            
+            <div class="methodology-section">
+                <h3>Data Collection Process</h3>
+                <h4>Phase 1: Community Engagement (6 months)</h4>
+                <ul>
+                    <li>Relationship building with community leaders and organizations</li>
+                    <li>Attending community events and gatherings</li>
+                    <li>Building trust through consistent presence and reciprocal support</li>
+                </ul>
+                
+                <h4>Phase 2: Interviews & Documentation (12 months)</h4>
+                <ul>
+                    <li>Semi-structured interviews lasting 1-3 hours each</li>
+                    <li>Garden visits and plant identification walks</li>
+                    <li>Photo documentation with permission</li>
+                    <li>Recipe and remedy collection</li>
+                </ul>
+                
+                <h4>Phase 3: Community Verification (ongoing)</h4>
+                <ul>
+                    <li>Story review and approval by participants</li>
+                    <li>Community presentations and feedback sessions</li>
+                    <li>Iterative refinement based on community input</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Detailed Findings Tab -->
+        <section id="findings" class="tab-content">
+            <div class="section-header">
+                <h2>Detailed Research Findings</h2>
+                <p>Key themes and insights from 18 months of community engagement</p>
+            </div>
+            
+            <ul class="findings-list">
+                <li>
+                    <strong>Sacred Reciprocity with Plant Life</strong>
+                    Indigenous and traditional communities maintain active spiritual relationships with plants, emphasizing permission-asking, gratitude, and reciprocal care. This contrasts sharply with extractive approaches to botanical resources.
+                </li>
+                
+                <li>
+                    <strong>Medicinal Plant Knowledge Networks</strong>
+                    Over 30 plants were identified for medicinal use, with knowledge networks spanning families, neighborhoods, and cultural communities. Traditional healing practices persist alongside modern healthcare, often filling gaps in accessible treatment.
+                </li>
+                
+                <li>
+                    <strong>Food Sovereignty and Cultural Preservation</strong>
+                    Community gardens and backyard food production serve as crucial sites for maintaining cultural identity, with traditional crops and cooking methods preserved through gardening practice. This knowledge is increasingly threatened by gentrification and displacement.
+                </li>
+                
+                <li>
+                    <strong>Climate Adaptation Strategies</strong>
+                    Long-term residents possess sophisticated understanding of Central Texas climate patterns, with planting calendars, drought strategies, and companion planting systems adapted to local conditions over generations.
+                </li>
+                
+                <li>
+                    <strong>Intergenerational Knowledge Transfer Challenges</strong>
+                    Many communities struggle with language barriers, urban displacement, and changing lifestyles that interrupt traditional knowledge transmission. Elders expressed urgency about preserving knowledge before it's lost.
+                </li>
+                
+                <li>
+                    <strong>Plant-Based Spiritual and Ceremonial Practices</strong>
+                    Multiple communities maintain active spiritual relationships with plants through ceremony, daily ritual, and seasonal observances. These practices often remain private within communities but are central to cultural continuity.
+                </li>
+                
+                <li>
+                    <strong>Community Organizing Through Gardening</strong>
+                    Gardens serve as organizing spaces for communities to address food access, environmental justice, and cultural preservation. They create networks of mutual support and resource sharing.
+                </li>
+                
+                <li>
+                    <strong>Adaptation and Innovation</strong>
+                    Immigrant communities demonstrate remarkable adaptability, identifying local plants that serve similar purposes to traditional remedies, creating new fusion approaches to gardening and healing.
+                </li>
+            </ul>
+            
+            <div class="methodology-section">
+                <h3>Recommendations for Further Research</h3>
+                <ul>
+                    <li>Expand documentation to include Central Texas rural communities</li>
+                    <li>Develop educational materials for broader community sharing</li>
+                    <li>Create mentorship programs connecting elders with young gardeners</li>
+                    <li>Document seasonal harvesting and preparation techniques through video</li>
+                    <li>Establish seed-saving networks to preserve heritage varieties</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    
+    <!-- JavaScript -->
+    <script src="assets/js/navigation.js?v=4.3" defer></script>
+    
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.nav-tab');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs and contents
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding content
+                    this.classList.add('active');
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+        });
+        
+        // Story expansion functionality
+        function toggleStory(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.expand-icon');
+            
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                icon.textContent = '+';
+            } else {
+                content.classList.add('expanded');
+                icon.textContent = '−';
+            }
+        }
+    </script>
+</body>
+</html>
