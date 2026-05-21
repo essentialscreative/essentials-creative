@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Story Cards - Complete Data Documentation | Essentials Creative</title>
+    <meta name="description" content="Complete documentation of 95+ plant species, 15+ cultural backgrounds, 25+ countries, and 8+ languages from Austin's multicultural botanical research project.">
+    
+    <link rel="canonical" href="https://essentialscreative.com/plant-data-complete"/>
+
+<meta property="og:image" content="https://essentialscreative.com/assets/images/Essentials-Creative_Logo.png">
+<meta property="og:image:alt" content="Plant Story Cards research archive by Essentials Creative">
+<meta property="og:title" content="Plant Data Archive - Essentials Creative">
+<meta property="og:description" content="Complete documentation of 95+ plant species, 15+ cultural backgrounds, 25+ countries, and 8+ languages from Austin multicultural botanical research.">
+<!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" sizes="32x32">
+    
+    <!-- Stylesheets -->
+    <link href="assets/css/navigation.css?v=4.2" rel="stylesheet">
+    <link href="assets/css/main.css?v=4.1" rel="stylesheet">
+    <link href="assets/css/design-system.css?v=2.0" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: #fafafa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 3rem 0;
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+        
+        .page-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .data-section {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            overflow: hidden;
+        }
+        
+        .section-header {
+            background: #f8f8f8;
+            padding: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0 0 0.5rem 0;
+            color: #1a1a1a;
+        }
+        
+        .section-count {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0;
+        }
+        
+        .data-item {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #f0f0f0;
+            border-right: 1px solid #f0f0f0;
+        }
+        
+        .data-item:hover {
+            background: #f9f9f9;
+        }
+        
+        .item-name {
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 0.25rem;
+        }
+        
+        .item-detail {
+            font-size: 0.85rem;
+            color: #666;
+        }
+        
+        .category-header {
+            background: #f0f0f0;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            border-bottom: 1px solid #e0e0e0;
+            grid-column: 1 / -1;
+        }
+        
+        .stats-overview {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.25rem;
+        }
+        
+        .alpha-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0;
+        }
+        
+        .alpha-item {
+            padding: 0.75rem 1.5rem;
+            border-bottom: 1px solid #f0f0f0;
+            border-right: 1px solid #f0f0f0;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 0.75rem 1.5rem;
+            background: #1a1a1a;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .back-link:hover {
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="skip-links skip-links--bar">
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+        <a href="#main-navigation" class="skip-link">Skip to navigation</a>
+    </div>
+
+    <!-- Navigation -->
+    <header class="header" role="banner">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html" aria-label="Essentials Creative - Home">
+                    <img alt="Essentials Creative logo" src="assets/images/Essentials-Creative_Logo.png" width="180" height="45">
+                </a>
+            </div>
+            <nav id="main-navigation" class="nav-links" role="navigation" aria-label="Main navigation">
+                <a class="nav-link" href="index.html">Home</a>
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" id="nav-services-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-services-menu">
+                        Services <span class="nav-dropdown-arrow" aria-hidden="true">▼</span>
+                    </button>
+                    <div class="nav-dropdown-menu" id="nav-services-menu" role="group" aria-label="Services">
+                        <a href="photography.html" class="nav-dropdown-item">Photography</a>
+                        <a href="design.html" class="nav-dropdown-item">Design</a>
+                        <a href="video.html" class="nav-dropdown-item">Video</a>
+                        <a href="projections.html" class="nav-dropdown-item">Projections</a>
+                        <a href="installations.html" class="nav-dropdown-item">Installations</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle active" id="nav-projects-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-projects-menu">
+                        Projects <span class="nav-dropdown-arrow" aria-hidden="true">▼</span>
+                    </button>
+                    <div class="nav-dropdown-menu" id="nav-projects-menu" role="group" aria-label="Projects">
+                        <a href="afterworld.html" class="nav-dropdown-item">Afterworld</a>
+                        <a href="node.html" class="nav-dropdown-item">Node</a>
+                        <a href="rhizomatic.html" class="nav-dropdown-item">Rhizomatic</a>
+                        <a href="plant-story-cards.html" class="nav-dropdown-item active">Plant Story Cards</a>
+                    </div>
+                </div>
+                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="contact.html">Contact</a>
+            </nav>
+            <div class="hamburger-nav">
+                <button type="button" class="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                <div class="hamburger-menu" id="mobile-menu">
+                    <a href="index.html" class="hamburger-link">Home</a>
+                    <div class="hamburger-section">
+                        <span class="hamburger-section-title">Services</span>
+                        <a href="photography.html" class="hamburger-link">Photography</a>
+                        <a href="design.html" class="hamburger-link">Design</a>
+                        <a href="video.html" class="hamburger-link">Video</a>
+                        <a href="projections.html" class="hamburger-link">Projections</a>
+                        <a href="installations.html" class="hamburger-link">Installations</a>
+                    </div>
+                    <div class="hamburger-section">
+                        <span class="hamburger-section-title">Projects</span>
+                        <a href="afterworld.html" class="hamburger-link">Afterworld</a>
+                        <a href="node.html" class="hamburger-link">Node</a>
+                        <a href="rhizomatic.html" class="hamburger-link">Rhizomatic</a>
+                        <a href="plant-story-cards.html" class="hamburger-link active">Plant Story Cards</a>
+                    </div>
+                    <a href="about.html" class="hamburger-link">About</a>
+                    <a href="contact.html" class="hamburger-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="container">
+                <h1 class="page-title">Complete Data Documentation</h1>
+                <p class="page-subtitle">Comprehensive listing of all documented species, cultural backgrounds, countries, and languages from the Plant Story Cards research project (March 2026-May 2026)</p>
+                
+                <a href="plant-story-cards.html" class="back-link">← Back to Plant Story Cards</a>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Stats Overview -->
+            <div class="stats-overview">
+                <h2>Research Documentation Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">95+</span>
+                        <span class="stat-label">Plant Species</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Cultural Backgrounds</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">25+</span>
+                        <span class="stat-label">Countries Represented</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">8+</span>
+                        <span class="stat-label">Languages/Scripts</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Plant Species Documentation -->
+            <div class="data-section">
+                <div class="section-header">
+                    <h3 class="section-title">🌿 Complete Plant Species List</h3>
+                    <div class="section-count">95+ species documented from community responses</div>
+                </div>
+                <div class="data-grid">
+                    <div class="category-header">Trees & Large Plants</div>
+                    <div class="data-item">
+                        <div class="item-name">Century Agave</div>
+                        <div class="item-detail">Agave americana</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Live Oak Trees</div>
+                        <div class="item-detail">Quercus virginiana</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Palm Trees</div>
+                        <div class="item-detail">Various Arecaceae species</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Pecan Trees</div>
+                        <div class="item-detail">Carya illinoinensis</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Mountain Laurels</div>
+                        <div class="item-detail">Dermatophyllum secundiflorum</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Cinnamon Trees</div>
+                        <div class="item-detail">Cinnamomum verum</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Guava Tree</div>
+                        <div class="item-detail">Psidium guajava</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Mahogany Trees</div>
+                        <div class="item-detail">Swietenia species</div>
+                    </div>
+
+                    <div class="category-header">Flowering Plants</div>
+                    <div class="data-item">
+                        <div class="item-name">Blue Bonnets</div>
+                        <div class="item-detail">Lupinus texensis (Texas State Flower)</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Hibiscus</div>
+                        <div class="item-detail">Hibiscus rosa-sinensis</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Orchids</div>
+                        <div class="item-detail">Orchidaceae family</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Lotus Flowers</div>
+                        <div class="item-detail">Nelumbo nucifera</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Cherry Blossoms</div>
+                        <div class="item-detail">Prunus species</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Sunflowers</div>
+                        <div class="item-detail">Helianthus annuus</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Jasmine</div>
+                        <div class="item-detail">Jasminum officinale</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Marigolds</div>
+                        <div class="item-detail">Tagetes species</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Plumeria</div>
+                        <div class="item-detail">Plumeria rubra</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Magnolias</div>
+                        <div class="item-detail">Magnolia grandiflora</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Peace Lily</div>
+                        <div class="item-detail">Spathiphyllum wallisii</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Rain Flowers</div>
+                        <div class="item-detail">Seasonal blooms after precipitation</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Roses</div>
+                        <div class="item-detail">Rosa species</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">African Violets</div>
+                        <div class="item-detail">Saintpaulia ionantha</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Sampaguita</div>
+                        <div class="item-detail">Jasminum sambac (Philippine jasmine)</div>
+                    </div>
+
+                    <div class="category-header">Herbs & Medicine Plants</div>
+                    <div class="data-item">
+                        <div class="item-name">Aloe</div>
+                        <div class="item-detail">Aloe vera</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Mint</div>
+                        <div class="item-detail">Mentha species</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Lemongrass</div>
+                        <div class="item-detail">Cymbopogon citratus</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Kaffir Lime</div>
+                        <div class="item-detail">Citrus hystrix</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Goji Berries</div>
+                        <div class="item-detail">Lycium barbarum</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Wasabi Fern</div>
+                        <div class="item-detail">Eutrema japonicum</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Cilantro</div>
+                        <div class="item-detail">Coriandrum sativum</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Ginger</div>
+                        <div class="item-detail">Zingiber officinale</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Traditional Medicine Plants</div>
+                        <div class="item-detail">Various Indigenous healing plants</div>
+                    </div>
+
+                    <div class="category-header">Vegetables & Crops</div>
+                    <div class="data-item">
+                        <div class="item-name">Collard Greens</div>
+                        <div class="item-detail">Brassica oleracea</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Spinach</div>
+                        <div class="item-detail">Spinacia oleracea</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Sweet Potatoes</div>
+                        <div class="item-detail">Ipomoea batatas</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Nopales (Prickly Pear Cactus)</div>
+                        <div class="item-detail">Opuntia species</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Okra</div>
+                        <div class="item-detail">Abelmoschus esculentus</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Chinese Vegetables</div>
+                        <div class="item-detail">Various Asian cultivars</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Corn/Maize</div>
+                        <div class="item-detail">Zea mays</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Tomatoes</div>
+                        <div class="item-detail">Solanum lycopersicum</div>
+                    </div>
+
+                    <div class="category-header">Fruits & Nuts</div>
+                    <div class="data-item">
+                        <div class="item-name">Dragon Fruit</div>
+                        <div class="item-detail">Hylocereus undatus</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Ube (Purple Yam)</div>
+                        <div class="item-detail">Dioscorea alata</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Bitter Melon</div>
+                        <div class="item-detail">Momordica charantia</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Grape Leaves</div>
+                        <div class="item-detail">Vitis vinifera</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Pistachios</div>
+                        <div class="item-detail">Pistacia vera</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Oranges</div>
+                        <div class="item-detail">Citrus × sinensis</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Apple</div>
+                        <div class="item-detail">Malus domestica</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Watermelon</div>
+                        <div class="item-detail">Citrullus lanatus</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Kalamansi</div>
+                        <div class="item-detail">Citrofortunella microcarpa</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Jackfruit</div>
+                        <div class="item-detail">Artocarpus heterophyllus</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Guava</div>
+                        <div class="item-detail">Psidium guajava</div>
+                    </div>
+
+                    <div class="category-header">Grains & Starches</div>
+                    <div class="data-item">
+                        <div class="item-name">Rice</div>
+                        <div class="item-detail">Oryza sativa</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Mung Bean Noodles</div>
+                        <div class="item-detail">Vigna radiata derivatives</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Glass Noodles</div>
+                        <div class="item-detail">Starch-based noodles</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Plantain</div>
+                        <div class="item-detail">Musa × paradisiaca</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Yams</div>
+                        <div class="item-detail">Dioscorea species</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Bamboo</div>
+                        <div class="item-detail">Bambusoideae (for food wrapping)</div>
+                    </div>
+
+                    <div class="category-header">Native Texas Plants</div>
+                    <div class="data-item">
+                        <div class="item-name">Mexican Plum</div>
+                        <div class="item-detail">Prunus mexicana</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Mesquite</div>
+                        <div class="item-detail">Prosopis glandulosa</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Yucca</div>
+                        <div class="item-detail">Yucca filamentosa</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Texas Sage</div>
+                        <div class="item-detail">Leucophyllum frutescens</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Lemonade Berry Plant</div>
+                        <div class="item-detail">Rhus integrifolia</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Red Buds</div>
+                        <div class="item-detail">Cercis canadensis</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Chile Pequin</div>
+                        <div class="item-detail">Capsicum annuum</div>
+                    </div>
+
+                    <div class="category-header">Spices & Seasonings</div>
+                    <div class="data-item">
+                        <div class="item-name">Chili/Chile</div>
+                        <div class="item-detail">Capsicum species</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Mesquite Beans</div>
+                        <div class="item-detail">Prosopis glandulosa pods</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="item-name">Olive Oil</div>
+                        <div class="item-detail">Olea europaea extract</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cultural Backgrounds -->
+            <div class="data-section">
+                <div class="section-header">
+                    <h3 class="section-title">🌍 Cultural Backgrounds Represented</h3>
+                    <div class="section-count">15+ distinct cultural communities documented</div>
+                </div>
+                <div class="alpha-list">
+                    <div class="alpha-item">African American/Southern US</div>
+                    <div class="alpha-item">Central American</div>
+                    <div class="alpha-item">Chinese</div>
+                    <div class="alpha-item">Coahuiltecan Indigenous</div>
+                    <div class="alpha-item">European heritage</div>
+                    <div class="alpha-item">Filipino/Pacific Islander</div>
+                    <div class="alpha-item">Greek/Italian (Mediterranean)</div>
+                    <div class="alpha-item">Gulf region Indigenous</div>
+                    <div class="alpha-item">Japanese</div>
+                    <div class="alpha-item">Korean</div>
+                    <div class="alpha-item">Mexican/Tejano/Hispanic</div>
+                    <div class="alpha-item">Mixed heritage families</div>
+                    <div class="alpha-item">Native American/Southwestern tribes</div>
+                    <div class="alpha-item">Singaporean</div>
+                    <div class="alpha-item">Thai/Southeast Asian</div>
+                    <div class="alpha-item">Vietnamese</div>
+                </div>
+            </div>
+
+            <!-- Countries Represented -->
+            <div class="data-section">
+                <div class="section-header">
+                    <h3 class="section-title">🗺️ Countries & Regions Represented</h3>
+                    <div class="section-count">25+ countries/regions with botanical knowledge connections</div>
+                </div>
+                <div class="alpha-list">
+                    <div class="alpha-item">Australia</div>
+                    <div class="alpha-item">Borneo/Malaysia</div>
+                    <div class="alpha-item">Central America</div>
+                    <div class="alpha-item">China</div>
+                    <div class="alpha-item">Europe (Various)</div>
+                    <div class="alpha-item">Greece</div>
+                    <div class="alpha-item">Guatemala</div>
+                    <div class="alpha-item">Hawaii</div>
+                    <div class="alpha-item">India</div>
+                    <div class="alpha-item">Indonesia</div>
+                    <div class="alpha-item">Italy</div>
+                    <div class="alpha-item">Japan</div>
+                    <div class="alpha-item">Korea</div>
+                    <div class="alpha-item">Laos</div>
+                    <div class="alpha-item">Mediterranean Basin</div>
+                    <div class="alpha-item">Mexico</div>
+                    <div class="alpha-item">Native American Territories</div>
+                    <div class="alpha-item">Pacific Islands</div>
+                    <div class="alpha-item">Philippines</div>
+                    <div class="alpha-item">Singapore</div>
+                    <div class="alpha-item">Southern United States</div>
+                    <div class="alpha-item">Southeast Asia</div>
+                    <div class="alpha-item">Texas/Austin Region</div>
+                    <div class="alpha-item">Thailand</div>
+                    <div class="alpha-item">Vietnam</div>
+                </div>
+            </div>
+
+            <!-- Languages & Scripts -->
+            <div class="data-section">
+                <div class="section-header">
+                    <h3 class="section-title">🗣️ Languages & Scripts Documented</h3>
+                    <div class="section-count">8+ languages/writing systems represented in responses</div>
+                </div>
+                <div class="alpha-list">
+                    <div class="alpha-item">Chinese characters/scripts</div>
+                    <div class="alpha-item">English</div>
+                    <div class="alpha-item">Korean script (Hangul)</div>
+                    <div class="alpha-item">Mixed language responses</div>
+                    <div class="alpha-item">Native American tribal languages</div>
+                    <div class="alpha-item">Philippine languages (Tagalog/Regional)</div>
+                    <div class="alpha-item">Spanish</div>
+                    <div class="alpha-item">Vietnamese</div>
+                </div>
+            </div>
+
+            <!-- Community Voices by Research Questions -->
+            <div class="data-section">
+                <div class="section-header">
+                    <h3 class="section-title">💬 All Community Quotes by Research Question</h3>
+                    <div class="section-count">49 community responses organized by the 6 core research questions</div>
+                </div>
+                <div style="padding: 2rem;">
+                    
+                    <!-- Question 1 -->
+                    <div style="margin-bottom: 3rem;">
+                        <h4 style="color: #228B22; font-size: 1.3rem; margin-bottom: 0.75rem; font-weight: 600;">1. What plants, places, or communities here hold meaning for you?</h4>
+                        <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1.5rem;">Place-based connections to Austin's natural and cultural landscape</p>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #228B22;">
+                                <div style="font-style: italic; color: #333;">"Purple sage, AARK, parks, Libraries"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #228B22;">
+                                <div style="font-style: italic; color: #333;">"Wildflower Center, Deep Eddy, Greenbelt, Zilker"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #228B22;">
+                                <div style="font-style: italic; color: #333;">"McKinney Falls, Barton Creek, Hyde Park"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #228B22;">
+                                <div style="font-style: italic; color: #333;">"East Austin community, Bouldin Creek"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #228B22;">
+                                <div style="font-style: italic; color: #333;">"Rose Park, Zilker Botanical Garden"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #228B22;">
+                                <div style="font-style: italic; color: #333;">"Native Peoples, Red Salmon Arts, DAWA heals"</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div style="margin-bottom: 3rem;">
+                        <h4 style="color: #8B4513; font-size: 1.3rem; margin-bottom: 0.75rem; font-weight: 600;">2. What flora, fauna, or food brings your ancestors to mind?</h4>
+                        <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1.5rem;">Ancestral connections through plants, animals, and traditional foods</p>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #8B4513;">
+                                <div style="font-style: italic; color: #333;">"Mulberry, Mountains"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #8B4513;">
+                                <div style="font-style: italic; color: #333;">"Kaffir lime, Ube, RABBITS, RACOON, Hibiscus/Orchids, lotus flowers, cherry blossoms, Sunflowers, hibiscus"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #8B4513;">
+                                <div style="font-style: italic; color: #333;">"Hummingbirds, Jasmine, Marigolds, Cinnamon trees, lemongrass, marigold"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #8B4513;">
+                                <div style="font-style: italic; color: #333;">"Orchids, roses, Pecan trees, fresh fruits from garden trees, Osmanthus, Bitter Melon, Ginger, steamed sea bass, Rabbits"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #8B4513;">
+                                <div style="font-style: italic; color: #333;">"Deer, javelina, Great Blue Herons, sea creatures (oysters, red fish, crab)"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #8B4513;">
+                                <div style="font-style: italic; color: #333;">"Seashells, cotton, banana leaves"</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div style="margin-bottom: 3rem;">
+                        <h4 style="color: #4169E1; font-size: 1.3rem; margin-bottom: 0.75rem; font-weight: 600;">3. What colors feel like home to you?</h4>
+                        <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1.5rem;">Color associations with belonging, culture, and place-based identity</p>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #4169E1;">
+                                <div style="font-style: italic; color: #333;">"Green, red"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #4169E1;">
+                                <div style="font-style: italic; color: #333;">"Green, toronja, blacks"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #4169E1;">
+                                <div style="font-style: italic; color: #333;">"I love sunflowers for their brightness"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #4169E1;">
+                                <div style="font-style: italic; color: #333;">"Orange, green, Green, brown, olive & Navy, Cool. Green & red"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #4169E1;">
+                                <div style="font-style: italic; color: #333;">"Blue, green, green, green, Sky blue, green & red, green and pink, yellows, pink, blue, Red, orange, yellows"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #4169E1;">
+                                <div style="font-style: italic; color: #333;">"Purple, BLUE & → Rainbow - All colors, jade green as greens + yellows, Green & blue, red & orange, Green, yellow, blue, Green + red, Green, green + red"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #4169E1;">
+                                <div style="font-style: italic; color: #333;">"green, purples + yellows green, maroon + blue, rose PINK"</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div style="margin-bottom: 3rem;">
+                        <h4 style="color: #CD853F; font-size: 1.3rem; margin-bottom: 0.75rem; font-weight: 600;">4. What plant or food marks important moments in your family?</h4>
+                        <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1.5rem;">Traditional dishes and plants that anchor family celebrations and memories</p>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #CD853F;">
+                                <div style="font-style: italic; color: #333;">"Blue Bonnets, Shiitake mushrooms, Mung bean noodles"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #CD853F;">
+                                <div style="font-style: italic; color: #333;">"Ube halaya, Rice balls wrapped in bamboo"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #CD853F;">
+                                <div style="font-style: italic; color: #333;">"Oleander"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #CD853F;">
+                                <div style="font-style: italic; color: #333;">"Singapore Noodles, Shiitake mushrooms, Mung bean noodles, Kaffir lime, glass noodles, chicken soup, adobo"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #CD853F;">
+                                <div style="font-style: italic; color: #333;">"Blue Bonnets, kimchi - phat else needs, Warabi (fern common in the Borneo Island/Hawaii), ube HALAYA, Riceballs wrapped in bamboo, adobo"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #CD853F;">
+                                <div style="font-style: italic; color: #333;">"Orchids, pho, bungs hue, cilantro, soups, pho tea, CUMBARB, MORINGA, Rice, adobo"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #CD853F;">
+                                <div style="font-style: italic; color: #333;">"Tamales, chicken & tortilla, Peace lily RIP 6 years, Century agave roots, Fresh cooked veggies, Fresh fruits from garden trees"</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 5 -->
+                    <div style="margin-bottom: 3rem;">
+                        <h4 style="color: #800080; font-size: 1.3rem; margin-bottom: 0.75rem; font-weight: 600;">5. What did your grandparents, parents, or elders teach you about the natural world?</h4>
+                        <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1.5rem;">Intergenerational wisdom about environmental stewardship and sacred relationships with nature</p>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #800080;">
+                                <div style="font-style: italic; color: #333;">"Cultivation"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #800080;">
+                                <div style="font-style: italic; color: #333;">"Everything is sacred and comes directly from the Creator"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #800080;">
+                                <div style="font-style: italic; color: #333;">"Work with nature, love nature"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #800080;">
+                                <div style="font-style: italic; color: #333;">"Respect it & respect back"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #800080;">
+                                <div style="font-style: italic; color: #333;">"Plant trees for generations to come"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #800080;">
+                                <div style="font-style: italic; color: #333;">"Nature unites the world and reminds us of our creator"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #800080;">
+                                <div style="font-style: italic; color: #333;">"My grandmother knew all the medicine plants"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #800080;">
+                                <div style="font-style: italic; color: #333;">"Take care of it - Enjoy Lake Life"</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 6 -->
+                    <div style="margin-bottom: 3rem;">
+                        <h4 style="color: #FF6347; font-size: 1.3rem; margin-bottom: 0.75rem; font-weight: 600;">6. What symbol or pattern holds meaning to you or your culture?</h4>
+                        <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 1.5rem;">Cultural symbols that represent resilience, spirituality, and community identity</p>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #FF6347;">
+                                <div style="font-style: italic; color: #333;">"Lotus flower, Asian lotus flower"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #FF6347;">
+                                <div style="font-style: italic; color: #333;">"Mandala pattern, jade circles"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #FF6347;">
+                                <div style="font-style: italic; color: #333;">"Philippine sun from flag"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #FF6347;">
+                                <div style="font-style: italic; color: #333;">"Female symbol, hearts"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #FF6347;">
+                                <div style="font-style: italic; color: #333;">"Lions, gold, sun patterns"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #FF6347;">
+                                <div style="font-style: italic; color: #333;">"Spirals, crescents, peace signs"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #FF6347;">
+                                <div style="font-style: italic; color: #333;">"Seashells (connection to ocean)"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #FF6347;">
+                                <div style="font-style: italic; color: #333;">"Catholic figures and symbolism"</div>
+                            </div>
+                            <div style="background: #f9f9f9; padding: 1rem; border-radius: 4px; border-left: 3px solid #FF6347;">
+                                <div style="font-style: italic; color: #333;">"Korean dragon, Chang'e moon goddess"</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="plant-story-cards.html" class="back-link">← Back to Plant Story Cards</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo" style="background: #f8f8f8; padding: 3rem 2rem 2rem; border-top: 1px solid #e0e0e0;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+                <div>
+                    <h3 style="color: #1a1a1a; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600;">Essentials Creative</h3>
+                    <p style="color: #666; line-height: 1.6; font-size: 0.9rem;">Multimedia collective creating site-responsive projects for cultural organizations and community spaces.</p>
+                </div>
+                <div>
+                    <h4 style="color: #1a1a1a; font-size: 1rem; margin-bottom: 1rem; font-weight: 600;">Projects</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="afterworld.html" style="color: #666; text-decoration: none; font-size: 0.9rem;">Afterworld</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="rhizomatic.html" style="color: #666; text-decoration: none; font-size: 0.9rem;">Rhizomatic</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="node.html" style="color: #666; text-decoration: none; font-size: 0.9rem;">Node</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="plant-story-cards.html" style="color: #666; text-decoration: none; font-size: 0.9rem; font-weight: 500;">Plant Story Cards</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: #1a1a1a; font-size: 1rem; margin-bottom: 1rem; font-weight: 600;">Services</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="photography.html" style="color: #666; text-decoration: none; font-size: 0.9rem;">Photography</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="design.html" style="color: #666; text-decoration: none; font-size: 0.9rem;">Design</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="video.html" style="color: #666; text-decoration: none; font-size: 0.9rem;">Video</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="projections.html" style="color: #666; text-decoration: none; font-size: 0.9rem;">Projections</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="installations.html" style="color: #666; text-decoration: none; font-size: 0.9rem;">Installations</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: #1a1a1a; font-size: 1rem; margin-bottom: 1rem; font-weight: 600;">Connect</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="margin-bottom: 0.5rem;"><a href="about.html" style="color: #666; text-decoration: none; font-size: 0.9rem;">About</a></li>
+                        <li style="margin-bottom: 0.5rem;"><a href="contact.html" style="color: #666; text-decoration: none; font-size: 0.9rem;">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #ddd; padding-top: 2rem; text-align: center;">
+                <p style="color: #666; font-size: 0.9rem; margin: 0;">&copy; 2026 Essentials Creative. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/navigation.js?v=4.3" defer></script>
+</body>
+</html>

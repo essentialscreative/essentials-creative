@@ -1,56 +1,92 @@
 # Essentials Creative Portfolio Website
 
-**Version 2.0 - Neutral Redesign**  
-**Professional multimedia collective portfolio**
+**Version 3.0 - Production Release**  
+**Art with place and community**
 
-## 🚀 Ready for Netlify Deployment
+## 🚀 Ready for Deployment
 
-This folder contains the production-ready website for Essentials Creative with major improvements and refactoring completed February 2026.
+Production-ready website for Essentials Creative multimedia collective, featuring work by Indigenous, Latinx, and Asian artists across photography, design, video, projections, and installation art.
 
-### ✅ Deployment Checklist
-- [x] HTML files updated with latest content
-- [x] Instagram bio integrated: "Experimentation, fluidity & collaboration. Indigenous, Latin American & Asian artists. Photo. Video. Design. Installation — Austin, San Antonio & London."
-- [x] Favicon updated to "FAV ICON.png"
-- [x] Filter buttons removed from galleries
-- [x] CSS and JavaScript files included
-- [x] Font files included
-- [x] Essential images included
-- [x] Netlify configuration files included
+## ✅ Quick Start
 
-## 📋 Critical Documentation
+```bash
+# Install dependencies (optional, for development tools)
+npm install
 
-- **[CSS_LOCK.md](CSS_LOCK.md)** - Color variables and navigation rules (DO NOT MODIFY)
+# Run local server
+npm run serve
+# Visit http://localhost:8000
+
+# Deploy to Netlify
+npm run deploy
+```
+
+## 📋 Documentation
+
+### Core Documents
+- **[PROJECT_REQUIREMENTS.md](PROJECT_REQUIREMENTS.md)** - Business requirements and specifications
+- **[TESTING.md](TESTING.md)** - Comprehensive testing procedures
+- **[CHANGELOG.md](CHANGELOG.md)** - Version history and updates
+- **[STYLE_GUIDE.md](STYLE_GUIDE.md)** - Design system and code standards
+
+### Technical Guides
 - **[STRUCTURE_MANIFEST.md](STRUCTURE_MANIFEST.md)** - File structure and dependencies
 - **[DEPLOYMENT_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md)** - Pre-deployment validation
+- **[CODE_REVIEW_SUMMARY.md](CODE_REVIEW_SUMMARY.md)** - Recent improvements and optimizations
 
-## ⚠️ Important Rules
+## 🎨 Tech Stack
 
-1. **Colors**: Primary colors are neutral gray (NOT green)
-2. **Navigation**: `navigation.css` must load before `main.css`
-3. **Mobile**: Hamburger menu only appears on mobile (<768px)
-4. **Files**: Never deploy `/dev/` folder (contains 86+ test files)
+- **Frontend**: HTML5, CSS3 (Custom Properties), Vanilla JavaScript ES6+
+- **Hosting**: Netlify (Static Site)
+- **Forms**: Formspree
+- **Fonts**: Apercu (licensed)
+- **Images**: WebP with JPEG fallbacks
+- **Performance**: Lazy loading, optimized assets
 
-### 📝 Version 2.0 Changes (February 14, 2026)
-1. **Design**: Changed from green to neutral gray color scheme
-2. **Performance**: Consolidated 27 CSS files to 9 core files
-3. **Structure**: Moved 86+ test/backup files to `/dev/` folder
-4. **Navigation**: Created centralized navigation component
-5. **Documentation**: Added comprehensive deployment safeguards
+## 📁 Project Structure
 
-### 🌐 Deployment Instructions
+```
+DEPLOY_TO_NETLIFY/
+├── 📄 HTML Pages (21 files)
+│   ├── index.html              # Homepage
+│   ├── about.html              # About the collective
+│   ├── contact.html            # Contact form
+│   ├── photography.html        # Photography portfolio
+│   ├── design.html            # Design portfolio
+│   ├── video.html             # Video work
+│   ├── installations.html     # Installation documentation
+│   └── [project pages...]      # Individual projects
+├── 📁 assets/
+│   ├── css/ (14 files)        # Stylesheets
+│   ├── js/ (16 files)         # JavaScript modules
+│   ├── images/                # Image assets
+│   └── fonts/                 # Typography
+├── 📁 Documentation/
+│   ├── PROJECT_REQUIREMENTS.md
+│   ├── TESTING.md
+│   ├── CHANGELOG.md
+│   └── [other docs...]
+└── ⚙️ Configuration/
+    ├── netlify.toml           # Netlify config
+    ├── package.json           # Dependencies
+    ├── _redirects             # URL redirects
+    └── _headers               # Security headers
+```
 
-#### Option 1: Drag & Drop
+## 🌐 Deployment Instructions
+
+### Option 1: Drag & Drop
 1. Log in to Netlify
 2. Drag this entire DEPLOY_TO_NETLIFY folder to the Netlify dashboard
 3. Site will be live in minutes!
 
-#### Option 2: Git Deployment
+### Option 2: Git Deployment
 1. Push this folder to your Git repository
 2. Connect the repository to Netlify
 3. Set build settings (no build command needed - static site)
 4. Deploy!
 
-#### Option 3: Netlify CLI
+### Option 3: Netlify CLI
 ```bash
 # Install Netlify CLI if not already installed
 npm install -g netlify-cli
@@ -59,34 +95,45 @@ npm install -g netlify-cli
 netlify deploy --dir=. --prod
 ```
 
-### 📁 Folder Structure
-```
-DEPLOY_TO_NETLIFY/
-├── index.html (main site)
-├── rhizomatic.html (project page)
-├── tshirts.html (merchandise page)
-├── 404.html (error page)
-├── _headers (security headers)
-├── _redirects (URL redirects)
-├── netlify.toml (Netlify config)
-├── assets/
-│   ├── css/
-│   ├── js/
-│   ├── fonts/
-│   └── images/
-└── README.md (this file)
+## ✨ Features
+
+- **Responsive Design**: Mobile-first approach
+- **Portfolio Galleries**: Photography, Design, Video, Installations
+- **Project Showcases**: Rhizomatic, Afterworld, Node, Plant Story Cards
+- **Secure Contact Forms**: Honeypot protection, rate limiting
+- **Performance Optimized**: Lazy loading, WebP images
+- **Accessibility**: WCAG 2.1 AA compliant
+- **SEO Ready**: Meta tags, structured data, sitemap
+
+## 🔧 Development
+
+### Available Scripts
+```bash
+npm run serve          # Start local server
+npm run lint           # Lint HTML, CSS, JS
+npm run test           # Run test suite
+npm run deploy         # Deploy to production
+npm run deploy:preview # Deploy preview
 ```
 
-### ⚠️ Important Notes
-- Gallery images are referenced but may need to be uploaded separately due to size
-- Large image files should be optimized before final deployment
-- Test all links after deployment
+### Performance Targets
+- Lighthouse: 90+ Performance, 100 Accessibility
+- Core Web Vitals: LCP <2.5s, FID <100ms, CLS <0.1
+- Page Load: <3s on 3G connection
 
-### 🔗 Contact
-- Website: essentialscreative.com
-- Instagram: @essentialscreative
-- Email: essentialscreative@gmail.com
+## 📞 Contact & Support
+
+- **Website**: [essentialscreative.com](https://essentialscreative.com)
+- **Instagram**: [@essentialscreative](https://instagram.com/essentialscreative)
+- **Email**: essentialscreative@gmail.com
+- **Locations**: Austin · San Antonio · London
+
+## 📄 License
+
+© 2026 Essentials Creative. All rights reserved.
 
 ---
-**Status**: Production Ready - Version 2.0 Locked  
-**Last Updated**: February 14, 2026
+
+**Status**: Production Ready v3.0  
+**Last Updated**: May 14, 2026  
+**Maintained by**: Essentials Creative Development Team

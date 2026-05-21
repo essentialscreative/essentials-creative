@@ -6,8 +6,10 @@
     right: 0;
     background: #ffffff;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* ~20% lighter shadow than 0.1 alpha for a softer bar */
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
     padding: 0.75rem 0;
+    min-height: 75px; /* Fixed minimum height to prevent jumping */
 }
 
 .nav-container {
@@ -18,15 +20,27 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    height: 100%;
+    min-height: 61px; /* Ensures consistent container height */
 }
 
 .logo {
     flex-shrink: 0;
+    height: 45px; /* Fixed height to match logo height */
+    display: flex;
+    align-items: center;
 }
 
 .logo a {
     display: block;
     line-height: 1;
+    height: 45px; /* Fixed height for logo anchor */
+}
+
+.logo img {
+    height: 45px !important; /* Enforce consistent logo height */
+    width: auto;
+    display: block;
 }
 
 .nav-links {
@@ -38,7 +52,7 @@
 }
 
 .nav-link {
-    color: #333;
+    color: #555555;
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
@@ -49,13 +63,103 @@
 }
 
 .nav-link:hover {
-    color: #2563eb;
-    border-bottom-color: #2563eb;
+    color: #2a2a2a;
+    border-bottom-color: #2a2a2a;
 }
 
 .nav-link.active {
-    color: #2563eb;
-    border-bottom-color: #2563eb;
+    color: #2a2a2a;
+    border-bottom-color: #2a2a2a;
+}
+
+/* Dropdown Navigation */
+.nav-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-dropdown-toggle {
+    color: #555555;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+button.nav-dropdown-toggle {
+    background: none;
+    border: 0;
+    font: inherit;
+    font-family: inherit;
+}
+
+.nav-dropdown-toggle:hover {
+    color: #2a2a2a;
+    border-bottom-color: #2a2a2a;
+}
+
+.nav-dropdown-toggle.active {
+    color: #2a2a2a;
+    border-bottom-color: #2a2a2a;
+}
+
+.nav-dropdown-arrow {
+    font-size: 0.75rem;
+    transition: transform 0.3s ease;
+}
+
+.nav-dropdown.open .nav-dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 200px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+    z-index: 1001;
+}
+
+.nav-dropdown.open .nav-dropdown-menu {
+    display: block;
+}
+
+.nav-dropdown-item {
+    display: block;
+    color: #555555;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.nav-dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.nav-dropdown-item:hover {
+    background-color: #f8f8f8;
+    color: #2a2a2a;
+}
+
+.nav-dropdown-item.active {
+    background-color: #f8f8f8;
+    color: #2a2a2a;
 }
 
 /* Mobile Navigation */
@@ -72,12 +176,14 @@
     display: flex;
     flex-direction: column;
     gap: 4px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .hamburger-line {
     width: 25px;
     height: 2px;
-    background: #333;
+    background: #555555;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
@@ -100,7 +206,7 @@
     right: 0;
     background: white;
     min-width: 200px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 3px 16px rgba(0, 0, 0, 0.11);
     border-radius: 8px;
     overflow: hidden;
     margin-top: 0.5rem;
@@ -113,10 +219,10 @@
 .hamburger-link {
     display: block;
     padding: 1rem 1.5rem;
-    color: #333;
+    color: #555555;
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f3f3f3;
 }
 
 .hamburger-link:last-child {
@@ -125,8 +231,32 @@
 
 .hamburger-link:hover,
 .hamburger-link.active {
-    background-color: #f8f8f8;
-    color: #2563eb;
+    background-color: #fafafa;
+    color: #2a2a2a;
+}
+
+/* Hamburger Menu Sections for Services/Projects */
+.hamburger-section {
+    border-bottom: 1px solid #e9ecef;
+}
+
+.hamburger-section:last-of-type {
+    border-bottom: none;
+}
+
+.hamburger-section-title {
+    display: block;
+    padding: 1rem 1.5rem 0.5rem;
+    color: #999;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.hamburger-section .hamburger-link {
+    padding-left: 2.5rem;
+    font-size: 0.95rem;
 }
 
 /* Mobile Styles */
@@ -137,15 +267,163 @@
     
     .hamburger-nav {
         display: block;
+        flex-shrink: 0;
+        position: relative;
     }
-    
+
     .nav-container {
+        flex-wrap: nowrap;
+        align-items: center;
         padding: 0 1rem;
+    }
+
+    /* Improve hamburger menu positioning and size */
+    .hamburger-menu {
+        position: fixed;
+        top: 75px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-height: calc(100vh - 75px);
+        overflow-y: auto;
+        margin-top: 0;
+        border-radius: 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+
+    /* Larger touch targets for mobile */
+    .hamburger-link {
+        padding: 1.25rem 1.5rem;
+        font-size: 1rem;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+    }
+
+    .hamburger-section .hamburger-link {
+        padding: 1rem 2.5rem;
+        min-height: 44px;
+    }
+
+    /* Better visual feedback */
+    .hamburger-link:active {
+        background-color: #f0f0f0;
+        transform: scale(0.98);
+    }
+
+    /* Hamburger icon improvements */
+    .hamburger-toggle {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+    }
+
+    .hamburger-line {
+        transition: all 0.3s ease;
+    }
+
+    .hamburger-toggle.active .hamburger-line:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger-toggle.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger-toggle.active .hamburger-line:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
     }
 }
 
-/* Skip Link */
+/* Skip Links - Accessibility Feature */
+.skip-links {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+}
+
+.skip-link {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    background: #1a1a1a;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 0 0 8px 8px;
+    white-space: nowrap;
+}
+
 .skip-link:focus {
-    position: static !important;
-    left: auto !important;
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    left: 0;
+    outline: 3px solid white;
+    outline-offset: 2px;
+}
+
+/* Centered skip-link bar (same behavior as index / video / photography pages) */
+.skip-links.skip-links--bar {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+}
+
+.skip-links.skip-links--bar .skip-link {
+    position: absolute;
+    left: -100vw;
+    top: auto;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    background: #1a1a1a;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 0 0 8px 8px;
+    white-space: nowrap;
+}
+
+.skip-links.skip-links--bar .skip-link:focus {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 0 !important;
+    outline: 3px solid white !important;
+    outline-offset: 2px !important;
+    z-index: 10001 !important;
+}
+
+.skip-links.skip-links--bar .skip-link:first-child:focus {
+    margin-left: -8rem;
+}
+
+.skip-links.skip-links--bar .skip-link:last-child:focus {
+    margin-left: 8rem;
+}
+
+/* Screen reader only (e.g. footer newsletter label) */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }

@@ -3,1001 +3,450 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover" name="viewport"/>
 <title>Rhizomatic - Essentials Creative</title>
-<meta content="Rhizomatic is a collaborative multimedia art installation exploring cultural and scientific stories of diversity and interconnectedness through Indigenous knowledge and native plants." name="description"/>
+<meta content="Rhizomatic is a site-responsive textile installation built around the plants of each venue. Chicago Botanic Garden (2024); Austin Central Library (2025)." name="description"/>
+
+<!-- Open Graph / Social Media Meta Tags -->
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Rhizomatic - Site-Responsive Multimedia Installation | Essentials Creative"/>
+<meta property="og:description" content="Rhizomatic is a site-responsive textile installation built around the plants of each venue. Chicago Botanic Garden (2024); Austin Central Library (2025)."/>
+<meta property="og:image" content="https://essentialscreative.com/assets/images/gallery/Projects/Rhizomatic/Rhizomatic_8.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:url" content="https://essentialscreative.com/rhizomatic.html"/>
+<meta property="og:site_name" content="Essentials Creative"/>
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Rhizomatic - Site-Responsive Multimedia Installation"/>
+<meta name="twitter:description" content="Rhizomatic is a site-responsive textile installation built around the plants of each venue. Chicago Botanic Garden (2024); Austin Central Library (2025)."/>
+<meta name="twitter:image" content="https://essentialscreative.com/assets/images/gallery/Projects/Rhizomatic/Rhizomatic_8.jpg"/>
+
+<!-- Additional SEO Meta Tags -->
+<meta name="keywords" content="multimedia installation, Indigenous knowledge, botanical science, textile art, site-responsive art, collaborative art, Chicago Botanic Garden, Austin Central Library, Essentials Creative"/>
+<meta name="author" content="Essentials Creative"/>
+<link rel="canonical" href="https://essentialscreative.com/rhizomatic.html"/>
+
 <!-- Favicon -->
 <link href="assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="assets/images/favicon.png" rel="icon" sizes="16x16" type="image/png"/>
 <link href="assets/images/favicon.png" rel="apple-touch-icon" sizes="180x180"/>
 <link href="assets/images/favicon.png" rel="shortcut icon"/>
+
+<!-- Preload Critical Font -->
+<link rel="preload" href="assets/fonts/apercu/apercu_regular_pro.woff2" as="font" type="font/woff2">
 <!-- CSS -->
-<link href="assets/css/navigation.css" rel="stylesheet"/>
-<link href="assets/css/main.css" rel="stylesheet"/>
-<link href="assets/css/mobile-optimization.css" rel="stylesheet"/>
-<link href="assets/css/enhanced-lightbox.css" rel="stylesheet"/>
-<style>
-/* Gallery Grid Styling */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    padding: 2rem 0;
-}
+<link href="assets/css/navigation.css?v=4.2" rel="stylesheet"/>
+<link href="assets/css/main.css?v=4.1" rel="stylesheet"/>
+<link href="assets/css/design-system.css?v=2.0" rel="stylesheet"/>
+<link href="assets/css/mobile-optimization.css?v=1.0" rel="stylesheet"/>
+<link href="assets/css/gallery-uniform.css?v=2.1" rel="stylesheet"/>
+<link href="assets/css/enhanced-lightbox.css?v=1.0" rel="stylesheet"/>
+<link href="assets/css/rhizomatic.css?v=1.0" rel="stylesheet"/>
 
-.gallery-item {
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-    border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background: #f5f5f5;
-}
-
-.gallery-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-}
-
-.gallery-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-    aspect-ratio: 1/1;
-}
-
-/* Lightbox Styling */
-.lightbox {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    z-index: 9999;
-    align-items: center;
-    justify-content: center;
-}
-
-.lightbox-content {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
-    border-radius: 8px;
-}
-
-.lightbox-close {
-    position: absolute;
-    top: 20px;
-    right: 40px;
-    font-size: 3rem;
-    color: white;
-    cursor: pointer;
-    transition: opacity 0.3s;
-    z-index: 10000;
-}
-
-.lightbox-close:hover {
-    opacity: 0.7;
-}
-
-.lightbox-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: none;
-    padding: 1rem;
-    font-size: 2rem;
-    cursor: pointer;
-    transition: background 0.3s;
-    z-index: 10000;
-}
-
-.lightbox-nav:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.lightbox-prev {
-    left: 20px;
-}
-
-.lightbox-next {
-    right: 20px;
-}
-
-/* Rhizomatic Page Specific Styles */
-.rhizomatic-hero {
-    background-color: #1a1a1a;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.2) 100%);
-    z-index: 1;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 3;
-    text-align: center;
-    color: white;
-    max-width: 900px;
-    padding: 0 2rem;
-}
-
-.hero-logo {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 2rem;
-}
-
-.hero-description {
-    font-size: 1.25rem;
-    font-weight: 400;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-    line-height: 1.6;
-    margin: 0 auto;
-    max-width: 700px;
-    text-align: center;
-    color: #ffffff;
-}
-
-.section-standard {
-    padding: 4rem 0 3rem;
-}
-
-.container-standard {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.section-title {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: #1a1a1a;
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-.content-centered {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-
-.gallery-section-header {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    text-align: center;
-    margin: 2rem 0 1rem;
-    padding: 0.5rem 0;
-    border-bottom: 2px solid #e9ecef;
-}
-
-.gallery-subsection {
-    margin-bottom: 3rem;
-}
-
-.plant-group {
-    margin-bottom: 2rem;
-}
-
-.plant-name {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: #555;
-    text-align: center;
-    margin-bottom: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.gallery-item-with-caption {
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-    border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background: #f5f5f5;
-}
-
-.gallery-item-with-caption:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-}
-
-.gallery-item-with-caption img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-    aspect-ratio: 1/1;
-}
-
-.image-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
-    color: white;
-    padding: 1rem;
-    font-size: 0.875rem;
-    line-height: 1.4;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.3s ease;
-}
-
-.gallery-item-with-caption:hover .image-caption {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.caption-title {
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-    font-size: 0.9rem;
-}
-
-.caption-type {
-    font-size: 0.8rem;
-    opacity: 0.9;
-    font-style: italic;
-}
-
-/* Mobile Menu Fix - Ensure proper closing behavior */
-@media (max-width: 768px) {
-    .hamburger-menu:not(.active) {
-        display: none !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-        transform: translateX(100%) !important;
-    }
-    
-    .hamburger-menu.active {
-        display: flex !important;
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        transform: translateX(0) !important;
-    }
-    
-    /* Ensure menu doesn't block content when closed */
-    body:not(.menu-open) .hamburger-menu {
-        visibility: hidden !important;
-    }
-    
-    /* Prevent menu from covering content */
-    .hamburger-menu {
-        max-width: 280px !important;
-        right: 0 !important;
-        left: auto !important;
-        width: auto !important;
-    }
-}
-
-</style>
-<script>
-// Force close mobile menu on page load and navigation
-document.addEventListener('DOMContentLoaded', function() {
-    // Remove any lingering menu states
-    const hamburgerMenu = document.querySelector('.hamburger-menu');
-    const hamburgerToggle = document.querySelector('.hamburger-toggle');
-    const body = document.body;
-    
-    if (hamburgerMenu) {
-        hamburgerMenu.classList.remove('active');
-        hamburgerMenu.style.display = 'none';
-        hamburgerMenu.style.visibility = 'hidden';
-    }
-    
-    if (hamburgerToggle) {
-        hamburgerToggle.classList.remove('active');
-        hamburgerToggle.setAttribute('aria-expanded', 'false');
-    }
-    
-    // Ensure body can scroll
-    body.style.overflow = '';
-    body.classList.remove('menu-open');
-    
-    // Extra safety: hide menu after a short delay
-    setTimeout(function() {
-        if (hamburgerMenu && !hamburgerMenu.classList.contains('active')) {
-            hamburgerMenu.style.display = 'none';
+<!-- Structured Data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "VisualArtwork",
+      "@id": "https://essentialscreative.com/rhizomatic.html#artwork",
+      "name": "Rhizomatic",
+      "description": "Rhizomatic is a site-responsive textile installation built around the plants of each venue. Chicago Botanic Garden (2024); Austin Central Library (2025).",
+      "creator": {
+        "@type": "Organization",
+        "@id": "https://essentialscreative.com/#organization",
+        "name": "Essentials Creative",
+        "description": "We make installations, projections, video, photography, and design for cultural organizations, gardens, and community spaces — grounded in Indigenous, Latinx, and Asian stories.",
+        "url": "https://essentialscreative.com",
+        "email": "essentialscreative@gmail.com"
+      },
+      "artMedium": ["Installation art", "Digital prints on linen", "Photography", "Textile art"],
+      "artworkSurface": "Linen",
+      "dateCreated": "2024",
+      "keywords": ["Indigenous knowledge", "Botanical science", "Site-responsive", "Textile installation", "Cultural collaboration"],
+      "image": "https://essentialscreative.com/assets/images/gallery/Projects/Rhizomatic/Rhizomatic_8.jpg",
+      "mainEntityOfPage": "https://essentialscreative.com/rhizomatic.html"
+    },
+    {
+      "@type": "ExhibitionEvent",
+      "@id": "https://essentialscreative.com/rhizomatic.html#chicago-exhibition",
+      "name": "Rhizomatic at Chicago Botanic Garden",
+      "description": "Collaborative art installation weaving together cultural and scientific stories about diversity and collaboration, featuring native plants including ginkgo biloba, pawpaw, horsetail, white sage, eastern prairie fringed orchid, kernza, and amaranth.",
+      "startDate": "2024-06-01",
+      "endDate": "2024-09-22",
+      "location": {
+        "@type": "Place",
+        "name": "Chicago Botanic Garden",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Glencoe",
+          "@region": "Illinois",
+          "addressCountry": "US"
+        },
+        "description": "Regenstein Fruit & Vegetable Garden and the Farm on Ogden"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Chicago Botanic Garden"
+      },
+      "performer": {
+        "@id": "https://essentialscreative.com/#organization"
+      },
+      "workPerformed": {
+        "@id": "https://essentialscreative.com/rhizomatic.html#artwork"
+      }
+    },
+    {
+      "@type": "ExhibitionEvent",
+      "@id": "https://essentialscreative.com/rhizomatic.html#austin-exhibition", 
+      "name": "Rhizomatic at Austin Central Library",
+      "description": "Immersive installation of 20 double-sided tapestries exploring native Texas plants through artistic interpretation and symbolic storytelling, featuring maguey, nopal, purple coneflower, amaranth, and chili pequin.",
+      "startDate": "2025-10-02",
+      "endDate": "2025-10-08",
+      "location": {
+        "@type": "Place",
+        "name": "Austin Central Library",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Austin",
+          "addressRegion": "Texas",
+          "addressCountry": "US"
+        },
+        "description": "Roof Garden (6th Floor)"
+      },
+      "organizer": {
+        "@type": "Organization", 
+        "name": "Austin Central Library"
+      },
+      "performer": {
+        "@id": "https://essentialscreative.com/#organization"
+      },
+      "workPerformed": {
+        "@id": "https://essentialscreative.com/rhizomatic.html#artwork"
+      },
+      "funder": [
+        {
+          "@type": "Organization",
+          "name": "City of Austin",
+          "description": "Elevate Grant Recipient"
+        },
+        {
+          "@type": "Organization", 
+          "name": "UNESCO",
+          "description": "City of Media Arts Grant"
         }
-    }, 100);
-});
+      ]
+    }
+  ]
+}
 </script>
 </head>
 <body>
-<div class="skip-links">
+<div class="skip-links skip-links--bar">
 <a href="#main-content" class="skip-link">Skip to main content</a>
 <a href="#main-navigation" class="skip-link">Skip to navigation</a>
 </div>
-<header class="header">
+
+<header class="header" role="banner">
 <div class="nav-container">
 <div class="logo">
-<a href="index.html">
-<img alt="Essentials Creative" src="assets/images/essentials_creative_logo.png" style="height: 65px; width: auto; display: block;"/>
+<a href="index.html" aria-label="Essentials Creative - Home">
+<img alt="" src="assets/images/Essentials-Creative_Logo.png" width="180" height="45" style="height: 45px; width: auto; display: block;"/>
 </a>
 </div>
-<nav id="main-navigation" class="nav-links">
+<nav id="main-navigation" class="nav-links" role="navigation" aria-label="Main navigation">
 <a class="nav-link" href="index.html">Home</a>
-<a class="nav-link" href="photography.html">Photography</a>
-<a class="nav-link" href="design.html">Design</a>
-<a class="nav-link" href="videoandprojections.html">Video/Projections</a>
-<a class="nav-link active" href="installations.html">Installations</a>
+<div class="nav-dropdown">
+<button type="button" class="nav-dropdown-toggle" id="nav-services-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-services-menu">Services <span class="nav-dropdown-arrow" aria-hidden="true">▼</span></button>
+<div class="nav-dropdown-menu" id="nav-services-menu" role="group" aria-label="Services">
+<a href="photography.html" class="nav-dropdown-item">Photography</a>
+<a href="design.html" class="nav-dropdown-item">Design</a>
+<a href="video.html" class="nav-dropdown-item">Video</a>
+<a href="projections.html" class="nav-dropdown-item">Projections</a>
+<a href="installations.html" class="nav-dropdown-item">Installations</a>
+</div>
+</div>
+<div class="nav-dropdown">
+<button type="button" class="nav-dropdown-toggle active" id="nav-projects-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-projects-menu">Projects <span class="nav-dropdown-arrow" aria-hidden="true">▼</span></button>
+<div class="nav-dropdown-menu" id="nav-projects-menu" role="group" aria-label="Projects">
+<a href="afterworld.html" class="nav-dropdown-item">Afterworld</a>
+<a href="node.html" class="nav-dropdown-item">Node</a>
+<a href="rhizomatic.html" class="nav-dropdown-item active">Rhizomatic</a>
+<a href="plant-story-cards.html" class="nav-dropdown-item">Plant Story Cards</a>
+</div>
+</div>
 <a class="nav-link" href="about.html">About</a>
 <a class="nav-link" href="contact.html">Contact</a>
 </nav>
-<!-- Mobile Navigation -->
 <div class="hamburger-nav">
-<button class="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+<button type="button" class="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
 <span class="hamburger-line"></span>
 <span class="hamburger-line"></span>
 <span class="hamburger-line"></span>
 </button>
-<div class="hamburger-menu">
+<div class="hamburger-menu" id="mobile-menu">
 <a href="index.html" class="hamburger-link">Home</a>
+<div class="hamburger-section">
+<span class="hamburger-section-title">Services</span>
 <a href="photography.html" class="hamburger-link">Photography</a>
 <a href="design.html" class="hamburger-link">Design</a>
-<a href="videoandprojections.html" class="hamburger-link">Video/Projections</a>
-<a href="installations.html" class="hamburger-link active">Installations</a>
+<a href="video.html" class="hamburger-link">Video</a>
+<a href="projections.html" class="hamburger-link">Projections</a>
+<a href="installations.html" class="hamburger-link">Installations</a>
+</div>
+<div class="hamburger-section">
+<span class="hamburger-section-title">Projects</span>
+<a href="afterworld.html" class="hamburger-link">Afterworld</a>
+<a href="node.html" class="hamburger-link">Node</a>
+<a href="rhizomatic.html" class="hamburger-link active">Rhizomatic</a>
+<a href="plant-story-cards.html" class="hamburger-link">Plant Story Cards</a>
+</div>
 <a href="about.html" class="hamburger-link">About</a>
 <a href="contact.html" class="hamburger-link">Contact</a>
-</div>
-</div>
-</div>
-</header>
+</div></div></div></header>
 
 
 <main id="main-content">
 <!-- Hero Section -->
-<section class="hero rhizomatic-hero" style="background: url('assets/images/nopal-hero.jpg') center center / cover no-repeat;">
+<section class="hero rhizomatic-hero">
     <div class="hero-overlay"></div>
     <div class="hero-content">
-        <img alt="Rhizomatic" src="assets/images/rhizomatic-logo-3d.png" class="hero-logo"/>
+        <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; color: white; margin-bottom: 2rem; text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);">Rhizomatic</h1>
         <p class="hero-description">
-            A collaborative multimedia art installation exploring cultural and scientific stories of diversity and interconnectedness through Indigenous knowledge and native plants
+            A site-responsive textile installation. Chicago Botanic Garden (2024); Austin Central Library (2025).
         </p>
     </div>
 </section>
 
-<!-- About Section -->
+<!-- Exhibition Overview & Specifications -->
 <section class="section-standard">
 <div class="container-standard">
-<h2 class="section-title">
-     About the Project
-    </h2>
+<h2 class="section-title">Exhibition Overview</h2>
 <div class="content-centered">
-<p style="font-size: 1.125rem; color: #1a1a1a; line-height: 1.6; margin-bottom: 1rem;">
-      Rhizomatic is a multimedia tapestry installation weaving Indigenous knowledge with scientific perspectives on native plants. Each double-sided tapestry explores interconnectedness across biological, cultural, and spiritual dimensions.
-     </p>
-<p style="font-size: 1rem; color: #4a5568; line-height: 1.5; margin: 0;">
-      Presented at Chicago Botanic Garden and Austin Central Public Library, adapting to each location's unique context and native plant species.
-     </p>
-</div>
-</div>
-</section>
-
-<!-- Installation Views Gallery -->
-<section class="section-standard">
-<div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-<h2 class="section-title">Installation Views</h2>
-<div class="content-centered" style="margin-bottom: 2rem;">
-<p style="font-size: 1.125rem; color: #1a1a1a; line-height: 1.6; margin-bottom: 0.5rem;">
-      Rhizomatic installations at Chicago Botanic Garden and Austin Central Library
-     </p>
-</div>
-
-<!-- Installation Images Grid -->
-<div class="gallery-grid">
-<!-- Chicago Botanic Garden Installation Views -->
-<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/gallery/Projects/Rhizomatic/Rhizomatic_1.jpg')">
-<img alt="Rhizomatic installation at Chicago Botanic Garden" src="assets/images/gallery/Projects/Rhizomatic/Rhizomatic_1.jpg" loading="lazy"/>
-<div class="image-caption">
-<div class="caption-title">Chicago Botanic Garden</div>
-<div class="caption-type">Gallery Installation View</div>
-</div>
-</div>
-
-<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/gallery/Projects/Rhizomatic/Rhizomatic_4.jpg')">
-<img alt="Visitors engaging with Rhizomatic tapestries" src="assets/images/gallery/Projects/Rhizomatic/Rhizomatic_4.jpg" loading="lazy"/>
-<div class="image-caption">
-<div class="caption-title">Chicago Botanic Garden</div>
-<div class="caption-type">Visitor Engagement</div>
-</div>
-</div>
-
-<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/gallery/Projects/Rhizomatic/Rhizomatic_8.jpg')">
-<img alt="Detailed view of tapestry installation" src="assets/images/gallery/Projects/Rhizomatic/Rhizomatic_8.jpg" loading="lazy"/>
-<div class="image-caption">
-<div class="caption-title">Chicago Botanic Garden</div>
-<div class="caption-type">Installation Detail</div>
-</div>
-</div>
-
-<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/gallery/Projects/Rhizomatic/Rhizomatic_9.jpg')">
-<img alt="Gallery overview of Rhizomatic installation" src="assets/images/gallery/Projects/Rhizomatic/Rhizomatic_9.jpg" loading="lazy"/>
-<div class="image-caption">
-<div class="caption-title">Chicago Botanic Garden</div>
-<div class="caption-type">Gallery Overview</div>
-</div>
-</div>
-
-<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/gallery/Projects/Rhizomatic/Rhizomatic_11.jpg')">
-<img alt="Interactive elements of Rhizomatic installation" src="assets/images/gallery/Projects/Rhizomatic/Rhizomatic_11.jpg" loading="lazy"/>
-<div class="image-caption">
-<div class="caption-title">Chicago Botanic Garden</div>
-<div class="caption-type">Interactive Elements</div>
-</div>
-</div>
-
-<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/gallery/Projects/Rhizomatic/Rhizomatic_12.jpg')">
-<img alt="Close-up view of tapestry details" src="assets/images/gallery/Projects/Rhizomatic/Rhizomatic_12.jpg" loading="lazy"/>
-<div class="image-caption">
-<div class="caption-title">Chicago Botanic Garden</div>
-<div class="caption-type">Tapestry Detail</div>
-</div>
-</div>
-
-<!-- Austin Central Library Solar Canopy Installation -->
-<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8459.JPG')">
-<img alt="Vibrant tapestries suspended under solar panel canopy" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8459.JPG" loading="lazy"/>
-<div class="image-caption">
-<div class="caption-title">Austin Central Library</div>
-<div class="caption-type">Solar Canopy Display</div>
-</div>
-</div>
-
-<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8439.JPG')">
-<img alt="Multiple tapestries suspended beneath solar panels" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8439.JPG" loading="lazy"/>
-<div class="image-caption">
-<div class="caption-title">Austin Central Library</div>
-<div class="caption-type">Suspended Tapestries</div>
-</div>
-</div>
-
-<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8465.JPG')">
-<img alt="Close perspective of tapestries hanging in outdoor installation" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8465.JPG" loading="lazy"/>
-<div class="image-caption">
-<div class="caption-title">Austin Central Library</div>
-<div class="caption-type">Installation Detail</div>
-</div>
-</div>
-
-<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7650.JPG')">
-<img alt="Visitors exploring the outdoor tapestry installation" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7650.JPG" loading="lazy"/>
-<div class="image-caption">
-<div class="caption-title">Austin Central Library</div>
-<div class="caption-type">Public Engagement</div>
-</div>
-</div>
-
-<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8507.JPG')">
-<img alt="Wide view of complete solar canopy with all tapestries displayed" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8507.JPG" loading="lazy"/>
-<div class="image-caption">
-<div class="caption-title">Austin Central Library</div>
-<div class="caption-type">Complete Installation</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Tapestry Gallery -->
-<section class="section-standard">
-<div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-<h2 class="section-title">Tapestry Designs</h2>
-<div class="content-centered" style="margin-bottom: 2rem;">
-<p style="font-size: 1.125rem; color: #1a1a1a; line-height: 1.6; margin-bottom: 0.5rem;">
-      Each double-sided tapestry weaves together Indigenous cultural knowledge with botanical scientific perspectives
-     </p>
-<p style="font-size: 1rem; color: #555; line-height: 1.5;">
-      Click any image to view in full detail and navigate through the collection
-     </p>
-</div>
-
-<!-- Gallery organized by plant -->
-<div class="gallery-grid">
-<!-- Metl (Agave) -->
-<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/tapestry-designs-optimized/metl-cultural.jpg')">
-<img alt="Metl (Agave) - Cultural" src="assets/images/tapestry-designs-optimized/metl-cultural.jpg" loading="lazy"/>
-<div class="image-caption">
-<div class="caption-title">Metl (Agave)</div>
-<div class="caption-type">Cultural Narrative</div>
-</div>
-</div>
-<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/tapestry-designs-optimized/metl-scientific.jpg')">
-<img alt="Metl (Agave) - Scientific" src="assets/images/tapestry-designs-optimized/metl-scientific.jpg" loading="lazy"/>
-<div class="image-caption">
-<div class="caption-title">Metl (Agave)</div>
-<div class="caption-type">Scientific Perspective</div>
-</div>
-</div>
-
-<!-- Huautli (Amaranth) -->
-<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/huautli-cultural.jpg')">
-<img alt="Huautli (Amaranth) - Cultural" src="assets/images/tapestry-designs-optimized/huautli-cultural.jpg" loading="lazy"/>
-</div>
-<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/huautli-scientific.jpg')">
-<img alt="Huautli (Amaranth) - Scientific" src="assets/images/tapestry-designs-optimized/huautli-scientific.jpg" loading="lazy"/>
-</div>
-
-<!-- Snake Grass (Horsetail) -->
-<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/snake-grass-cultural.jpg')">
-<img alt="Snake Grass (Horsetail) - Cultural" src="assets/images/tapestry-designs-optimized/snake-grass-cultural.jpg" loading="lazy"/>
-</div>
-<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/snake-grass-scientific.jpg')">
-<img alt="Snake Grass (Horsetail) - Scientific" src="assets/images/tapestry-designs-optimized/snake-grass-scientific.jpg" loading="lazy"/>
-</div>
-
-<!-- Ichahpe Hu (Purple Coneflower) -->
-<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/ichahpe-hu-cultural.jpg')">
-<img alt="Ichahpe Hu (Purple Coneflower) - Cultural" src="assets/images/tapestry-designs-optimized/ichahpe-hu-cultural.jpg" loading="lazy"/>
-</div>
-<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/ichahpe-hu-scientific.jpg')">
-<img alt="Ichahpe Hu (Purple Coneflower) - Scientific" src="assets/images/tapestry-designs-optimized/ichahpe-hu-scientific.jpg" loading="lazy"/>
-</div>
-
-<!-- Chiltepin (Bird Pepper) -->
-<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/chiltepin-cultural.jpg')">
-<img alt="Chiltepin (Bird Pepper) - Cultural" src="assets/images/tapestry-designs-optimized/chiltepin-cultural.jpg" loading="lazy"/>
-</div>
-<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/chiltepin-scientific.jpg')">
-<img alt="Chiltepin (Bird Pepper) - Scientific" src="assets/images/tapestry-designs-optimized/chiltepin-scientific.jpg" loading="lazy"/>
-</div>
-
-<!-- Nochtli (Prickly Pear) -->
-<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/nochtli-cultural.jpg')">
-<img alt="Nochtli (Prickly Pear) - Cultural" src="assets/images/tapestry-designs-optimized/nochtli-cultural.jpg" loading="lazy"/>
-</div>
-<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/nochtli-scientific.jpg')">
-<img alt="Nochtli (Prickly Pear) - Scientific" src="assets/images/tapestry-designs-optimized/nochtli-scientific.jpg" loading="lazy"/>
-</div>
-
-<!-- Gilzisomashkiki (Goldenrod) -->
-<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/gilzisomashkiki-cultural.jpg')">
-<img alt="Gilzisomashkiki (Goldenrod) - Cultural" src="assets/images/tapestry-designs-optimized/gilzisomashkiki-cultural.jpg" loading="lazy"/>
-</div>
-<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/gilzisomashkiki-scientific.jpg')">
-<img alt="Gilzisomashkiki (Goldenrod) - Scientific" src="assets/images/tapestry-designs-optimized/gilzisomashkiki-scientific.jpg" loading="lazy"/>
-</div>
-
-<!-- Tolin (Cattail) -->
-<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/tapestry-designs-optimized/tolin-cultural.jpg')">
-<img alt="Tolin (Cattail) - Cultural" src="assets/images/tapestry-designs-optimized/tolin-cultural.jpg" loading="lazy"/>
-<div class="image-caption">
-<div class="caption-title">Tolin (Cattail)</div>
-<div class="caption-type">Cultural Narrative</div>
-</div>
-</div>
-<div class="gallery-item-with-caption" onclick="openLightbox('assets/images/tapestry-designs-optimized/tolin-2-scientific.jpg')">
-<img alt="Tolin (Cattail) - Scientific" src="assets/images/tapestry-designs-optimized/tolin-2-scientific.jpg" loading="lazy"/>
-<div class="image-caption">
-<div class="caption-title">Tolin (Cattail)</div>
-<div class="caption-type">Scientific Perspective</div>
-</div>
-</div>
-
-<!-- Ponil (Apache Plume) -->
-<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/ponil-cultural.jpg')">
-<img alt="Ponil (Apache Plume) - Cultural" src="assets/images/tapestry-designs-optimized/ponil-cultural.jpg" loading="lazy"/>
-</div>
-<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/ponil-scientific.jpg')">
-<img alt="Ponil (Apache Plume) - Scientific" src="assets/images/tapestry-designs-optimized/ponil-scientific.jpg" loading="lazy"/>
-</div>
-
-<!-- Atlazomilili (Turk's Cap) -->
-<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/atlazomilili-cultural.jpg')">
-<img alt="Atlazomilili (Turk's Cap) - Cultural" src="assets/images/tapestry-designs-optimized/atlazomilili-cultural.jpg" loading="lazy"/>
-</div>
-<div class="gallery-item" onclick="openLightbox('assets/images/tapestry-designs-optimized/atlazomilili-scientific.jpg')">
-<img alt="Atlazomilili (Turk's Cap) - Scientific" src="assets/images/tapestry-designs-optimized/atlazomilili-scientific.jpg" loading="lazy"/>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Educational Programming -->
-<section style="background: #f9f9f9; padding: 4rem 0; margin: 0; border-radius: 0;">
-<div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-<h2 style="font-size: 2rem; font-weight: 700; color: #1a1a1a; margin-bottom: 2rem; text-align: center;">
-      Educational Programming
-     </h2>
-<p style="font-size: 1.125rem; color: #1a1a1a; line-height: 1.7; margin-bottom: 3rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; margin-bottom: 3rem;">
-      Essentials Creative offers hands-on creative workshops exploring the artistic techniques and cultural contexts behind the Rhizomatic installation. Participants engage with Indigenous knowledge systems through collaborative art-making processes that honor traditional perspectives while exploring contemporary artistic expression.
-     </p>
-<div style="max-width: 700px; margin: 0 auto;">
-<h3 style="font-size: 1.5rem; font-weight: 600; color: #1a1a1a; margin-bottom: 1.5rem;">
-       Recent Workshops
-      </h3>
-<div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-<div style="font-size: 1.125rem; font-weight: 600; color: #1a1a1a; margin-bottom: 0.5rem;">
-         Portrait & Collage Workshop
-        </div>
-<div style="font-size: 1rem; color: #555; line-height: 1.6;">
-         Austin Central Library • October 2025 • Community engagement through multimedia art-making
-        </div>
-</div>
-<p style="margin-top: 2rem; font-size: 1rem; text-align: center;">
-      Interested in hosting a workshop?
-      <a href="mailto:essentialscreative@gmail.com" style="color: #1a1a1a; font-weight: 600;">
-       Contact us
-      </a>
+<p style="font-size: 1.25rem; color: #1a1a1a; line-height: 1.8; margin-bottom: 2rem; font-weight: 500;">
+      Rhizomatic is a site-responsive textile installation. Each iteration is built around the plants of its venue and draws on the rhizome as a philosophical figure for non-hierarchical, multi-rooted connection (after Deleuze and Guattari).
 </p>
 </div>
+
 </div>
 </section>
 
-<!-- About the Collective -->
-<section style="padding: 4rem 0;">
-<div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-<h2 style="font-size: 2rem; font-weight: 700; color: #1a1a1a; margin-bottom: 2rem; text-align: center;">
-      About Essentials Creative
-     </h2>
+<!-- Awards & Recognition -->
+<section class="section-standard" style="background: #f9f9f9;">
+<div class="container-standard">
+<h2 class="section-title">Awards & Support</h2>
 <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-<p style="font-size: 1.125rem; color: #1a1a1a; line-height: 1.7; margin-bottom: 3rem;">
-       Essentials Creative is a multimedia collective producing holistic applied arts experiences. Our multifaceted approach incorporates photography, graphic design, video, projection, animation, and installation to create comprehensive artistic narratives. We create platforms for underrepresented artists to express themselves and find support within their field. Our collective is composed of and embraces artists of color, women, and members of the LGBTQIA+ community. Fluidity, diversity, experimentation, and collaboration are the foundational principles that guide all Essentials Creative projects, regardless of medium or scale.
-      </p>
-<div style="background: #f9f9f9; padding: 2rem; border-radius: 8px;">
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
-<div>
-<h4 style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a; margin-bottom: 0.5rem;">Misa Yamamoto</h4>
-<p style="font-size: 1rem; color: #666; margin: 0;">Graphic Designer / Art Director, Austin</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;" class="awards-grid">
+<div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #2d5a27;">
+<h3 style="font-size: 1.125rem; color: #1a1a1a; margin-bottom: 0.5rem; font-weight: 600;">Chicago Botanic Garden</h3>
+<p style="color: #666; font-size: 0.95rem;">Commissioned Artist</p>
 </div>
-<div>
-<h4 style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a; margin-bottom: 0.5rem;">Fabian Villa</h4>
-<p style="font-size: 1rem; color: #666; margin: 0;">Photographer / Visual Artist, Austin</p>
+<div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #2d5a27;">
+<h3 style="font-size: 1.125rem; color: #1a1a1a; margin-bottom: 0.5rem; font-weight: 600;">City of Austin</h3>
+<p style="color: #666; font-size: 0.95rem;">Elevate Grant Recipient</p>
 </div>
-<div>
-<h4 style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a; margin-bottom: 0.5rem;">Steven Casanova</h4>
-<p style="font-size: 1rem; color: #666; margin: 0;">Videographer / Photographer, San Antonio</p>
-</div>
-<div>
-<h4 style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a; margin-bottom: 0.5rem;">Sixto-Juan Zavala</h4>
-<p style="font-size: 1rem; color: #666; margin: 0;">Designer / Illustrator, London</p>
-</div>
+<div style="background: white; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #2d5a27;">
+<h3 style="font-size: 1.125rem; color: #1a1a1a; margin-bottom: 0.5rem; font-weight: 600;">UNESCO</h3>
+<p style="color: #666; font-size: 0.95rem;">City of Media Arts Grant</p>
 </div>
 </div>
 </div>
 </div>
 </section>
+
+<!-- Exhibition History -->
+<section class="section-standard">
+<div class="container-standard">
+<h2 class="section-title">Exhibition History</h2>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem;" class="exhibition-grid">
+<div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.08);">
+<h3 style="font-size: 1.5rem; color: #1a1a1a; margin-bottom: 0.5rem;">Chicago Botanic Garden</h3>
+<p style="color: #666; font-style: italic; margin-bottom: 1rem;">Regenstein Fruit & Vegetable Garden and the Farm on Ogden • June 1 – September 22, 2024</p>
+<p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;"><strong>Medium:</strong> Installation art, digital prints on linen, photography, collage, graphic design, and illustration</p>
+<p style="color: #555; line-height: 1.6;">Rhizomatic is a collaborative art installation between Essentials Creative collective and the scientists and staff at the Chicago Botanic Garden. The project is inspired by the rhizome as a philosophical concept developed by theorists Deleuze and Guattari. The installation weaves together cultural and scientific stories about diversity and collaboration. Featured plants in the artwork include ginkgo biloba, pawpaw, horsetail, white sage, eastern prairie fringed orchid, kernza, and amaranth. We aim to contribute to multicultural perspectives on plants, share the Garden's scientific research, and explore rhizomes as a metaphor for interconnectedness.</p>
+</div>
+<div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.08);">
+<h3 style="font-size: 1.5rem; color: #1a1a1a; margin-bottom: 0.5rem;">Austin Central Library</h3>
+<p style="color: #666; font-style: italic; margin-bottom: 1rem;">Roof Garden (6th Floor) • October 2–8, 2025</p>
+<p style="color: #555; line-height: 1.6; margin-bottom: 1.5rem;">An installation of 20 double-sided tapestries on native Tejas plants, presented at the Austin Central Library Roof Garden, October 2–8, 2025. Each tapestry pairs botanical imagery with cultural and ecological reference.</p>
+
+<div style="background: #f8f9fa; padding: 1.5rem; border-radius: 6px; margin-top: 1.5rem;">
+<h4 style="color: #1a1a1a; font-size: 1.1rem; margin-bottom: 1rem; font-weight: 600;">Featured Texas Native Plants:</h4>
+<ul style="color: #555; line-height: 1.6; margin: 0; padding-left: 1.5rem;">
+<li><strong>Maguey</strong> — sustaining plant of arid Mesoamerica; food, drink, and fiber</li>
+<li><strong>Nopal</strong> — prickly pear cactus; food and medicine across the Tejas–México borderlands</li>
+<li><strong>Purple Coneflower</strong> — Tejas wildflower long used in traditional medicine</li>
+<li><strong>Amaranth</strong> — sacred grain in pre-conquest Mesoamerican cuisine; revived contemporary food source</li>
+<li><strong>Chili Pequin</strong> — wild Tejas pepper; foundational to Indigenous and Tex-Mex cuisines</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Featured Works Gallery -->
+<section class="section-standard">
+<div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
+<div class="gallery-section-container">
+<h2 class="gallery-section-title">Featured Works</h2>
+<div class="feature-gallery">
+    <div class="gallery-item lightbox-trigger main-image">
+        <picture><source srcset="assets/images/gallery/Installations/Installations4.webp" type="image/webp"/><img alt="Rhizomatic installation view at Chicago Botanic Garden showing suspended textile works with botanical imagery" src="assets/images/gallery/Installations/Installations4.jpg" loading="lazy" decoding="async"/></picture>
+    </div>
+    <div class="gallery-item lightbox-trigger">
+        <picture><source srcset="assets/images/gallery/Projects/Rhizomatic/Rhizomatic_9.webp" type="image/webp"/><img alt="Detail view of Rhizomatic textile work featuring Indigenous plant knowledge and cultural symbolism" src="assets/images/gallery/Projects/Rhizomatic/Rhizomatic_9.jpg" loading="lazy" decoding="async"/></picture>
+    </div>
+    <div class="gallery-item lightbox-trigger">
+        <picture><source srcset="assets/images/gallery/Projects/Rhizomatic/Rhizomatic_15.webp" type="image/webp"/><img alt="Wide angle view of complete Rhizomatic installation showing collaborative textile and botanical research" src="assets/images/gallery/Projects/Rhizomatic/Rhizomatic_15.JPG" loading="lazy" decoding="async"/></picture>
+    </div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Installation Documentation -->
+<section class="section-standard" style="background: #f9f9f9;">
+<div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
+<h2 class="section-title" style="font-size: 2.25rem; margin-bottom: 1rem;">Installation Documentation</h2>
+<p style="text-align: center; color: #666; font-size: 1.125rem; margin-bottom: 3rem;">Explore our immersive installations across different venues and cultural contexts</p>
+
+<!-- Chicago Botanic Garden Gallery -->
+<div class="gallery-section-container">
+<h3 class="gallery-section-title">Chicago Botanic Garden</h3>
+<div class="gallery-grid gallery-uniform">
+<div class="gallery-item lightbox-trigger">
+<picture><source srcset="assets/images/gallery/Installations/Installations4.webp" type="image/webp"/><img alt="Chicago Botanic Garden installation featuring collaborative textile works exploring plant diversity" src="assets/images/gallery/Installations/Installations4.jpg" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="gallery-item lightbox-trigger">
+<picture><source srcset="assets/images/gallery/Projects/Rhizomatic/Rhizomatic_1.webp" type="image/webp"/><img alt="Rhizomatic exhibition entrance showing large-scale botanical textile installations" src="assets/images/gallery/Projects/Rhizomatic/Rhizomatic_1.jpg" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="gallery-item lightbox-trigger">
+<picture><source srcset="assets/images/gallery/Projects/Rhizomatic/Rhizomatic_3.webp" type="image/webp"/><img alt="Close-up view of Rhizomatic textile details featuring native plant illustrations and cultural patterns" src="assets/images/gallery/Projects/Rhizomatic/Rhizomatic_3.jpeg" loading="lazy" decoding="async"/></picture>
+</div>
+</div>
+</div>
+
+<!-- Austin Central Library Gallery -->
+<div class="gallery-section-container">
+<h3 class="gallery-section-title">Austin Central Library</h3>
+<div class="gallery-grid gallery-uniform">
+<div class="gallery-item lightbox-trigger">
+<picture><source srcset="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7625.webp" type="image/webp"/><img alt="Overhead view of Rhizomatic installation at Austin Central Library rooftop with MEZL and plant name textiles under solar panels" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7625.JPG" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="gallery-item lightbox-trigger">
+<picture><source srcset="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7786.webp" type="image/webp"/><img alt="Side view of Austin rooftop installation showing textile works integrated with urban garden environment" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7786.JPG" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="gallery-item lightbox-trigger">
+<picture><source srcset="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8463.webp" type="image/webp"/><img alt="Wide overhead view of complete Austin installation showing multiple hanging textiles under solar canopy with city skyline" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8463.JPG" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="gallery-item lightbox-trigger">
+<picture><source srcset="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8304.webp" type="image/webp"/><img alt="Austin Central Library rooftop installation featuring colorful hanging textiles with Texas native plant themes" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8304.JPG" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="gallery-item lightbox-trigger">
+<picture><source srcset="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7626.webp" type="image/webp"/><img alt="Close-up view of Austin textile installation showing detailed plant name labels and cultural design elements" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7626.JPG" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="gallery-item lightbox-trigger">
+<picture><source srcset="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7627.webp" type="image/webp"/><img alt="Angular view of hanging textiles under solar panel grid showing integration of sustainable technology with art" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7627.JPG" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="gallery-item lightbox-trigger">
+<picture><source srcset="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7791.webp" type="image/webp"/><img alt="Detail shot of Rhizomatic textile work featuring botanical illustrations and Indigenous design patterns" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7791.JPG" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="gallery-item lightbox-trigger">
+<picture><source srcset="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8462.webp" type="image/webp"/><img alt="Evening view of Austin Central Library rooftop installation with illuminated textiles and urban landscape backdrop" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8462.JPG" loading="lazy" decoding="async"/></picture>
+</div>
+</div>
+</div>
+
+<div style="text-align: center; margin-top: 2rem;">
+<p style="color: #666; font-size: 0.95rem;">High-resolution images and complete documentation available upon request</p>
+</div>
+</div>
+</section>
+
+<!-- About & Resources -->
+<section style="padding: 4rem 0; background: #f9f9f9;">
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+<div style="display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start;" class="about-contact-grid">
+<div>
+<h2 style="font-size: 1.75rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1.5rem;">
+      About Essentials Creative
+</h2>
+<p style="font-size: 1.125rem; color: #1a1a1a; line-height: 1.7; margin-bottom: 2rem;">
+       Essentials Creative: Indigenous American, Latin American, and Asian artists creating new narratives about belonging and place. We blend cultural reclamation with artistic innovation, building contemporary folklore that honors the past while imagining alternative relationships with Texas landscapes.
+</p>
+<p style="font-size: 1rem; color: #555; line-height: 1.6; margin-bottom: 2rem;">
+       Our collaborative multimedia installations bridge cultural knowledge systems with contemporary artistic practice, creating spaces for cultural dialogue and environmental awareness through immersive experiences that have been exhibited at major botanical gardens, libraries, and cultural institutions across the United States.
+</p>
+<a href="about.html" style="color: #2d5a27; font-weight: 600; text-decoration: none; border-bottom: 2px solid #2d5a27; padding-bottom: 2px;">Learn more about the collective →</a>
+</div>
+<div>
+<h3 style="font-size: 1.25rem; font-weight: 600; color: #1a1a1a; margin-bottom: 1.5rem;">Contact</h3>
+<div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+<p style="color: #666; margin-bottom: 1rem;">For exhibition inquiries, technical specifications, or educational programming:</p>
+<a href="mailto:essentialscreative@gmail.com?subject=Rhizomatic Exhibition Inquiry" style="color: #2d5a27; font-weight: 600; text-decoration: none; border-bottom: 2px solid #2d5a27; padding-bottom: 2px;">essentialscreative@gmail.com</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
 
 </main>
 
 <!-- Footer -->
-<footer class="footer" style="background-image: url('assets/images/photography-hero.jpg'); background-size: cover; background-position: center center;">
-<div class="footer-overlay" style="background: rgba(0,0,0,0.4);">
-</div>
-<div class="footer-container">
-<!-- Newsletter Section -->
-<div class="footer-newsletter" style="max-width: 900px; margin: 0 auto 4rem; padding: 0 1.5rem;">
-<h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: white; text-align: center;">
-       Stay Connected
-      </h2>
-<p style="font-size: 1.125rem; line-height: 1.8; color: rgba(255,255,255,0.9); margin-bottom: 2rem; text-align: center;">
-       Be the first to know about new work, exhibitions, and creative collaborations. Join our community for exclusive updates and insights into our artistic process.
-      </p>
-<form action="https://formspree.io/f/mblyvvyn" class="newsletter-form" method="POST" style="display: flex; gap: 0.75rem; max-width: 500px; margin: 0 auto; flex-wrap: wrap;">
-<input name="email" placeholder="Enter your email" required="" style="flex: 1; min-width: 0; width: 100%; padding: 1rem 1.5rem; border-radius: 50px; border: 2px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); color: white; font-size: 1rem; transition: all 0.3s ease;" type="email"/>
-<input name="_subject" type="hidden" value="Newsletter Subscription"/>
-<button style="padding: 1rem 2.5rem; background: white; color: #1a1a1a; font-weight: 700; border-radius: 50px; border: none; cursor: pointer; font-size: 0.875rem; letter-spacing: 0.1em; transition: all 0.3s ease; text-transform: uppercase; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" type="submit">
-        SUBSCRIBE
-       </button>
+<footer class="footer" role="contentinfo" style="background: #f8f8f8; padding: 3rem 2rem 2rem; text-align: center; margin-top: 4rem;">
+<div style="max-width: 1200px; margin: 0 auto;">
+<!-- Newsletter -->
+<div style="margin-bottom: 3rem;">
+<h3 style="margin-bottom: 1rem; color: #333;">Stay Connected</h3>
+<p style="color: #666; margin-bottom: 2rem;">Get updates about new work and collaborations.</p>
+<form action="https://formspree.io/f/mblyvvyn" method="POST" style="display: flex; gap: 1rem; max-width: 400px; margin: 0 auto; flex-wrap: wrap;">
+<label for="footer-email" class="sr-only">Email for newsletter</label>
+<input id="footer-email" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="flex: 1; min-width: 200px; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;"/>
+<input type="hidden" name="_subject" value="Newsletter Subscription"/>
+<button type="submit" style="padding: 0.75rem 1.5rem; background: #1a1a1a; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">Subscribe</button>
 </form>
 </div>
+
 <!-- Footer Content -->
-<div class="footer-content" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; padding-top: 3rem; border-top: 1px solid rgba(255,255,255,0.2);">
-<div class="footer-section">
-<h3 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.75rem; color: white;">
-        Essentials Creative
-       </h3>
-<p style="color: rgba(255,255,255,0.8); line-height: 1.6;">
-        BIPOC-led collective amplifying cultural narratives through multimedia art
-       </p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+<div>
+<h4 style="margin-bottom: 1rem; color: #333;">Essentials Creative</h4>
+<p style="color: #666;">We make installations, projections, video, photography, and design for cultural organizations, gardens, and community spaces — grounded in Indigenous, Latinx, and Asian stories.</p>
 </div>
-<div class="footer-section">
-<h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; color: white;">
-        Services
-       </h4>
-<div class="footer-services" style="display: flex; flex-direction: column; gap: 0.5rem;">
-<p>
-<a href="photography.html" style="color: rgba(255,255,255,0.8); transition: color 0.3s ease;">
-          Photography
-         </a>
-</p>
-<p>
-<a href="design.html" style="color: rgba(255,255,255,0.8); transition: color 0.3s ease;">
-          Design
-         </a>
-</p>
-<p>
-<a href="installations.html" style="color: rgba(255,255,255,0.8); transition: color 0.3s ease;">
-          Installation Art
-         </a>
-</p>
-<p>
-<a href="videoandprojections.html" style="color: rgba(255,255,255,0.8); transition: color 0.3s ease;">
-          Video Production
-         </a>
-</p>
-<p>
-<a href="videoandprojections.html" style="color: rgba(255,255,255,0.8); transition: color 0.3s ease;">
-          Motion Graphics
-         </a>
-</p>
-<p>
-<a href="index.html#contact" style="color: rgba(255,255,255,0.8); transition: color 0.3s ease;">
-          Creative Direction
-         </a>
-</p>
+<div>
+<h4 style="margin-bottom: 1rem; color: #333;">Services</h4>
+<div style="display: flex; flex-direction: column; gap: 0.5rem;">
+<a href="photography.html" style="color: #666; text-decoration: none;">Photography</a>
+<a href="design.html" style="color: #666; text-decoration: none;">Design</a>
+<a href="installations.html" style="color: #666; text-decoration: none;">Installation Art</a>
+<a href="video.html" style="color: #666; text-decoration: none;">Video Production</a>
 </div>
 </div>
-<div class="footer-section">
-<h4 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; color: white;">
-        Connect
-       </h4>
-<div class="footer-social" style="display: flex; flex-direction: column; gap: 1rem;">
-<a href="https://www.instagram.com/essentialscreative/" rel="noopener" aria-label="Instagram (opens in new window)" style="display: flex; align-items: center; gap: 0.75rem; color: rgba(255,255,255,0.9); font-size: 1rem; transition: all 0.3s ease;" target="_blank">
-<svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24">
-<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
-</path>
-</svg>
-         Instagram
-        </a>
-<a href="https://www.youtube.com/@essentialscreative" rel="noopener" aria-label="YouTube (opens in new window)" style="display: flex; align-items: center; gap: 0.75rem; color: rgba(255,255,255,0.9); font-size: 1rem; transition: all 0.3s ease;" target="_blank">
-<svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24">
-<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.30 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z">
-</path>
-</svg>
-         YouTube
-        </a>
+<div>
+<h4 style="margin-bottom: 1rem; color: #333;">Connect</h4>
+<div style="display: flex; flex-direction: column; gap: 0.5rem;">
+<a href="https://www.instagram.com/essentialscreative/" target="_blank" rel="noopener" aria-label="Instagram (opens in new window)" style="color: #666; text-decoration: none;">Instagram</a>
+<a href="https://www.youtube.com/channel/UCmhlzjngU5_WX6n1mvtY2Bw" target="_blank" rel="noopener" aria-label="YouTube (opens in new window)" style="color: #666; text-decoration: none;">YouTube</a>
+<a href="contact.html" style="color: #666; text-decoration: none;">Contact</a>
 </div>
 </div>
 </div>
-<div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
-<p style="color: rgba(255,255,255,0.5); font-size: 0.75rem; margin: 0;">
-      © 2026 Essentials Creative. All rights reserved.
-     </p>
+
+<div style="border-top: 1px solid #ddd; padding-top: 2rem; color: #666; font-size: 0.9rem;">
+<p>&copy; 2026 Essentials Creative. All rights reserved.</p>
 </div>
 </div>
 </footer>
 
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Tapestry image gallery">
-    <div class="lightbox-backdrop"></div>
-    <div class="lightbox-container">
-        <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close lightbox gallery" tabindex="0">
-            ×
-        </button>
-        <button class="lightbox-nav lightbox-prev" onclick="changeImage(-1)" aria-label="View previous tapestry image" tabindex="0">
-            ❮
-        </button>
-        <div class="lightbox-content">
-            <div class="lightbox-image-container">
-                <img alt="Tapestry Design" class="lightbox-image" id="lightbox-image" tabindex="0"/>
-                <div id="lightbox-counter" style="position: absolute; top: -40px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;" aria-live="polite"></div>
-            </div>
-        </div>
-        <button class="lightbox-nav lightbox-next" onclick="changeImage(1)" aria-label="View next tapestry image" tabindex="0">
-            ❯
-        </button>
-    </div>
-</div>
 
-<script>
-   let currentImageIndex = 0;
-   let galleryImages = [];
 
-   function openLightbox(imageSrc) {
-       console.log('Opening lightbox for:', imageSrc);
-       const lightbox = document.getElementById('lightbox');
-       const img = document.getElementById('lightbox-image');
-       
-       if (!lightbox || !img) {
-           console.error('Lightbox elements not found');
-           return;
-       }
-       
-       // Get all gallery images (both installation and tapestry images)
-       const images = document.querySelectorAll('.gallery-item img, .gallery-item-with-caption img');
-       galleryImages = Array.from(images).map(img => img.src);
-       
-       // Find current image index - get the full src path
-       const fullImageSrc = window.location.origin + '/' + imageSrc;
-       currentImageIndex = galleryImages.findIndex(src => src.includes(imageSrc.split('/').pop()));
-       if (currentImageIndex === -1) currentImageIndex = 0;
-       
-       img.src = imageSrc;
-       // Set descriptive alt text based on image source
-       if (imageSrc.includes('cultural')) {
-           img.alt = 'Cultural narrative tapestry design';
-       } else if (imageSrc.includes('scientific')) {
-           img.alt = 'Scientific perspective tapestry design';
-       } else {
-           img.alt = 'Tapestry design from Rhizomatic installation';
-       }
-       
-       // Use CSS class to show lightbox instead of inline styles
-       lightbox.classList.add('active');
-       document.body.style.overflow = 'hidden';
-       
-       // Update counter
-       updateLightboxCounter();
-       
-       // Focus management for accessibility
-       setTimeout(() => {
-           const closeButton = document.querySelector('.lightbox-close');
-           if (closeButton) closeButton.focus();
-       }, 100);
-       
-       console.log('Lightbox opened successfully');
-   }
-
-   function closeLightbox() {
-       const lightbox = document.getElementById('lightbox');
-       lightbox.classList.remove('active');
-       document.body.style.overflow = 'auto';
-       console.log('Lightbox closed');
-   }
-
-   function changeImage(direction) {
-       if (galleryImages.length === 0) {
-           console.error('No gallery images available');
-           return;
-       }
-       
-       currentImageIndex += direction;
-       
-       if (currentImageIndex >= galleryImages.length) {
-           currentImageIndex = 0;
-       } else if (currentImageIndex < 0) {
-           currentImageIndex = galleryImages.length - 1;
-       }
-       
-       const img = document.getElementById('lightbox-image');
-       if (!img) {
-           console.error('Lightbox image element not found');
-           return;
-       }
-       
-       const newImageSrc = galleryImages[currentImageIndex];
-       console.log('Changing to image:', newImageSrc);
-       
-       img.src = newImageSrc;
-       
-       // Update alt text based on image source
-       if (newImageSrc.includes('cultural')) {
-           img.alt = 'Cultural narrative tapestry design';
-       } else if (newImageSrc.includes('scientific')) {
-           img.alt = 'Scientific perspective tapestry design';
-       } else {
-           img.alt = 'Tapestry design from Rhizomatic installation';
-       }
-       
-       // Update counter
-       updateLightboxCounter();
-   }
-   
-   function updateLightboxCounter() {
-       const counter = document.getElementById('lightbox-counter');
-       if (counter && galleryImages.length > 0) {
-           counter.textContent = `${currentImageIndex + 1} of ${galleryImages.length}`;
-       }
-   }
-
-   // Keyboard navigation
-   document.addEventListener('keydown', function(e) {
-       const lightbox = document.getElementById('lightbox');
-       if (lightbox && lightbox.classList.contains('active')) {
-           if (e.key === 'Escape') {
-               closeLightbox();
-           } else if (e.key === 'ArrowLeft') {
-               changeImage(-1);
-           } else if (e.key === 'ArrowRight') {
-               changeImage(1);
-           }
-       }
-   });
-
-   // Close lightbox when clicking outside the image
-   document.getElementById('lightbox').addEventListener('click', function(e) {
-       if (e.target === this || e.target.classList.contains('lightbox-backdrop')) {
-           closeLightbox();
-       }
-   });
-
-   // Prevent lightbox content click from closing
-   document.addEventListener('DOMContentLoaded', function() {
-       const lightboxContent = document.querySelector('.lightbox-content');
-       const lightboxContainer = document.querySelector('.lightbox-container');
-       
-       if (lightboxContent) {
-           lightboxContent.addEventListener('click', function(event) {
-               event.stopPropagation();
-           });
-       }
-       
-       if (lightboxContainer) {
-           lightboxContainer.addEventListener('click', function(event) {
-               event.stopPropagation();
-           });
-       }
-   });
-
-   // Initialize gallery when page loads
-   document.addEventListener('DOMContentLoaded', function() {
-       console.log('Initializing Rhizomatic gallery...');
-       
-       // Check if all gallery elements are present
-       const galleryItems = document.querySelectorAll('.gallery-item');
-       const lightbox = document.getElementById('lightbox');
-       
-       console.log('Found', galleryItems.length, 'gallery items');
-       console.log('Lightbox element:', lightbox ? 'found' : 'not found');
-       
-       // Test click on first gallery item
-       if (galleryItems.length > 0) {
-           console.log('First gallery item onclick:', galleryItems[0].getAttribute('onclick'));
-       }
-       
-       // Add backup click handlers to gallery items (both types)
-       const allGalleryItems = document.querySelectorAll('.gallery-item, .gallery-item-with-caption');
-       allGalleryItems.forEach((item, index) => {
-           const img = item.querySelector('img');
-           if (img && !item.hasAttribute('data-click-handler-added')) {
-               item.addEventListener('click', function(e) {
-                   e.preventDefault();
-                   console.log('Gallery item clicked:', img.src);
-                   openLightbox(img.src);
-               });
-               item.setAttribute('data-click-handler-added', 'true');
-           }
-       });
-       
-       // Ensure navigation buttons work properly
-       setTimeout(() => {
-           const prevBtn = document.querySelector('.lightbox-prev');
-           const nextBtn = document.querySelector('.lightbox-next');
-           
-           if (prevBtn && !prevBtn.hasAttribute('data-listener-added')) {
-               prevBtn.addEventListener('click', (e) => {
-                   e.stopPropagation();
-                   changeImage(-1);
-               });
-               prevBtn.setAttribute('data-listener-added', 'true');
-           }
-           
-           if (nextBtn && !nextBtn.hasAttribute('data-listener-added')) {
-               nextBtn.addEventListener('click', (e) => {
-                   e.stopPropagation();
-                   changeImage(1);
-               });
-               nextBtn.setAttribute('data-listener-added', 'true');
-           }
-       }, 100);
-   });
-
-</script>
-
-<!-- Mobile Menu JavaScript -->
-<script src="assets/js/mobile-menu.js"></script>
+<!-- JavaScript -->
+<script src="assets/js/navigation.js?v=4.3" defer></script>
+<script src="assets/js/unified-gallery-lightbox.js" defer></script>
 </body>
 </html>

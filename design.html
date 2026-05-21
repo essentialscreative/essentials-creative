@@ -6,143 +6,232 @@
 <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover" name="viewport"/>
 <meta content="#ffffff" media="(prefers-color-scheme: light)" name="theme-color"/>
 <meta content="#1a1a1a" media="(prefers-color-scheme: dark)" name="theme-color"/>
-<title>
-   Design - Essentials Creative
-  </title>
-<meta content="Graphic design, branding, and visual identity work by Essentials Creative. Providing platforms for visual storytelling and cultural perspectives." name="description"/>
+<title>Design - Essentials Creative</title>
+<meta content="Graphic design, identity systems, exhibition graphics, and publications for cultural organizations and artist-led projects. By Essentials Creative." name="description"/>
 <meta content="graphic design, branding, visual identity, Austin design, cultural design, Indigenous design" name="keywords"/>
 <!-- Open Graph Meta Tags -->
 <meta content="Design - Essentials Creative" property="og:title"/>
 <meta content="Visual gallery of graphic design, branding, and visual identity work by Essentials Creative." property="og:description"/>
 <meta content="website" property="og:type"/>
 <meta content="https://essentialscreative.com/design" property="og:url"/>
-<link href="assets/css/navigation.css?v=4.1" rel="stylesheet"/>
+<meta content="https://essentialscreative.com/assets/images/gallery/Design/Design_hero.jpg" property="og:image"/>
+<meta content="Graphic design work by Essentials Creative" property="og:image:alt"/>
+<link href="assets/css/navigation.css?v=4.2" rel="stylesheet"/>
 <link href="assets/css/main.css?v=4.1" rel="stylesheet"/>
-<link href="assets/css/enhanced-lightbox.css?v=4.1" rel="stylesheet"/>
+<link href="assets/css/design-system.css?v=2.0" rel="stylesheet"/>
+<link href="assets/css/mobile-optimization.css?v=1.0" rel="stylesheet"/>
+<link href="assets/css/gallery-uniform.css?v=2.1" rel="stylesheet"/>
+<link href="assets/css/enhanced-lightbox.css" rel="stylesheet"/>
+<link rel="canonical" href="https://essentialscreative.com/design"/>
+
 <!-- Favicon -->
 <link href="assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="assets/images/favicon.png" rel="apple-touch-icon" sizes="180x180"/>
 <link href="assets/images/favicon.png" rel="shortcut icon"/>
+
+<!-- Preload Critical Font -->
+<link rel="preload" href="assets/fonts/apercu/apercu_regular_pro.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 <body>
-<div class="skip-links" style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); z-index: 10000;">
-<a href="#main-content" class="skip-link" style="position: absolute; left: -100vw; background: #1a1a1a; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 0 0 8px 8px; white-space: nowrap;">Skip to main content</a>
-<a href="#main-navigation" class="skip-link" style="position: absolute; left: -100vw; background: #1a1a1a; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 0 0 8px 8px; white-space: nowrap;">Skip to navigation</a>
+<div class="skip-links skip-links--bar">
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<a href="#main-navigation" class="skip-link">Skip to navigation</a>
 </div>
-<style>
-.skip-link:focus {
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    top: 0 !important;
-    outline: 3px solid white !important;
-    outline-offset: 2px !important;
-    z-index: 10001 !important;
-}
-.skip-link:first-child:focus {
-    margin-left: -8rem;
-}
-.skip-link:last-child:focus {
-    margin-left: 8rem;
-}
-</style>
-<header class="header">
+
+<header class="header" role="banner">
 <div class="nav-container">
 <div class="logo">
-<a href="index.html" style="display: block; line-height: 1;">
-<img alt="Essentials Creative" src="assets/images/essentials-creative-logo.svg" style="height: 45px; width: auto; display: block;"/>
+<a href="index.html" aria-label="Essentials Creative - Home">
+<img alt="Essentials Creative logo" src="assets/images/Essentials-Creative_Logo.png" width="180" height="45" style="height: 45px; width: auto; display: block;"/>
 </a>
 </div>
-<nav id="main-navigation" class="nav-links">
+<nav id="main-navigation" class="nav-links" role="navigation" aria-label="Main navigation">
 <a class="nav-link" href="index.html">Home</a>
-<a class="nav-link" href="photography.html">Photography</a>
-<a class="nav-link active" href="design.html">Design</a>
-<a class="nav-link" href="videoandprojections.html">Video/Projections</a>
-<a class="nav-link" href="installations.html">Installations</a>
+<div class="nav-dropdown">
+<button type="button" class="nav-dropdown-toggle active" id="nav-services-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-services-menu">Services <span class="nav-dropdown-arrow" aria-hidden="true">▼</span></button>
+<div class="nav-dropdown-menu" id="nav-services-menu" role="group" aria-label="Services">
+<a href="photography.html" class="nav-dropdown-item">Photography</a>
+<a href="design.html" class="nav-dropdown-item active">Design</a>
+<a href="video.html" class="nav-dropdown-item">Video</a>
+<a href="projections.html" class="nav-dropdown-item">Projections</a>
+<a href="installations.html" class="nav-dropdown-item">Installations</a>
+</div>
+</div>
+<div class="nav-dropdown">
+<button type="button" class="nav-dropdown-toggle" id="nav-projects-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-projects-menu">Projects <span class="nav-dropdown-arrow" aria-hidden="true">▼</span></button>
+<div class="nav-dropdown-menu" id="nav-projects-menu" role="group" aria-label="Projects">
+<a href="afterworld.html" class="nav-dropdown-item">Afterworld</a>
+<a href="node.html" class="nav-dropdown-item">Node</a>
+<a href="rhizomatic.html" class="nav-dropdown-item">Rhizomatic</a>
+<a href="plant-story-cards.html" class="nav-dropdown-item">Plant Story Cards</a>
+</div>
+</div>
 <a class="nav-link" href="about.html">About</a>
 <a class="nav-link" href="contact.html">Contact</a>
 </nav>
-<!-- Mobile Navigation -->
 <div class="hamburger-nav">
-<button class="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+<button type="button" class="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
 <span class="hamburger-line"></span>
 <span class="hamburger-line"></span>
 <span class="hamburger-line"></span>
 </button>
-<div class="hamburger-menu">
+<div class="hamburger-menu" id="mobile-menu">
 <a href="index.html" class="hamburger-link">Home</a>
+<div class="hamburger-section">
+<span class="hamburger-section-title">Services</span>
 <a href="photography.html" class="hamburger-link">Photography</a>
 <a href="design.html" class="hamburger-link active">Design</a>
-<a href="videoandprojections.html" class="hamburger-link">Video/Projections</a>
+<a href="video.html" class="hamburger-link">Video</a>
+<a href="projections.html" class="hamburger-link">Projections</a>
 <a href="installations.html" class="hamburger-link">Installations</a>
+</div>
+<div class="hamburger-section">
+<span class="hamburger-section-title">Projects</span>
+<a href="afterworld.html" class="hamburger-link">Afterworld</a>
+<a href="node.html" class="hamburger-link">Node</a>
+<a href="rhizomatic.html" class="hamburger-link">Rhizomatic</a>
+<a href="plant-story-cards.html" class="hamburger-link">Plant Story Cards</a>
+</div>
 <a href="about.html" class="hamburger-link">About</a>
 <a href="contact.html" class="hamburger-link">Contact</a>
-</div>
-</div>
-</div>
-</header>
+</div></div></div></header>
 
 <main id="main-content">
 <!-- Hero Section -->
-<section class="hero" style="background-image: url('assets/images/gallery/Design/Design_hero.jpg'); background-size: cover; background-position: center; position: relative; height: 60vh; min-height: 400px; display: flex; align-items: center; justify-content: center;">
-    <div class="hero-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.8) 100%); z-index: 1;"></div>
-    <div class="hero-content" style="position: relative; z-index: 2; text-align: center; color: white; max-width: 800px; padding: 2rem;">
-        <h1 class="hero-title" style="font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1rem; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Design</h1>
-        <p class="hero-subtitle" style="font-size: clamp(1.1rem, 2vw, 1.3rem); margin-bottom: 1.5rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); line-height: 1.5;">Providing platforms for visual storytelling that connects diverse artistic voices and cultural perspectives.</p>
-        <div style="margin-top: 1.5rem;">
-            <p style="font-size: 0.9rem; opacity: 0.9; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">
-                Click any image to view in full detail
-            </p>
+<section class="hero" style="background-image: image-set(url('assets/images/gallery/Design/Design_hero.webp') type('image/webp'), url('assets/images/gallery/Design/Design_hero.jpg') type('image/jpeg')); background-size: cover; background-position: center; position: relative; height: 50vh; min-height: 320px; display: flex; align-items: center; justify-content: center;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.05), rgba(0,0,0,0.15));"></div>
+    <div class="hero-content" style="position: relative; z-index: 2; text-align: center; color: white; padding: 2rem; max-width: 900px;">
+        <h1 class="hero-title" style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); margin-bottom: 1rem; letter-spacing: -0.02em;">Design</h1>
+        <p class="hero-subtitle" style="font-size: clamp(1.1rem, 2vw, 1.4rem); text-shadow: 1px 1px 4px rgba(0,0,0,0.8); line-height: 1.6; font-weight: 300;">Design as cultural practice — creating identity systems and visual frameworks for organizations and artists whose stories deserve precision and care.</p>
+    </div>
+</section>
+
+<!-- Service Overview -->
+<section style="padding: 4rem 2rem; background: white;">
+    <div style="max-width: 900px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: 1fr; gap: 2rem;">
+            <div>
+                <p style="font-size: 1.25rem; line-height: 1.8; color: #333; margin-bottom: 2rem;">
+                    Brand identity, exhibition design, and print and digital systems for cultural organizations and artist-led projects. We build visual frameworks that hold cultural specificity without flattening it.
+                </p>
+                <div style="padding: 2rem; background: #f8f8f8; border-radius: 12px; margin-bottom: 2rem;">
+                    <h2 style="font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em; color: #666; margin-bottom: 1rem;">Who We Work With</h2>
+                    <ul style="list-style: none; padding: 0; color: #444; line-height: 1.8;">
+                        <li style="margin-bottom: 0.5rem;">✦ Galleries and exhibitions</li>
+                        <li style="margin-bottom: 0.5rem;">✦ Cultural nonprofits</li>
+                        <li style="margin-bottom: 0.5rem;">✦ Artist studios and collectives</li>
+                        <li>✦ Publications and editorial projects</li>
+                    </ul>
+                </div>
+                <div style="text-align: center;">
+                    <a href="contact.html" style="display: inline-block; background: #1a1a1a; color: white; padding: 1rem 2.5rem; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; font-size: 1.05rem;">Start a Design Project</a>
+                </div>
+            </div>
         </div>
     </div>
 </section>
-<div class="main-content">
+
+<div class="main-content" style="max-width: 1200px; margin: 0 auto; padding: 3rem 2rem;">
+
 <!-- Design Gallery Grid -->
-<section class="gallery-grid" id="design-gallery" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: 0 auto;">
+<section class="gallery-grid gallery-uniform" id="design-gallery" style="transition: opacity 0.3s ease;">
 
-<div class="gallery-item lightbox-trigger" style="position: relative; overflow: hidden; border-radius: 8px; background: #f0f0f0; aspect-ratio: 1 / 1; cursor: zoom-in;">
-    <img alt="Graphic Design Work - Visual identity and branding" src="assets/images/gallery/Design/Design_1.jpg" loading="eager" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"/>
-</div>
-
-<div class="gallery-item lightbox-trigger" style="position: relative; overflow: hidden; border-radius: 8px; background: #f0f0f0; aspect-ratio: 1 / 1; cursor: zoom-in;">
-    <img alt="Branding Design - Cultural storytelling through visual design" src="assets/images/gallery/Design/Design_2.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"/>
-</div>
-
-<div class="gallery-item lightbox-trigger" style="position: relative; overflow: hidden; border-radius: 8px; background: #f0f0f0; aspect-ratio: 1 / 1; cursor: zoom-in;">
-    <img alt="Creative Design - Contemporary graphic design work" src="assets/images/gallery/Design/Design_3.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"/>
-</div>
-
-<div class="gallery-item lightbox-trigger" style="position: relative; overflow: hidden; border-radius: 8px; background: #f0f0f0; aspect-ratio: 1 / 1; cursor: zoom-in;">
-    <img alt="Visual Design - Modern design aesthetic" src="assets/images/gallery/Design/Design_4.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"/>
-</div>
-
-<div class="gallery-item lightbox-trigger" style="position: relative; overflow: hidden; border-radius: 8px; background: #f0f0f0; aspect-ratio: 1 / 1; cursor: zoom-in;">
-    <img alt="Design Portfolio - Comprehensive design portfolio piece" src="assets/images/gallery/Design/Design_5.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"/>
-</div>
-
-<div class="gallery-item lightbox-trigger" style="position: relative; overflow: hidden; border-radius: 8px; background: #f0f0f0; aspect-ratio: 1 / 1; cursor: zoom-in;">
-    <img alt="Featured Design Work - Professional design showcase" src="assets/images/gallery/Design/_Design.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"/>
-</div>
-
-<div class="gallery-item lightbox-trigger" style="position: relative; overflow: hidden; border-radius: 8px; background: #f0f0f0; aspect-ratio: 1 / 1; cursor: zoom-in;">
-    <img alt="Creative Design Work - Innovative design solution" src="assets/images/gallery/Design/Design_13.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"/>
-</div>
-
-<div class="gallery-item lightbox-trigger" style="position: relative; overflow: hidden; border-radius: 8px; background: #f0f0f0; aspect-ratio: 1 / 1; cursor: zoom-in;">
-    <img alt="Design Showcase - Professional design work" src="assets/images/gallery/Design/e364a5b9-0159-4517-89f2-b4d7409548cc_rw_1920.jpg" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"/>
+<!-- Designs will be dynamically inserted here -->
 </section>
+
+<script>
+// Curated Design Collection - Working Gallery
+const allDesigns = [
+    { src: 'assets/images/gallery/Design/Melissa_Taylor_Long.jpg', alt: 'Design', category: 'Branding' },
+    { src: 'assets/images/gallery/Design/Melissa_Taylor_1.jpg', alt: 'Design', category: 'Branding' },
+    { src: 'assets/images/gallery/Design/_Design.jpg', alt: 'Design', category: 'Branding' },
+    { src: 'assets/images/gallery/Design/Design_1.jpg', alt: 'Design', category: 'Branding' },
+    { src: 'assets/images/gallery/Design/Insta_Zine_2.jpg', alt: 'Design', category: 'Publication' },
+    { src: 'assets/images/gallery/Design/Insta_Zine_3.jpg', alt: 'Design', category: 'Publication' },
+    { src: 'assets/images/gallery/Design/Fusebox_Salon_1.jpg', alt: 'Design', category: 'Event' },
+    { src: 'assets/images/gallery/Design/Fusebox_Salon_2.jpg', alt: 'Design', category: 'Event' },
+    { src: 'assets/images/gallery/Design/Fusebox_Salon_3.jpg', alt: 'Design', category: 'Event' },
+    { src: 'assets/images/gallery/Design/Levitation_Design.jpg', alt: 'Design', category: 'Event' },
+    { src: 'assets/images/gallery/Design/Design_2.jpg', alt: 'Design', category: 'Digital' },
+    { src: 'assets/images/gallery/Design/Design_3.jpg', alt: 'Design', category: 'Digital' },
+    { src: 'assets/images/gallery/Design/Design_4.jpg', alt: 'Design', category: 'Digital' },
+    { src: 'assets/images/gallery/Design/Design_5.jpg', alt: 'Design', category: 'Digital' },
+    { src: 'assets/images/gallery/Design/Design_13.jpg', alt: 'Design', category: 'Digital' },
+    { src: 'assets/images/gallery/Design/IMG_4066.jpeg', alt: 'Design', category: 'Digital' }
+];
+
+// Shuffle functionality removed for curated gallery experience
+
+// Function to render designs
+function renderDesigns(designs) {
+    const gallery = document.getElementById('design-gallery');
+    gallery.style.opacity = '0';
+    
+    setTimeout(() => {
+        gallery.innerHTML = designs.map(design => {
+            // Skip SVG files for now in the gallery display
+            if (design.src.endsWith('.svg')) {
+                return '';
+            }
+            return `
+                <div class="gallery-item lightbox-trigger ec-gallery-animate-in">
+                    <img alt="${design.alt}" src="${design.src}" loading="lazy" decoding="async"/>
+                </div>
+            `;
+        }).filter(html => html !== '').join('');
+        
+        gallery.style.opacity = '1';
+        
+        // Re-initialize lightbox for new images
+        if (window.initLightbox) {
+            window.initLightbox();
+        }
+        
+    }, 200);
+}
+
+// Shuffle functionality removed for curated gallery experience
+
+// Initial load with curated design collection
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM loaded, initializing curated design gallery...');
+    console.log(`Curated design collection: ${allDesigns.length} images`);
+    
+    try {
+        // Display all curated designs in professional order
+        renderDesigns(allDesigns);
+        console.log('Curated design gallery loaded successfully');
+    } catch (error) {
+        console.error('Error during initial gallery load:', error);
+        // Fallback to essential design pieces
+        const fallbackDesigns = [
+            { src: 'assets/images/gallery/Design/Melissa_Taylor_Long.jpg', alt: 'Design', category: 'Branding' },
+            { src: 'assets/images/gallery/Design/Fusebox_Salon_1.jpg', alt: 'Design', category: 'Event Design' },
+            { src: 'assets/images/gallery/Design/Insta_Zine_2.jpg', alt: 'Design', category: 'Publication' },
+            { src: 'assets/images/gallery/Design/_Design.jpg', alt: 'Design', category: 'Branding' }
+        ];
+        console.log('Using fallback designs');
+        renderDesigns(fallbackDesigns);
+    }
+});
+
+// Auto-refresh removed for curated gallery experience
+</script>
+
 <!-- Contact Section -->
-<section class="contact-section">
-    <div class="container">
-        <h2>Ready to Create Together?</h2>
-        <p>Let's collaborate on design work that amplifies diverse voices and cultural narratives.</p>
-        <a href="contact.html" class="btn btn-primary btn-large">Get In Touch</a>
+<section style="background: image-set(url('assets/images/gallery/Design/Design_hero.webp') type('image/webp'), url('assets/images/gallery/Design/Design_hero.jpg') type('image/jpeg')) center center / cover no-repeat; color: white; text-align: center; padding: 4rem 2rem; position: relative; margin: 4rem 0;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.35); z-index: 1;"></div>
+    <div style="position: relative; z-index: 2; max-width: 600px; margin: 0 auto;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: white; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.55);">Create Art That Bridges Communities</h2>
+        <p style="font-size: 1.25rem; color: rgba(255,255,255,0.95); margin-bottom: 2.5rem; line-height: 1.6; text-shadow: 1px 1px 3px rgba(0,0,0,0.55);">We make identity systems, exhibition graphics, and publications for cultural organizations and artist-led projects.</p>
+        <a href="contact.html" style="display: inline-block; background: white; color: #1a1a1a; padding: 1.25rem 2.5rem; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 1.125rem; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(255,255,255,0.2);">Get In Touch</a>
     </div>
 </section>
 </div>
 </main>
 
 <!-- Footer -->
-<footer class="footer" style="background: #f8f8f8; padding: 3rem 2rem 2rem; text-align: center;">
+<footer class="footer" role="contentinfo" style="background: #f8f8f8; padding: 3rem 2rem 2rem; text-align: center; margin-top: 4rem;">
 <div style="max-width: 1200px; margin: 0 auto;">
 <!-- Newsletter -->
 <div style="margin-bottom: 3rem;">
@@ -150,7 +239,7 @@
 <p style="color: #666; margin-bottom: 2rem;">Get updates about new work and collaborations.</p>
 <form action="https://formspree.io/f/mblyvvyn" method="POST" style="display: flex; gap: 1rem; max-width: 400px; margin: 0 auto; flex-wrap: wrap;">
 <label for="footer-email" class="sr-only">Email for newsletter</label>
-<input id="footer-email" type="email" name="email" placeholder="Enter your email" required style="flex: 1; min-width: 200px; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;"/>
+<input id="footer-email" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="flex: 1; min-width: 200px; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;"/>
 <input type="hidden" name="_subject" value="Newsletter Subscription"/>
 <button type="submit" style="padding: 0.75rem 1.5rem; background: #1a1a1a; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">Subscribe</button>
 </form>
@@ -160,7 +249,7 @@
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
 <div>
 <h4 style="margin-bottom: 1rem; color: #333;">Essentials Creative</h4>
-<p style="color: #666;">BIPOC-led collective amplifying cultural narratives through multimedia art</p>
+<p style="color: #666;">Site-responsive multimedia art honoring cultural ways of knowing</p>
 </div>
 <div>
 <h4 style="margin-bottom: 1rem; color: #333;">Services</h4>
@@ -168,7 +257,7 @@
 <a href="photography.html" style="color: #666; text-decoration: none;">Photography</a>
 <a href="design.html" style="color: #666; text-decoration: none;">Design</a>
 <a href="installations.html" style="color: #666; text-decoration: none;">Installation Art</a>
-<a href="videoandprojections.html" style="color: #666; text-decoration: none;">Video Production</a>
+<a href="video.html" style="color: #666; text-decoration: none;">Video Production</a>
 </div>
 </div>
 <div>
@@ -188,7 +277,7 @@
 </footer>
 
 <!-- Core JavaScript Framework v4.0 -->
-<script src="assets/js/navigation.js?v=4.0" defer></script>
+<script src="assets/js/navigation.js?v=4.3" defer></script>
 <script src="assets/js/unified-gallery-lightbox.js" defer></script>
 </body>
 </html>

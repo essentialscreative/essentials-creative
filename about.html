@@ -7,24 +7,33 @@
 <meta content="#ffffff" media="(prefers-color-scheme: light)" name="theme-color"/>
 <meta content="#1a1a1a" media="(prefers-color-scheme: dark)" name="theme-color"/>
 <title>About - Essentials Creative</title>
-<meta content="BIPOC-led collective empowering underrepresented artists through fluid, collaborative, experimental creative experiences across Austin, San Antonio, and London." name="description"/>
-<meta content="about essentials creative, BIPOC artists, creative collective, Austin artists, multimedia art, cultural storytelling" name="keywords"/>
+<meta content="Site-responsive multimedia art honoring cultural heritage and contemporary voices across Austin, San Antonio, and London." name="description"/>
+<meta content="about essentials creative, Indigenous artists, Latinx artists, Asian artists, creative collective, Austin artists, multimedia art, cultural storytelling" name="keywords"/>
 
 <!-- Open Graph Meta Tags -->
 <meta content="About - Essentials Creative" property="og:title"/>
-<meta content="BIPOC-led collective empowering underrepresented artists through fluid, collaborative, experimental creative experiences." property="og:description"/>
+<meta content="Site-responsive multimedia art honoring cultural heritage and contemporary voices across Austin, San Antonio, and London." property="og:description"/>
 <meta content="website" property="og:type"/>
 <meta content="https://essentialscreative.com/about" property="og:url"/>
 
+<link rel="canonical" href="https://essentialscreative.com/about"/>
+
+<meta property="og:image" content="https://essentialscreative.com/assets/images/Essentials-Creative_Logo.png">
+<meta property="og:image:alt" content="Essentials Creative studio logo">
 <!-- Favicon -->
 <link href="assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="assets/images/favicon.png" rel="apple-touch-icon" sizes="180x180"/>
 <link href="assets/images/favicon.png" rel="shortcut icon"/>
 
+<!-- Preload Critical Font -->
+<link rel="preload" href="assets/fonts/apercu/apercu_regular_pro.woff2" as="font" type="font/woff2" crossorigin>
+
 <!-- CSS -->
-<link href="assets/css/navigation.css?v=4.1" rel="stylesheet"/>
+<link href="assets/css/navigation.css?v=4.2" rel="stylesheet"/>
 <link href="assets/css/main.css?v=4.1" rel="stylesheet"/>
-<link href="assets/css/enhanced-lightbox.css?v=4.1" rel="stylesheet"/>
+<link href="assets/css/design-system.css?v=2.0" rel="stylesheet"/>
+<link href="assets/css/mobile-optimization.css?v=1.0" rel="stylesheet"/>
+<link href="assets/css/enhanced-lightbox.css" rel="stylesheet"/>
 
 <style>
 /* About Page Specific Styles */
@@ -32,7 +41,8 @@
 body { font-family: 'Apercu', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #333; }
 
 .hero { 
-    height: 70vh; 
+    height: 60vh; 
+    min-height: 400px;
     background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%) center center / cover no-repeat;
     display: flex; 
     align-items: center; 
@@ -46,7 +56,7 @@ body { font-family: 'Apercu', -apple-system, BlinkMacSystemFont, sans-serif; lin
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.1);
     z-index: 1;
 }
 
@@ -63,16 +73,16 @@ body { font-family: 'Apercu', -apple-system, BlinkMacSystemFont, sans-serif; lin
     font-weight: 700;
     color: #ffffff;
     text-shadow: 
-        2px 2px 4px rgba(0,0,0,0.8),
-        1px 1px 8px rgba(0,0,0,0.6);
+        2px 2px 4px rgba(0,0,0,0.55),
+        1px 1px 8px rgba(0,0,0,0.35);
 }
 
 .hero p { 
     font-size: clamp(1.1rem, 2vw, 1.4rem); 
     color: rgba(255,255,255,0.95);
     text-shadow: 
-        1px 1px 3px rgba(0,0,0,0.8),
-        0px 0px 6px rgba(0,0,0,0.5);
+        1px 1px 3px rgba(0,0,0,0.55),
+        0px 0px 6px rgba(0,0,0,0.25);
 }
 
 .section { 
@@ -144,158 +154,150 @@ body { font-family: 'Apercu', -apple-system, BlinkMacSystemFont, sans-serif; lin
 @media (max-width: 768px) {
     .section { padding: 3rem 1rem; }
     .values-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-    .hero { height: 60vh; }
+    .hero { height: 60vh; min-height: 400px; }
     .mission-statement { padding: 3rem 1rem; }
 }
 </style>
 </head>
 
 <body>
-<div class="skip-links" style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); z-index: 10000;">
-<a href="#main-content" class="skip-link" style="position: absolute; left: -100vw; background: #1a1a1a; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 0 0 8px 8px; white-space: nowrap;">Skip to main content</a>
-<a href="#main-navigation" class="skip-link" style="position: absolute; left: -100vw; background: #1a1a1a; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 0 0 8px 8px; white-space: nowrap;">Skip to navigation</a>
+<div class="skip-links skip-links--bar">
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<a href="#main-navigation" class="skip-link">Skip to navigation</a>
 </div>
-<style>
-.skip-link:focus {
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    top: 0 !important;
-    outline: 3px solid white !important;
-    outline-offset: 2px !important;
-    z-index: 10001 !important;
-}
-.skip-link:first-child:focus {
-    margin-left: -8rem;
-}
-.skip-link:last-child:focus {
-    margin-left: 8rem;
-}
-</style>
-<header class="header">
+
+<header class="header" role="banner">
 <div class="nav-container">
 <div class="logo">
-<a href="index.html" style="display: block; line-height: 1;">
-<img alt="Essentials Creative" src="assets/images/essentials-creative-logo.svg" style="height: 45px; width: auto; display: block;"/>
+<a href="index.html" aria-label="Essentials Creative - Home">
+<img alt="Essentials Creative logo" src="assets/images/Essentials-Creative_Logo.png" width="180" height="45" style="height: 45px; width: auto; display: block;"/>
 </a>
 </div>
-<nav id="main-navigation" class="nav-links">
+<nav id="main-navigation" class="nav-links" role="navigation" aria-label="Main navigation">
 <a class="nav-link" href="index.html">Home</a>
-<a class="nav-link" href="photography.html">Photography</a>
-<a class="nav-link" href="design.html">Design</a>
-<a class="nav-link" href="videoandprojections.html">Video/Projections</a>
-<a class="nav-link" href="installations.html">Installations</a>
+<div class="nav-dropdown">
+<button type="button" class="nav-dropdown-toggle" id="nav-services-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-services-menu">Services <span class="nav-dropdown-arrow" aria-hidden="true">▼</span></button>
+<div class="nav-dropdown-menu" id="nav-services-menu" role="group" aria-label="Services">
+<a href="photography.html" class="nav-dropdown-item">Photography</a>
+<a href="design.html" class="nav-dropdown-item">Design</a>
+<a href="video.html" class="nav-dropdown-item">Video</a>
+<a href="projections.html" class="nav-dropdown-item">Projections</a>
+<a href="installations.html" class="nav-dropdown-item">Installations</a>
+</div>
+</div>
+<div class="nav-dropdown">
+<button type="button" class="nav-dropdown-toggle" id="nav-projects-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-projects-menu">Projects <span class="nav-dropdown-arrow" aria-hidden="true">▼</span></button>
+<div class="nav-dropdown-menu" id="nav-projects-menu" role="group" aria-label="Projects">
+<a href="afterworld.html" class="nav-dropdown-item">Afterworld</a>
+<a href="node.html" class="nav-dropdown-item">Node</a>
+<a href="rhizomatic.html" class="nav-dropdown-item">Rhizomatic</a>
+<a href="plant-story-cards.html" class="nav-dropdown-item">Plant Story Cards</a>
+</div>
+</div>
 <a class="nav-link active" href="about.html">About</a>
 <a class="nav-link" href="contact.html">Contact</a>
 </nav>
-<!-- Mobile Navigation -->
 <div class="hamburger-nav">
-<button class="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+<button type="button" class="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
 <span class="hamburger-line"></span>
 <span class="hamburger-line"></span>
 <span class="hamburger-line"></span>
 </button>
-<div class="hamburger-menu">
+<div class="hamburger-menu" id="mobile-menu">
 <a href="index.html" class="hamburger-link">Home</a>
+<div class="hamburger-section">
+<span class="hamburger-section-title">Services</span>
 <a href="photography.html" class="hamburger-link">Photography</a>
 <a href="design.html" class="hamburger-link">Design</a>
-<a href="videoandprojections.html" class="hamburger-link">Video/Projections</a>
+<a href="video.html" class="hamburger-link">Video</a>
+<a href="projections.html" class="hamburger-link">Projections</a>
 <a href="installations.html" class="hamburger-link">Installations</a>
+</div>
+<div class="hamburger-section">
+<span class="hamburger-section-title">Projects</span>
+<a href="afterworld.html" class="hamburger-link">Afterworld</a>
+<a href="node.html" class="hamburger-link">Node</a>
+<a href="rhizomatic.html" class="hamburger-link">Rhizomatic</a>
+<a href="plant-story-cards.html" class="hamburger-link">Plant Story Cards</a>
+</div>
 <a href="about.html" class="hamburger-link active">About</a>
 <a href="contact.html" class="hamburger-link">Contact</a>
-</div>
-</div>
-</div>
-</header>
+</div></div></div></header>
 
 <!-- Hero Section -->
-<section class="hero" style="background-image: url('assets/images/gallery/Design/Design_hero.jpg'); background-size: cover; background-position: center; position: relative; height: 60vh; min-height: 400px; display: flex; align-items: center; justify-content: center;">
-    <div class="hero-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.7) 100%); z-index: 1;"></div>
+<section class="hero" style="background-image: image-set(url('assets/images/gallery/Design/Design_hero.webp') type('image/webp'), url('assets/images/gallery/Design/Design_hero.jpg') type('image/jpeg')); background-size: cover; background-position: center; position: relative; height: 60vh; min-height: 400px; display: flex; align-items: center; justify-content: center;">
+    <div class="hero-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.08) 40%, rgba(0,0,0,0.25) 100%); z-index: 1;"></div>
     <div class="hero-content" style="position: relative; z-index: 2; text-align: center; color: white; max-width: 800px; padding: 2rem;">
-        <h1 class="hero-title" style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">About Essentials Creative</h1>
-        <p class="hero-subtitle" style="font-size: clamp(1.1rem, 2vw, 1.4rem); margin-bottom: 1.5rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); line-height: 1.5;">BIPOC-led collective empowering underrepresented artists through fluid, collaborative, experimental creative experiences.</p>
-        <div style="margin-top: 1.5rem;">
-            <p style="font-size: 1rem; opacity: 0.9; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">
-                Austin • San Antonio • London
-            </p>
-        </div>
+        <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 0.5rem;">About Essentials Creative</h1>
+        <p style="font-size: clamp(1.1rem, 2vw, 1.4rem); color: rgba(255,255,255,0.95); text-shadow: 1px 1px 3px rgba(0,0,0,0.55);">Site-responsive multimedia studio in Austin</p>
     </div>
 </section>
 
 <main id="main-content">
+<!-- Main Introduction -->
 <section class="section">
-    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 4rem 2rem;">
-        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem; color: #1a1a1a; font-weight: 700;">Our Mission</h2>
-        <p style="text-align: center; font-size: 1.25rem; color: #555; max-width: 800px; margin: 0 auto 3rem; line-height: 1.6;">
-            BIPOC-led collective celebrating experimentation, fluidity, diversity & collaboration through multimedia art and cultural storytelling.
+    <div class="container" style="max-width: 800px; margin: 0 auto; padding: 4rem 2rem;">
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 2rem; color: #1a1a1a; font-weight: 700;">We make art with place and community</h2>
+        <p style="text-align: center; font-size: 1.25rem; color: #555; margin: 0 auto 3rem; line-height: 1.8;">
+            Essentials Creative is a multimedia collective creating installations, projections, and experiences that respond to specific sites and their stories. We work at the intersection of cultural memory and contemporary expression.
         </p>
     </div>
 </section>
 
-<!-- Mission Statement -->
+<!-- Our Approach -->
 <section class="mission-statement">
-<h2>Our Mission</h2>
-<p>We create platforms for underrepresented artists through fluid, collaborative, experimental creative experiences. Our BIPOC-led collective spans Austin, San Antonio, and London, uniting diverse voices through photography, design, video, and installation art.</p>
+<h2>How We Work</h2>
+<p>Every project begins with listening — to the land, the community, and the histories embedded in each space. We collaborate with cultural organizations, botanical gardens, and community spaces to create work that honors Indigenous, Latinx, and Asian knowledge systems while embracing new forms of storytelling.</p>
+
+<p>Our practice is rhizomatic: non-hierarchical, interconnected, and regenerative.</p>
 </section>
 
-<!-- Our Values -->
+<!-- The Collective -->
 <section class="section">
-<h2>Our Values</h2>
-<div class="values-grid">
-<div class="value-card">
-<h3>Fluidity</h3>
-<p>We embrace creative flexibility, allowing our work to evolve organically and respond to community needs.</p>
+<h2>Our Team</h2>
+<div class="values-grid" style="max-width: 800px; margin: 0 auto;">
+<div class="value-card" style="background: transparent; box-shadow: none; padding: 1rem;">
+<h3 style="font-size: 1.2rem; font-weight: 500;">Misa Yamamoto</h3>
 </div>
-<div class="value-card">
-<h3>Diversity</h3>
-<p>Our collective celebrates artists of color, women, LGBTQIA+ creators, and all underrepresented voices in the creative space.</p>
+<div class="value-card" style="background: transparent; box-shadow: none; padding: 1rem;">
+<h3 style="font-size: 1.2rem; font-weight: 500;">Fabian Villa</h3>
 </div>
-<div class="value-card">
-<h3>Experimentation</h3>
-<p>We push boundaries through innovative multimedia approaches, blending traditional and digital art forms.</p>
+<div class="value-card" style="background: transparent; box-shadow: none; padding: 1rem;">
+<h3 style="font-size: 1.2rem; font-weight: 500;">Steven Casanova</h3>
 </div>
-<div class="value-card">
-<h3>Collaboration</h3>
-<p>Every project is a partnership, bringing together diverse perspectives to create meaningful cultural narratives.</p>
+<div class="value-card" style="background: transparent; box-shadow: none; padding: 1rem;">
+<h3 style="font-size: 1.2rem; font-weight: 500;">Sixto-Juan Zavala</h3>
 </div>
+</div>
+<p style="text-align: center; color: #666; font-style: italic; margin-top: 2rem;">Plus a rotating network of collaborators, artists, and community partners.</p>
+</section>
+
+<!-- What We Make -->
+<section class="section" style="background: #f9f9f9; border-radius: 12px; margin-top: 3rem;">
+<h2>What We Make</h2>
+<div style="max-width: 700px; margin: 0 auto;">
+    <ul style="list-style: none; padding: 0; font-size: 1.15rem; line-height: 2.2; color: #444;">
+        <li style="margin-bottom: 1rem;"><strong style="color: #1a1a1a;">Installations</strong> — Site-specific works that transform spaces</li>
+        <li style="margin-bottom: 1rem;"><strong style="color: #1a1a1a;">Projections</strong> — Large-scale video mapped onto architecture and landscapes</li>
+        <li style="margin-bottom: 1rem;"><strong style="color: #1a1a1a;">Photography</strong> — Documentary and artistic photography for cultural archives</li>
+        <li style="margin-bottom: 1rem;"><strong style="color: #1a1a1a;">Design</strong> — Visual identity and graphics for community organizations</li>
+        <li><strong style="color: #1a1a1a;">Video</strong> — Films that preserve and share cultural narratives</li>
+    </ul>
 </div>
 </section>
 
-<!-- What We Do -->
-<section class="section" style="background: #f9f9f9; border-radius: 12px;">
-<h2>What We Do</h2>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem;">
-<div style="text-align: center;">
-<h3 style="color: #1a1a1a; margin-bottom: 1rem; font-size: 1.25rem;">Photography</h3>
-<p style="color: #666; line-height: 1.6;">Portrait, lifestyle, and artistic photography capturing authentic cultural moments.</p>
-</div>
-<div style="text-align: center;">
-<h3 style="color: #1a1a1a; margin-bottom: 1rem; font-size: 1.25rem;">Design</h3>
-<p style="color: #666; line-height: 1.6;">Visual identity and branding that amplifies diverse artistic voices.</p>
-</div>
-<div style="text-align: center;">
-<h3 style="color: #1a1a1a; margin-bottom: 1rem; font-size: 1.25rem;">Video & Projection</h3>
-<p style="color: #666; line-height: 1.6;">Documentary storytelling and immersive projection experiences.</p>
-</div>
-<div style="text-align: center;">
-<h3 style="color: #1a1a1a; margin-bottom: 1rem; font-size: 1.25rem;">Installations</h3>
-<p style="color: #666; line-height: 1.6;">Interactive art that transforms spaces and engages communities.</p>
-</div>
-</div>
-</section>
-
-<!-- Call to Action -->
-<section style="background: url('assets/images/nopal-hero.jpg') center center / cover no-repeat; color: white; text-align: center; padding: 5rem 2rem; position: relative; border-radius: 12px; margin: 2rem 0; display: flex; align-items: center; justify-content: center; min-height: 400px;">
-<div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1; border-radius: 12px;"></div>
-<div style="position: relative; z-index: 2; width: 100%; max-width: 800px; margin: 0 auto;">
-<h2 style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); margin-bottom: 1.5rem; font-size: 2.5rem; font-weight: 700;">Ready to Collaborate?</h2>
-<p style="color: rgba(255,255,255,0.95); text-shadow: 1px 1px 3px rgba(0,0,0,0.8); margin-bottom: 2.5rem; font-size: 1.25rem; line-height: 1.6;">Let's create something meaningful together.</p>
-<a href="contact.html" style="display: inline-block; padding: 1.25rem 2.5rem; background: white; color: #1a1a1a; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; font-size: 1.125rem;">Get In Touch</a>
+<!-- Working With Us -->
+<section class="section" style="padding: 4rem 2rem; text-align: center;">
+<div style="max-width: 800px; margin: 0 auto;">
+<h2 style="font-size: 2rem; margin-bottom: 1.5rem; color: #1a1a1a;">Working With Us</h2>
+<p style="font-size: 1.2rem; color: #555; margin-bottom: 2.5rem; line-height: 1.7;">We're available for commissions, exhibitions, and partnerships. We prioritize projects that center underrepresented voices and create platforms for cultural exchange.</p>
+<a href="contact.html" style="display: inline-block; padding: 1rem 2rem; background: #1a1a1a; color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; font-size: 1.05rem;">Tell us about your project</a>
 </div>
 </section>
 </main>
 
 <!-- Footer -->
-<footer class="footer" style="background: #f8f8f8; padding: 3rem 2rem 2rem; text-align: center;">
+<footer class="footer" role="contentinfo" style="background: #f8f8f8; padding: 3rem 2rem 2rem; text-align: center; margin-top: 4rem;">
 <div style="max-width: 1200px; margin: 0 auto;">
 <!-- Newsletter -->
 <div style="margin-bottom: 3rem;">
@@ -303,7 +305,7 @@ body { font-family: 'Apercu', -apple-system, BlinkMacSystemFont, sans-serif; lin
 <p style="color: #666; margin-bottom: 2rem;">Get updates about new work and collaborations.</p>
 <form action="https://formspree.io/f/mblyvvyn" method="POST" style="display: flex; gap: 1rem; max-width: 400px; margin: 0 auto; flex-wrap: wrap;">
 <label for="footer-email" class="sr-only">Email for newsletter</label>
-<input id="footer-email" type="email" name="email" placeholder="Enter your email" required style="flex: 1; min-width: 200px; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;"/>
+<input id="footer-email" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="flex: 1; min-width: 200px; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;"/>
 <input type="hidden" name="_subject" value="Newsletter Subscription"/>
 <button type="submit" style="padding: 0.75rem 1.5rem; background: #1a1a1a; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">Subscribe</button>
 </form>
@@ -313,7 +315,7 @@ body { font-family: 'Apercu', -apple-system, BlinkMacSystemFont, sans-serif; lin
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
 <div>
 <h4 style="margin-bottom: 1rem; color: #333;">Essentials Creative</h4>
-<p style="color: #666;">BIPOC-led collective amplifying cultural narratives through multimedia art</p>
+<p style="color: #666;">We make installations, projections, video, photography, and design for cultural organizations, gardens, and community spaces — grounded in Indigenous, Latinx, and Asian stories.</p>
 </div>
 <div>
 <h4 style="margin-bottom: 1rem; color: #333;">Services</h4>
@@ -321,7 +323,7 @@ body { font-family: 'Apercu', -apple-system, BlinkMacSystemFont, sans-serif; lin
 <a href="photography.html" style="color: #666; text-decoration: none;">Photography</a>
 <a href="design.html" style="color: #666; text-decoration: none;">Design</a>
 <a href="installations.html" style="color: #666; text-decoration: none;">Installation Art</a>
-<a href="videoandprojections.html" style="color: #666; text-decoration: none;">Video Production</a>
+<a href="video.html" style="color: #666; text-decoration: none;">Video Production</a>
 </div>
 </div>
 <div>
@@ -341,8 +343,7 @@ body { font-family: 'Apercu', -apple-system, BlinkMacSystemFont, sans-serif; lin
 </footer>
 
 <!-- JavaScript -->
-<script src="assets/js/main.js" defer></script>
-<script src="assets/js/navigation.js" defer></script>
+<script src="assets/js/navigation.js?v=4.3" defer></script>
 <script src="assets/js/unified-gallery-lightbox.js" defer></script>
 </body>
 </html>

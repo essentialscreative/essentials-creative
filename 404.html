@@ -9,8 +9,11 @@
     <meta name="description" content="The page you're looking for doesn't exist. Explore our multimedia creative studio.">
     <link href="assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
     <link href="assets/images/favicon.png" rel="apple-touch-icon" sizes="180x180"/>
-    <link href="assets/css/navigation.css" rel="stylesheet"/>
-    <link href="assets/css/main.css" rel="stylesheet"/>
+    <link href="assets/css/navigation.css?v=4.2" rel="stylesheet"/>
+    <link href="assets/css/main.css?v=4.1" rel="stylesheet"/>
+    <link href="assets/css/design-system.css?v=2.0" rel="stylesheet"/>
+    <link href="assets/css/mobile-optimization.css?v=1.0" rel="stylesheet"/>
+    <link href="assets/css/enhanced-lightbox.css?v=1.0" rel="stylesheet"/>
     <style>
         .error-section {
             padding: 4rem 2rem;
@@ -41,46 +44,74 @@
             .error-actions .btn { width: 100%; max-width: 280px; }
         }
     </style>
+<meta property="og:title" content="Page Not Found - Essentials Creative">
+<meta property="og:description" content="The page you are looking for does not exist. Explore Essentials Creative multimedia work and projects.">
+<meta property="og:image" content="https://essentialscreative.com/assets/images/Essentials-Creative_Logo.png">
+<meta property="og:image:alt" content="Essentials Creative logo">
 </head>
 <body>
-<div class="skip-links">
+<div class="skip-links skip-links--bar">
 <a href="#main-content" class="skip-link">Skip to main content</a>
 <a href="#main-navigation" class="skip-link">Skip to navigation</a>
 </div>
-<header class="header">
-    <div class="nav-container">
-        <div class="logo">
-            <a href="index.html">
-                <img alt="Essentials Creative" src="assets/images/essentials_creative_logo.png" style="height: 65px; width: auto; display: block;"/>
-            </a>
-        </div>
-        <nav id="main-navigation" class="nav-links">
-            <a class="nav-link" href="index.html">Home</a>
-            <a class="nav-link" href="photography.html">Photography</a>
-            <a class="nav-link" href="design.html">Design</a>
-            <a class="nav-link" href="videoandprojections.html">Video/Film</a>
-            <a class="nav-link" href="installations.html">Installations</a>
-            <a class="nav-link" href="about.html">About</a>
-            <a class="nav-link" href="contact.html">Contact</a>
-        </nav>
-        <div class="hamburger-nav">
-            <button class="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button>
-            <div class="hamburger-menu">
-                <a href="index.html" class="hamburger-link">Home</a>
-                <a href="photography.html" class="hamburger-link">Photography</a>
-                <a href="design.html" class="hamburger-link">Design</a>
-                <a href="videoandprojections.html" class="hamburger-link">Video/Film</a>
-                <a href="installations.html" class="hamburger-link">Installations</a>
-                <a href="about.html" class="hamburger-link">About</a>
-                <a href="contact.html" class="hamburger-link">Contact</a>
-            </div>
-        </div>
-    </div>
-</header>
+
+<header class="header" role="banner">
+<div class="nav-container">
+<div class="logo">
+<a href="index.html" aria-label="Essentials Creative - Home">
+<img alt="" src="assets/images/Essentials-Creative_Logo.png" width="180" height="45" style="height: 45px; width: auto; display: block;"/>
+</a>
+</div>
+<nav id="main-navigation" class="nav-links" role="navigation" aria-label="Main navigation">
+<a class="nav-link" href="index.html">Home</a>
+<div class="nav-dropdown">
+<button type="button" class="nav-dropdown-toggle" id="nav-services-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-services-menu">Services <span class="nav-dropdown-arrow" aria-hidden="true">▼</span></button>
+<div class="nav-dropdown-menu" id="nav-services-menu" role="group" aria-label="Services">
+<a href="photography.html" class="nav-dropdown-item">Photography</a>
+<a href="design.html" class="nav-dropdown-item">Design</a>
+<a href="video.html" class="nav-dropdown-item">Video</a>
+<a href="projections.html" class="nav-dropdown-item">Projections</a>
+<a href="installations.html" class="nav-dropdown-item">Installations</a>
+</div>
+</div>
+<div class="nav-dropdown">
+<button type="button" class="nav-dropdown-toggle" id="nav-projects-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-projects-menu">Projects <span class="nav-dropdown-arrow" aria-hidden="true">▼</span></button>
+<div class="nav-dropdown-menu" id="nav-projects-menu" role="group" aria-label="Projects">
+<a href="afterworld.html" class="nav-dropdown-item">Afterworld</a>
+<a href="node.html" class="nav-dropdown-item">Node</a>
+<a href="rhizomatic.html" class="nav-dropdown-item">Rhizomatic</a>
+<a href="plant-story-cards.html" class="nav-dropdown-item">Plant Story Cards</a>
+</div>
+</div>
+<a class="nav-link" href="about.html">About</a>
+<a class="nav-link" href="contact.html">Contact</a>
+</nav>
+<div class="hamburger-nav">
+<button type="button" class="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+<span class="hamburger-line"></span>
+<span class="hamburger-line"></span>
+<span class="hamburger-line"></span>
+</button>
+<div class="hamburger-menu" id="mobile-menu">
+<a href="index.html" class="hamburger-link">Home</a>
+<div class="hamburger-section">
+<span class="hamburger-section-title">Services</span>
+<a href="photography.html" class="hamburger-link">Photography</a>
+<a href="design.html" class="hamburger-link">Design</a>
+<a href="video.html" class="hamburger-link">Video</a>
+<a href="projections.html" class="hamburger-link">Projections</a>
+<a href="installations.html" class="hamburger-link">Installations</a>
+</div>
+<div class="hamburger-section">
+<span class="hamburger-section-title">Projects</span>
+<a href="afterworld.html" class="hamburger-link">Afterworld</a>
+<a href="node.html" class="hamburger-link">Node</a>
+<a href="rhizomatic.html" class="hamburger-link">Rhizomatic</a>
+<a href="plant-story-cards.html" class="hamburger-link">Plant Story Cards</a>
+</div>
+<a href="about.html" class="hamburger-link">About</a>
+<a href="contact.html" class="hamburger-link">Contact</a>
+</div></div></div></header>
 
 <main id="main-content">
     <section class="error-section">
@@ -103,7 +134,7 @@
                     <li><a href="photography.html">Photography</a></li>
                     <li><a href="design.html">Design</a></li>
                     <li><a href="installations.html">Installations</a></li>
-                    <li><a href="videoandprojections.html">Video/Film</a></li>
+                    <li><a href="video.html">Video</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
@@ -111,12 +142,22 @@
     </section>
 </main>
 
-<footer class="footer" style="background: #f8f8f8; padding: 3rem 2rem 2rem; text-align: center;">
+<footer class="footer" role="contentinfo" style="background: #f8f8f8; padding: 3rem 2rem 2rem; text-align: center; margin-top: 4rem;">
     <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="margin-bottom: 3rem;">
+            <h3 style="margin-bottom: 1rem; color: #333;">Stay Connected</h3>
+            <p style="color: #666; margin-bottom: 2rem;">Get updates about new work and collaborations.</p>
+            <form action="https://formspree.io/f/mblyvvyn" method="POST" style="display: flex; gap: 1rem; max-width: 400px; margin: 0 auto; flex-wrap: wrap;">
+                <label for="footer-email" class="sr-only">Email for newsletter</label>
+                <input id="footer-email" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="flex: 1; min-width: 200px; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;"/>
+                <input type="hidden" name="_subject" value="Newsletter Subscription"/>
+                <button type="submit" style="padding: 0.75rem 1.5rem; background: #1a1a1a; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">Subscribe</button>
+            </form>
+        </div>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
             <div>
                 <h4 style="margin-bottom: 1rem; color: #333;">Essentials Creative</h4>
-                <p style="color: #666;">Amplifying cultural narratives through multimedia art</p>
+                <p style="color: #666;">Site-responsive multimedia art honoring cultural ways of knowing</p>
             </div>
             <div>
                 <h4 style="margin-bottom: 1rem; color: #333;">Services</h4>
@@ -124,7 +165,7 @@
                     <a href="photography.html" style="color: #666; text-decoration: none;">Photography</a>
                     <a href="design.html" style="color: #666; text-decoration: none;">Design</a>
                     <a href="installations.html" style="color: #666; text-decoration: none;">Installation Art</a>
-                    <a href="videoandprojections.html" style="color: #666; text-decoration: none;">Video Production</a>
+                    <a href="video.html" style="color: #666; text-decoration: none;">Video Production</a>
                 </div>
             </div>
             <div>
@@ -143,6 +184,6 @@
 </footer>
 
 <script src="assets/js/main.js" defer></script>
-<script src="assets/js/navigation.js" defer></script>
+<script src="assets/js/navigation.js?v=4.3" defer></script>
 </body>
 </html>

@@ -1,0 +1,191 @@
+/* Rhizomatic Page Specific Styles */
+.rhizomatic-hero {
+    background-color: #1a1a1a;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: url('../images/gallery/Projects/Rhizomatic/Rhizomatic_8.jpg') center center / cover no-repeat;
+}
+
+/* Enhanced Gallery Styling - Page-specific customizations */
+.gallery-grid.gallery-uniform {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 0;
+}
+
+/* Gallery items inherit from gallery-uniform.css - no redundant styles needed */
+
+/* Feature Gallery Section */
+.feature-gallery {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 0;
+    height: 600px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.feature-gallery .main-image {
+    grid-row: span 2;
+    aspect-ratio: unset;
+}
+
+.feature-gallery .gallery-item {
+    aspect-ratio: unset;
+}
+
+/* Gallery Section Containers */
+.gallery-section-container {
+    background: linear-gradient(135deg, #ffffff 0%, #f8faf9 100%);
+    border-radius: 24px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    border: 1px solid rgba(45, 90, 39, 0.08);
+}
+
+.gallery-section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    letter-spacing: -0.02em;
+}
+
+.gallery-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #2d5a27, #4a7c59);
+    border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+    .feature-gallery {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature-gallery .main-image {
+        grid-row: span 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .rhizomatic-hero {
+        min-height: 70vh;
+        padding: 2rem 1rem;
+    }
+}
+
+/* Rhizomatic-specific hero overlay with lighter gradient */
+.rhizomatic-hero .hero-overlay {
+    background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.15) 100%);
+}
+
+/* Hero content inherits from design-system.css - custom overrides only */
+.rhizomatic-hero .hero-content {
+    max-width: 900px;
+}
+
+.hero-logo {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    font-weight: 400;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 700px;
+    text-align: center;
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .hero-description {
+        font-size: 1.1rem;
+        line-height: 1.5;
+        max-width: 100%;
+    }
+    
+    .hero-logo {
+        margin-bottom: 1.5rem;
+        max-width: 280px;
+    }
+}
+
+.section-standard {
+    padding: 4rem 0 3rem;
+}
+
+.container-standard {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+    .section-standard {
+        padding: 2.5rem 0 2rem;
+    }
+    
+    .container-standard {
+        padding: 0 1rem;
+    }
+}
+
+/* Section titles inherit from design-system.css - no override needed */
+
+.content-centered {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.gallery-section-header {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    text-align: center;
+    margin: 2rem 0 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.gallery-subsection {
+    margin-bottom: 3rem;
+}
+
+.plant-group {
+    margin-bottom: 2rem;
+}
+
+.plant-name {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #555;
+    text-align: center;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+
+
+/* Mobile responsive styles inherited from mobile-optimization.css - no redundant definitions needed */

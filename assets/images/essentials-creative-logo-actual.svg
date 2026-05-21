@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 350" width="1400" height="350">
+  <!-- ESSENTIALS text with actual rounded letterforms and integrated red dots -->
+  <defs>
+    <style>
+      .letter { 
+        font-family: 'Arial Black', Arial, sans-serif; 
+        font-size: 180px; 
+        font-weight: 900; 
+        fill: #2c2c2c;
+      }
+      .creative-letter { 
+        font-family: Arial, sans-serif; 
+        font-size: 48px; 
+        font-weight: normal; 
+        fill: #2c2c2c;
+      }
+      .red-dot { fill: #e74c3c; }
+      .white-center { fill: #ffffff; }
+    </style>
+  </defs>
+  
+  <!-- ESSENTIALS text with rounded design and integrated red dots -->
+  <g class="letter">
+    <!-- E -->
+    <text x="20" y="160">E</text>
+    
+    <!-- S with integrated red dot (rounded letterform) -->
+    <g>
+      <text x="120" y="160">S</text>
+      <circle cx="165" cy="80" r="12" class="red-dot"/>
+      <circle cx="165" cy="80" r="4" class="white-center"/>
+    </g>
+    
+    <!-- S with integrated red dot (rounded letterform) -->
+    <g>
+      <text x="220" y="160">S</text>
+      <circle cx="265" cy="80" r="12" class="red-dot"/>
+      <circle cx="265" cy="80" r="4" class="white-center"/>
+    </g>
+    
+    <!-- E with integrated red dot -->
+    <g>
+      <text x="320" y="160">E</text>
+      <circle cx="375" cy="80" r="12" class="red-dot"/>
+      <circle cx="375" cy="80" r="4" class="white-center"/>
+    </g>
+    
+    <!-- N with rounded letterform -->
+    <text x="420" y="160">N</text>
+    
+    <!-- T with integrated red dot -->
+    <g>
+      <text x="520" y="160">T</text>
+      <circle cx="560" cy="80" r="12" class="red-dot"/>
+      <circle cx="560" cy="80" r="4" class="white-center"/>
+    </g>
+    
+    <!-- I with integrated red dot -->
+    <g>
+      <text x="620" y="160">I</text>
+      <circle cx="645" cy="80" r="12" class="red-dot"/>
+      <circle cx="645" cy="80" r="4" class="white-center"/>
+    </g>
+    
+    <!-- A with integrated red dot -->
+    <g>
+      <text x="700" y="160">A</text>
+      <circle cx="755" cy="80" r="12" class="red-dot"/>
+      <circle cx="755" cy="80" r="4" class="white-center"/>
+    </g>
+    
+    <!-- L with rounded letterform -->
+    <text x="820" y="160">L</text>
+    
+    <!-- S with integrated red dot -->
+    <g>
+      <text x="900" y="160">S</text>
+      <circle cx="945" cy="80" r="12" class="red-dot"/>
+      <circle cx="945" cy="80" r="4" class="white-center"/>
+    </g>
+  </g>
+  
+  <!-- CREATIVE text with proper spacing -->
+  <g class="creative-letter" letter-spacing="20px">
+    <text x="20" y="280">C R E A T I V E</text>
+  </g>
+</svg>

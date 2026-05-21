@@ -1,0 +1,20 @@
+# robots.txt — Essentials Creative
+# https://essentialscreative.com
+
+User-agent: *
+Allow: /
+
+# Block utility, draft, and template pages
+Disallow: /search.html
+Disallow: /standard-nav-template.html
+Disallow: /plant-story-cards-research.html
+Disallow: /shop.html
+Disallow: /tapestry-designs.html
+Disallow: /admin/
+Disallow: /dev/
+Disallow: /logs/
+Disallow: /netlify/
+Disallow: /testing-scripts/
+Disallow: /website-testing-suite/
+
+Sitemap: https://essentialscreative.com/sitemap.xml

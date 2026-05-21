@@ -6,78 +6,164 @@
 <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover" name="viewport"/>
 <meta content="#ffffff" media="(prefers-color-scheme: light)" name="theme-color"/>
 <meta content="#1a1a1a" media="(prefers-color-scheme: dark)" name="theme-color"/>
-<title>Essentials Creative - Multimedia Collective</title>
-<meta content="Multimedia collective celebrating cultural narratives through photography, design, installation art, and video." name="description"/>
+<title>Essentials Creative — Site-responsive Multimedia Studio</title>
+<meta content="Site-responsive multimedia studio in Austin. Installations, projections, video, photography, and design — grounded in Indigenous, Latinx, and Asian stories." name="description"/>
 <meta content="photography, installation art, design, video, multimedia, creative studio, Austin" name="keywords"/>
 
 <!-- Open Graph Meta Tags -->
-<meta content="Essentials Creative - Multimedia Collective" property="og:title"/>
-<meta content="Multimedia collective celebrating cultural narratives through photography, design, installation art, and video." property="og:description"/>
+<meta content="Essentials Creative — Site-responsive Multimedia Studio" property="og:title"/>
+<meta content="Site-responsive multimedia studio in Austin. We make installations, projections, video, photography, and design for cultural organizations, gardens, and community spaces — grounded in Indigenous, Latinx, and Asian stories." property="og:description"/>
 <meta content="website" property="og:type"/>
 <meta content="https://essentialscreative.com" property="og:url"/>
+<meta content="https://essentialscreative.com/assets/images/gallery/Projects/Rhizomatic/Rhizomatic_1.jpg" property="og:image"/>
+<meta content="Multimedia installation still — Essentials Creative" property="og:image:alt"/>
+
+<link rel="canonical" href="https://essentialscreative.com/"/>
 
 <!-- Favicon -->
 <link href="assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="assets/images/favicon.png" rel="apple-touch-icon" sizes="180x180"/>
 <link href="assets/images/favicon.png" rel="shortcut icon"/>
 
+<!-- Preload Critical Font -->
+<link rel="preload" href="assets/fonts/apercu/apercu_regular_pro.woff2" as="font" type="font/woff2" crossorigin>
+
+<!-- Lazy Loading Styles -->
+<link rel="stylesheet" href="assets/css/lazy-loading.css">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Essentials Creative",
+  "url": "https://essentialscreative.com",
+  "logo": "https://essentialscreative.com/assets/images/Essentials-Creative_Logo.png",
+  "description": "Site-responsive multimedia studio in Austin. We make installations, projections, video, photography, and design for cultural organizations, gardens, and community spaces — grounded in Indigenous, Latinx, and Asian stories.",
+  "email": "essentialscreative@gmail.com",
+  "founder": [
+    {
+      "@type": "Person",
+      "name": "Misa Yamamoto"
+    },
+    {
+      "@type": "Person", 
+      "name": "Fabian Villa"
+    },
+    {
+      "@type": "Person",
+      "name": "Steven Casanova"
+    },
+    {
+      "@type": "Person",
+      "name": "Sixto-Juan Zavala"
+    }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Austin",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
+  "sameAs": []
+}
+</script>
+
 <!-- CSS -->
-<link href="assets/css/navigation.css?v=4.1" rel="stylesheet"/>
+<link href="assets/css/navigation.css?v=4.2" rel="stylesheet"/>
 <link href="assets/css/main.css?v=4.1" rel="stylesheet"/>
-<link href="assets/css/enhanced-lightbox.css?v=4.1" rel="stylesheet"/>
+<link href="assets/css/design-system.css?v=2.0" rel="stylesheet"/>
+<link href="assets/css/mobile-optimization.css?v=1.0" rel="stylesheet"/>
+<link href="assets/css/enhanced-lightbox.css" rel="stylesheet"/>
 
 <style>
 /* Simplified Critical CSS */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Apercu', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #333; }
-
-.hero { 
-    height: 80vh; 
-    background: url('assets/images/gallery/Design/Design_hero.jpg') center center / cover no-repeat;
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    text-align: center; 
-    color: white; 
-    position: relative;
+body { 
+    font-family: 'Apercu', -apple-system, BlinkMacSystemFont, sans-serif; 
+    line-height: 1.6; 
+    color: #333; 
+    margin-top: 0;
 }
 
-.hero::before {
+.hero-slideshow { 
+    display: flex;
+    flex-direction: column;
+    min-height: 600px;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+    /* Ensure crisp rendering */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide::after {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.7) 100%);
-    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.2) 100%);
 }
 
 .hero-content { 
     position: relative; 
-    z-index: 2; 
-    max-width: 800px; 
+    max-width: 900px; 
     margin: 0 auto;
-    padding: 2rem;
+    padding: 3rem 2rem;
     text-align: center;
+    background: white;
+    color: #1a1a1a;
 }
 
-.hero h1 { 
+.hero-content h1 {
+    white-space: nowrap;
+    overflow: visible;
     font-size: clamp(2.5rem, 5vw, 4rem); 
     margin-bottom: 1rem; 
     font-weight: 700;
-    color: #ffffff;
-    text-shadow: 
-        2px 2px 4px rgba(0,0,0,0.8),
-        1px 1px 8px rgba(0,0,0,0.6),
-        0px 0px 12px rgba(0,0,0,0.4);
+    color: #1a1a1a;
     letter-spacing: -0.02em;
 }
 
-.hero p { 
+.hero-content h2 {
+    color: #333;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+.hero-content p { 
     font-size: clamp(1.1rem, 2vw, 1.4rem); 
     margin-bottom: 2rem; 
-    color: rgba(255,255,255,0.95);
-    text-shadow: 
-        1px 1px 3px rgba(0,0,0,0.8),
-        0px 0px 6px rgba(0,0,0,0.5);
+    color: #666;
     line-height: 1.5;
     font-weight: 400;
 }
@@ -99,17 +185,33 @@ body { font-family: 'Apercu', -apple-system, BlinkMacSystemFont, sans-serif; lin
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, minmax(250px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
 }
 
 .service-card {
     text-align: center;
-    padding: 2rem;
+    padding: 0;
     border-radius: 12px;
     background: #f8f8f8;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-content {
+    padding: 1.5rem;
 }
 
 .service-card:hover {
@@ -131,7 +233,7 @@ body { font-family: 'Apercu', -apple-system, BlinkMacSystemFont, sans-serif; lin
 }
 
 .cta-section {
-    background: url('assets/images/nopal-hero.jpg') center center / cover no-repeat;
+    background: image-set(url('assets/images/gallery/Design/Design_hero.webp') type('image/webp'), url('assets/images/gallery/Design/Design_hero.jpg') type('image/jpeg')) center center / cover no-repeat;
     color: white;
     text-align: center;
     padding: 4rem 2rem;
@@ -186,89 +288,213 @@ body { font-family: 'Apercu', -apple-system, BlinkMacSystemFont, sans-serif; lin
     box-shadow: 0 8px 25px rgba(255,255,255,0.2);
 }
 
+/* Mobile-specific enhancements for homepage */
 @media (max-width: 768px) {
-    .section { padding: 3rem 1rem; }
-    .services-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-    .hero { height: 70vh; }
-    .hero-content { 
-        padding: 1.5rem;
-        margin: 1rem;
+    /* Improve section spacing on mobile */
+    .section + .section {
+        margin-top: -1rem;
     }
-    .hero h1 { 
-        font-size: clamp(2rem, 6vw, 3rem);
-        text-shadow: 
-            2px 2px 6px rgba(0,0,0,0.9),
-            1px 1px 12px rgba(0,0,0,0.7);
+    
+    /* Better Featured Project heading */
+    section h2[style*="font-size: 2.5rem"] {
+        font-size: 1.85rem !important;
+        margin-bottom: 2rem !important;
+        padding: 0 1rem;
     }
-    .hero p {
-        font-size: clamp(1rem, 4vw, 1.2rem);
-        text-shadow: 
-            1px 1px 4px rgba(0,0,0,0.9),
-            0px 0px 8px rgba(0,0,0,0.6);
+    
+    /* Optimize CTA section for mobile */
+    .cta-section {
+        padding: 3.5rem 1.5rem !important;
+        background-size: cover !important;
+        background-position: center center !important;
+    }
+    
+    .cta-section h2 {
+        font-size: 1.85rem !important;
+        margin-bottom: 1.25rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    .cta-section p {
+        font-size: 1.05rem !important;
+        line-height: 1.55 !important;
+        padding: 0 0.5rem !important;
+        margin-bottom: 1.75rem !important;
+    }
+    
+    /* Optimize buttons for mobile tap targets */
+    .btn, a.btn {
+        min-height: 48px !important;
+        padding: 0.875rem 2rem !important;
+        font-size: 1.05rem !important;
+        font-weight: 600 !important;
+        border-radius: 10px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    /* Footer improvements */
+    .footer {
+        padding: 2.5rem 1.5rem 2rem !important;
+    }
+    
+    .footer form[action*="formspree"] {
+        max-width: 100% !important;
+        padding: 0 0.5rem;
+    }
+    
+    .footer input[type="email"] {
+        padding: 0.875rem 1rem !important;
+        font-size: 16px !important; /* Prevent iOS zoom */
+        border-radius: 8px !important;
+    }
+    
+    .footer button[type="submit"] {
+        padding: 0.875rem 1.5rem !important;
+        font-size: 1rem !important;
+        border-radius: 8px !important;
+        min-height: 48px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-slideshow {
+        min-height: auto;
+    }
+    .slideshow-container {
+        height: 50vh;
+        min-height: 350px;
+    }
+    .hero-content {
+        padding: 2.5rem 1.5rem;
+    }
+    .hero-content h1 {
+        white-space: normal !important;
+        font-size: clamp(1.8rem, 6vw, 2.5rem) !important;
+        line-height: 1.1;
+    }
+    .hero-content h2 {
+        font-size: clamp(1.1rem, 4vw, 1.4rem) !important;
+        margin-top: 0.75rem !important;
+    }
+    .hero-content p {
+        font-size: clamp(1rem, 3.5vw, 1.2rem);
+        line-height: 1.5;
+        margin-bottom: 1.25rem;
+    }
+    .section { 
+        padding: 3rem 1.5rem; 
+    }
+    .services-grid { 
+        grid-template-columns: 1fr; 
+        gap: 1.25rem; 
+        padding: 0;
     }
 }
 
 @media (max-width: 480px) {
+    .slideshow-container {
+        height: 40vh;
+        min-height: 300px;
+    }
     .hero-content {
-        padding: 1rem;
+        padding: 2rem 1rem;
+    }
+    .hero-content h1 { 
+        font-size: 1.75rem;
+        margin-bottom: 0.75rem;
+    }
+    .hero-content h2 {
+        font-size: 1.1rem;
+    }
+    .hero-content p {
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+    }
+    .section { 
+        padding: 2.5rem 1rem; 
+    }
+    .services-grid {
+        gap: 1rem;
     }
     .service-card {
-        padding: 1.5rem;
+        padding: 1.75rem 1.25rem;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+        border: 1px solid rgba(0,0,0,0.05);
+    }
+    .service-card h3 {
+        font-size: 1.35rem;
+        margin-bottom: 0.75rem;
+    }
+    .service-card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
 }
 </style>
 </head>
 
 <body>
-<div class="skip-links" style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); z-index: 10000;">
-<a href="#main-content" class="skip-link" style="position: absolute; left: -100vw; background: #1a1a1a; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 0 0 8px 8px; white-space: nowrap;">Skip to main content</a>
-<a href="#main-navigation" class="skip-link" style="position: absolute; left: -100vw; background: #1a1a1a; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 0 0 8px 8px; white-space: nowrap;">Skip to navigation</a>
+<div class="skip-links skip-links--bar">
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<a href="#main-navigation" class="skip-link">Skip to navigation</a>
 </div>
-<style>
-.skip-link:focus {
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    top: 0 !important;
-    outline: 3px solid white !important;
-    outline-offset: 2px !important;
-    z-index: 10001 !important;
-}
-.skip-link:first-child:focus {
-    margin-left: -8rem;
-}
-.skip-link:last-child:focus {
-    margin-left: 8rem;
-}
-</style>
-<header class="header">
+<header class="header" role="banner">
 <div class="nav-container">
 <div class="logo">
-<a href="index.html" style="display: block; line-height: 1;">
-<img alt="Essentials Creative" src="assets/images/essentials-creative-logo.svg" style="height: 45px; width: auto; display: block;"/>
+<a href="index.html" aria-label="Essentials Creative - Home">
+<img alt="Essentials Creative logo" src="assets/images/Essentials-Creative_Logo.png" width="180" height="45"/>
 </a>
 </div>
-<nav id="main-navigation" class="nav-links">
+<nav id="main-navigation" class="nav-links" role="navigation" aria-label="Main navigation">
 <a class="nav-link active" href="index.html">Home</a>
-<a class="nav-link" href="photography.html">Photography</a>
-<a class="nav-link" href="design.html">Design</a>
-<a class="nav-link" href="videoandprojections.html">Video/Projections</a>
-<a class="nav-link" href="installations.html">Installations</a>
+<div class="nav-dropdown">
+<button type="button" class="nav-dropdown-toggle" id="nav-services-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-services-menu">Services <span class="nav-dropdown-arrow" aria-hidden="true">▼</span></button>
+<div class="nav-dropdown-menu" id="nav-services-menu" role="group" aria-label="Services">
+<a href="photography.html" class="nav-dropdown-item">Photography</a>
+<a href="design.html" class="nav-dropdown-item">Design</a>
+<a href="video.html" class="nav-dropdown-item">Video</a>
+<a href="projections.html" class="nav-dropdown-item">Projections</a>
+<a href="installations.html" class="nav-dropdown-item">Installations</a>
+</div>
+</div>
+<div class="nav-dropdown">
+<button type="button" class="nav-dropdown-toggle" id="nav-projects-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-projects-menu">Projects <span class="nav-dropdown-arrow" aria-hidden="true">▼</span></button>
+<div class="nav-dropdown-menu" id="nav-projects-menu" role="group" aria-label="Projects">
+<a href="afterworld.html" class="nav-dropdown-item">Afterworld</a>
+<a href="node.html" class="nav-dropdown-item">Node</a>
+<a href="rhizomatic.html" class="nav-dropdown-item">Rhizomatic</a>
+<a href="plant-story-cards.html" class="nav-dropdown-item">Plant Story Cards</a>
+</div>
+</div>
 <a class="nav-link" href="about.html">About</a>
 <a class="nav-link" href="contact.html">Contact</a>
 </nav>
-<!-- Mobile Navigation -->
 <div class="hamburger-nav">
-<button class="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+<button type="button" class="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
 <span class="hamburger-line"></span>
 <span class="hamburger-line"></span>
 <span class="hamburger-line"></span>
 </button>
-<div class="hamburger-menu">
+<div class="hamburger-menu" id="mobile-menu">
 <a href="index.html" class="hamburger-link active">Home</a>
+<div class="hamburger-section">
+<span class="hamburger-section-title">Services</span>
 <a href="photography.html" class="hamburger-link">Photography</a>
 <a href="design.html" class="hamburger-link">Design</a>
-<a href="videoandprojections.html" class="hamburger-link">Video/Projections</a>
+<a href="video.html" class="hamburger-link">Video</a>
+<a href="projections.html" class="hamburger-link">Projections</a>
 <a href="installations.html" class="hamburger-link">Installations</a>
+</div>
+<div class="hamburger-section">
+<span class="hamburger-section-title">Projects</span>
+<a href="afterworld.html" class="hamburger-link">Afterworld</a>
+<a href="node.html" class="hamburger-link">Node</a>
+<a href="rhizomatic.html" class="hamburger-link">Rhizomatic</a>
+<a href="plant-story-cards.html" class="hamburger-link">Plant Story Cards</a>
+</div>
 <a href="about.html" class="hamburger-link">About</a>
 <a href="contact.html" class="hamburger-link">Contact</a>
 </div>
@@ -277,48 +503,222 @@ body { font-family: 'Apercu', -apple-system, BlinkMacSystemFont, sans-serif; lin
 </header>
 
 <main id="main-content">
-<!-- Hero Section -->
-<section class="hero">
+<!-- Hero Slideshow Section -->
+<section class="hero-slideshow" id="heroSlideshow">
+<div class="slideshow-container">
+    <!-- Rhizomatic textile installation - centered -->
+    <div class="slide active" style="background-image: image-set(url('assets/images/gallery/Projects/Rhizomatic/Rhizomatic_1.webp') type('image/webp'), url('assets/images/gallery/Projects/Rhizomatic/Rhizomatic_1.jpg') type('image/jpeg')); background-position: center center;"></div>
+    
+    <!-- Portrait photography - focus on face -->
+    <div class="slide" style="background-image: image-set(url('assets/images/gallery/Photography/AN3A4098.webp') type('image/webp'), url('assets/images/gallery/Photography/AN3A4098.jpg') type('image/jpeg')); background-position: center 35%;"></div>
+    
+    <!-- Installation wide shot - centered -->
+    <div class="slide" style="background-image: image-set(url('assets/images/gallery/Installations/AN3A8845+copy.webp') type('image/webp'), url('assets/images/gallery/Installations/AN3A8845+copy.jpg') type('image/jpeg')); background-position: center center;"></div>
+    
+    <!-- Afterworld Zen Garden - centered with slight upward shift -->
+    <div class="slide" style="background-image: url('assets/images/gallery/hero/Essentials+Creative\'s+Afterworld_+Zen+Garden.webp'); background-position: center 45%;"></div>
+    
+    <!-- AN3A8783 installation detail - centered -->
+    <div class="slide" style="background-image: url('assets/images/gallery/hero/AN3A8783+copy.webp'); background-position: center center;"></div>
+    
+    <!-- Commodore Perry Estate - purple-lit urban projection -->
+    <div class="slide" style="background-image: url('assets/images/gallery/hero/Essentials+Creative+X+Commodore+Perry+Estate+in+Austin,+Texas+2020.jpeg'); background-position: center 65%;"></div>
+    
+    <!-- Installations4 - slightly lower to capture ground elements -->
+    <div class="slide" style="background-image: url('assets/images/gallery/hero/Installations4.jpg'); background-position: center 60%;"></div>
+    
+    <!-- Photography portrait - face focus -->
+    <div class="slide" style="background-image: image-set(url('assets/images/gallery/Photography/EssentialsCreative_Photography_11.webp') type('image/webp'), url('assets/images/gallery/Photography/EssentialsCreative_Photography_11.jpg') type('image/jpeg')); background-position: center 25%;"></div>
+</div>
 <div class="hero-content">
 <h1>Essentials Creative</h1>
-<p>BIPOC-led collective empowering underrepresented artists with fluid, collaborative, experimental creative experiences.</p>
-<p style="font-size: clamp(0.9rem, 1.5vw, 1.1rem); margin-top: 1.5rem; color: rgba(255,255,255,0.85); font-weight: 500;">Austin · San Antonio · London</p>
+<h2>Site-responsive multimedia studio in Austin.</h2>
+<p>We make installations, projections, video, photography, and design for cultural organizations, gardens, and community spaces — grounded in Indigenous, Latinx, and Asian stories.</p>
+<div style="margin-top: 2rem;">
+<p style="font-size: 0.9rem; color: #999; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;">Available for commissions, exhibitions, and venue partnerships</p>
+<a href="contact.html" class="btn" style="background: #1a1a1a; color: white; padding: 1rem 2rem; text-decoration: none; display: inline-block; border-radius: 8px; font-weight: 600; transition: all 0.3s ease;">Tell us about your project</a>
+</div>
 </div>
 </section>
 
-<!-- Services Section -->
-<section class="section">
-<h2>What We Create</h2>
-<div class="services-grid">
-<a href="photography.html" class="service-card" style="text-decoration: none; color: inherit;">
-<h3>Photography</h3>
-<p>Portrait, lifestyle, and artistic photography capturing authentic moments and cultural narratives.</p>
-</a>
-<a href="design.html" class="service-card" style="text-decoration: none; color: inherit;">
-<h3>Design</h3>
-<p>Visual identity, branding, and graphic design providing platforms for diverse artistic voices.</p>
-</a>
-<a href="videoandprojections.html" class="service-card" style="text-decoration: none; color: inherit;">
-<h3>Video/Projections</h3>
-<p>Documentary storytelling and projection art creating immersive visual experiences.</p>
-</a>
-<a href="installations.html" class="service-card" style="text-decoration: none; color: inherit;">
-<h3>Installations</h3>
-<p>Interactive art installations exploring themes of cultural identity and community connection.</p>
-</a>
+<!-- Services Overview Section -->
+<section class="section services-section">
+<div class="services-header">
+    <h2>Our Services</h2>
+    <p class="services-subtitle">
+        We work across photography, design, video, projection, and installation — for cultural organizations, gardens, and community-led projects.
+    </p>
+</div>
+<div class="services-grid enhanced">
+    <a href="photography.html" class="service-card enhanced-card">
+        <div class="card-image-wrapper">
+            <div class="card-image" style="background-image: image-set(url('assets/images/gallery/Photography/AN3A4098.webp') type('image/webp'), url('assets/images/gallery/Photography/AN3A4098.jpg') type('image/jpeg'));">
+                <div class="card-overlay">
+                    <span class="view-work">View Photography →</span>
+                </div>
+            </div>
+        </div>
+        <div class="card-content">
+            <h3>Photography</h3>
+            <p>Documentary and editorial photography for exhibitions, artists, and community archives.</p>
+            <div class="service-tags">
+                <span class="service-tag">Portrait</span>
+                <span class="service-tag">Editorial</span>
+                <span class="service-tag">Documentary</span>
+            </div>
+        </div>
+    </a>
+    <a href="design.html" class="service-card enhanced-card">
+        <div class="card-image-wrapper">
+            <div class="card-image" style="background-image: image-set(url('assets/images/gallery/Design/Levitation_Design.webp') type('image/webp'), url('assets/images/gallery/Design/Levitation_Design.jpg') type('image/jpeg'));">
+                <div class="card-overlay">
+                    <span class="view-work">View Design →</span>
+                </div>
+            </div>
+        </div>
+        <div class="card-content">
+            <h3>Design</h3>
+            <p>Identity systems, exhibition graphics, and publications for cultural organizations and artist-led projects.</p>
+            <div class="service-tags">
+                <span class="service-tag">Identity</span>
+                <span class="service-tag">Exhibition</span>
+                <span class="service-tag">Print</span>
+            </div>
+        </div>
+    </a>
+    <a href="video.html" class="service-card enhanced-card">
+        <div class="card-image-wrapper">
+            <div class="card-image" style="background-image: image-set(url('assets/images/projections/Native_Waters_1.webp') type('image/webp'), url('assets/images/projections/Native_Waters_1.jpg') type('image/jpeg'));">
+                <div class="card-overlay">
+                    <span class="view-work">View Video →</span>
+                </div>
+            </div>
+        </div>
+        <div class="card-content">
+            <h3>Video</h3>
+            <p>Documentary, artist interviews, performance capture, and video art.</p>
+            <div class="service-tags">
+                <span class="service-tag">Documentary</span>
+                <span class="service-tag">Interview</span>
+                <span class="service-tag">Art</span>
+            </div>
+        </div>
+    </a>
+    <a href="installations.html" class="service-card enhanced-card">
+        <div class="card-image-wrapper">
+            <div class="card-image" style="background-image: image-set(url('assets/images/gallery/Installations/AN3A8845+copy.webp') type('image/webp'), url('assets/images/gallery/Installations/AN3A8845+copy.jpg') type('image/jpeg'));">
+                <div class="card-overlay">
+                    <span class="view-work">View Installations →</span>
+                </div>
+            </div>
+        </div>
+        <div class="card-content">
+            <h3>Installations & Projection</h3>
+            <p>Site-responsive installations and projection work built with place, community, and ecological context.</p>
+            <div class="service-tags">
+                <span class="service-tag">Projection</span>
+                <span class="service-tag">Interactive</span>
+                <span class="service-tag">Site-specific</span>
+            </div>
+        </div>
+    </a>
 </div>
 </section>
+
+<!-- Projects Showcase Section -->
+<section class="section" style="background: #f9f9f9; padding: 4rem 2rem;">
+<div style="max-width: 1200px; margin: 0 auto;">
+<h2 style="font-size: 2.5rem; margin-bottom: 2rem; text-align: center; color: #1a1a1a;">Featured Projects</h2>
+<p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; color: #666; font-size: 1.125rem; line-height: 1.6;">
+    Four ongoing projects — installation, projection, textile, and research — built with specific places, communities, and plants.
+</p>
+
+<!-- Projects Grid -->
+<div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem;">
+    <!-- Afterworld Project - New Featured -->
+    <a href="afterworld.html" class="project-card" style="text-decoration: none; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; display: block;">
+        <div style="width: 100%; height: 250px; background: image-set(url('assets/images/Afterworld/Mictlan%201.webp') type('image/webp'), url('assets/images/Afterworld/Mictlan%201.jpg') type('image/jpeg')) center/cover;"></div>
+        <div style="padding: 2rem;">
+            <h3 style="font-size: 1.75rem; margin-bottom: 1rem; color: #1a1a1a;">Afterworld</h3>
+            <p style="color: #666; line-height: 1.6; margin-bottom: 1rem;">Afterworld is a site-responsive installation working across four named afterlife traditions — Mictlān, Obon, purgatory, and moksha — each presented in its own terms rather than as instances of a universal theme. Presa House Gallery, San Antonio (Yanaguana), 2023.</p>
+            <span style="color: #1a1a1a; font-weight: 600;">View project →</span>
+        </div>
+    </a>
+    
+    <!-- Rhizomatic Project -->
+    <a href="rhizomatic.html" class="project-card" style="text-decoration: none; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; display: block;">
+        <div style="width: 100%; height: 250px; background: image-set(url('assets/images/gallery/Projects/Rhizomatic/Rhizomatic_1.webp') type('image/webp'), url('assets/images/gallery/Projects/Rhizomatic/Rhizomatic_1.jpg') type('image/jpeg')) center/cover;"></div>
+        <div style="padding: 2rem;">
+            <h3 style="font-size: 1.75rem; margin-bottom: 1rem; color: #1a1a1a;">Rhizomatic</h3>
+            <p style="color: #666; line-height: 1.6; margin-bottom: 1rem;">Rhizomatic is a site-responsive textile installation built around the plants of each venue. Chicago Botanic Garden (2024); Austin Central Library (2025).</p>
+            <div style="margin-bottom: 1rem;">
+                <span style="display: inline-block; padding: 0.25rem 0.75rem; background: #f0f0f0; border-radius: 4px; font-size: 0.875rem; color: #666; margin-right: 0.5rem;">Chicago Botanic Garden</span>
+                <span style="display: inline-block; padding: 0.25rem 0.75rem; background: #f0f0f0; border-radius: 4px; font-size: 0.875rem; color: #666; margin-right: 0.5rem;">UNESCO City of Media Arts Grant</span>
+                <span style="display: inline-block; padding: 0.25rem 0.75rem; background: #f0f0f0; border-radius: 4px; font-size: 0.875rem; color: #666;">City of Austin Elevate Grant</span>
+            </div>
+            <span style="color: #1a1a1a; font-weight: 600;">View project →</span>
+        </div>
+    </a>
+    
+    <!-- Node: Video Art Night Project -->
+    <a href="node.html" class="project-card" style="text-decoration: none; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; display: block;">
+        <div style="width: 100%; height: 250px; background: image-set(url('assets/images/projections/node-videoartnight/AN3A7920.webp') type('image/webp'), url('assets/images/projections/node-videoartnight/AN3A7920.JPG') type('image/jpeg')) center/cover;"></div>
+        <div style="padding: 2rem;">
+            <h3 style="font-size: 1.75rem; margin-bottom: 1rem; color: #1a1a1a;">Node: Video Art Night</h3>
+            <p style="color: #666; line-height: 1.6; margin-bottom: 1rem;">Node is an experimental platform for video art and projection — bringing screenings, installations, and open programs into unexpected spaces across Austin. Each iteration finds a new site and listens to it.</p>
+            <span style="color: #1a1a1a; font-weight: 600;">View project →</span>
+        </div>
+    </a>
+    
+    <!-- Plant Story Cards Project -->
+    <a href="plant-story-cards.html" class="project-card" style="text-decoration: none; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; display: block;">
+        <div style="width: 100%; height: 250px; background: image-set(url('assets/images/plant-story/Scan%203%20copy.webp') type('image/webp'), url('assets/images/plant-story/Scan%203%20copy.jpg') type('image/jpeg')) center/cover; background-position: center center;"></div>
+        <div style="padding: 2rem;">
+            <h3 style="font-size: 1.75rem; margin-bottom: 1rem; color: #1a1a1a;">Plant Story Cards</h3>
+            <p style="color: #666; line-height: 1.6; margin-bottom: 1rem;">Plant Story Cards is an ongoing research project pairing Indigenous, Latinx, and Asian plant knowledge with community-collected stories — a digital archive of plant-people relationships in Austin.</p>
+            <span style="color: #1a1a1a; font-weight: 600;">View project →</span>
+        </div>
+    </a>
+</div>
+</div>
+</section>
+
+<style>
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.12) !important;
+}
+
+.service-card {
+    overflow: hidden;
+}
+
+@media (max-width: 1200px) {
+    section.section > div > div[style*="grid-template-columns: repeat(4, 1fr)"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+@media (max-width: 768px) {
+    .project-card {
+        margin-bottom: 1rem;
+    }
+    section.section > div > div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+}
+</style>
 
 <!-- Call to Action -->
 <section class="cta-section" style="text-align: center;">
-<h2>Ready to Create Together?</h2>
-<p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">Let's collaborate on projects that amplify diverse voices and cultural narratives.</p>
-<a href="contact.html" class="btn">Get In Touch</a>
+<h2>Have a project in mind?</h2>
+<p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">We welcome commissions, collaborations, venue partnerships, and grant inquiries. Tell us about the project, the place, and the people involved, and we'll respond within 3–5 business days.</p>
+<a href="contact.html" class="btn">Start a project</a>
 </section>
 </main>
 
 <!-- Footer -->
-<footer class="footer" style="background: #f8f8f8; padding: 3rem 2rem 2rem; text-align: center;">
+<footer class="footer" role="contentinfo" style="background: #f8f8f8; padding: 3rem 2rem 2rem; text-align: center; margin-top: 4rem;">
 <div style="max-width: 1200px; margin: 0 auto;">
 <!-- Newsletter -->
 <div style="margin-bottom: 3rem;">
@@ -326,7 +726,7 @@ body { font-family: 'Apercu', -apple-system, BlinkMacSystemFont, sans-serif; lin
 <p style="color: #666; margin-bottom: 2rem;">Get updates about new work and collaborations.</p>
 <form action="https://formspree.io/f/mblyvvyn" method="POST" style="display: flex; gap: 1rem; max-width: 400px; margin: 0 auto; flex-wrap: wrap;">
 <label for="footer-email" class="sr-only">Email for newsletter</label>
-<input id="footer-email" type="email" name="email" placeholder="Enter your email" required style="flex: 1; min-width: 200px; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;"/>
+<input id="footer-email" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="flex: 1; min-width: 200px; padding: 0.75rem; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;"/>
 <input type="hidden" name="_subject" value="Newsletter Subscription"/>
 <button type="submit" style="padding: 0.75rem 1.5rem; background: #1a1a1a; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">Subscribe</button>
 </form>
@@ -336,15 +736,17 @@ body { font-family: 'Apercu', -apple-system, BlinkMacSystemFont, sans-serif; lin
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
 <div>
 <h4 style="margin-bottom: 1rem; color: #333;">Essentials Creative</h4>
-<p style="color: #666;">BIPOC-led collective amplifying cultural narratives through multimedia art</p>
+<p style="color: #666;">We make installations, projections, video, photography, and design for cultural organizations, gardens, and community spaces — grounded in Indigenous, Latinx, and Asian stories.</p>
 </div>
 <div>
 <h4 style="margin-bottom: 1rem; color: #333;">Services</h4>
 <div style="display: flex; flex-direction: column; gap: 0.5rem;">
 <a href="photography.html" style="color: #666; text-decoration: none;">Photography</a>
 <a href="design.html" style="color: #666; text-decoration: none;">Design</a>
-<a href="installations.html" style="color: #666; text-decoration: none;">Installation Art</a>
-<a href="videoandprojections.html" style="color: #666; text-decoration: none;">Video Production</a>
+<a href="video.html" style="color: #666; text-decoration: none;">Video</a>
+<a href="node.html" style="color: #666; text-decoration: none;">Node</a>
+<a href="projections.html" style="color: #666; text-decoration: none;">Projections</a>
+<a href="installations.html" style="color: #666; text-decoration: none;">Installations</a>
 </div>
 </div>
 <div>
@@ -364,8 +766,40 @@ body { font-family: 'Apercu', -apple-system, BlinkMacSystemFont, sans-serif; lin
 </footer>
 
 <!-- JavaScript -->
-<script src="assets/js/core.js" defer></script>
-<script src="assets/js/navigation.js?v=4.0" defer></script>
+<script src="assets/js/navigation.js?v=4.3" defer></script>
 <script src="assets/js/main.js" defer></script>
+<script src="assets/js/unified-gallery-lightbox.js" defer></script>
+
+<!-- Hero Slideshow JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+    
+    function showNextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+    
+    // Change slide every 5 seconds for better viewing
+    setInterval(showNextSlide, 5000);
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('#rhizomatic-home-gallery .lightbox-trigger').forEach(function (el) {
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        el.click();
+      }
+    });
+  });
+});
+</script>
+
+<!-- Lazy Loading Script -->
+<script src="assets/js/lazy-loading.js" defer></script>
 </body>
 </html>

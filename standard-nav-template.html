@@ -1,35 +1,61 @@
 
-<!-- Standardized Navigation -->
-<header class="header" style="position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid rgba(0, 0, 0, 0.05);">
-    <nav class="nav">
-        <div class="nav-container" style="max-width: 1400px; margin: 0 auto; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center;">
-            <!-- Logo -->
-            <div class="logo">
-                <a href="index.html" aria-label="Essentials Creative Home">
-                    <img src="assets/images/essentials_creative_logo.png" alt="Essentials Creative" style="height: 65px; width: auto;">
-                </a>
-            </div>
-            
-            <!-- Main Navigation -->
-            <div class="nav-menu" style="display: flex; gap: 2rem; align-items: center;">
-                <a href="index.html" class="nav-link" style="text-decoration: none; color: #404040; font-weight: 400; font-size: 0.95rem; transition: color 0.3s ease;">Home</a>
-                <a href="rhizomatic.html" class="nav-link" style="text-decoration: none; color: #404040; font-weight: 400; font-size: 0.95rem; transition: color 0.3s ease;">Rhizomatic</a>
-                <a href="projections.html" class="nav-link" style="text-decoration: none; color: #404040; font-weight: 400; font-size: 0.95rem; transition: color 0.3s ease;">Projections</a>
-                <a href="photography.html" class="nav-link" style="text-decoration: none; color: #404040; font-weight: 400; font-size: 0.95rem; transition: color 0.3s ease;">Photography</a>
-                <a href="design.html" class="nav-link" style="text-decoration: none; color: #404040; font-weight: 400; font-size: 0.95rem; transition: color 0.3s ease;">Design</a>
-                <a href="installations.html" class="nav-link" style="text-decoration: none; color: #404040; font-weight: 400; font-size: 0.95rem; transition: color 0.3s ease;">Installations</a>
-                <a href="about.html" class="nav-link" style="text-decoration: none; color: #404040; font-weight: 400; font-size: 0.95rem; transition: color 0.3s ease;">About</a>
-                <a href="contact.html" class="nav-link" style="text-decoration: none; color: #404040; font-weight: 400; font-size: 0.95rem; transition: color 0.3s ease;">Contact</a>
-            </div>
-            
-            <!-- Mobile Hamburger -->
-            <div class="hamburger-nav" style="display: none;">
-                <button class="hamburger-toggle" aria-label="Toggle navigation">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </button>
-            </div>
-        </div>
-    </nav>
+<!-- Legacy reference: use the live header from index.html (Home → Services ▼ → Projects ▼ → About → Contact).
+     Requires assets/css/navigation.css and assets/js/navigation.js. -->
+<header class="header" role="banner">
+<div class="nav-container">
+<div class="logo">
+<a href="index.html" aria-label="Essentials Creative - Home">
+<img alt="" src="assets/images/Essentials-Creative_Logo.png" width="180" height="45" style="height: 45px; width: auto; display: block;"/>
+</a>
+</div>
+<nav id="main-navigation" class="nav-links" role="navigation" aria-label="Main navigation">
+<a class="nav-link" href="index.html">Home</a>
+<div class="nav-dropdown">
+<button type="button" class="nav-dropdown-toggle" id="nav-services-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-services-menu">Services <span class="nav-dropdown-arrow" aria-hidden="true">▼</span></button>
+<div class="nav-dropdown-menu" id="nav-services-menu" role="group" aria-label="Services">
+<a href="photography.html" class="nav-dropdown-item">Photography</a>
+<a href="design.html" class="nav-dropdown-item">Design</a>
+<a href="video.html" class="nav-dropdown-item">Video</a>
+<a href="installations.html" class="nav-dropdown-item">Installations</a>
+</div>
+</div>
+<div class="nav-dropdown">
+<button type="button" class="nav-dropdown-toggle" id="nav-projects-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-projects-menu">Projects <span class="nav-dropdown-arrow" aria-hidden="true">▼</span></button>
+<div class="nav-dropdown-menu" id="nav-projects-menu" role="group" aria-label="Projects">
+<a href="node.html" class="nav-dropdown-item">Node</a>
+<a href="projections.html" class="nav-dropdown-item">Projections</a>
+<a href="rhizomatic.html" class="nav-dropdown-item">Rhizomatic</a>
+<a href="plant-story-cards.html" class="nav-dropdown-item">Plant Story Cards</a>
+</div>
+</div>
+<a class="nav-link" href="about.html">About</a>
+<a class="nav-link" href="contact.html">Contact</a>
+</nav>
+<div class="hamburger-nav">
+<button type="button" class="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+<span class="hamburger-line"></span>
+<span class="hamburger-line"></span>
+<span class="hamburger-line"></span>
+</button>
+<div class="hamburger-menu" id="mobile-menu">
+<a href="index.html" class="hamburger-link">Home</a>
+<div class="hamburger-section">
+<span class="hamburger-section-title">Services</span>
+<a href="photography.html" class="hamburger-link">Photography</a>
+<a href="design.html" class="hamburger-link">Design</a>
+<a href="video.html" class="hamburger-link">Video</a>
+<a href="installations.html" class="hamburger-link">Installations</a>
+</div>
+<div class="hamburger-section">
+<span class="hamburger-section-title">Projects</span>
+<a href="node.html" class="hamburger-link">Node</a>
+<a href="projections.html" class="hamburger-link">Projections</a>
+<a href="rhizomatic.html" class="hamburger-link">Rhizomatic</a>
+<a href="plant-story-cards.html" class="hamburger-link">Plant Story Cards</a>
+</div>
+<a href="about.html" class="hamburger-link">About</a>
+<a href="contact.html" class="hamburger-link">Contact</a>
+</div>
+</div>
+</div>
 </header>
