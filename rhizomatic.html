@@ -225,10 +225,27 @@
 <section class="section-standard">
 <div class="container-standard">
 <h2 class="section-title">Exhibition Overview</h2>
-<div class="content-centered">
+<style>
+.pinfo-grid{display:grid;grid-template-columns:2fr 1fr;gap:3rem;align-items:start;max-width:1100px;margin:0 auto;text-align:left;}
+.pinfo-card{background:#fff;padding:2.5rem;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.08);position:sticky;top:2rem;}
+.pinfo-card .sec{margin-bottom:2rem;}
+.pinfo-card .sec:last-child{margin-bottom:0;}
+.pinfo-card .lbl{font-size:0.9rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#888;margin-bottom:0.5rem;}
+.pinfo-card .val{font-size:1.1rem;color:#1a1a1a;font-weight:500;line-height:1.5;}
+@media (max-width:768px){.pinfo-grid{grid-template-columns:1fr;gap:2rem;}.pinfo-card{position:static;}}
+</style>
+<div class="pinfo-grid">
+<div>
 <p style="font-size: 1.25rem; color: #1a1a1a; line-height: 1.8; margin-bottom: 2rem; font-weight: 500;">
       Rhizomatic is a site-responsive textile installation. Each iteration is built around the plants of its venue and draws on the rhizome as a philosophical figure for non-hierarchical, multi-rooted connection (after Deleuze and Guattari).
 </p>
+</div>
+<aside class="pinfo-card">
+<div class="sec"><div class="lbl">Medium</div><div class="val">Installation art, digital prints on linen, photography, textile art</div></div>
+<div class="sec"><div class="lbl">Years</div><div class="val">2024 – 2025</div></div>
+<div class="sec"><div class="lbl">Venues</div><div class="val">Chicago Botanic Garden, Glencoe, IL (2024)<br/>Austin Central Library, Austin, TX (2025)</div></div>
+<div class="sec"><div class="lbl">Status</div><div class="val">Site-responsive · New iteration per venue</div></div>
+</aside>
 </div>
 
 </div>
