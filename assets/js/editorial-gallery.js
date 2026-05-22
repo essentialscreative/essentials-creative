@@ -14,7 +14,7 @@
 
     function buildFigure(item) {
         const fig = document.createElement('figure');
-        fig.className = 'ed-figure gallery-item lightbox-trigger reveal';
+        fig.className = 'ed-figure lightbox-trigger reveal';
 
         const frame = document.createElement('div');
         frame.className = 'ed-frame';
