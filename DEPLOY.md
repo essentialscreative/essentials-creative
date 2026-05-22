@@ -33,9 +33,16 @@ Run these once inside the repo so commits are recognized:
 ```bash
 git config --local user.name  "Essentials Creative"
 git config --local user.email "218395904+flv2496@users.noreply.github.com"
+git config --local core.hooksPath .githooks   # enable the safety hook below
 ```
 Also make sure the **flv2496** GitHub account stays connected in
 Netlify → Project → **Git Contributors**.
+
+## Safety net (pre-push hook)
+This repo includes `.githooks/pre-push`, enabled via `core.hooksPath` above. It **blocks
+any `git push`** that contains a commit not authored by the verified account — so a
+wrong-author commit can never reach Netlify and fail the build. If you ever need to bypass
+it: `git push --no-verify` (rarely needed).
 
 ## If a deploy fails: "unrecognized Git contributor"
 1. **Netlify → Git Contributors** → confirm the **flv2496** GitHub account is connected/verified.
