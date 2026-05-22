@@ -1,0 +1,37 @@
+#!/bin/sh
+# Bulletproof guard for Netlify free + private repo (single verified contributor).
+# Blocks any push that contains commits NOT authored by the connected GitHub
+# account — those would fail the Netlify build with "unrecognized Git contributor".
+#
+# Enabled via:  git config --local core.hooksPath .githooks
+# Bypass once:  git push --no-verify   (not recommended)
+
+EXPECTED="218395904+flv2496@users.noreply.github.com"
+ZERO="0000000000000000000000000000000000000000"
+status=0
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+    [ "$local_sha" = "$ZERO" ] && continue            # branch deletion
+    if [ "$remote_sha" = "$ZERO" ]; then
+        range="$local_sha"                            # new branch: all commits
+    else
+        range="$remote_sha..$local_sha"               # only new commits
+    fi
+    bad=$(git log --format='%ae' "$range" 2>/dev/null | grep -vx "$EXPECTED" | sort -u)
+    if [ -n "$bad" ]; then
+        echo "──────────────────────────────────────────────────────────────"
+        echo "✋  Push blocked — commits with an unrecognized author email:"
+        echo "$bad" | sed 's/^/      • /'
+        echo
+        echo "    Netlify (free plan, private repo) only deploys commits from:"
+        echo "      $EXPECTED"
+        echo
+        echo "    Fix the repo identity, then re-commit (or amend):"
+        echo "      git config --local user.email \"$EXPECTED\""
+        echo "      git commit --amend --reset-author --no-edit   # for the last commit"
+        echo "──────────────────────────────────────────────────────────────"
+        status=1
+    fi
+done
+
+exit $status
