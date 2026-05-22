@@ -14,16 +14,18 @@
 .ed-block { margin-top: var(--ed-gap); }
 .ed-block:first-child { margin-top: 0; }
 
-/* Full-width single — large impact image */
-.ed-full { padding: 0 var(--ed-pad); }
-.ed-full .ed-figure { max-width: 1400px; margin: 0 auto; }
-/* Landscapes fill the column; tall portraits cap at viewport height and center
-   (a subtle frame "mat" shows at the sides) instead of dominating the scroll. */
+/* Full-width single — large impact image.
+   The figure hugs the image at any aspect (no letterbox bars): landscapes cap
+   at 1400px wide, tall portraits cap at viewport height, and the leftover space
+   is just white page — never a grey box. */
+.ed-full { padding: 0 var(--ed-pad); text-align: center; }
+.ed-full .ed-figure { display: inline-block; max-width: 100%; vertical-align: top; }
+.ed-full .ed-frame { display: block; }
 .ed-full .ed-frame img {
     width: auto;
-    max-width: 100%;
+    height: auto;
+    max-width: min(100%, 1400px);
     max-height: var(--ed-full-max-h);
-    margin-inline: auto;
 }
 
 /* Two-up pair — contained, collapses on mobile */
@@ -45,7 +47,7 @@
 .ed-figure { margin: 0; cursor: zoom-in; }
 .ed-frame {
     overflow: hidden;
-    background: #f1f1f1;
+    background: transparent;
     border-radius: 3px;
     line-height: 0;
 }
