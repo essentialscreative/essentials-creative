@@ -4,12 +4,23 @@
     top: 0;
     left: 0;
     right: 0;
-    background: #ffffff;
+    /* Frosted glass: translucent bar with content blurred beneath it */
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(12px) saturate(1.1);
+    -webkit-backdrop-filter: blur(12px) saturate(1.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
     z-index: 1000;
-    /* ~20% lighter shadow than 0.1 alpha for a softer bar */
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
     padding: 0.75rem 0;
     min-height: 75px; /* Fixed minimum height to prevent jumping */
+}
+
+/* Fallback: keep a solid bar where backdrop-filter isn't supported */
+@supports not ((backdrop-filter: blur(2px)) or (-webkit-backdrop-filter: blur(2px))) {
+    .header {
+        background: #ffffff;
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.06);
+        border-bottom: none;
+    }
 }
 
 .nav-container {
