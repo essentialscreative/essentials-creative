@@ -43,6 +43,7 @@
 <link href="assets/css/mobile-optimization.css?v=1.0" rel="stylesheet"/>
 <link href="assets/css/gallery-uniform.css?v=2.1" rel="stylesheet"/>
 <link href="assets/css/enhanced-lightbox.css?v=1.0" rel="stylesheet"/>
+<link href="assets/css/editorial.css" rel="stylesheet"/>
 <link href="assets/css/rhizomatic.css?v=1.0" rel="stylesheet"/>
 
 <!-- Structured Data for SEO -->
@@ -332,48 +333,34 @@
 <!-- Chicago Botanic Garden Gallery -->
 <div class="gallery-section-container">
 <h3 class="gallery-section-title">Chicago Botanic Garden</h3>
-<div class="gallery-grid gallery-uniform">
-<div class="gallery-item lightbox-trigger">
-<picture><source srcset="assets/images/gallery/Installations/Installations4.webp" type="image/webp"/><img alt="Chicago Botanic Garden installation featuring collaborative textile works exploring plant diversity" src="assets/images/gallery/Installations/Installations4.jpg" loading="lazy" decoding="async"/></picture>
-</div>
-<div class="gallery-item lightbox-trigger">
-<picture><source srcset="assets/images/gallery/Projects/Rhizomatic/Rhizomatic_1.webp" type="image/webp"/><img alt="Rhizomatic exhibition entrance showing large-scale botanical textile installations" src="assets/images/gallery/Projects/Rhizomatic/Rhizomatic_1.jpg" loading="lazy" decoding="async"/></picture>
-</div>
-<div class="gallery-item lightbox-trigger">
-<picture><source srcset="assets/images/gallery/Projects/Rhizomatic/Rhizomatic_3.webp" type="image/webp"/><img alt="Close-up view of Rhizomatic textile details featuring native plant illustrations and cultural patterns" src="assets/images/gallery/Projects/Rhizomatic/Rhizomatic_3.jpeg" loading="lazy" decoding="async"/></picture>
-</div>
-</div>
+<div class="editorial" id="rhiz-cbg"></div>
+<script>
+const rhizCBG = [
+    { src: 'assets/images/gallery/Installations/Installations4.jpg', alt: 'Chicago Botanic Garden installation featuring collaborative textile works exploring plant diversity' },
+    { src: 'assets/images/gallery/Projects/Rhizomatic/Rhizomatic_1.jpg', alt: 'Rhizomatic exhibition entrance showing large-scale botanical textile installations' },
+    { src: 'assets/images/gallery/Projects/Rhizomatic/Rhizomatic_3.jpeg', alt: 'Close-up view of Rhizomatic textile details featuring native plant illustrations and cultural patterns' }
+];
+document.addEventListener('DOMContentLoaded', () => renderEditorial('rhiz-cbg', rhizCBG));
+</script>
 </div>
 
 <!-- Austin Central Library Gallery -->
 <div class="gallery-section-container">
 <h3 class="gallery-section-title">Austin Central Library</h3>
-<div class="gallery-grid gallery-uniform">
-<div class="gallery-item lightbox-trigger">
-<picture><source srcset="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7625.webp" type="image/webp"/><img alt="Overhead view of Rhizomatic installation at Austin Central Library rooftop with MEZL and plant name textiles under solar panels" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7625.JPG" loading="lazy" decoding="async"/></picture>
-</div>
-<div class="gallery-item lightbox-trigger">
-<picture><source srcset="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7786.webp" type="image/webp"/><img alt="Side view of Austin rooftop installation showing textile works integrated with urban garden environment" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7786.JPG" loading="lazy" decoding="async"/></picture>
-</div>
-<div class="gallery-item lightbox-trigger">
-<picture><source srcset="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8463.webp" type="image/webp"/><img alt="Wide overhead view of complete Austin installation showing multiple hanging textiles under solar canopy with city skyline" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8463.JPG" loading="lazy" decoding="async"/></picture>
-</div>
-<div class="gallery-item lightbox-trigger">
-<picture><source srcset="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8304.webp" type="image/webp"/><img alt="Austin Central Library rooftop installation featuring colorful hanging textiles with Texas native plant themes" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8304.JPG" loading="lazy" decoding="async"/></picture>
-</div>
-<div class="gallery-item lightbox-trigger">
-<picture><source srcset="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7626.webp" type="image/webp"/><img alt="Close-up view of Austin textile installation showing detailed plant name labels and cultural design elements" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7626.JPG" loading="lazy" decoding="async"/></picture>
-</div>
-<div class="gallery-item lightbox-trigger">
-<picture><source srcset="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7627.webp" type="image/webp"/><img alt="Angular view of hanging textiles under solar panel grid showing integration of sustainable technology with art" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7627.JPG" loading="lazy" decoding="async"/></picture>
-</div>
-<div class="gallery-item lightbox-trigger">
-<picture><source srcset="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7791.webp" type="image/webp"/><img alt="Detail shot of Rhizomatic textile work featuring botanical illustrations and Indigenous design patterns" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7791.JPG" loading="lazy" decoding="async"/></picture>
-</div>
-<div class="gallery-item lightbox-trigger">
-<picture><source srcset="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8462.webp" type="image/webp"/><img alt="Evening view of Austin Central Library rooftop installation with illuminated textiles and urban landscape backdrop" src="assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8462.JPG" loading="lazy" decoding="async"/></picture>
-</div>
-</div>
+<div class="editorial" id="rhiz-acl"></div>
+<script>
+const rhizACL = [
+    { src: 'assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7625.JPG', alt: 'Overhead view of Rhizomatic installation at Austin Central Library rooftop with MEZL and plant name textiles under solar panels' },
+    { src: 'assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7786.JPG', alt: 'Side view of Austin rooftop installation showing textile works integrated with urban garden environment' },
+    { src: 'assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8463.JPG', alt: 'Wide overhead view of complete Austin installation showing multiple hanging textiles under solar canopy with city skyline' },
+    { src: 'assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8304.JPG', alt: 'Austin Central Library rooftop installation featuring colorful hanging textiles with Texas native plant themes' },
+    { src: 'assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7626.JPG', alt: 'Close-up view of Austin textile installation showing detailed plant name labels and cultural design elements' },
+    { src: 'assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7627.JPG', alt: 'Angular view of hanging textiles under solar panel grid showing integration of sustainable technology with art' },
+    { src: 'assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7791.JPG', alt: 'Detail shot of Rhizomatic textile work featuring botanical illustrations and Indigenous design patterns' },
+    { src: 'assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8462.JPG', alt: 'Evening view of Austin Central Library rooftop installation with illuminated textiles and urban landscape backdrop' }
+];
+document.addEventListener('DOMContentLoaded', () => renderEditorial('rhiz-acl', rhizACL));
+</script>
 </div>
 
 <div style="text-align: center; margin-top: 2rem;">
@@ -462,6 +449,7 @@
 
 <!-- JavaScript -->
 <script src="assets/js/navigation.js?v=4.3" defer></script>
+<script src="assets/js/editorial-gallery.js" defer></script>
 <script src="assets/js/unified-gallery-lightbox.js" defer></script>
 </body>
 </html>
