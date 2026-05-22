@@ -30,6 +30,7 @@
     <link href="assets/css/mobile-optimization.css?v=1.0" rel="stylesheet">
     <link href="assets/css/gallery-uniform.css" rel="stylesheet">
     <link href="assets/css/enhanced-lightbox.css" rel="stylesheet">
+    <link href="assets/css/editorial.css" rel="stylesheet">
 
     <!-- Project Page Specific Styles -->
     <style>
@@ -404,7 +405,6 @@
                 </a>
             </div>
             <nav id="main-navigation" class="nav-links" role="navigation" aria-label="Main navigation">
-                <a class="nav-link" href="index.html">Home</a>
                 <div class="nav-dropdown">
                     <button type="button" class="nav-dropdown-toggle" id="nav-services-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-services-menu">
                         Services <span class="nav-dropdown-arrow" aria-hidden="true">&#9660;</span>
@@ -438,7 +438,6 @@
                     <span class="hamburger-line"></span>
                 </button>
                 <div class="hamburger-menu" id="mobile-menu">
-                    <a href="index.html" class="hamburger-link">Home</a>
                     <div class="hamburger-section">
                         <span class="hamburger-section-title">Services</span>
                         <a href="photography.html" class="hamburger-link">Photography</a>
@@ -520,44 +519,24 @@
                     <p>Selected projections, screenings, and installs across recent Node events.</p>
                 </div>
 
-                <div class="gallery-grid gallery-uniform">
-                    <div class="gallery-item lightbox-trigger" data-category="poster">
-                        <picture><source srcset="assets/images/projections/node-videoartnight/Node_Video_Art_Night_poster.webp" type="image/webp"/><img src="assets/images/projections/node-videoartnight/Node_Video_Art_Night_poster.jpeg" alt="Node Video Art Night event poster" loading="lazy"></picture>
-                    </div>
-                    <div class="gallery-item lightbox-trigger" data-category="projection">
-                        <picture><source srcset="assets/images/projections/node-videoartnight/AN3A7920.webp" type="image/webp"/><img src="assets/images/projections/node-videoartnight/AN3A7920.JPG" alt="Tall solo projection in industrial space" loading="lazy"></picture>
-                    </div>
-                    <div class="gallery-item lightbox-trigger" data-category="projection">
-                        <picture><source srcset="assets/images/projections/node-videoartnight/AN3A0008_1.webp" type="image/webp"/><img src="assets/images/projections/node-videoartnight/AN3A0008_1.jpg" alt="Two viewers in front of dual projections, kaleidoscope and figures in flame" loading="lazy"></picture>
-                    </div>
-                    <div class="gallery-item lightbox-trigger" data-category="projection">
-                        <picture><source srcset="assets/images/projections/node-videoartnight/AN3A9279_1.webp" type="image/webp"/><img src="assets/images/projections/node-videoartnight/AN3A9279_1.jpg" alt="Panoramic projection of painted cat figures" loading="lazy"></picture>
-                    </div>
-                    <div class="gallery-item lightbox-trigger" data-category="projection">
-                        <picture><source srcset="assets/images/projections/node-videoartnight/AN3A0085.webp" type="image/webp"/><img src="assets/images/projections/node-videoartnight/AN3A0085.jpg" alt="Crowd watching multi-screen install with painted cow, paper sculpture, and map projection" loading="lazy"></picture>
-                    </div>
-                    <div class="gallery-item lightbox-trigger" data-category="projection">
-                        <picture><source srcset="assets/images/projections/node-videoartnight/AN3A9244_1.webp" type="image/webp"/><img src="assets/images/projections/node-videoartnight/AN3A9244_1.jpg" alt="Chrome figure projected on gallery wall alongside abstract liquid imagery" loading="lazy"></picture>
-                    </div>
-                    <div class="gallery-item lightbox-trigger" data-category="projection">
-                        <picture><source srcset="assets/images/projections/node-videoartnight/AN3A0039.webp" type="image/webp"/><img src="assets/images/projections/node-videoartnight/AN3A0039.jpg" alt="Empty room saturated in violet and blue water-pattern projections" loading="lazy"></picture>
-                    </div>
-                    <div class="gallery-item lightbox-trigger" data-category="projection">
-                        <picture><source srcset="assets/images/projections/node-videoartnight/AN3A0096_1.webp" type="image/webp"/><img src="assets/images/projections/node-videoartnight/AN3A0096_1.jpg" alt="Wide install with yellow projection, paper sculpture, and many-armed figure" loading="lazy"></picture>
-                    </div>
-                    <div class="gallery-item lightbox-trigger" data-category="projection">
-                        <picture><source srcset="assets/images/projections/node-videoartnight/AN3A9318.webp" type="image/webp"/><img src="assets/images/projections/node-videoartnight/AN3A9318.JPG" alt="Theatrical panoramic projection with eyes, hands, and animal figures" loading="lazy"></picture>
-                    </div>
-                    <div class="gallery-item lightbox-trigger" data-category="projection">
-                        <picture><source srcset="assets/images/projections/node-videoartnight/AN3A0036.webp" type="image/webp"/><img src="assets/images/projections/node-videoartnight/AN3A0036.jpg" alt="Quiet black-and-white figure projection on a single wall" loading="lazy"></picture>
-                    </div>
-                    <div class="gallery-item lightbox-trigger" data-category="projection">
-                        <picture><source srcset="assets/images/projections/node-videoartnight/AN3A0103_1.webp" type="image/webp"/><img src="assets/images/projections/node-videoartnight/AN3A0103_1.jpg" alt="Crowd around paper pyramid sculpture with blue-sphere screen behind" loading="lazy"></picture>
-                    </div>
-                    <div class="gallery-item lightbox-trigger" data-category="projection">
-                        <picture><source srcset="assets/images/projections/node-videoartnight/AN3A9219.webp" type="image/webp"/><img src="assets/images/projections/node-videoartnight/AN3A9219.JPG" alt="Dual screens with abstract figures and locker-room scene" loading="lazy"></picture>
-                    </div>
-                </div>
+                <div class="editorial" id="node-gallery"></div>
+<script>
+const nodeGallery = [
+    { src: 'assets/images/projections/node-videoartnight/Node_Video_Art_Night_poster.jpeg', alt: 'Node Video Art Night event poster' },
+    { src: 'assets/images/projections/node-videoartnight/AN3A7920.JPG', alt: 'Tall solo projection in industrial space' },
+    { src: 'assets/images/projections/node-videoartnight/AN3A0008_1.jpg', alt: 'Two viewers in front of dual projections, kaleidoscope and figures in flame' },
+    { src: 'assets/images/projections/node-videoartnight/AN3A9279_1.jpg', alt: 'Panoramic projection of painted cat figures' },
+    { src: 'assets/images/projections/node-videoartnight/AN3A0085.jpg', alt: 'Crowd watching multi-screen install with painted cow, paper sculpture, and map projection' },
+    { src: 'assets/images/projections/node-videoartnight/AN3A9244_1.jpg', alt: 'Chrome figure projected on gallery wall alongside abstract liquid imagery' },
+    { src: 'assets/images/projections/node-videoartnight/AN3A0039.jpg', alt: 'Empty room saturated in violet and blue water-pattern projections' },
+    { src: 'assets/images/projections/node-videoartnight/AN3A0096_1.jpg', alt: 'Wide install with yellow projection, paper sculpture, and many-armed figure' },
+    { src: 'assets/images/projections/node-videoartnight/AN3A9318.JPG', alt: 'Theatrical panoramic projection with eyes, hands, and animal figures' },
+    { src: 'assets/images/projections/node-videoartnight/AN3A0036.jpg', alt: 'Quiet black-and-white figure projection on a single wall' },
+    { src: 'assets/images/projections/node-videoartnight/AN3A0103_1.jpg', alt: 'Crowd around paper pyramid sculpture with blue-sphere screen behind' },
+    { src: 'assets/images/projections/node-videoartnight/AN3A9219.JPG', alt: 'Dual screens with abstract figures and locker-room scene' }
+];
+document.addEventListener('DOMContentLoaded', () => renderEditorial('node-gallery', nodeGallery));
+</script>
             </div>
         </section>
 
@@ -636,6 +615,7 @@
 
     <!-- Scripts -->
     <script src="assets/js/navigation.js?v=4.3" defer></script>
+    <script src="assets/js/editorial-gallery.js" defer></script>
     <script src="assets/js/unified-gallery-lightbox.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {

@@ -22,6 +22,7 @@
 <link href="assets/css/design-system.css?v=2.0" rel="stylesheet"/>
 <link href="assets/css/mobile-optimization.css?v=1.0" rel="stylesheet"/>
 <link href="assets/css/gallery-uniform.css?v=2.1" rel="stylesheet"/>
+<link href="assets/css/editorial.css" rel="stylesheet"/>
 <link href="assets/css/enhanced-lightbox.css" rel="stylesheet"/>
 <link rel="canonical" href="https://essentialscreative.com/projections"/>
 
@@ -47,7 +48,6 @@
 </a>
 </div>
 <nav id="main-navigation" class="nav-links" role="navigation" aria-label="Main navigation">
-<a class="nav-link" href="index.html">Home</a>
 <div class="nav-dropdown">
 <button type="button" class="nav-dropdown-toggle active" id="nav-services-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-services-menu">Services <span class="nav-dropdown-arrow" aria-hidden="true">▼</span></button>
 <div class="nav-dropdown-menu" id="nav-services-menu" role="group" aria-label="Services">
@@ -77,7 +77,6 @@
 <span class="hamburger-line"></span>
 </button>
 <div class="hamburger-menu" id="mobile-menu">
-<a href="index.html" class="hamburger-link">Home</a>
 <div class="hamburger-section">
 <span class="hamburger-section-title">Services</span>
 <a href="photography.html" class="hamburger-link">Photography</a>
@@ -134,10 +133,10 @@
 
 <!-- Projection Art Portfolio -->
 <section class="projection-gallery" style="padding: 4rem 0;">
-    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+    <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0;">
 
-        <!-- Dynamic Projection Gallery Grid -->
-        <div class="gallery-grid gallery-uniform" id="projection-gallery" style="opacity: 1; transition: opacity 0.5s ease;">
+        <!-- Editorial projection gallery -->
+        <div class="editorial" id="projection-gallery">
             <!-- Dynamically populated by JavaScript -->
         </div>
     </div>
@@ -286,7 +285,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(`Curated projection collection: ${allProjections.length} premier works`);
     
     // Display all curated projections (NODE Video Art Night first)
-    renderProjections(allProjections);
+    renderEditorial('projection-gallery', allProjections);
     console.log('Curated projection portfolio loaded successfully');
 });
 </script>
@@ -306,6 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <!-- JavaScript -->
 <script src="assets/js/navigation.js?v=4.3" defer></script>
+<script src="assets/js/editorial-gallery.js" defer></script>
 <script src="assets/js/unified-gallery-lightbox.js" defer></script>
 </body>
 </html>
