@@ -444,9 +444,27 @@
         <!-- Project Overview -->
         <section class="content-section">
             <h2 class="section-title">About the Project</h2>
-            <div style="max-width: 900px; margin: 0 auto; text-align: center; line-height: 1.8;">
+            <style>
+            .pinfo-grid{display:grid;grid-template-columns:2fr 1fr;gap:3rem;align-items:start;max-width:1100px;margin:0 auto;text-align:left;}
+            .pinfo-card{background:#fff;padding:2.5rem;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.08);position:sticky;top:2rem;}
+            .pinfo-card .sec{margin-bottom:2rem;}
+            .pinfo-card .sec:last-child{margin-bottom:0;}
+            .pinfo-card .lbl{font-size:0.9rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:#888;margin-bottom:0.5rem;}
+            .pinfo-card .val{font-size:1.1rem;color:#1a1a1a;font-weight:500;line-height:1.5;}
+            @media (max-width:768px){.pinfo-grid{grid-template-columns:1fr;gap:2rem;}.pinfo-card{position:static;}}
+            </style>
+            <div class="pinfo-grid">
+            <div style="line-height: 1.8;">
                 <p style="font-size: 1.1rem; color: #333;">Plant Story Cards is a digital archive of plant-people relationships in Austin. The project gathered 49 responses from 15+ cultural communities about the plants, places, and ancestral foods that hold meaning. Each response is presented as a card; the card set covers 95+ plant species across Indigenous, Latinx, Asian, and other community knowledge.</p>
-                <p style="margin-top: 1.5rem;">The archive does not attempt to standardize or interpret the responses. Each card presents a single voice in their own words, paired with the plant or place they named.</p>
+                <p style="margin-top: 1.5rem; color: #333;">The archive does not attempt to standardize or interpret the responses. Each card presents a single voice in their own words, paired with the plant or place they named.</p>
+            </div>
+            <aside class="pinfo-card">
+            <div class="sec"><div class="lbl">Format</div><div class="val">Community research · digital card archive</div></div>
+            <div class="sec"><div class="lbl">Location</div><div class="val">Austin, TX</div></div>
+            <div class="sec"><div class="lbl">Scope</div><div class="val">49 responses · 95+ plant species · 15+ communities</div></div>
+            <div class="sec"><div class="lbl">Knowledge systems</div><div class="val">Indigenous, Latinx, and Asian</div></div>
+            <div class="sec"><div class="lbl">Status</div><div class="val">Ongoing</div></div>
+            </aside>
             </div>
         </section>
         
