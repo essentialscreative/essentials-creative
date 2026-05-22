@@ -18,6 +18,8 @@ Commit and push to the private GitHub repo (`essentialscreative/essentials-creat
 Deploy via the **Netlify ↔ GitHub** connection: pushing `main` makes it live.
 **Never drag the raw project folder into Netlify** — it would publish `.git/`, the `admin/` page, and internal docs. Git-based deploy only ships committed files (publish dir = `.`).
 
+**Free-plan deploy rule (private repo):** Netlify's free plan only deploys commits from the **one verified Git contributor**. Every commit must be authored by the connected GitHub account — email `218395904+flv2496@users.noreply.github.com` (already set as this repo's `git config --local user.email`; do not change it). If a build fails with *"unrecognized Git contributor,"* see **[DEPLOY.md](DEPLOY.md)** (reconnect the account in Netlify → Git Contributors, or fall back to a public repo / Cloudflare Pages).
+
 ## 5. Secrets
 Anything in a static site is public. **Never hardcode API keys or tokens** in site files — use Netlify environment variables. Keep `admin/` in `.gitignore`.
 
