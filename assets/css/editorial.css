@@ -6,9 +6,11 @@
    ============================================================ */
 
 .editorial {
-    --ed-gap: clamp(3rem, 6.5vw, 7rem);   /* whitespace between blocks */
+    --ed-gap: clamp(2.75rem, 6vw, 6rem);  /* whitespace between blocks */
     --ed-pad: clamp(1rem, 5vw, 4rem);     /* side padding */
-    --ed-full-max-h: 88vh;                /* cap so tall images don't blow past the viewport */
+    --ed-full-max-h: 80vh;                /* cap so tall images don't blow past the viewport */
+    --ed-full-max-w: 1080px;              /* contained full-width image */
+    --ed-pair-max-w: 980px;               /* contained two-up row */
 }
 
 .ed-block { margin-top: var(--ed-gap); }
@@ -24,7 +26,7 @@
 .ed-full .ed-frame img {
     width: auto;
     height: auto;
-    max-width: min(100%, 1400px);
+    max-width: min(100%, var(--ed-full-max-w));
     max-height: var(--ed-full-max-h);
 }
 
@@ -33,7 +35,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: clamp(0.75rem, 2vw, 1.75rem);
-    max-width: 1200px;
+    max-width: var(--ed-pair-max-w);
     margin-left: auto;
     margin-right: auto;
     padding: 0 var(--ed-pad);
