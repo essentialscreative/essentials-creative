@@ -70,7 +70,7 @@
 </script>
 
 <!-- CSS -->
-<link href="assets/css/navigation.css?v=4.3" rel="stylesheet"/>
+<link href="assets/css/navigation.css?v=4.4" rel="stylesheet"/>
 <link href="assets/css/main.css?v=4.1" rel="stylesheet"/>
 <link href="assets/css/design-system.css?v=2.0" rel="stylesheet"/>
 <link href="assets/css/mobile-optimization.css?v=1.0" rel="stylesheet"/>
@@ -546,7 +546,7 @@ body {
 .home-head{max-width:760px;margin:0 auto clamp(2.5rem,5vw,4rem);text-align:center;}
 .home-head h2{font-size:clamp(2rem,4vw,3rem);letter-spacing:-.02em;margin:0 0 1rem;color:#1a1a1a;}
 .home-head p{color:#555;font-size:1.15rem;line-height:1.7;margin:0;}
-.home-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1rem,2.5vw,2rem);}
+.home-tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(1.5rem,4vw,3.5rem);}
 .home-tile,.home-project{text-decoration:none;color:inherit;display:block;}
 .home-tile .ed-frame,.home-project .ed-frame{overflow:hidden;border-radius:3px;line-height:0;background:transparent;}
 .home-tile .ed-frame img{width:100%;object-fit:cover;display:block;transition:transform .9s cubic-bezier(.16,1,.3,1);}
@@ -561,6 +561,9 @@ body {
 .home-project-meta h3{font-size:clamp(1.5rem,2.5vw,2rem);letter-spacing:-.02em;margin:0 0 .75rem;color:#1a1a1a;}
 .home-project-meta p{color:#555;line-height:1.7;margin:0 0 1rem;}
 .home-project-meta .more{color:#1a1a1a;font-weight:600;}
+.home-viewall{margin-top:clamp(2.5rem,5vw,4rem);}
+.home-viewall a{display:inline-block;font-weight:600;color:#1a1a1a;text-decoration:none;border-bottom:2px solid #1a1a1a;padding-bottom:.25rem;font-size:1.05rem;transition:opacity .2s;}
+.home-viewall a:hover{opacity:.6;}
 .home-tags{margin-bottom:1rem;display:flex;flex-wrap:wrap;gap:.5rem;}
 .home-tags span{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:#888;border:1px solid #e5e5e5;border-radius:999px;padding:.3rem .7rem;}
 .home-cta{max-width:760px;margin:clamp(4rem,9vw,8rem) auto 0;padding:clamp(3rem,7vw,6rem) clamp(1rem,5vw,4rem);text-align:center;border-top:1px solid #ececec;}
@@ -568,8 +571,7 @@ body {
 .home-cta p{color:#555;line-height:1.7;max-width:60ch;margin:0 auto 2rem;}
 .home-cta .btn{display:inline-block;background:#1a1a1a;color:#fff;padding:1rem 2rem;border-radius:999px;text-decoration:none;font-weight:600;transition:opacity .2s;}
 .home-cta .btn:hover{opacity:.85;}
-@media (max-width:980px){.home-tiles{grid-template-columns:repeat(2,1fr);}}
-@media (max-width:680px){.home-projects{grid-template-columns:1fr;}}
+@media (max-width:680px){.home-tiles{grid-template-columns:1fr;}.home-projects{grid-template-columns:1fr;}}
 </style>
 
 <!-- Services -->
@@ -579,10 +581,10 @@ body {
 <p>We work across photography, design, video, projection, and installation — for cultural organizations, gardens, and community-led projects.</p>
 </div>
 <div class="home-tiles">
-<a class="home-tile reveal" href="photography.html"><div class="ed-frame"><picture><source srcset="assets/images/gallery/Photography/AN3A4098.webp" type="image/webp"><img src="assets/images/gallery/Photography/AN3A4098.jpg" alt="Photography" loading="lazy" decoding="async" style="aspect-ratio:1/1"></picture></div><div class="home-tile-meta"><h3>Photography</h3><span class="home-cat">Portrait · Editorial · Documentary</span></div></a>
-<a class="home-tile reveal" href="design.html"><div class="ed-frame"><picture><source srcset="assets/images/gallery/Design/Levitation_Design.webp" type="image/webp"><img src="assets/images/gallery/Design/Levitation_Design.jpg" alt="Design" loading="lazy" decoding="async" style="aspect-ratio:1/1"></picture></div><div class="home-tile-meta"><h3>Design</h3><span class="home-cat">Identity · Exhibition · Print</span></div></a>
-<a class="home-tile reveal" href="video.html"><div class="ed-frame"><picture><source srcset="assets/images/projections/Native_Waters_1.webp" type="image/webp"><img src="assets/images/projections/Native_Waters_1.jpg" alt="Video" loading="lazy" decoding="async" style="aspect-ratio:1/1"></picture></div><div class="home-tile-meta"><h3>Video</h3><span class="home-cat">Documentary · Interview · Art</span></div></a>
-<a class="home-tile reveal" href="installations.html"><div class="ed-frame"><picture><source srcset="assets/images/gallery/Installations/AN3A8845+copy.webp" type="image/webp"><img src="assets/images/gallery/Installations/AN3A8845+copy.jpg" alt="Installations & Projection" loading="lazy" decoding="async" style="aspect-ratio:1/1"></picture></div><div class="home-tile-meta"><h3>Installations & Projection</h3><span class="home-cat">Projection · Interactive · Site-specific</span></div></a>
+<a class="home-tile reveal" href="photography.html"><div class="ed-frame"><picture><source srcset="assets/images/gallery/Photography/AN3A4098.webp" type="image/webp"><img src="assets/images/gallery/Photography/AN3A4098.jpg" alt="Photography" loading="lazy" decoding="async" style="aspect-ratio:3/2"></picture></div><div class="home-tile-meta"><h3>Photography</h3><span class="home-cat">Portrait · Editorial · Documentary</span></div></a>
+<a class="home-tile reveal" href="design.html"><div class="ed-frame"><picture><source srcset="assets/images/gallery/Design/Levitation_Design.webp" type="image/webp"><img src="assets/images/gallery/Design/Levitation_Design.jpg" alt="Design" loading="lazy" decoding="async" style="aspect-ratio:3/2"></picture></div><div class="home-tile-meta"><h3>Design</h3><span class="home-cat">Identity · Exhibition · Print</span></div></a>
+<a class="home-tile reveal" href="video.html"><div class="ed-frame"><picture><source srcset="assets/images/projections/Native_Waters_1.webp" type="image/webp"><img src="assets/images/projections/Native_Waters_1.jpg" alt="Video" loading="lazy" decoding="async" style="aspect-ratio:3/2"></picture></div><div class="home-tile-meta"><h3>Video</h3><span class="home-cat">Documentary · Interview · Art</span></div></a>
+<a class="home-tile reveal" href="installations.html"><div class="ed-frame"><picture><source srcset="assets/images/gallery/Installations/AN3A8845+copy.webp" type="image/webp"><img src="assets/images/gallery/Installations/AN3A8845+copy.jpg" alt="Installations & Projection" loading="lazy" decoding="async" style="aspect-ratio:3/2"></picture></div><div class="home-tile-meta"><h3>Installations & Projection</h3><span class="home-cat">Projection · Interactive · Site-specific</span></div></a>
 </div>
 </section>
 
@@ -598,6 +600,7 @@ body {
 <a class="home-project reveal" href="node.html"><div class="ed-frame"><picture><source srcset="assets/images/projections/node-videoartnight/AN3A7920.webp" type="image/webp"><img src="assets/images/projections/node-videoartnight/AN3A7920.JPG" alt="Node: Video Art Night" loading="lazy" decoding="async" style="aspect-ratio:3/2"></picture></div><div class="home-project-meta"><h3>Node: Video Art Night</h3><p>Node is an experimental platform for video art and projection — bringing screenings, installations, and open programs into unexpected spaces across Austin. Each iteration finds a new site and listens to it.</p><span class="more">View project →</span></div></a>
 <a class="home-project reveal" href="plant-story-cards.html"><div class="ed-frame"><picture><source srcset="assets/images/plant-story/Scan%203%20copy.webp" type="image/webp"><img src="assets/images/plant-story/Scan%203%20copy.jpg" alt="Plant Story Cards" loading="lazy" decoding="async" style="aspect-ratio:3/2"></picture></div><div class="home-project-meta"><h3>Plant Story Cards</h3><p>Plant Story Cards is an ongoing research project pairing Indigenous, Latinx, and Asian plant knowledge with community-collected stories — a digital archive of plant-people relationships in Austin.</p><span class="more">View project →</span></div></a>
 </div>
+<div class="home-viewall reveal"><a href="projects.html">View All Projects →</a></div>
 </section>
 
 <!-- Call to Action -->

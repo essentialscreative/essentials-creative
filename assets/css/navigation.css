@@ -438,3 +438,46 @@ button.nav-dropdown-toggle {
     white-space: nowrap;
     border-width: 0;
 }
+
+/* =========================================================================
+   GLOBAL LAYOUT OVERRIDES (site-wide)
+   Loaded on every page via navigation.css. Left-aligned layout + square
+   corners. Uses !important to beat inline text-align:center across pages.
+   ========================================================================= */
+
+/* Square corners everywhere — no rounded buttons/cards/images/inputs/chips */
+*, *::before, *::after { border-radius: 0 !important; }
+
+/* Left-align: catch every inline-centered hero/section/footer, plus classes */
+[style*="text-align: center"],
+[style*="text-align:center"] { text-align: left !important; }
+
+.hero-content,
+.home-head,
+.home-cta,
+.video-section-header,
+.video-section-subtitle,
+.services-header,
+.gallery-section-title,
+.ed-full,
+.themes-header,
+.text-center,
+.footer { text-align: left !important; }
+
+/* Hero blocks sit to the left rather than centered */
+.hero,
+.video-hero,
+.project-hero,
+.hero-slideshow { justify-content: flex-start !important; }
+.hero { padding-left: clamp(1rem, 5vw, 4rem); }
+.hero-content { margin-left: 0 !important; }
+
+/* Navigation: cluster the menu beside the logo on the left */
+.nav-container { justify-content: flex-start !important; gap: clamp(1.5rem, 4vw, 3.5rem); }
+.nav-links { margin-right: auto; }
+
+/* Keep mobile bar as logo-left / hamburger-right */
+@media (max-width: 768px) {
+    .nav-container { justify-content: space-between !important; gap: 0; }
+    .nav-links { margin-right: 0; }
+}
