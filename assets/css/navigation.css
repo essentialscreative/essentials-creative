@@ -481,3 +481,17 @@ button.nav-dropdown-toggle {
     .nav-container { justify-content: space-between !important; gap: 0; }
     .nav-links { margin-right: 0; }
 }
+
+/* Accessibility: clear keyboard focus ring on all interactive elements.
+   Two-tone (dark ring + white halo) so it's visible on light pages AND
+   over dark hero images. Mouse clicks don't show it (:focus-visible only). */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid #1a1a1a;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.85);
+}
