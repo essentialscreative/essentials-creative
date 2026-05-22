@@ -22,6 +22,7 @@
 <link href="assets/css/mobile-optimization.css?v=1.0" rel="stylesheet"/>
 <link href="assets/css/gallery-uniform.css?v=2.1" rel="stylesheet"/>
 <link href="assets/css/enhanced-lightbox.css" rel="stylesheet"/>
+<link href="assets/css/editorial.css" rel="stylesheet"/>
 <link rel="canonical" href="https://essentialscreative.com/photography"/>
 
 <!-- Favicon -->
@@ -46,7 +47,6 @@
 </a>
 </div>
 <nav id="main-navigation" class="nav-links" role="navigation" aria-label="Main navigation">
-<a class="nav-link" href="index.html">Home</a>
 <div class="nav-dropdown">
 <button type="button" class="nav-dropdown-toggle active" id="nav-services-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-services-menu">Services <span class="nav-dropdown-arrow" aria-hidden="true">▼</span></button>
 <div class="nav-dropdown-menu" id="nav-services-menu" role="group" aria-label="Services">
@@ -76,7 +76,6 @@
 <span class="hamburger-line"></span>
 </button>
 <div class="hamburger-menu" id="mobile-menu">
-<a href="index.html" class="hamburger-link">Home</a>
 <div class="hamburger-section">
 <span class="hamburger-section-title">Services</span>
 <a href="photography.html" class="hamburger-link active">Photography</a>
@@ -132,10 +131,10 @@
     </div>
 </section>
 
-<div class="main-content" style="max-width: 1200px; margin: 0 auto; padding: 3rem 2rem;">
+<div class="main-content" style="max-width: 1400px; margin: 0 auto; padding: 0;">
 
-<!-- Gallery -->
-<section class="gallery-grid gallery-uniform" id="photography-gallery" aria-label="Photography gallery"></section>
+<!-- Gallery (editorial layout) -->
+<section class="editorial" id="photography-gallery" aria-label="Photography gallery"></section>
 
 <script>
 const allPhotos = [
@@ -170,34 +169,7 @@ const allPhotos = [
     { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_14.jpg', alt: 'Artistic photography' }
 ];
 
-function renderPhotos(photos) {
-    const gallery = document.getElementById('photography-gallery');
-    if (!gallery) return;
-    gallery.replaceChildren();
-    const frag = document.createDocumentFragment();
-    for (const photo of photos) {
-        if (!photo?.src || !photo?.alt) continue;
-        const cell = document.createElement('div');
-        cell.className = 'gallery-item lightbox-trigger ec-gallery-animate-in';
-        const picture = document.createElement('picture');
-        const source = document.createElement('source');
-        source.srcset = photo.src.replace(/\.(jpe?g|png)$/i, '.webp');
-        source.type = 'image/webp';
-        const img = document.createElement('img');
-        img.src = photo.src;
-        img.alt = photo.alt;
-        img.loading = 'lazy';
-        img.decoding = 'async';
-        picture.appendChild(source);
-        picture.appendChild(img);
-        cell.appendChild(picture);
-        frag.appendChild(cell);
-    }
-    gallery.appendChild(frag);
-    if (window.initLightbox) window.initLightbox();
-}
-
-document.addEventListener('DOMContentLoaded', () => renderPhotos(allPhotos));
+document.addEventListener('DOMContentLoaded', () => renderEditorial('photography-gallery', allPhotos));
 </script>
 
 <section style="background: image-set(url('assets/images/gallery/Photography/AN3A6859.webp') type('image/webp'), url('assets/images/gallery/Photography/AN3A6859.jpg') type('image/jpeg')) center center / cover no-repeat; color: white; text-align: center; padding: 3rem 1.5rem; position: relative; margin: 3rem 0;">
@@ -259,6 +231,7 @@ document.addEventListener('DOMContentLoaded', () => renderPhotos(allPhotos));
 
 <!-- Core JavaScript Framework v4.0 -->
 <script src="assets/js/navigation.js?v=4.3" defer></script>
+<script src="assets/js/editorial-gallery.js" defer></script>
 <script src="assets/js/unified-gallery-lightbox.js" defer></script>
 </body>
 </html>

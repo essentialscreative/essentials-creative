@@ -1,0 +1,63 @@
+/* ============================================================
+   Editorial gallery layout — image-focused rhythm
+   Shared across all gallery pages. Pairs with editorial-gallery.js.
+   Acrylicize-informed: few large images, generous whitespace,
+   natural aspect ratios (no forced crop), quiet motion.
+   ============================================================ */
+
+.editorial {
+    --ed-gap: clamp(3rem, 8vw, 8rem);   /* whitespace between blocks */
+    --ed-pad: clamp(1rem, 5vw, 4rem);   /* side padding */
+}
+
+.ed-block { margin-top: var(--ed-gap); }
+.ed-block:first-child { margin-top: 0; }
+
+/* Full-width single — large impact image */
+.ed-full { padding: 0 var(--ed-pad); }
+.ed-full .ed-figure { max-width: 1400px; margin: 0 auto; }
+
+/* Two-up pair — contained, collapses on mobile */
+.ed-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(0.75rem, 2vw, 1.75rem);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 var(--ed-pad);
+    align-items: start;
+}
+@media (max-width: 680px) {
+    .ed-pair { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* Figure / frame */
+.ed-figure { margin: 0; cursor: zoom-in; }
+.ed-frame {
+    overflow: hidden;
+    background: #f1f1f1;
+    border-radius: 3px;
+    line-height: 0;
+}
+.ed-frame img {
+    width: 100%;
+    height: auto;             /* natural aspect — never crop */
+    display: block;
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ed-figure:hover .ed-frame img { transform: scale(1.03); }
+
+/* Scroll reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .ed-frame img { transition: none; }
+    .ed-figure:hover .ed-frame img { transform: none; }
+}
