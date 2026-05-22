@@ -9,6 +9,7 @@ Disallow: /search.html
 Disallow: /standard-nav-template.html
 Disallow: /plant-story-cards-research.html
 Disallow: /shop.html
+Disallow: /tapestries.html
 Disallow: /tapestry-designs.html
 Disallow: /admin/
 Disallow: /dev/

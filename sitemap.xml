@@ -71,11 +71,6 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://essentialscreative.com/tapestries.html</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://essentialscreative.com/video.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
