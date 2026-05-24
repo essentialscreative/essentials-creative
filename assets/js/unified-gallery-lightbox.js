@@ -200,8 +200,10 @@
         if (!item) return;
         imgEl.src = item.src;
         imgEl.alt = item.alt;
-        captionEl.textContent = item.alt;
-        captionEl.style.visibility = item.alt ? 'visible' : 'hidden';
+        // Captions are intentionally not displayed; alt is kept on the <img>
+        // for accessibility and SEO only.
+        captionEl.textContent = '';
+        captionEl.style.display = 'none';
         counterEl.textContent = pad(currentIndex + 1) + ' / ' + pad(items.length);
         prevBtn.style.display = currentIndex > 0 ? 'flex' : 'none';
         nextBtn.style.display = currentIndex < items.length - 1 ? 'flex' : 'none';
