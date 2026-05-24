@@ -152,6 +152,7 @@
             applyImage();
             dialog.showModal();
             document.body.classList.add('lightbox-open');
+            if (window.lenis) window.lenis.stop();   // freeze page scroll behind overlay
         };
 
         if (canMorph() && lastTrigger) {
@@ -177,6 +178,7 @@
         const unmount = () => {
             dialog.close();
             document.body.classList.remove('lightbox-open');
+            if (window.lenis) window.lenis.start();   // resume page scroll
         };
 
         if (canMorph() && target) {
