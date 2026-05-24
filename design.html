@@ -143,22 +143,30 @@
 <script>
 // Curated Design Collection - Working Gallery
 const allDesigns = [
-    { src: 'assets/images/gallery/Design/Melissa_Taylor_Long.jpg', alt: 'Design', category: 'Branding' },
-    { src: 'assets/images/gallery/Design/Melissa_Taylor_1.jpg', alt: 'Design', category: 'Branding' },
-    { src: 'assets/images/gallery/Design/_Design.jpg', alt: 'Design', category: 'Branding' },
-    { src: 'assets/images/gallery/Design/Design_1.jpg', alt: 'Design', category: 'Branding' },
-    { src: 'assets/images/gallery/Design/Insta_Zine_2.jpg', alt: 'Design', category: 'Publication' },
-    { src: 'assets/images/gallery/Design/Insta_Zine_3.jpg', alt: 'Design', category: 'Publication' },
-    { src: 'assets/images/gallery/Design/Fusebox_Salon_1.jpg', alt: 'Design', category: 'Event' },
-    { src: 'assets/images/gallery/Design/Fusebox_Salon_2.jpg', alt: 'Design', category: 'Event' },
-    { src: 'assets/images/gallery/Design/Fusebox_Salon_3.jpg', alt: 'Design', category: 'Event' },
-    { src: 'assets/images/gallery/Design/Levitation_Design.jpg', alt: 'Design', category: 'Event' },
-    { src: 'assets/images/gallery/Design/Design_2.jpg', alt: 'Design', category: 'Digital' },
-    { src: 'assets/images/gallery/Design/Design_3.jpg', alt: 'Design', category: 'Digital' },
-    { src: 'assets/images/gallery/Design/Design_4.jpg', alt: 'Design', category: 'Digital' },
-    { src: 'assets/images/gallery/Design/Design_5.jpg', alt: 'Design', category: 'Digital' },
-    { src: 'assets/images/gallery/Design/Design_13.jpg', alt: 'Design', category: 'Digital' },
-    { src: 'assets/images/gallery/Design/IMG_4066.jpeg', alt: 'Design', category: 'Digital' }
+    { src: 'assets/images/gallery/Design/Experimental_Typeface.jpg', alt: 'Experimental typeface — full alphabet with each letter rendered in a distinct black-and-white texture', category: 'Typography' },
+    { src: 'assets/images/gallery/Design/EssentialsCreative_Rhizomatic_Typeface.jpg', alt: '"RHIZOMATIC" set in a custom 3D display type built from purple rhizome bulbs, pale roots and chartreuse stems', category: 'Typography' },
+    { src: 'assets/images/gallery/Design/Melissa_Taylor_Long.jpg', alt: 'Black-and-white fashion editorial filmstrip for Melissa Taylor — draped silhouettes, anthurium and poppy studies, and sharply tailored looks', category: 'Editorial' },
+    { src: 'assets/images/gallery/Design/EssentialsCreative_DelHacienda_Editorial.jpg', alt: "Essentials × Del'hacienda fashion editorial — models posed inside gilded baroque frames among lavender and teal florals and serpents", category: 'Editorial' },
+    { src: 'assets/images/gallery/Design/Insta_Zine_2.jpg', alt: 'Essentials Creative emblem — an orchid cradling cupped hands around a single open eye', category: 'Identity' },
+    { src: 'assets/images/gallery/Design/Insta_Zine_3.jpg', alt: 'Essentials Creative logo lockup — the orchid-hands-eye emblem beneath the wordmark', category: 'Identity' },
+    { src: 'assets/images/gallery/Design/EssentialsCreative_Fusebox_BYOB_Poster.jpg', alt: 'Fusebox Festival "Bring Your Own Beamer Night" poster — Art+Tech Micro-Fest with chrome 3D forms on a deep-space starfield', category: 'Event' },
+    { src: 'assets/images/gallery/Design/Fusebox_Salon_1.jpg', alt: 'Fusebox Salon Series poster for Geoff Soebelle — framed portrait set in a coral-and-botanical collage', category: 'Event' },
+    { src: 'assets/images/gallery/Design/Fusebox_Salon_2.jpg', alt: 'Fusebox Salon Series poster for Allysen Hooks — framed dance portrait in a coral-and-succulent collage', category: 'Event' },
+    { src: 'assets/images/gallery/Design/Fusebox_Salon_3.jpg', alt: 'Fusebox Salon Series poster for Sir. Beauregard Elliot, Esquire — framed portrait in a coral-and-protea collage', category: 'Event' },
+    { src: 'assets/images/gallery/Design/Levitation_Design.jpg', alt: 'Black-and-white repeating pattern collage with radiating "ESSENTIALS" lettering, figures, plants and all-seeing eyes', category: 'Pattern' },
+    { src: 'assets/images/gallery/Design/EssentialsCreative_Goddess_Collage.jpg', alt: 'Duotone collage of a multi-armed goddess figure rising from red flames within a checkerboard border', category: 'Collage' },
+    { src: 'assets/images/gallery/Design/EssentialsCreative_Radiant_Portrait.jpg', alt: 'Neon psychedelic collage with a central portrait haloed by a rainbow sunburst, anthuriums and orchids', category: 'Collage' },
+    { src: 'assets/images/gallery/Design/EssentialsCreative_Monochrome_Collage.jpg', alt: 'Dense black-and-white collage of figures, flowers and a monarch butterfly', category: 'Collage' },
+    { src: 'assets/images/gallery/Design/EssentialsCreative_Symbol_Pattern.jpg', alt: 'Repeating pattern of colorful folk-art icons — hummingbirds, cacti, butterflies, eyes, bats, armadillos and triangles', category: 'Pattern' },
+    { src: 'assets/images/gallery/Design/EssentialsCreative_Amexicana_YLA21.jpeg', alt: 'AMEXICAN@ poster for Young Latino Artists 21 at Mexic-Arte Museum — gold profile portrait wearing Mickey-style ears', category: 'Event' },
+    { src: 'assets/images/gallery/Design/SJZavala_People_Collage.jpg', alt: 'Pen-and-ink portrait collage of young people layered together in a single composition', category: 'Editorial' },
+    { src: 'assets/images/gallery/Design/SJZavala_Ink_Splatter_Portrait.jpg', alt: 'High-contrast black-and-white portrait of a woman overlaid with dripping ink splatters', category: 'Editorial' },
+    { src: 'assets/images/gallery/Design/SJZavala_Paisley_Portrait.jpg', alt: 'Portrait of a woman wrapped in paisley fabric against a deep red textile background', category: 'Editorial' },
+    { src: 'assets/images/gallery/Design/SJZavala_Ruina_Calle_1.jpg', alt: 'Editorial illustration of a young man with "ruina en la calle" hand-lettered across his chest', category: 'Editorial' },
+    { src: 'assets/images/gallery/Design/SJZavala_Ruina_Calle_2.jpg', alt: 'Editorial illustration of a woman with "ruina en la calle" hand-lettered across her chest', category: 'Editorial' },
+    { src: 'assets/images/gallery/Design/EssentialsCreative_Fusebox_Flag_1.jpg', alt: 'Fusebox Festival 2022 fabric flag design', category: 'Event' },
+    { src: 'assets/images/gallery/Design/EssentialsCreative_Fusebox_Flag_2.jpg', alt: 'Fusebox Festival 2022 fabric flag design', category: 'Event' },
+    { src: 'assets/images/gallery/Design/EssentialsCreative_Fusebox_Flag_3.jpg', alt: 'Fusebox Festival 2022 fabric flag design', category: 'Event' }
 ];
 
 // Shuffle functionality removed for curated gallery experience
@@ -206,10 +214,10 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Error during initial gallery load:', error);
         // Fallback to essential design pieces
         const fallbackDesigns = [
-            { src: 'assets/images/gallery/Design/Melissa_Taylor_Long.jpg', alt: 'Design', category: 'Branding' },
-            { src: 'assets/images/gallery/Design/Fusebox_Salon_1.jpg', alt: 'Design', category: 'Event Design' },
-            { src: 'assets/images/gallery/Design/Insta_Zine_2.jpg', alt: 'Design', category: 'Publication' },
-            { src: 'assets/images/gallery/Design/_Design.jpg', alt: 'Design', category: 'Branding' }
+            { src: 'assets/images/gallery/Design/Melissa_Taylor_Long.jpg', alt: 'Black-and-white fashion editorial filmstrip for Melissa Taylor', category: 'Editorial' },
+            { src: 'assets/images/gallery/Design/Fusebox_Salon_1.jpg', alt: 'Fusebox Salon Series poster for Geoff Soebelle', category: 'Event' },
+            { src: 'assets/images/gallery/Design/Insta_Zine_2.jpg', alt: 'Essentials Creative emblem — orchid cradling cupped hands around an eye', category: 'Identity' },
+            { src: 'assets/images/gallery/Design/EssentialsCreative_Rhizomatic_Typeface.jpg', alt: '"RHIZOMATIC" set in a custom 3D botanical display type', category: 'Typography' }
         ];
         console.log('Using fallback designs');
         renderEditorial('design-gallery', fallbackDesigns);
