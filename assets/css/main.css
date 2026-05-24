@@ -658,29 +658,6 @@ html.lenis, html.lenis body { height: auto; }
 }
 .split-head.in .split-word { transform: none; }
 
-/* Custom accent cursor (desktop / fine-pointer only; native cursor kept) */
-#ec-cursor {
-    position: fixed; top: 0; left: 0; z-index: 9998;
-    width: 34px; height: 34px;
-    border: 1.5px solid #fff; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    pointer-events: none; mix-blend-mode: difference;
-    transition: width .25s ease, height .25s ease, background-color .25s ease,
-                border-color .25s ease, opacity .2s ease;
-}
-#ec-cursor.hover { width: 54px; height: 54px; }
-#ec-cursor.labeled {
-    width: 76px; height: 76px; background: #fff; border-color: #fff;
-    mix-blend-mode: normal;
-}
-.ec-cursor-label {
-    opacity: 0; color: #1a1a1a; font-size: .72rem; font-weight: 600;
-    letter-spacing: .05em; text-transform: uppercase; transition: opacity .2s ease;
-}
-#ec-cursor.labeled .ec-cursor-label { opacity: 1; }
-#ec-cursor.hidden { opacity: 0; }
-@media (hover: none), (pointer: coarse) { #ec-cursor { display: none !important; } }
-
 /* Scroll progress bar */
 #ec-progress {
     position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 9999;
@@ -707,6 +684,6 @@ html.lenis, html.lenis body { height: auto; }
 
 @media (prefers-reduced-motion: reduce) {
     .split-head .split-word { transform: none; transition: none; }
-    #ec-cursor, #ec-progress { display: none !important; }
+    #ec-progress { display: none !important; }
     .ec-marquee__track { animation: none; transform: none; }
 }
