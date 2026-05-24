@@ -61,16 +61,30 @@
 }
 .ed-figure:hover .ed-frame img { transform: scale(1.03); }
 
-/* Scroll reveal */
+/* Scroll reveal — clip + scale + fade, choreographed via per-figure --reveal-delay */
 .reveal {
     opacity: 0;
-    transform: translateY(22px);
-    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(26px) scale(1.02);
+    clip-path: inset(8% 0 0 0);
+    transition:
+        opacity 0.85s ease var(--reveal-delay, 0s),
+        transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0s),
+        clip-path 0.85s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0s);
+    will-change: opacity, transform, clip-path;
 }
-.reveal.in { opacity: 1; transform: none; }
+.reveal.in {
+    opacity: 1;
+    transform: none;
+    clip-path: inset(0 0 0 0);
+}
 
 @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
+    .reveal {
+        opacity: 1;
+        transform: none;
+        clip-path: none;
+        transition: none;
+    }
     .ed-frame img { transition: none; }
     .ed-figure:hover .ed-frame img { transform: none; }
 }

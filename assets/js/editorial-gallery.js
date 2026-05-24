@@ -12,9 +12,10 @@
 (function () {
     'use strict';
 
-    function buildFigure(item) {
+    function buildFigure(item, delayMs) {
         const fig = document.createElement('figure');
         fig.className = 'ed-figure lightbox-trigger reveal';
+        if (delayMs) fig.style.setProperty('--reveal-delay', delayMs + 'ms');
 
         const frame = document.createElement('div');
         frame.className = 'ed-frame';
@@ -56,7 +57,8 @@
             const s = document.createElement('div');
             s.className = 'ed-block ed-pair';
             s.appendChild(buildFigure(valid[i++]));
-            if (i < valid.length) s.appendChild(buildFigure(valid[i++]));
+            // Second image in a pair trails the first for a choreographed reveal
+            if (i < valid.length) s.appendChild(buildFigure(valid[i++], 90));
             root.appendChild(s);
         };
 
