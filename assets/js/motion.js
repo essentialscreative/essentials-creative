@@ -119,48 +119,6 @@
         update();
     }
 
-    /* ---- 5. Custom accent cursor ----------------------------------------- */
-    function initCursor() {
-        if (reduce || !window.matchMedia) return;
-        if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-
-        $all('.ed-figure.lightbox-trigger, .home-tile').forEach(function (el) {
-            if (!el.hasAttribute('data-cursor')) el.setAttribute('data-cursor', 'View');
-        });
-
-        var ring = document.createElement('div');
-        ring.id = 'ec-cursor';
-        ring.setAttribute('aria-hidden', 'true');
-        ring.innerHTML = '<span class="ec-cursor-label"></span>';
-        document.body.appendChild(ring);
-        document.documentElement.classList.add('ec-cursor-on');
-
-        var label = ring.querySelector('.ec-cursor-label');
-        var tx = window.innerWidth / 2, ty = window.innerHeight / 2, x = tx, y = ty;
-
-        document.addEventListener('mousemove', function (e) {
-            tx = e.clientX; ty = e.clientY;
-            var hit = e.target.closest && e.target.closest('[data-cursor], a, button, .btn, .cta-btn');
-            if (hit) {
-                ring.classList.add('hover');
-                var lbl = hit.getAttribute && hit.getAttribute('data-cursor');
-                if (lbl) { ring.classList.add('labeled'); label.textContent = lbl; }
-                else { ring.classList.remove('labeled'); label.textContent = ''; }
-            } else {
-                ring.classList.remove('hover', 'labeled');
-                label.textContent = '';
-            }
-        }, { passive: true });
-        document.addEventListener('mouseleave', function () { ring.classList.add('hidden'); });
-        document.addEventListener('mouseenter', function () { ring.classList.remove('hidden'); });
-
-        (function follow() {
-            x += (tx - x) * 0.18; y += (ty - y) * 0.18;
-            ring.style.transform = 'translate3d(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px,0) translate(-50%,-50%)';
-            requestAnimationFrame(follow);
-        })();
-    }
-
     /* ---- 6. Stat count-ups ----------------------------------------------- */
     function initCounters() {
         var els = $all('.stat-number');
@@ -194,7 +152,6 @@
         initReveal();
         var lenis = initLenis();
         initScrollFx(lenis);
-        initCursor();
         initCounters();
     }
     if (document.readyState === 'loading') {
