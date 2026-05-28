@@ -7,9 +7,9 @@
  */
 
 .video-gallery-container {
-  max-width: 1280px;
+  max-width: 1080px; /* match editorial content width (--ed-full-max-w) */
   margin: 0 auto;
-  padding: clamp(3rem, 7vw, 6rem) clamp(1rem, 5vw, 4rem);
+  padding: clamp(2.75rem, 6vw, 6rem) clamp(1rem, 5vw, 4rem); /* match --ed-gap / --ed-pad */
 }
 
 /* Two-up rhythm; featured spans full width */
@@ -116,9 +116,13 @@
 /* "Women and their Work" — clean separation instead of a grey band */
 .women-their-work-section {
   background: transparent;
-  padding: clamp(3rem, 7vw, 6rem) 0 0;
-  margin-top: clamp(3rem, 7vw, 6rem);
+  padding: 0;
+  margin-top: clamp(2.75rem, 6vw, 6rem);
   border-top: 1px solid #ececec;
+}
+/* avoid doubling the top gap: section already provides the separation */
+.women-their-work-section .video-gallery-container {
+  padding-top: clamp(2.75rem, 6vw, 6rem);
 }
 
 /* Accessibility */
