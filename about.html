@@ -151,11 +151,14 @@ body { font-family: 'Apercu', -apple-system, BlinkMacSystemFont, sans-serif; lin
     color: #1a1a1a;
 }
 
+.hero-subtitle { white-space: nowrap; }
+
 @media (max-width: 768px) {
     .section { padding: 3rem 1rem; }
     .values-grid { grid-template-columns: 1fr; gap: 1.5rem; }
     .hero { height: 60vh; min-height: 400px; }
     .mission-statement { padding: 3rem 1rem; }
+    .hero-subtitle { white-space: normal; }
 }
 </style>
 </head>
@@ -227,7 +230,7 @@ body { font-family: 'Apercu', -apple-system, BlinkMacSystemFont, sans-serif; lin
     <div class="hero-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.08) 40%, rgba(0,0,0,0.25) 100%); z-index: 1;"></div>
     <div class="hero-content" style="position: relative; z-index: 2; text-align: center; color: white; max-width: 800px; padding: 2rem;">
         <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 0.5rem;">About Essentials Creative</h1>
-        <p style="font-size: clamp(1.1rem, 2vw, 1.4rem); color: rgba(255,255,255,0.95); text-shadow: 1px 1px 3px rgba(0,0,0,0.55);">Site-responsive multimedia studio across Austin, San Antonio, and London</p>
+        <p class="hero-subtitle" style="font-size: clamp(1.1rem, 2vw, 1.4rem); color: rgba(255,255,255,0.95); text-shadow: 1px 1px 3px rgba(0,0,0,0.55);">Site-responsive multimedia studio across Austin, San Antonio, and London</p>
     </div>
 </section>
 
