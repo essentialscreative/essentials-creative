@@ -32,6 +32,15 @@
 
 <!-- Preload Critical Font -->
 <link rel="preload" href="assets/fonts/apercu/apercu_regular_pro.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+.gallery-subnav{position:sticky;top:75px;z-index:30;background:rgba(255,255,255,.95);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:flex;gap:1.6rem;justify-content:center;flex-wrap:wrap;padding:.9rem 1rem;border-bottom:1px solid #e5e5e5;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase}
+.gallery-subnav a{color:#666;text-decoration:none;transition:.2s}
+.gallery-subnav a:hover{color:#1a1a1a}
+.gallery-genre{scroll-margin-top:140px;padding-top:1rem}
+.gallery-subhead{font-size:1.1rem;text-transform:uppercase;letter-spacing:.05em;color:#666;max-width:1400px;margin:2.5rem auto 1.2rem;padding:0 2rem}
+.gallery-more{text-align:center;margin:1.6rem 0 0}
+.gallery-more a{color:#1a1a1a;text-decoration:none;border-bottom:1px solid #1a1a1a;font-size:.9rem;letter-spacing:.02em}
+</style>
 </head>
 <body>
 <div class="skip-links skip-links--bar">
@@ -150,69 +159,80 @@
   </a>
 </section>
 
-<!-- Gallery (editorial layout) -->
-<section class="editorial" id="photography-gallery" aria-label="Photography gallery"></section>
+<!-- Gallery — by genre -->
+<nav class="gallery-subnav" aria-label="Gallery sections">
+  <a href="#cat-editorial">Editorial</a><a href="#cat-collage">Collage</a><a href="#cat-stilllife">Still Life</a><a href="#cat-architecture">Architecture</a>
+</nav>
+<section class="gallery-genre" id="cat-editorial"><h2 class="gallery-subhead">Editorial &amp; Portraiture</h2><div class="editorial" id="g-editorial"></div></section>
+<section class="gallery-genre" id="cat-collage"><h2 class="gallery-subhead">Collage</h2><div class="editorial" id="g-collage"></div></section>
+<section class="gallery-genre" id="cat-stilllife"><h2 class="gallery-subhead">Still Life &amp; Botanical</h2><div class="editorial" id="g-stilllife"></div></section>
+<section class="gallery-genre" id="cat-architecture"><h2 class="gallery-subhead">Architecture</h2><div class="editorial" id="g-architecture"></div><p class="gallery-more"><a href="/macc">View the full MACC project &rarr;</a></p></section>
 
 <script>
 const allPhotos = [
-    { src: '/macc/images/014_Canopy_3A8A0589.jpg', alt: 'The MACC\'s floating canopy — a radial lattice of louvers casting striped light across the plaza' },
-    { src: '/macc/images/030_Facade_3A8A0556.jpg', alt: 'Cast-stone facade and angled fins of the Emma S. Barrientos Mexican American Cultural Center' },
-    { src: '/macc/images/058_Interior_EK2A9145.jpg', alt: 'Daylit dance studio with wood floor and ballet barre at the MACC' },
-    { src: '/macc/images/085_Interior_EK2A9216.jpg', alt: 'Community teaching kitchen with cafe seating at the MACC' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Cashmere_Collage.jpg', alt: 'Portrait collage in lavender and violet — a model in multiple poses amid iridescent blobs and botanical forms' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Chie_Collage.jpg', alt: 'Underwater-themed portrait collage in blue — a model amid jellyfish, coral, plumeria and tropical fish' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Megan_Collage.jpg', alt: 'Crimson portrait collage — a model in black latex surrounded by orchids, doves and red botanical forms' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Floral_Macro.jpg', alt: 'Moody floral macro — pale primroses glowing against deep green and black' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Botanical_Macro_Blue.jpg', alt: 'Abstract botanical macro in electric blue and magenta' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_ChulitaVinylClub.jpg', alt: 'Vibrant collage of Chulita Vinyl Club members posing with vinyl records among cut-out botanical shapes' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Cosmic_Portrait.jpg', alt: 'Red-lit studio portrait of a model in a metallic collar against a cosmic starfield' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Sky_Collage.jpg', alt: 'Dreamlike sky-blue collage — pale figures in flowing garments among pearls and ribbons against clouds' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_16.jpg', alt: 'Melissa Taylor editorial — a figure in a black gown flanked by white ribbon and anthurium studies' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_3.jpg', alt: 'Editorial fashion portrait — a model in a blue lace and organza dress on a white-tiled floor in an opulent room' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Cacti_Red.jpg', alt: 'Red-lit still life of cacti and succulents silhouetted against a saturated red ground' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Floral_Garden_Collage.jpg', alt: 'Floral garden collage — figures in white and red gowns among roses, irises and butterflies' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_18.jpg', alt: 'Black-and-white editorial triptych — tangled organic forms, a model in a cropped blazer and thigh-high boots, and shadowed amaryllis' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_22.jpg', alt: 'Editorial diptych — a red peony study beside a model in a magenta tinsel top holding the bloom' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_23.jpg', alt: "Editorial diptych — a dried-flower still life and a model reflected in a round hand-held mirror" },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_11.jpg', alt: 'Psychedelic collage — a luminous central figure within a green halo of light strings, surrounded by flowers and clouds' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_15.jpg', alt: 'Two dancers in black silhouette leaping against a graduated gray backdrop' },
-    { src: 'assets/images/gallery/Photography/Art_of_Looking.jpg', alt: 'Black-and-white fashion editorial grid shot against brutalist modernist architecture' },
-    { src: 'assets/images/gallery/Photography/Manik_Portrait.jpg', alt: 'Motion-blur double-exposure portrait of a man lit in red and teal' },
-    { src: 'assets/images/gallery/Photography/Jordan_1.jpg', alt: 'Portrait of a woman with an afro, her face draped in black satin, framed by vivid purple and green orchids' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Thistle_StillLife.jpg', alt: 'Blue-lit still life of spiky thistles, sea holly and beaded botanical textures' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_19.jpg', alt: 'Editorial diptych — a model in a mint tulle dress and a single rose in a glass vase against bold color blocks' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_21.jpg', alt: "Overhead still life — a model's reflection in a round mirror with halved pomegranate and grapes on pink satin" },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_9.jpg', alt: 'Neon psychedelic collage — a cyan dancing figure framed by purple ripples, birds and a lotus' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_10.jpg', alt: 'Vivid psychedelic collage — a central portrait haloed by a rainbow sunburst amid anthuriums and orchids' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Dessert_StillLife.jpg', alt: 'Neon-lit still life of molded gelatin desserts garnished with flowers on satin' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Cockscomb_StillLife.jpg', alt: 'Biochromatic still life — a ruffled cockscomb bloom lit in electric blue and orange on black' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_13.jpg', alt: 'Black-and-white collage — a model among oversized orchids framed by hands, flora and Essentials Creative motifs' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_14.jpg', alt: "Sky-blue collage — a figure in a gold suit levitating amid birds, roses and 'ESSENTIALS' lettering" },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Josue_Red.jpg', alt: 'Studio portrait of a model dressed in black against a vivid red background' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Bambi.jpg', alt: 'Bambi editorial — adorned model with chains and headpiece, typographic overlay' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Biochromatic_1.jpg', alt: 'Biochromatic collage with vivid orchids, crystals and a tarantula' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Biochromatic_2.jpg', alt: 'Biochromatic collage with orchids, a snake and botanicals on a geometric grid' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_BlueGirl.jpg', alt: 'Model in a feathered coat lit in cool blue tones' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_DelHacienda.jpg', alt: 'Model in a patterned suit with a jeweled face mask' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_CyberGirl.jpg', alt: 'Portrait of a model with rainbow fringe, lavender hair and a buckle choker' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_IAm_1.jpg', alt: 'I AM POP editorial — adorned model in chains and fur with typographic overlay' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_IAm_2.jpg', alt: 'I AM POP black-and-white editorial portrait draped in chains' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_IAm_3.jpg', alt: 'I AM editorial — teal portrait with graphic shape overlay' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_IAm_4.jpg', alt: 'I AM editorial — high-contrast black-and-white portrait with mask and graphic shapes' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_IAm_5.jpg', alt: 'I AM editorial — circuit-board adornment under tulle with neon graphic overlay' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_IAm_6.jpg', alt: 'I AM editorial — red-lit figure with fishnet hood and graphic overlay' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_IAm_7.jpg', alt: 'I AM editorial — black-and-white figure in a strap harness and leather mask' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Biochromatic_Luminaria.jpg', alt: 'Luminaria banner — black-and-white figure with flowers, a wasp and an all-seeing eye' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Flora_1.jpg', alt: 'Saturated botanical macro abstraction in electric blues, magentas and chartreuse' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Flora_2.jpg', alt: 'Botanical macro abstraction with luminous petals and rippled texture' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Flora_3.jpg', alt: 'Botanical macro abstraction in vivid jewel tones' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Editorial_Mask_1.jpg', alt: 'Portrait of a face wrapped in floral tapestry fabric pinned with safety pins, mouth open' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Editorial_Mask_2.jpg', alt: 'Full-face floral tapestry mask pinned with safety pins on a bare-shouldered figure' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Editorial_Dance.jpg', alt: 'Black-and-white collage of costumed dancers arrayed against black' },
-    { src: 'assets/images/gallery/Photography/EssentialsCreative_Editorial_Coral.jpg', alt: 'Figure in purple satin amid vivid red and orange coral-like botanical forms' }
+    { src: '/macc/images/003_Aerial_DJI_0007.jpg', alt: "Aerial view of the Emma S. Barrientos MACC and its elliptical louvered canopy", cat: 'Architecture' },
+    { src: '/macc/images/004_Aerial_DJI_0013.jpg', alt: "Aerial view of the MACC plaza and the canopy's striped shadow pattern", cat: 'Architecture' },
+    { src: '/macc/images/010_Aerial_DJI_0012.jpg', alt: "Aerial view of the MACC's cast-stone form against the downtown Austin skyline", cat: 'Architecture' },
+    { src: '/macc/images/019_Canopy_3A8A0584.jpg', alt: "The MACC's curved colonnade of cast-stone fins beneath the floating canopy", cat: 'Architecture' },
+    { src: '/macc/images/050_Site_3A8A0536.jpg', alt: "Front elevation of the Emma S. Barrientos MACC against the Austin skyline", cat: 'Architecture' },
+    { src: '/macc/images/051_Site_3A8A0553.jpg', alt: "The MACC's modernist elevation and cast-stone facade against the skyline", cat: 'Architecture' },
+    { src: '/macc/images/014_Canopy_3A8A0589.jpg', alt: "The MACC's floating canopy — radial louvers casting striped light", cat: 'Architecture' },
+    { src: '/macc/images/058_Interior_EK2A9145.jpg', alt: "Daylit dance studio with wood floor and ballet barre at the MACC", cat: 'Architecture' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Cashmere_Collage.jpg', alt: 'Portrait collage in lavender and violet — a model in multiple poses amid iridescent blobs and botanical forms' , cat: 'Collage' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Chie_Collage.jpg', alt: 'Underwater-themed portrait collage in blue — a model amid jellyfish, coral, plumeria and tropical fish' , cat: 'Collage' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Megan_Collage.jpg', alt: 'Crimson portrait collage — a model in black latex surrounded by orchids, doves and red botanical forms' , cat: 'Collage' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Floral_Macro.jpg', alt: 'Moody floral macro — pale primroses glowing against deep green and black' , cat: 'Still Life' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Botanical_Macro_Blue.jpg', alt: 'Abstract botanical macro in electric blue and magenta' , cat: 'Still Life' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_ChulitaVinylClub.jpg', alt: 'Vibrant collage of Chulita Vinyl Club members posing with vinyl records among cut-out botanical shapes' , cat: 'Collage' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Cosmic_Portrait.jpg', alt: 'Red-lit studio portrait of a model in a metallic collar against a cosmic starfield' , cat: 'Editorial' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Sky_Collage.jpg', alt: 'Dreamlike sky-blue collage — pale figures in flowing garments among pearls and ribbons against clouds' , cat: 'Collage' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_16.jpg', alt: 'Melissa Taylor editorial — a figure in a black gown flanked by white ribbon and anthurium studies' , cat: 'Editorial' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_3.jpg', alt: 'Editorial fashion portrait — a model in a blue lace and organza dress on a white-tiled floor in an opulent room' , cat: 'Editorial' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Cacti_Red.jpg', alt: 'Red-lit still life of cacti and succulents silhouetted against a saturated red ground' , cat: 'Still Life' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Floral_Garden_Collage.jpg', alt: 'Floral garden collage — figures in white and red gowns among roses, irises and butterflies' , cat: 'Collage' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_18.jpg', alt: 'Black-and-white editorial triptych — tangled organic forms, a model in a cropped blazer and thigh-high boots, and shadowed amaryllis' , cat: 'Editorial' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_22.jpg', alt: 'Editorial diptych — a red peony study beside a model in a magenta tinsel top holding the bloom' , cat: 'Editorial' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_23.jpg', alt: "Editorial diptych — a dried-flower still life and a model reflected in a round hand-held mirror" , cat: 'Editorial' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_11.jpg', alt: 'Psychedelic collage — a luminous central figure within a green halo of light strings, surrounded by flowers and clouds' , cat: 'Collage' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_15.jpg', alt: 'Two dancers in black silhouette leaping against a graduated gray backdrop' , cat: 'Editorial' },
+    { src: 'assets/images/gallery/Photography/Art_of_Looking.jpg', alt: 'Black-and-white fashion editorial grid shot against brutalist modernist architecture' , cat: 'Editorial' },
+    { src: 'assets/images/gallery/Photography/Manik_Portrait.jpg', alt: 'Motion-blur double-exposure portrait of a man lit in red and teal' , cat: 'Editorial' },
+    { src: 'assets/images/gallery/Photography/Jordan_1.jpg', alt: 'Portrait of a woman with an afro, her face draped in black satin, framed by vivid purple and green orchids' , cat: 'Editorial' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Thistle_StillLife.jpg', alt: 'Blue-lit still life of spiky thistles, sea holly and beaded botanical textures' , cat: 'Still Life' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_19.jpg', alt: 'Editorial diptych — a model in a mint tulle dress and a single rose in a glass vase against bold color blocks' , cat: 'Editorial' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_21.jpg', alt: "Overhead still life — a model's reflection in a round mirror with halved pomegranate and grapes on pink satin" , cat: 'Still Life' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_9.jpg', alt: 'Neon psychedelic collage — a cyan dancing figure framed by purple ripples, birds and a lotus' , cat: 'Collage' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_10.jpg', alt: 'Vivid psychedelic collage — a central portrait haloed by a rainbow sunburst amid anthuriums and orchids' , cat: 'Collage' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Dessert_StillLife.jpg', alt: 'Neon-lit still life of molded gelatin desserts garnished with flowers on satin' , cat: 'Still Life' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Cockscomb_StillLife.jpg', alt: 'Biochromatic still life — a ruffled cockscomb bloom lit in electric blue and orange on black' , cat: 'Still Life' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_13.jpg', alt: 'Black-and-white collage — a model among oversized orchids framed by hands, flora and Essentials Creative motifs' , cat: 'Collage' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Photography_14.jpg', alt: "Sky-blue collage — a figure in a gold suit levitating amid birds, roses and 'ESSENTIALS' lettering" , cat: 'Collage' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Josue_Red.jpg', alt: 'Studio portrait of a model dressed in black against a vivid red background' , cat: 'Editorial' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Bambi.jpg', alt: 'Bambi editorial — adorned model with chains and headpiece, typographic overlay' , cat: 'Editorial' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Biochromatic_1.jpg', alt: 'Biochromatic collage with vivid orchids, crystals and a tarantula' , cat: 'Collage' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Biochromatic_2.jpg', alt: 'Biochromatic collage with orchids, a snake and botanicals on a geometric grid' , cat: 'Collage' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_BlueGirl.jpg', alt: 'Model in a feathered coat lit in cool blue tones' , cat: 'Editorial' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_DelHacienda.jpg', alt: 'Model in a patterned suit with a jeweled face mask' , cat: 'Editorial' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_CyberGirl.jpg', alt: 'Portrait of a model with rainbow fringe, lavender hair and a buckle choker' , cat: 'Editorial' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_IAm_1.jpg', alt: 'I AM POP editorial — adorned model in chains and fur with typographic overlay' , cat: 'Editorial' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_IAm_2.jpg', alt: 'I AM POP black-and-white editorial portrait draped in chains' , cat: 'Editorial' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_IAm_3.jpg', alt: 'I AM editorial — teal portrait with graphic shape overlay' , cat: 'Editorial' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_IAm_4.jpg', alt: 'I AM editorial — high-contrast black-and-white portrait with mask and graphic shapes' , cat: 'Editorial' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_IAm_5.jpg', alt: 'I AM editorial — circuit-board adornment under tulle with neon graphic overlay' , cat: 'Editorial' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_IAm_6.jpg', alt: 'I AM editorial — red-lit figure with fishnet hood and graphic overlay' , cat: 'Editorial' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_IAm_7.jpg', alt: 'I AM editorial — black-and-white figure in a strap harness and leather mask' , cat: 'Editorial' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Biochromatic_Luminaria.jpg', alt: 'Luminaria banner — black-and-white figure with flowers, a wasp and an all-seeing eye' , cat: 'Collage' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Flora_1.jpg', alt: 'Saturated botanical macro abstraction in electric blues, magentas and chartreuse' , cat: 'Still Life' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Flora_2.jpg', alt: 'Botanical macro abstraction with luminous petals and rippled texture' , cat: 'Still Life' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Flora_3.jpg', alt: 'Botanical macro abstraction in vivid jewel tones' , cat: 'Still Life' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Editorial_Mask_1.jpg', alt: 'Portrait of a face wrapped in floral tapestry fabric pinned with safety pins, mouth open' , cat: 'Editorial' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Editorial_Mask_2.jpg', alt: 'Full-face floral tapestry mask pinned with safety pins on a bare-shouldered figure' , cat: 'Editorial' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Editorial_Dance.jpg', alt: 'Black-and-white collage of costumed dancers arrayed against black' , cat: 'Collage' },
+    { src: 'assets/images/gallery/Photography/EssentialsCreative_Editorial_Coral.jpg', alt: 'Figure in purple satin amid vivid red and orange coral-like botanical forms' , cat: 'Editorial' }
 ];
 
-document.addEventListener('DOMContentLoaded', () => renderEditorial('photography-gallery', allPhotos));
+const GENRES = [['Editorial','g-editorial'],['Collage','g-collage'],['Still Life','g-stilllife'],['Architecture','g-architecture']];
+document.addEventListener('DOMContentLoaded', () => GENRES.forEach(([c,id]) => renderEditorial(id, allPhotos.filter(p => p.cat === c))));
 </script>
 
 <section style="background: image-set(url('assets/images/gallery/Photography/EssentialsCreative_Thistle_StillLife.webp') type('image/webp'), url('assets/images/gallery/Photography/EssentialsCreative_Thistle_StillLife.jpg') type('image/jpeg')) center center / cover no-repeat; color: white; text-align: center; padding: 3rem 1.5rem; position: relative; margin: 3rem 0;">
