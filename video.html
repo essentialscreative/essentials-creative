@@ -23,14 +23,14 @@
 <link href="assets/css/video-gallery.css?v=2" rel="stylesheet"/>
 <link rel="canonical" href="https://essentialscreative.com/video"/>
 
-<meta property="og:image" content="https://essentialscreative.com/assets/images/gallery/Photography/red%20cactus.jpg">
-<meta property="og:image:alt" content="Video work by Essentials Creative">
+<meta property="og:image" content="https://essentialscreative.com/macc/film/poster.jpg">
+<meta property="og:image:alt" content="Emma S. Barrientos Mexican American Cultural Center — film by Essentials Creative">
 <!-- Twitter Card Meta Tags -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Video — Documentary, Artist Interviews & Video Art | Essentials Creative">
 <meta name="twitter:description" content="Artwork & exhibition films, artist interview series, and cultural event coverage — plus selected work.">
-<meta name="twitter:image" content="https://essentialscreative.com/assets/images/gallery/Photography/red%20cactus.jpg">
-<meta name="twitter:image:alt" content="Video work by Essentials Creative">
+<meta name="twitter:image" content="https://essentialscreative.com/macc/film/poster.jpg">
+<meta name="twitter:image:alt" content="Emma S. Barrientos Mexican American Cultural Center — film by Essentials Creative">
 <!-- Favicon -->
 <link href="assets/images/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="assets/images/favicon.png" rel="apple-touch-icon" sizes="180x180"/>
@@ -58,10 +58,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* static poster fallback (mobile / reduced-motion / while iframe loads) */
-    background-image: image-set(
-        url('assets/images/gallery/Photography/red%20cactus.webp') type('image/webp'),
-        url('assets/images/gallery/Photography/red%20cactus.jpg') type('image/jpeg'));
+    /* static poster fallback (mobile / reduced-motion / while iframe loads) —
+       first frame of the MACC film, so the video fades in without a visual jump */
+    background-image: url('macc/film/poster.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -220,7 +219,7 @@
      https://player.vimeo.com/video/1045893767?background=1  -->
 <section class="video-hero">
     <div class="video-hero__bg" aria-hidden="true">
-        <iframe title="Emma S. Barrientos Mexican American Cultural Center — ambient background film" src="https://player.vimeo.com/video/1197232206?background=1" allow="autoplay; fullscreen" loading="lazy" tabindex="-1"></iframe>
+        <iframe title="Emma S. Barrientos Mexican American Cultural Center — ambient background film" src="https://player.vimeo.com/video/1197232206?background=1&quality=1080p&dnt=1" allow="autoplay; fullscreen" loading="lazy" tabindex="-1"></iframe>
     </div>
     <div class="video-hero__overlay"></div>
     <div class="hero-content">
