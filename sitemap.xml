@@ -66,6 +66,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://essentialscreative.com/macc/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://essentialscreative.com/yanaguana.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
