@@ -175,6 +175,46 @@
   to = "/node.html"
   status = 301
 
+[[redirects]]
+  from = "/yanaguana"
+  to = "/yanaguana.html"
+  status = 301
+
+[[redirects]]
+  from = "/yanaguana-garden"
+  to = "/yanaguana.html"
+  status = 301
+
+[[redirects]]
+  from = "/native-waters"
+  to = "/native-waters.html"
+  status = 301
+
+[[redirects]]
+  from = "/biochromatic"
+  to = "/biochromatic.html"
+  status = 301
+
+[[redirects]]
+  from = "/love-letter-to-austin"
+  to = "/love-letter-to-austin.html"
+  status = 301
+
+[[redirects]]
+  from = "/interwoven-throughout-eternity"
+  to = "/interwoven-throughout-eternity.html"
+  status = 301
+
+[[redirects]]
+  from = "/data-back"
+  to = "/data-back.html"
+  status = 301
+
+[[redirects]]
+  from = "/data-back/*"
+  to = "/data-back.html"
+  status = 301
+
 # Image optimization headers
 [[headers]]
   for = "/assets/images/*"
