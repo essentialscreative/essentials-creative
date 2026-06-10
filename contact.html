@@ -598,20 +598,15 @@ body { font-family: 'Apercu', -apple-system, BlinkMacSystemFont, sans-serif; lin
 <section class="section">
 <div class="contact-form">
 <h2 style="text-align: center; margin-bottom: 1.5rem; color: #1a1a1a; font-size: 2rem;">Get in Touch</h2>
-<p style="text-align: center; color: #666; margin-bottom: 2rem; line-height: 1.6; font-size: 1.1rem;">
+<p style="text-align: center; color: #666; margin-bottom: 1rem; line-height: 1.6; font-size: 1.1rem;">
 Ready to work together? Tell us about your project.
 </p>
-
-<!-- Form Messages -->
-<div class="success-message" id="successMessage">
-Thank you! We'll be in touch soon.
-</div>
-<div class="error-message" id="errorMessage">
-Please try again or email us at essentialscreative@gmail.com.
-</div>
+<p style="text-align: center; margin-bottom: 2rem;">
+<span style="display: inline-block; padding: 0.4rem 1rem; background: #eef6ef; color: #2c5f2d; border-radius: 50px; font-size: 0.95rem; font-weight: 600;">Currently booking 2026 commissions</span>
+</p>
 
 <!-- Contact Form -->
-<form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+<form id="contact-form" name="contact" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="bot-field">
 <!-- Honeypot field for spam protection (hidden) -->
 <input type="hidden" name="bot-field" />
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
@@ -655,7 +650,6 @@ Please try again or email us at essentialscreative@gmail.com.
 </div>
 
 <input type="hidden" name="_subject" value="New Contact Form Submission"/>
-<input type="hidden" name="_next" value="https://essentialscreative.com/contact.html?success=true"/>
 
 <button type="submit" class="btn-submit">Send Message</button>
 <p style="margin-top: 1rem; font-size: 0.95rem; color: #666; line-height: 1.5;">
@@ -762,42 +756,6 @@ Locations
 <!-- JavaScript -->
 <script src="assets/js/navigation.js?v=4.4" defer></script><script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js" defer></script><script src="assets/js/motion.js?v=3" defer></script>
 <script src="assets/js/unified-gallery-lightbox.js?v=3" defer></script>
-
-<script>
-// Contact Form Enhancement
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('contactForm');
-    const successMessage = document.getElementById('successMessage');
-    const errorMessage = document.getElementById('errorMessage');
-
-    // Check for success parameter in URL (Formspree redirect)
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('success') === 'true') {
-        successMessage.style.display = 'block';
-        if (form) form.style.display = 'none';
-        window.history.replaceState({}, '', window.location.pathname);
-    }
-
-    // Form submission handling
-    form.addEventListener('submit', function(e) {
-        // Hide any existing messages
-        successMessage.style.display = 'none';
-        errorMessage.style.display = 'none';
-        
-        // Change button text during submission
-        const submitBtn = form.querySelector('.btn-submit');
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
-        
-        // Reset button after a short delay (form will redirect)
-        setTimeout(() => {
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-        }, 3000);
-    });
-});
-</script>
 
 <!-- Enhanced Contact Form Handler -->
 <script src="assets/js/contact-form.js" defer></script>

@@ -138,9 +138,9 @@
         await submitToFunction(formData);
       }
 
-      // Success
-      showStatus('Thank you! Your message has been sent successfully.', 'success');
-      form.reset();
+      // Success — hand off to the thank-you page (matches the form's no-JS action)
+      window.location.href = '/thanks.html';
+      return;
       
       // Track submission (if analytics enabled)
       if (typeof gtag !== 'undefined') {
