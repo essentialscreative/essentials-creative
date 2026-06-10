@@ -43,16 +43,32 @@
         .nav-link {color: #1a1a1a; text-decoration: none; font-weight: 500; transition: opacity 0.3s;}
         .nav-link:hover {opacity: 0.7;}
         
-        /* Hero Section */
-        .project-hero {min-height: 60vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);}
-        .project-hero h1 {font-size: clamp(2.5rem, 5vw, 4rem); color: white; text-align: center; text-shadow: 2px 2px 20px rgba(0,0,0,0.3);}
-        
-        /* Project Info */
-        .project-info {padding: 4rem 0; background: #f8f8f8;}
-        .project-description {max-width: 800px; margin: 0 auto; text-align: center;}
-        .project-description h2 {font-size: 2rem; margin-bottom: 1.5rem; color: #1a1a1a;}
-        .project-description p {font-size: 1.125rem; line-height: 1.8; color: #555; margin-bottom: 1.5rem;}
-        
+        /* Enhanced Hero Section */
+        .project-hero {min-height: 70vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: #0a0a0a;}
+        .hero-background {position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: image-set(url('assets/images/gallery/Projects/Yanaguana/yanaguana-archway-night.webp') type('image/webp'), url('assets/images/gallery/Projects/Yanaguana/yanaguana-archway-night.jpg') type('image/jpeg'));
+            background-size: cover; background-position: center; background-repeat: no-repeat;}
+        .hero-background::after {content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.7) 100%);}
+        .hero-content {text-align: center; color: white; z-index: 2; position: relative; max-width: 800px; padding: 2rem;}
+        .project-subtitle {font-size: 1.2rem; margin-bottom: 1rem; opacity: 0.9; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;}
+        .project-title {font-size: 4rem; font-weight: 700; margin-bottom: 1.5rem; letter-spacing: -0.02em; text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);}
+        .hero-content .project-description {font-size: 1.2rem; line-height: 1.6; opacity: 0.95; max-width: 600px; margin: 0 auto; color: white;}
+
+        /* Project Overview */
+        .project-overview {padding: 6rem 0; background: #f8f8f8;}
+        .overview-grid {display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start;}
+        .overview-content h2 {font-size: 2.5rem; margin-bottom: 2rem; color: #1a1a1a;}
+        .overview-description {font-size: 1.2rem; line-height: 1.8; color: #444; margin-bottom: 2rem;}
+        .overview-highlights {list-style: none; margin-bottom: 0;}
+        .overview-highlights li {font-size: 1.1rem; margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; color: #333;}
+        .overview-highlights li::before {content: '→'; position: absolute; left: 0; color: #666; font-weight: 600;}
+        .overview-sidebar {background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08); position: sticky; top: 2rem;}
+        .sidebar-section {margin-bottom: 2rem;}
+        .sidebar-section:last-child {margin-bottom: 0;}
+        .sidebar-label {font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #888; margin-bottom: 0.5rem;}
+        .sidebar-value {font-size: 1.1rem; color: #1a1a1a; font-weight: 500;}
+
         /* Gallery */
         .gallery-section {padding: 4rem 0; background: #f8f8f8;}
         .gallery-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;}
@@ -60,13 +76,6 @@
         .gallery-item:hover {transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0,0,0,0.15);}
         .gallery-item img {width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; display: block;}
         
-        /* Project Details */
-        .project-details {padding: 3rem 0; background: white;}
-        .details-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;}
-        .detail-item h3 {font-size: 1.25rem; margin-bottom: 0.5rem; color: #1a1a1a;}
-        .detail-item p {color: #666; line-height: 1.6;}
-        
-
         /* Call to Action */
         .cta-section {padding: 6rem 0; background: #1a1a1a; color: white; text-align: center;}
         .cta-content h2 {font-size: 2rem; margin-bottom: 1rem;}
@@ -80,7 +89,9 @@
         /* Mobile */
         @media (max-width: 768px) {
             .nav-links {flex-direction: column; gap: 1rem;}
-            .project-hero h1 {font-size: 2rem;}
+            .project-title {font-size: 2.5rem;}
+            .overview-grid {grid-template-columns: 1fr; gap: 2.5rem;}
+            .overview-sidebar {position: static;}
             .gallery-grid {grid-template-columns: 1fr;}
             
             /* Mobile Menu Fix - Ensure proper closing behavior */
@@ -195,106 +206,53 @@
 
     <main id="main-content">
     <!-- Hero Section -->
-    <section class="hero" style="
-        background: url('assets/images/gallery/Projects/Yanaguana/yanaguana-archway-night.jpg') center center / cover no-repeat;
-        background-color: #1a1a1a;
-        position: relative;
-        height: 60vh;
-        min-height: 500px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    ">
-        <div style="
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.5) 100%);
-            z-index: 1;
-        "></div>
-        <div style="
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse at center, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 70%);
-            z-index: 2;
-        "></div>
-        <div class="hero-content" style="
-            position: relative;
-            z-index: 3;
-            text-align: center;
-            color: white;
-            max-width: 800px;
-            padding: 0 2rem;
-        ">
-            <h1 style="
-                font-size: 4rem;
-                font-weight: 800;
-                margin-bottom: 1.5rem;
-                text-shadow: 6px 6px 30px rgba(0, 0, 0, 0.95), 3px 3px 15px rgba(0, 0, 0, 0.9), 1px 1px 5px rgba(0, 0, 0, 1);
-                line-height: 1.2;
-                letter-spacing: -0.02em;
-                color: #ffffff !important;
-                text-stroke: 1px rgba(0, 0, 0, 0.3);
-                -webkit-text-stroke: 1px rgba(0, 0, 0, 0.3);
-            ">
-                Yanaguana Garden
-            </h1>
-            <p style="
-                font-size: 1.5rem;
-                font-weight: 400;
-                text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.6);
-                line-height: 1.6;
-                max-width: 600px;
-                margin: 0 auto;
-            ">
-                Tapestry banners in the trees of Yanaguana Garden — land, its origins, and the people who shape it.
-            </p>
+    <section class="project-hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="project-subtitle">Tapestry Installation</div>
+            <h1 class="project-title">Yanaguana Garden</h1>
+            <p class="project-description">Tapestry banners in the trees of Yanaguana Garden — land, its origins, and the people who shape it.</p>
         </div>
     </section>
 
-    <!-- Project Information -->
-    <section class="project-info">
+    <!-- Project Overview -->
+    <section class="project-overview">
         <div class="container">
-            <div class="project-description">
-                <h2>Land, Origins, and People</h2>
-                <p>
-                    Yanaguana is the Indigenous Payaya word for the San Antonio River area. The project takes its name from that word: tapestry banners hung in the trees of Yanaguana Garden, about land, its origins, and the people who inhabit and shape it.
-                </p>
-                <p>
-                    The work is about belonging, displacement, and cultivation in the landscape — the histories the land carries.
-                </p>
-                <p>
-                    Shown at Luminaria San Antonio and at <a href="the-last-sky.html">The Last Sky — Texas Biennial 2024</a>, Blaffer Art Museum.
-                </p>
-            </div>
-        </div>
-    </section>
+            <div class="overview-grid">
+                <div class="overview-content">
+                    <h2>Land, Origins, and People</h2>
+                        <p class="overview-description">Yanaguana is the Indigenous Payaya word for the San Antonio River area. The project takes its name from that word: tapestry banners hung in the trees of Yanaguana Garden, about land, its origins, and the people who inhabit and shape it.</p>
+                        <p class="overview-description">The work is about belonging, displacement, and cultivation in the landscape — the histories the land carries.</p>
 
-    <!-- Project Details -->
-    <section class="project-details">
-        <div class="container">
-            <div class="details-grid">
-                <div class="detail-item">
-                    <h3>Exhibitions</h3>
-                    <p>Luminaria San Antonio<br>
-                    TX Biennial at Blaffer Museum, Houston</p>
+                    <ul class="overview-highlights">
+                            <li>The Land of Spirit Waters banner series — moon panther, sun bird, and spirit figures</li>
+                            <li>Hung in the trees above the festival archway at Yanaguana Garden, San Antonio</li>
+                            <li>Selected for <a href="the-last-sky.html">The Last Sky — Texas Biennial 2024</a> at Blaffer Art Museum</li>
+                            <li>Banners trail neon ribbons that move with the wind at night</li>
+                    </ul>
                 </div>
-                <div class="detail-item">
-                    <h3>Mediums</h3>
-                    <p>Tapestry Installation, Textile Art, Mixed Media, Site-Specific Installation</p>
-                </div>
-                <div class="detail-item">
-                    <h3>Themes</h3>
-                    <p>Land acknowledgment, Indigenous history, Place-based memory, Environmental connection</p>
-                </div>
-                <div class="detail-item">
-                    <h3>Year</h3>
-                    <p>2023-2024</p>
+
+                <div class="overview-sidebar">
+                        <div class="sidebar-section">
+                            <div class="sidebar-label">Medium</div>
+                            <div class="sidebar-value">Tapestry installation, textile art, mixed media</div>
+                        </div>
+                        <div class="sidebar-section">
+                            <div class="sidebar-label">Year</div>
+                            <div class="sidebar-value">2023&ndash;2024</div>
+                        </div>
+                        <div class="sidebar-section">
+                            <div class="sidebar-label">Location</div>
+                            <div class="sidebar-value">Yanaguana Garden, San Antonio, TX</div>
+                        </div>
+                        <div class="sidebar-section">
+                            <div class="sidebar-label">Exhibitions</div>
+                            <div class="sidebar-value">Luminaria San Antonio &middot; Texas Biennial 2024, Blaffer Art Museum</div>
+                        </div>
+                        <div class="sidebar-section">
+                            <div class="sidebar-label">Status</div>
+                            <div class="sidebar-value">Completed &middot; Available for exhibition</div>
+                        </div>
                 </div>
             </div>
         </div>
