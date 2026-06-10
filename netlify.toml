@@ -26,6 +26,11 @@
 
 # Pretty URLs: redirect path-only URLs to .html pages
 [[redirects]]
+  from = "/macc"
+  to = "/macc/"
+  status = 301
+
+[[redirects]]
   from = "/photography"
   to = "/photography.html"
   status = 301
