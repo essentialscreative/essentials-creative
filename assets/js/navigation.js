@@ -17,10 +17,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 hamburgerMenu.classList.add('active');
                 hamburgerToggle.classList.add('active');
                 hamburgerToggle.setAttribute('aria-expanded', 'true');
+                document.body.classList.add('menu-open');
             } else {
                 hamburgerMenu.classList.remove('active');
                 hamburgerToggle.classList.remove('active');
                 hamburgerToggle.setAttribute('aria-expanded', 'false');
+                document.body.classList.remove('menu-open');
+                // collapse accordion sections so the menu reopens compact
+                hamburgerMenu.querySelectorAll('.hamburger-section.open').forEach(function (sec) {
+                    sec.classList.remove('open');
+                    var t = sec.querySelector('.hamburger-section-title');
+                    if (t) t.setAttribute('aria-expanded', 'false');
+                });
             }
         }
 
@@ -48,6 +56,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 setMenuOpen(false);
                 hamburgerToggle.focus();
             }
+        });
+
+        // Accordion: tap a section title to expand/collapse its links
+        hamburgerMenu.querySelectorAll('.hamburger-section-title').forEach(function (title) {
+            title.setAttribute('role', 'button');
+            title.setAttribute('tabindex', '0');
+            title.setAttribute('aria-expanded', 'false');
+            function toggleSection() {
+                var sec = title.closest('.hamburger-section');
+                if (!sec) return;
+                var open = sec.classList.toggle('open');
+                title.setAttribute('aria-expanded', open ? 'true' : 'false');
+            }
+            title.addEventListener('click', function (e) {
+                e.stopPropagation();
+                toggleSection();
+            });
+            title.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleSection();
+                }
+            });
         });
     }
     
