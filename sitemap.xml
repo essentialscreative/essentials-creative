@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://essentialscreative.com/404.html</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
         <loc>https://essentialscreative.com/about.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -46,7 +41,7 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://essentialscreative.com/plant-story-cards-research.html</loc>
+        <loc>https://essentialscreative.com/node.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -62,16 +57,6 @@
     </url>
     <url>
         <loc>https://essentialscreative.com/rhizomatic.html</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://essentialscreative.com/search.html</loc>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://essentialscreative.com/standard-nav-template.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
