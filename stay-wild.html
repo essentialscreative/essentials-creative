@@ -28,6 +28,7 @@
     <link href="assets/css/main.css?v=4.4" rel="stylesheet"/>
     <link href="assets/css/design-system.css?v=2.0" rel="stylesheet"/>
     <link href="assets/css/mobile-optimization.css?v=1.0" rel="stylesheet"/>
+    <link href="assets/css/editorial.css?v=3" rel="stylesheet"/>
     <link href="assets/css/enhanced-lightbox.css?v=2" rel="stylesheet"/>
     
     <!-- Critical CSS -->
@@ -65,6 +66,17 @@
         .detail-item h3 {font-size: 1.25rem; margin-bottom: 0.5rem; color: #1a1a1a;}
         .detail-item p {color: #666; line-height: 1.6;}
         
+
+        /* Call to Action */
+        .cta-section {padding: 6rem 0; background: #1a1a1a; color: white; text-align: center;}
+        .cta-content h2 {font-size: 2rem; margin-bottom: 1rem;}
+        .cta-content p {color: rgba(255,255,255,0.8); font-size: 1.125rem; margin-bottom: 2rem;}
+        .cta-buttons {display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;}
+        .btn {display: inline-block; padding: 1rem 2rem; background: white; color: #1a1a1a; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; border: 2px solid white;}
+        .btn:hover {background: transparent; color: white;}
+        .btn-secondary {background: transparent; color: white; border: 2px solid rgba(255, 255, 255, 0.3);}
+        .btn-secondary:hover {background: #1a1a1a; color: white;}
+
         /* Mobile */
         @media (max-width: 768px) {
             .nav-links {flex-direction: column; gap: 1rem;}
@@ -314,6 +326,20 @@ const stay_wildGallery = [
 ];
 document.addEventListener('DOMContentLoaded', () => renderEditorial('stay-wild-gallery', stay_wildGallery));
 </script>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Work With Essentials Creative</h2>
+                <p>Available for commissions, exhibitions, and collaborations</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn">Get in Touch</a>
+                    <a href="projects.html" class="btn btn-secondary">All Projects</a>
+                </div>
+            </div>
         </div>
     </section>
 
