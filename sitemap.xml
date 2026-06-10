@@ -81,6 +81,21 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://essentialscreative.com/the-last-sky.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://essentialscreative.com/siloed.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://essentialscreative.com/stay-wild.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://essentialscreative.com/biochromatic.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
