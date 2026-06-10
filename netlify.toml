@@ -206,6 +206,21 @@
   status = 301
 
 [[redirects]]
+  from = "/the-last-sky"
+  to = "/the-last-sky.html"
+  status = 301
+
+[[redirects]]
+  from = "/siloed"
+  to = "/siloed.html"
+  status = 301
+
+[[redirects]]
+  from = "/stay-wild"
+  to = "/stay-wild.html"
+  status = 301
+
+[[redirects]]
   from = "/data-back"
   to = "/data-back.html"
   status = 301
