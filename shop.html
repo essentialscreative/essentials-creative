@@ -3,6 +3,17 @@
 <title>Shop — Essentials Creative</title>
 <meta name="description" content="Collect the Essentials Creative body of work — wearable tapestries, hoodies, totes, open-edition posters & wall tapestries, archival prints.">
 <link rel="icon" href="assets/images/favicon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shop — Essentials Creative">
+<meta property="og:description" content="Collect the work — wearable tapestries, prints, posters & original art from Essentials Creative.">
+<meta property="og:url" content="https://essentialscreative.com/shop.html">
+<meta property="og:image" content="https://essentialscreative.com/assets/images/Essentials-Creative_Logo.png">
+<meta property="og:image:alt" content="Essentials Creative logo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shop — Essentials Creative">
+<meta name="twitter:description" content="Collect the work — wearable tapestries, prints, posters & original art.">
+<meta name="twitter:image" content="https://essentialscreative.com/assets/images/Essentials-Creative_Logo.png">
+<link rel="canonical" href="https://essentialscreative.com/shop.html">
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="styles.css">
 <style>
@@ -21,6 +32,9 @@
 .ec-shop .chip.on{background:var(--ink);color:#fff}
 .ec-shop #search{font-family:inherit;font-size:13px;padding:8px 14px;border:1px solid var(--line);border-radius:40px;min-width:180px;outline:none}
 .ec-shop #search:focus{border-color:var(--ink)}
+.ec-shop .rescount{width:100%;text-align:center;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);padding-top:4px}
+.ec-shop .empty{max-width:1240px;margin:0 auto;padding:60px 36px 120px;text-align:center;color:var(--mut);font-size:1rem}
+.ec-shop .chip:focus-visible,.ec-shop .card:focus-visible{outline:2px solid var(--shu);outline-offset:3px;border-radius:4px}
 .ec-shop .grid{max-width:1240px;margin:0 auto;padding:30px 36px 96px;display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:42px 30px}
 .ec-shop .card{cursor:pointer}.ec-shop .card.hide{display:none}
 .ec-shop .im{position:relative;background:#f4f3f0;border-radius:3px;overflow:hidden;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;padding:14px;box-shadow:inset 0 0 0 1px var(--line)}
@@ -33,9 +47,10 @@
 .ec-shop .card h3{font-family:var(--disp);font-style:italic;font-size:1.3rem;margin:.16em 0 .14em;line-height:1.1;font-weight:700}
 .ec-shop .av{font-size:.72rem;color:var(--mut);margin-bottom:5px}
 .ec-shop .from{font-size:.86rem;font-weight:700}
-.ec-shop .lb{position:fixed;inset:0;background:rgba(18,16,14,.92);z-index:200;display:none;align-items:center;justify-content:center;padding:22px}
-.ec-shop .lb.on{display:flex}
-.ec-shop .lbx{max-width:1020px;width:100%;max-height:90vh;display:grid;grid-template-columns:1.25fr 1fr;background:#fff;border-radius:5px;overflow:hidden}
+.ec-shop .lb{position:fixed;inset:0;background:rgba(18,16,14,.92);z-index:200;display:flex;align-items:center;justify-content:center;padding:22px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s ease,visibility .2s}
+.ec-shop .lb.on{opacity:1;visibility:visible;pointer-events:auto}
+.ec-shop .lbx{max-width:1020px;width:100%;max-height:90vh;display:grid;grid-template-columns:1.25fr 1fr;background:#fff;border-radius:5px;overflow:hidden;transform:translateY(10px) scale(.99);transition:transform .22s ease}
+.ec-shop .lb.on .lbx{transform:none}
 @media(max-width:760px){.ec-shop .lbx{grid-template-columns:1fr;max-height:93vh;overflow:auto}}
 .ec-shop .pic{background:#f4f3f0;display:flex;align-items:center;justify-content:center;min-height:340px}
 .ec-shop .pic img{width:100%;height:100%;max-height:90vh;object-fit:contain}
@@ -67,172 +82,146 @@
 </div></header>
 <main class="ec-shop">
   <section class="hero">
-    <div class="eyebrow">Shop · 25 works · 89 products</div>
+    <div class="eyebrow">Shop · 20 works · 84 products</div>
     <h1>Collect the work</h1>
     <p class="lead">Each piece from the Essentials Creative body of work — available as wearable tapestries, hoodies, totes, open-edition posters &amp; wall tapestries, and archival prints. Original linen tapestries by inquiry.</p>
   </section>
-  <div class="filters"><div class="fwrap"><button class="chip on" data-s="all">All<i>25</i></button><button class="chip" data-s="Afterworld">Afterworld<i>6</i></button><button class="chip" data-s="Graphic">Graphic<i>3</i></button><button class="chip" data-s="Typography">Typography<i>3</i></button><button class="chip" data-s="Photography">Photography<i>8</i></button><button class="chip" data-s="Rhizomatic">Rhizomatic<i>5</i></button>
-    <input id="search" type="search" placeholder="Search title or tag…" autocomplete="off"></div></div>
+  <div class="filters"><div class="fwrap"><button class="chip on" data-s="all">All<i>20</i></button><button class="chip" data-s="Afterworld">Afterworld<i>6</i></button><button class="chip" data-s="Graphic">Graphic<i>4</i></button><button class="chip" data-s="Typography">Typography<i>2</i></button><button class="chip" data-s="Photography">Photography<i>8</i></button>
+    <input id="search" type="search" placeholder="Search title or tag…" autocomplete="off" aria-label="Search the shop">
+    <div class="rescount" id="rescount"></div></div></div>
   <section class="grid" id="grid">
-<figure class="card" data-series="Afterworld" data-idx="0" data-search="afterworld · zen garden afterworld ">
+<figure class="card" data-series="Afterworld" data-idx="0" data-search="afterworld · zen garden afterworld " tabindex="0" role="button" aria-label="Afterworld · Zen Garden — View and buy">
       <div class="im"><img loading="lazy" src="assets/images/shop/previews/afterworld-zen-garden.jpg" alt="Afterworld · Zen Garden"><span class="hov">View &amp; buy</span></div>
       <figcaption><div class="ct">Afterworld</div>
         <h3>Zen Garden</h3>
-        <div class="av">Hoodie, Poster, T-Shirt, Tote, Wall Tapestry</div><div class="from">from $30</div>
+        <div class="av">Digital print on fabric, Hoodie, Poster, T-Shirt, Tote</div><div class="from">from $30</div>
       </figcaption></figure>
-<figure class="card" data-series="Photography" data-idx="1" data-search="biochromatic luminaria photography ">
+<figure class="card" data-series="Photography" data-idx="1" data-search="biochromatic luminaria photography " tabindex="0" role="button" aria-label="Biochromatic Luminaria — View and buy">
       <div class="im"><img loading="lazy" src="assets/images/shop/previews/biochromatic-luminaria.jpg" alt="Biochromatic Luminaria"><span class="hov">View &amp; buy</span></div>
       <figcaption><div class="ct">Photography</div>
         <h3>Biochromatic Luminaria</h3>
         <div class="av">Archival Print, Poster, T-Shirt</div><div class="from">from $45</div>
       </figcaption></figure>
-<figure class="card" data-series="Graphic" data-idx="2" data-search="delhacienda editorial graphic ">
+<figure class="card" data-series="Graphic" data-idx="2" data-search="delhacienda editorial graphic " tabindex="0" role="button" aria-label="Delhacienda Editorial — View and buy">
       <div class="im"><img loading="lazy" src="assets/images/shop/previews/delhacienda-editorial.jpg" alt="Delhacienda Editorial"><span class="hov">View &amp; buy</span></div>
       <figcaption><div class="ct">Graphic</div>
         <h3>Delhacienda Editorial</h3>
         <div class="av">Hoodie, Poster, T-Shirt, Tote</div><div class="from">from $30</div>
       </figcaption></figure>
-<figure class="card" data-series="Photography" data-idx="3" data-search="cashmere collage photography ">
+<figure class="card" data-series="Photography" data-idx="3" data-search="cashmere collage photography " tabindex="0" role="button" aria-label="Cashmere Collage — View and buy">
       <div class="im"><img loading="lazy" src="assets/images/shop/previews/cashmere-collage.jpg" alt="Cashmere Collage"><span class="hov">View &amp; buy</span></div>
       <figcaption><div class="ct">Photography</div>
         <h3>Cashmere Collage</h3>
         <div class="av">Archival Print, Poster, T-Shirt</div><div class="from">from $45</div>
       </figcaption></figure>
-<figure class="card" data-series="Graphic" data-idx="4" data-search="monochrome collage graphic ">
+<figure class="card" data-series="Graphic" data-idx="4" data-search="monochrome collage graphic " tabindex="0" role="button" aria-label="Monochrome Collage — View and buy">
       <div class="im"><img loading="lazy" src="assets/images/shop/previews/monochrome-collage.jpg" alt="Monochrome Collage"><span class="hov">View &amp; buy</span></div>
       <figcaption><div class="ct">Graphic</div>
         <h3>Monochrome Collage</h3>
         <div class="av">Hoodie, Poster, T-Shirt, Tote</div><div class="from">from $30</div>
       </figcaption></figure>
-<figure class="card" data-series="Photography" data-idx="5" data-search="bambi photography ">
+<figure class="card" data-series="Photography" data-idx="5" data-search="bambi photography " tabindex="0" role="button" aria-label="Bambi — View and buy">
       <div class="im"><img loading="lazy" src="assets/images/shop/previews/bambi.jpg" alt="Bambi"><span class="hov">View &amp; buy</span></div>
       <figcaption><div class="ct">Photography</div>
         <h3>Bambi</h3>
         <div class="av">Archival Print, Poster, T-Shirt</div><div class="from">from $45</div>
       </figcaption></figure>
-<figure class="card" data-series="Photography" data-idx="6" data-search="chie collage photography ">
+<figure class="card" data-series="Photography" data-idx="6" data-search="chie collage photography " tabindex="0" role="button" aria-label="Chie Collage — View and buy">
       <div class="im"><img loading="lazy" src="assets/images/shop/previews/chie-collage.jpg" alt="Chie Collage"><span class="hov">View &amp; buy</span></div>
       <figcaption><div class="ct">Photography</div>
         <h3>Chie Collage</h3>
         <div class="av">Archival Print, Poster, T-Shirt</div><div class="from">from $45</div>
       </figcaption></figure>
-<figure class="card" data-series="Photography" data-idx="7" data-search="botanical macro blue photography ">
+<figure class="card" data-series="Photography" data-idx="7" data-search="botanical macro blue photography " tabindex="0" role="button" aria-label="Botanical Macro Blue — View and buy">
       <div class="im"><img loading="lazy" src="assets/images/shop/previews/botanical-macro-blue.jpg" alt="Botanical Macro Blue"><span class="hov">View &amp; buy</span></div>
       <figcaption><div class="ct">Photography</div>
         <h3>Botanical Macro Blue</h3>
         <div class="av">Archival Print, Poster, T-Shirt</div><div class="from">from $45</div>
       </figcaption></figure>
-<figure class="card" data-series="Graphic" data-idx="8" data-search="goddess collage graphic ">
+<figure class="card" data-series="Graphic" data-idx="8" data-search="goddess collage graphic " tabindex="0" role="button" aria-label="Goddess Collage — View and buy">
       <div class="im"><img loading="lazy" src="assets/images/shop/previews/goddess-collage.jpg" alt="Goddess Collage"><span class="hov">View &amp; buy</span></div>
       <figcaption><div class="ct">Graphic</div>
         <h3>Goddess Collage</h3>
         <div class="av">Hoodie, Poster, T-Shirt, Tote</div><div class="from">from $30</div>
       </figcaption></figure>
-<figure class="card" data-series="Photography" data-idx="9" data-search="cacti red photography ">
+<figure class="card" data-series="Photography" data-idx="9" data-search="cacti red photography " tabindex="0" role="button" aria-label="Cacti Red — View and buy">
       <div class="im"><img loading="lazy" src="assets/images/shop/previews/cacti-red.jpg" alt="Cacti Red"><span class="hov">View &amp; buy</span></div>
       <figcaption><div class="ct">Photography</div>
         <h3>Cacti Red</h3>
         <div class="av">Archival Print, Poster, T-Shirt</div><div class="from">from $45</div>
       </figcaption></figure>
-<figure class="card" data-series="Typography" data-idx="10" data-search="rhizomatic typeface typography ">
+<figure class="card" data-series="Typography" data-idx="10" data-search="rhizomatic typeface typography " tabindex="0" role="button" aria-label="Rhizomatic Typeface — View and buy">
       <div class="im"><img loading="lazy" src="assets/images/shop/previews/rhizomatic-typeface.jpg" alt="Rhizomatic Typeface"><span class="hov">View &amp; buy</span></div>
       <figcaption><div class="ct">Typography</div>
         <h3>Rhizomatic Typeface</h3>
         <div class="av">Hoodie, Poster, T-Shirt, Tote</div><div class="from">from $30</div>
       </figcaption></figure>
-<figure class="card" data-series="Photography" data-idx="11" data-search="biochromatic photography ">
+<figure class="card" data-series="Photography" data-idx="11" data-search="biochromatic photography " tabindex="0" role="button" aria-label="Biochromatic — View and buy">
       <div class="im"><img loading="lazy" src="assets/images/shop/previews/biochromatic.jpg" alt="Biochromatic"><span class="hov">View &amp; buy</span></div>
       <figcaption><div class="ct">Photography</div>
         <h3>Biochromatic</h3>
         <div class="av">Archival Print, Poster, T-Shirt</div><div class="from">from $45</div>
       </figcaption></figure>
-<figure class="card" data-series="Afterworld" data-idx="12" data-search="afterworld · purgatory i afterworld ">
+<figure class="card" data-series="Afterworld" data-idx="12" data-search="afterworld · purgatory i afterworld " tabindex="0" role="button" aria-label="Afterworld · Purgatory I — View and buy">
       <div class="im"><img loading="lazy" src="assets/images/shop/previews/afterworld-purgatory-i.jpg" alt="Afterworld · Purgatory I"><span class="hov">View &amp; buy</span></div>
       <figcaption><div class="ct">Afterworld</div>
         <h3>Purgatory I</h3>
-        <div class="av">Hoodie, Poster, T-Shirt, Tote, Wall Tapestry</div><div class="from">from $30</div>
+        <div class="av">Digital print on fabric, Hoodie, Poster, T-Shirt, Tote</div><div class="from">from $30</div>
       </figcaption></figure>
-<figure class="card" data-series="Typography" data-idx="13" data-search="symbol pattern typography ">
+<figure class="card" data-series="Graphic" data-idx="13" data-search="symbol pattern graphic " tabindex="0" role="button" aria-label="Symbol Pattern — View and buy">
       <div class="im"><img loading="lazy" src="assets/images/shop/previews/symbol-pattern.jpg" alt="Symbol Pattern"><span class="hov">View &amp; buy</span></div>
-      <figcaption><div class="ct">Typography</div>
+      <figcaption><div class="ct">Graphic</div>
         <h3>Symbol Pattern</h3>
         <div class="av">Hoodie, Poster, T-Shirt, Tote</div><div class="from">from $30</div>
       </figcaption></figure>
-<figure class="card" data-series="Photography" data-idx="14" data-search="art of looking photography ">
+<figure class="card" data-series="Photography" data-idx="14" data-search="art of looking photography " tabindex="0" role="button" aria-label="Art Of Looking — View and buy">
       <div class="im"><img loading="lazy" src="assets/images/shop/previews/art-of-looking.jpg" alt="Art Of Looking"><span class="hov">View &amp; buy</span></div>
       <figcaption><div class="ct">Photography</div>
         <h3>Art Of Looking</h3>
         <div class="av">Archival Print, Poster, T-Shirt</div><div class="from">from $45</div>
       </figcaption></figure>
-<figure class="card" data-series="Afterworld" data-idx="15" data-search="afterworld · mictlan i afterworld ">
+<figure class="card" data-series="Afterworld" data-idx="15" data-search="afterworld · mictlan i afterworld " tabindex="0" role="button" aria-label="Afterworld · Mictlan I — View and buy">
       <div class="im"><img loading="lazy" src="assets/images/shop/previews/afterworld-mictlan-i.jpg" alt="Afterworld · Mictlan I"><span class="hov">View &amp; buy</span></div>
       <figcaption><div class="ct">Afterworld</div>
         <h3>Mictlan I</h3>
-        <div class="av">Hoodie, Poster, T-Shirt, Tote, Wall Tapestry</div><div class="from">from $30</div>
+        <div class="av">Digital print on fabric, Hoodie, Poster, T-Shirt, Tote</div><div class="from">from $30</div>
       </figcaption></figure>
-<figure class="card" data-series="Typography" data-idx="16" data-search="experimental typeface typography ">
+<figure class="card" data-series="Typography" data-idx="16" data-search="experimental typeface typography " tabindex="0" role="button" aria-label="Experimental Typeface — View and buy">
       <div class="im"><img loading="lazy" src="assets/images/shop/previews/experimental-typeface.jpg" alt="Experimental Typeface"><span class="hov">View &amp; buy</span></div>
       <figcaption><div class="ct">Typography</div>
         <h3>Experimental Typeface</h3>
         <div class="av">Hoodie, Poster, T-Shirt, Tote</div><div class="from">from $30</div>
       </figcaption></figure>
-<figure class="card" data-series="Afterworld" data-idx="17" data-search="afterworld · moksha afterworld ">
+<figure class="card" data-series="Afterworld" data-idx="17" data-search="afterworld · moksha afterworld " tabindex="0" role="button" aria-label="Afterworld · Moksha — View and buy">
       <div class="im"><img loading="lazy" src="assets/images/shop/previews/afterworld-moksha.jpg" alt="Afterworld · Moksha"><span class="hov">View &amp; buy</span></div>
       <figcaption><div class="ct">Afterworld</div>
         <h3>Moksha</h3>
-        <div class="av">Hoodie, Poster, T-Shirt, Tote, Wall Tapestry</div><div class="from">from $30</div>
+        <div class="av">Digital print on fabric, Hoodie, Poster, T-Shirt, Tote</div><div class="from">from $30</div>
       </figcaption></figure>
-<figure class="card" data-series="Afterworld" data-idx="18" data-search="afterworld · purgatory ii afterworld ">
+<figure class="card" data-series="Afterworld" data-idx="18" data-search="afterworld · purgatory ii afterworld " tabindex="0" role="button" aria-label="Afterworld · Purgatory II — View and buy">
       <div class="im"><img loading="lazy" src="assets/images/shop/previews/afterworld-purgatory-ii.jpg" alt="Afterworld · Purgatory II"><span class="hov">View &amp; buy</span></div>
       <figcaption><div class="ct">Afterworld</div>
         <h3>Purgatory II</h3>
-        <div class="av">Hoodie, Poster, T-Shirt, Tote, Wall Tapestry</div><div class="from">from $30</div>
+        <div class="av">Digital print on fabric, Hoodie, Poster, T-Shirt, Tote</div><div class="from">from $30</div>
       </figcaption></figure>
-<figure class="card" data-series="Afterworld" data-idx="19" data-search="afterworld · mictlan ii afterworld ">
+<figure class="card" data-series="Afterworld" data-idx="19" data-search="afterworld · mictlan ii afterworld " tabindex="0" role="button" aria-label="Afterworld · Mictlan II — View and buy">
       <div class="im"><img loading="lazy" src="assets/images/shop/previews/afterworld-mictlan-ii.jpg" alt="Afterworld · Mictlan II"><span class="hov">View &amp; buy</span></div>
       <figcaption><div class="ct">Afterworld</div>
         <h3>Mictlan II</h3>
-        <div class="av">Hoodie, Poster, T-Shirt, Tote, Wall Tapestry</div><div class="from">from $30</div>
-      </figcaption></figure>
-<figure class="card" data-series="Rhizomatic" data-idx="20" data-search="rhizomatic · plant story rhizomatic ">
-      <div class="im"><img loading="lazy" src="assets/images/shop/previews/rhizomatic-plant-story-0.jpg" alt="Rhizomatic · Plant Story"><span class="hov">Inquire</span></div>
-      <figcaption><div class="ct">Rhizomatic</div>
-        <h3>Rhizomatic · Plant Story</h3>
-        <div class="av">Original artwork</div><div class="from">Inquire</div>
-      </figcaption></figure>
-<figure class="card" data-series="Rhizomatic" data-idx="21" data-search="rhizomatic · plant story rhizomatic ">
-      <div class="im"><img loading="lazy" src="assets/images/shop/previews/rhizomatic-plant-story-1.jpg" alt="Rhizomatic · Plant Story"><span class="hov">Inquire</span></div>
-      <figcaption><div class="ct">Rhizomatic</div>
-        <h3>Rhizomatic · Plant Story</h3>
-        <div class="av">Original artwork</div><div class="from">Inquire</div>
-      </figcaption></figure>
-<figure class="card" data-series="Rhizomatic" data-idx="22" data-search="rhizomatic · plant story rhizomatic ">
-      <div class="im"><img loading="lazy" src="assets/images/shop/previews/rhizomatic-plant-story-2.jpg" alt="Rhizomatic · Plant Story"><span class="hov">Inquire</span></div>
-      <figcaption><div class="ct">Rhizomatic</div>
-        <h3>Rhizomatic · Plant Story</h3>
-        <div class="av">Original artwork</div><div class="from">Inquire</div>
-      </figcaption></figure>
-<figure class="card" data-series="Rhizomatic" data-idx="23" data-search="rhizomatic · plant story rhizomatic ">
-      <div class="im"><img loading="lazy" src="assets/images/shop/previews/rhizomatic-plant-story-3.jpg" alt="Rhizomatic · Plant Story"><span class="hov">Inquire</span></div>
-      <figcaption><div class="ct">Rhizomatic</div>
-        <h3>Rhizomatic · Plant Story</h3>
-        <div class="av">Original artwork</div><div class="from">Inquire</div>
-      </figcaption></figure>
-<figure class="card" data-series="Rhizomatic" data-idx="24" data-search="rhizomatic · plant story rhizomatic ">
-      <div class="im"><img loading="lazy" src="assets/images/shop/previews/rhizomatic-plant-story-4.jpg" alt="Rhizomatic · Plant Story"><span class="hov">Inquire</span></div>
-      <figcaption><div class="ct">Rhizomatic</div>
-        <h3>Rhizomatic · Plant Story</h3>
-        <div class="av">Original artwork</div><div class="from">Inquire</div>
+        <div class="av">Digital print on fabric, Hoodie, Poster, T-Shirt, Tote</div><div class="from">from $30</div>
       </figcaption></figure>
   </section>
+  <p class="empty" id="empty" hidden>No works match — try another search or filter.</p>
   <div class="lb" id="lb"><span class="lbclose" id="lbclose">×</span><div class="lbx" id="lbx"></div></div>
-  <p class="shopfoot">Garments, posters &amp; wall tapestries are open-edition, printed to order. Archival prints ship signed. Rhizomatic plant-story tapestries are represented but not merchandised — acquisition is routed through our cultural-accountability process.</p>
+  <p class="shopfoot">Garments, posters &amp; wall tapestries are open-edition, printed to order. Archival prints ship signed. Rhizomatic plant-story tapestries are represented but not merchandised — acquisition is routed through our cultural-accountability process.<br><br>
+    <a href="projects.html">Work</a> · <a href="about.html">About</a> · <a href="contact.html">Contact</a> · <a href="mailto:essentialscreative@gmail.com">essentialscreative@gmail.com</a></p>
 </main>
 <script src="assets/js/navigation.js" defer></script>
 <script>
-const D=[{"slug": "afterworld-zen-garden", "design": "Afterworld \u00b7 Zen Garden", "series": "Afterworld", "art": "assets/images/shop/previews/afterworld-zen-garden.jpg", "w": 726, "h": 1100, "from": "from $30", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Hoodie", "price": "$75", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Tote", "price": "$30", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Wall Tapestry \u00b7 large", "price": "$400", "colors": null, "sizes": null}, {"label": "Wall Tapestry \u00b7 small", "price": "$100", "colors": null, "sizes": null}], "tags": []}, {"slug": "biochromatic-luminaria", "design": "Biochromatic Luminaria", "series": "Photography", "art": "assets/images/shop/previews/biochromatic-luminaria.jpg", "w": 371, "h": 1100, "from": "from $45", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Archival Print", "price": "from $45", "colors": null, "sizes": null}]}, {"slug": "delhacienda-editorial", "design": "Delhacienda Editorial", "series": "Graphic", "art": "assets/images/shop/previews/delhacienda-editorial.jpg", "w": 648, "h": 1080, "from": "from $30", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Hoodie", "price": "$75", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Tote", "price": "$30", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}]}, {"slug": "cashmere-collage", "design": "Cashmere Collage", "series": "Photography", "art": "assets/images/shop/previews/cashmere-collage.jpg", "w": 900, "h": 1080, "from": "from $45", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Archival Print", "price": "from $45", "colors": null, "sizes": null}]}, {"slug": "monochrome-collage", "design": "Monochrome Collage", "series": "Graphic", "art": "assets/images/shop/previews/monochrome-collage.jpg", "w": 720, "h": 1080, "from": "from $30", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Hoodie", "price": "$75", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Tote", "price": "$30", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}]}, {"slug": "bambi", "design": "Bambi", "series": "Photography", "art": "assets/images/shop/previews/bambi.jpg", "w": 711, "h": 1100, "from": "from $45", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Archival Print", "price": "from $45", "colors": null, "sizes": null}]}, {"slug": "chie-collage", "design": "Chie Collage", "series": "Photography", "art": "assets/images/shop/previews/chie-collage.jpg", "w": 900, "h": 1080, "from": "from $45", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Archival Print", "price": "from $45", "colors": null, "sizes": null}]}, {"slug": "botanical-macro-blue", "design": "Botanical Macro Blue", "series": "Photography", "art": "assets/images/shop/previews/botanical-macro-blue.jpg", "w": 733, "h": 1100, "from": "from $45", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Archival Print", "price": "from $45", "colors": null, "sizes": null}]}, {"slug": "goddess-collage", "design": "Goddess Collage", "series": "Graphic", "art": "assets/images/shop/previews/goddess-collage.jpg", "w": 743, "h": 1080, "from": "from $30", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Hoodie", "price": "$75", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Tote", "price": "$30", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}]}, {"slug": "cacti-red", "design": "Cacti Red", "series": "Photography", "art": "assets/images/shop/previews/cacti-red.jpg", "w": 1100, "h": 733, "from": "from $45", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Archival Print", "price": "from $45", "colors": null, "sizes": null}]}, {"slug": "rhizomatic-typeface", "design": "Rhizomatic Typeface", "series": "Typography", "art": "assets/images/shop/previews/rhizomatic-typeface.jpg", "w": 1100, "h": 875, "from": "from $30", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Hoodie", "price": "$75", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Tote", "price": "$30", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}]}, {"slug": "biochromatic", "design": "Biochromatic", "series": "Photography", "art": "assets/images/shop/previews/biochromatic.jpg", "w": 371, "h": 1100, "from": "from $45", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Archival Print", "price": "from $45", "colors": null, "sizes": null}]}, {"slug": "afterworld-purgatory-i", "design": "Afterworld \u00b7 Purgatory I", "series": "Afterworld", "art": "assets/images/shop/previews/afterworld-purgatory-i.jpg", "w": 756, "h": 1100, "from": "from $30", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Hoodie", "price": "$75", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Tote", "price": "$30", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Wall Tapestry \u00b7 large", "price": "$400", "colors": null, "sizes": null}, {"label": "Wall Tapestry \u00b7 small", "price": "$100", "colors": null, "sizes": null}]}, {"slug": "symbol-pattern", "design": "Symbol Pattern", "series": "Typography", "art": "assets/images/shop/previews/symbol-pattern.jpg", "w": 1100, "h": 825, "from": "from $30", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Hoodie", "price": "$75", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Tote", "price": "$30", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}]}, {"slug": "art-of-looking", "design": "Art Of Looking", "series": "Photography", "art": "assets/images/shop/previews/art-of-looking.jpg", "w": 1100, "h": 1100, "from": "from $45", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Archival Print", "price": "from $45", "colors": null, "sizes": null}]}, {"slug": "afterworld-mictlan-i", "design": "Afterworld \u00b7 Mictlan I", "series": "Afterworld", "art": "assets/images/shop/previews/afterworld-mictlan-i.jpg", "w": 756, "h": 1100, "from": "from $30", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Hoodie", "price": "$75", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Tote", "price": "$30", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Wall Tapestry \u00b7 large", "price": "$400", "colors": null, "sizes": null}, {"label": "Wall Tapestry \u00b7 small", "price": "$100", "colors": null, "sizes": null}]}, {"slug": "experimental-typeface", "design": "Experimental Typeface", "series": "Typography", "art": "assets/images/shop/previews/experimental-typeface.jpg", "w": 1100, "h": 983, "from": "from $30", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Hoodie", "price": "$75", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Tote", "price": "$30", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}]}, {"slug": "afterworld-moksha", "design": "Afterworld \u00b7 Moksha", "series": "Afterworld", "art": "assets/images/shop/previews/afterworld-moksha.jpg", "w": 745, "h": 1100, "from": "from $30", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Hoodie", "price": "$75", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Tote", "price": "$30", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Wall Tapestry \u00b7 large", "price": "$400", "colors": null, "sizes": null}, {"label": "Wall Tapestry \u00b7 small", "price": "$100", "colors": null, "sizes": null}]}, {"slug": "afterworld-purgatory-ii", "design": "Afterworld \u00b7 Purgatory II", "series": "Afterworld", "art": "assets/images/shop/previews/afterworld-purgatory-ii.jpg", "w": 756, "h": 1100, "from": "from $30", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Hoodie", "price": "$75", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Tote", "price": "$30", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Wall Tapestry \u00b7 large", "price": "$400", "colors": null, "sizes": null}, {"label": "Wall Tapestry \u00b7 small", "price": "$100", "colors": null, "sizes": null}]}, {"slug": "afterworld-mictlan-ii", "design": "Afterworld \u00b7 Mictlan II", "series": "Afterworld", "art": "assets/images/shop/previews/afterworld-mictlan-ii.jpg", "w": 756, "h": 1100, "from": "from $30", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Hoodie", "price": "$75", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Tote", "price": "$30", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Wall Tapestry \u00b7 large", "price": "$400", "colors": null, "sizes": null}, {"label": "Wall Tapestry \u00b7 small", "price": "$100", "colors": null, "sizes": null}]}, {"slug": "rhizomatic-plant-story-0", "design": "Rhizomatic \u00b7 Plant Story", "series": "Rhizomatic", "art": "assets/images/shop/previews/rhizomatic-plant-story-0.jpg", "w": 825, "h": 1100, "from": "Inquire", "gated": true, "products": [{"label": "Original artwork \u00b7 inquire", "price": "Inquire", "colors": null, "sizes": null}]}, {"slug": "rhizomatic-plant-story-1", "design": "Rhizomatic \u00b7 Plant Story", "series": "Rhizomatic", "art": "assets/images/shop/previews/rhizomatic-plant-story-1.jpg", "w": 825, "h": 1100, "from": "Inquire", "gated": true, "products": [{"label": "Original artwork \u00b7 inquire", "price": "Inquire", "colors": null, "sizes": null}]}, {"slug": "rhizomatic-plant-story-2", "design": "Rhizomatic \u00b7 Plant Story", "series": "Rhizomatic", "art": "assets/images/shop/previews/rhizomatic-plant-story-2.jpg", "w": 825, "h": 1100, "from": "Inquire", "gated": true, "products": [{"label": "Original artwork \u00b7 inquire", "price": "Inquire", "colors": null, "sizes": null}]}, {"slug": "rhizomatic-plant-story-3", "design": "Rhizomatic \u00b7 Plant Story", "series": "Rhizomatic", "art": "assets/images/shop/previews/rhizomatic-plant-story-3.jpg", "w": 825, "h": 1100, "from": "Inquire", "gated": true, "products": [{"label": "Original artwork \u00b7 inquire", "price": "Inquire", "colors": null, "sizes": null}]}, {"slug": "rhizomatic-plant-story-4", "design": "Rhizomatic \u00b7 Plant Story", "series": "Rhizomatic", "art": "assets/images/shop/previews/rhizomatic-plant-story-4.jpg", "w": 825, "h": 1100, "from": "Inquire", "gated": true, "products": [{"label": "Original artwork \u00b7 inquire", "price": "Inquire", "colors": null, "sizes": null}]}];let cur='all',q='';
+const D=[{"slug": "afterworld-zen-garden", "design": "Afterworld \u00b7 Zen Garden", "series": "Afterworld", "art": "assets/images/shop/previews/afterworld-zen-garden.jpg", "w": 726, "h": 1100, "from": "from $30", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Hoodie", "price": "$75", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Tote", "price": "$30", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Digital print on fabric \u00b7 large", "price": "$400", "colors": null, "sizes": null}, {"label": "Digital print on fabric \u00b7 small", "price": "$100", "colors": null, "sizes": null}], "tags": []}, {"slug": "biochromatic-luminaria", "design": "Biochromatic Luminaria", "series": "Photography", "art": "assets/images/shop/previews/biochromatic-luminaria.jpg", "w": 371, "h": 1100, "from": "from $45", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Archival Print", "price": "from $45", "colors": null, "sizes": null}]}, {"slug": "delhacienda-editorial", "design": "Delhacienda Editorial", "series": "Graphic", "art": "assets/images/shop/previews/delhacienda-editorial.jpg", "w": 648, "h": 1080, "from": "from $30", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Hoodie", "price": "$75", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Tote", "price": "$30", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}]}, {"slug": "cashmere-collage", "design": "Cashmere Collage", "series": "Photography", "art": "assets/images/shop/previews/cashmere-collage.jpg", "w": 900, "h": 1080, "from": "from $45", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Archival Print", "price": "from $45", "colors": null, "sizes": null}]}, {"slug": "monochrome-collage", "design": "Monochrome Collage", "series": "Graphic", "art": "assets/images/shop/previews/monochrome-collage.jpg", "w": 720, "h": 1080, "from": "from $30", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Hoodie", "price": "$75", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Tote", "price": "$30", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}]}, {"slug": "bambi", "design": "Bambi", "series": "Photography", "art": "assets/images/shop/previews/bambi.jpg", "w": 711, "h": 1100, "from": "from $45", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Archival Print", "price": "from $45", "colors": null, "sizes": null}]}, {"slug": "chie-collage", "design": "Chie Collage", "series": "Photography", "art": "assets/images/shop/previews/chie-collage.jpg", "w": 900, "h": 1080, "from": "from $45", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Archival Print", "price": "from $45", "colors": null, "sizes": null}]}, {"slug": "botanical-macro-blue", "design": "Botanical Macro Blue", "series": "Photography", "art": "assets/images/shop/previews/botanical-macro-blue.jpg", "w": 733, "h": 1100, "from": "from $45", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Archival Print", "price": "from $45", "colors": null, "sizes": null}]}, {"slug": "goddess-collage", "design": "Goddess Collage", "series": "Graphic", "art": "assets/images/shop/previews/goddess-collage.jpg", "w": 743, "h": 1080, "from": "from $30", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Hoodie", "price": "$75", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Tote", "price": "$30", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}]}, {"slug": "cacti-red", "design": "Cacti Red", "series": "Photography", "art": "assets/images/shop/previews/cacti-red.jpg", "w": 1100, "h": 733, "from": "from $45", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Archival Print", "price": "from $45", "colors": null, "sizes": null}]}, {"slug": "rhizomatic-typeface", "design": "Rhizomatic Typeface", "series": "Typography", "art": "assets/images/shop/previews/rhizomatic-typeface.jpg", "w": 1100, "h": 875, "from": "from $30", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Hoodie", "price": "$75", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Tote", "price": "$30", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}]}, {"slug": "biochromatic", "design": "Biochromatic", "series": "Photography", "art": "assets/images/shop/previews/biochromatic.jpg", "w": 371, "h": 1100, "from": "from $45", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Archival Print", "price": "from $45", "colors": null, "sizes": null}]}, {"slug": "afterworld-purgatory-i", "design": "Afterworld \u00b7 Purgatory I", "series": "Afterworld", "art": "assets/images/shop/previews/afterworld-purgatory-i.jpg", "w": 756, "h": 1100, "from": "from $30", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Hoodie", "price": "$75", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Tote", "price": "$30", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Digital print on fabric \u00b7 large", "price": "$400", "colors": null, "sizes": null}, {"label": "Digital print on fabric \u00b7 small", "price": "$100", "colors": null, "sizes": null}]}, {"slug": "symbol-pattern", "design": "Symbol Pattern", "series": "Graphic", "art": "assets/images/shop/previews/symbol-pattern.jpg", "w": 1100, "h": 825, "from": "from $30", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Hoodie", "price": "$75", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Tote", "price": "$30", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}], "tags": []}, {"slug": "art-of-looking", "design": "Art Of Looking", "series": "Photography", "art": "assets/images/shop/previews/art-of-looking.jpg", "w": 1100, "h": 1100, "from": "from $45", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Archival Print", "price": "from $45", "colors": null, "sizes": null}]}, {"slug": "afterworld-mictlan-i", "design": "Afterworld \u00b7 Mictlan I", "series": "Afterworld", "art": "assets/images/shop/previews/afterworld-mictlan-i.jpg", "w": 756, "h": 1100, "from": "from $30", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Hoodie", "price": "$75", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Tote", "price": "$30", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Digital print on fabric \u00b7 large", "price": "$400", "colors": null, "sizes": null}, {"label": "Digital print on fabric \u00b7 small", "price": "$100", "colors": null, "sizes": null}]}, {"slug": "experimental-typeface", "design": "Experimental Typeface", "series": "Typography", "art": "assets/images/shop/previews/experimental-typeface.jpg", "w": 1100, "h": 983, "from": "from $30", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Hoodie", "price": "$75", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Tote", "price": "$30", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}]}, {"slug": "afterworld-moksha", "design": "Afterworld \u00b7 Moksha", "series": "Afterworld", "art": "assets/images/shop/previews/afterworld-moksha.jpg", "w": 745, "h": 1100, "from": "from $30", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Hoodie", "price": "$75", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Tote", "price": "$30", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Digital print on fabric \u00b7 large", "price": "$400", "colors": null, "sizes": null}, {"label": "Digital print on fabric \u00b7 small", "price": "$100", "colors": null, "sizes": null}]}, {"slug": "afterworld-purgatory-ii", "design": "Afterworld \u00b7 Purgatory II", "series": "Afterworld", "art": "assets/images/shop/previews/afterworld-purgatory-ii.jpg", "w": 756, "h": 1100, "from": "from $30", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Hoodie", "price": "$75", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Tote", "price": "$30", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Digital print on fabric \u00b7 large", "price": "$400", "colors": null, "sizes": null}, {"label": "Digital print on fabric \u00b7 small", "price": "$100", "colors": null, "sizes": null}]}, {"slug": "afterworld-mictlan-ii", "design": "Afterworld \u00b7 Mictlan II", "series": "Afterworld", "art": "assets/images/shop/previews/afterworld-mictlan-ii.jpg", "w": 756, "h": 1100, "from": "from $30", "products": [{"label": "T-Shirt", "price": "$50", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Hoodie", "price": "$75", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Tote", "price": "$30", "colors": ["Black", "White/Natural", "Navy", "Heather"], "sizes": "XS\u20133XL"}, {"label": "Poster", "price": "$75", "colors": null, "sizes": null}, {"label": "Digital print on fabric \u00b7 large", "price": "$400", "colors": null, "sizes": null}, {"label": "Digital print on fabric \u00b7 small", "price": "$100", "colors": null, "sizes": null}]}];let cur='all',q='';
 const cards=[...document.querySelectorAll('.ec-shop .card')];
-function applyFilters(){cards.forEach(k=>{const okS=cur==='all'||k.dataset.series===cur;const okQ=!q||k.dataset.search.includes(q);k.classList.toggle('hide',!(okS&&okQ));});}
+const rescount=document.getElementById('rescount'),empty=document.getElementById('empty');
+function applyFilters(){let n=0;cards.forEach(k=>{const okS=cur==='all'||k.dataset.series===cur;const okQ=!q||k.dataset.search.includes(q);const show=okS&&okQ;k.classList.toggle('hide',!show);if(show)n++;});rescount.textContent=n+(n===1?' work':' works');empty.hidden=n>0;}
 document.querySelectorAll('.ec-shop .chip').forEach(c=>c.onclick=()=>{document.querySelectorAll('.ec-shop .chip').forEach(x=>x.classList.remove('on'));c.classList.add('on');cur=c.dataset.s;applyFilters();});
 document.getElementById('search').addEventListener('input',e=>{q=e.target.value.trim().toLowerCase();applyFilters();});
 const lb=document.getElementById('lb'),lbx=document.getElementById('lbx');
@@ -247,10 +236,13 @@ function openLB(i){const d=D[i];let sel=0;
   function upd(){const p=d.products[sel];let m=[];if(p.colors)m.push('Colors: '+p.colors.join(' · '));if(p.sizes)m.push(p.sizes);meta.textContent=m.join('  ·  ');
     buy.href='mailto:essentialscreative@gmail.com?subject='+encodeURIComponent((d.gated?'Inquiry — ':'Order — ')+d.design+' — '+p.label);}
   lbx.querySelectorAll('.opt').forEach(o=>o.onclick=()=>{lbx.querySelectorAll('.opt').forEach(x=>x.classList.remove('sel'));o.classList.add('sel');sel=+o.dataset.j;upd();});
-  upd();lb.classList.add('on');}
-document.querySelectorAll('.ec-shop .card').forEach(c=>c.onclick=()=>openLB(+c.dataset.idx));
-document.getElementById('lbclose').onclick=()=>lb.classList.remove('on');
-lb.onclick=e=>{if(e.target===lb)lb.classList.remove('on')};
-document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
+  upd();lb.classList.add('on');document.body.style.overflow='hidden';}
+function closeLB(){lb.classList.remove('on');document.body.style.overflow='';}
+document.querySelectorAll('.ec-shop .card').forEach(c=>{c.onclick=()=>openLB(+c.dataset.idx);
+  c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openLB(+c.dataset.idx);}});});
+document.getElementById('lbclose').onclick=closeLB;
+lb.onclick=e=>{if(e.target===lb)closeLB()};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB()});
+applyFilters();
 </script>
 </body></html>
