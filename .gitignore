@@ -92,3 +92,6 @@ WEBSITE_OPTIMIZATION_WORKFLOW.md
 *.boxtemp
 *Conflict*
 .box/
+
+# Local shop backend (never deploy)
+shop-admin/
