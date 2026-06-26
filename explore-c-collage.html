@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>C · Botanical Collage — Give Back (exploration)</title>
+<meta name="robots" content="noindex"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+<link href="assets/css/explore-neon.css" rel="stylesheet"/>
+<style>
+  html { scroll-behavior:smooth; }
+  body { margin:0; font-family: var(--font-apercu); background: var(--ink); color: var(--white); }
+  .panel { position:relative; min-height:100vh; overflow:hidden; display:flex; align-items:center;
+           padding: clamp(1.5rem,6vw,7rem); }
+  /* neon gradient grounds per return */
+  .g-intro { background: radial-gradient(120% 120% at 20% 10%, #2a0d3f 0%, var(--ink) 60%); }
+  .g-land  { background: linear-gradient(135deg, #4a1f00 0%, var(--ink) 70%); }
+  .g-water { background: linear-gradient(135deg, #00303a 0%, var(--ink) 70%); }
+  .g-data  { background: linear-gradient(135deg, #3a0024 0%, var(--ink) 70%); }
+  .g-exit  { background: radial-gradient(120% 120% at 80% 90%, #3a2a00 0%, var(--ink) 60%); }
+
+  /* collaged image layers */
+  .layer { position:absolute; border-radius:6px; box-shadow: 0 18px 60px rgba(0,0,0,0.5);
+           filter: saturate(1.15) contrast(1.05); }
+  .layer img { display:block; width:100%; height:100%; object-fit:cover; border-radius:6px; }
+  .blend-screen { mix-blend-mode: screen; }
+  .blend-lighten { mix-blend-mode: lighten; }
+  /* neon wash sitting over imagery */
+  .wash { position:absolute; inset:0; mix-blend-mode: overlay; pointer-events:none; }
+  .wash.land  { background: linear-gradient(120deg, rgba(255,106,0,0.5), rgba(255,212,0,0.2)); }
+  .wash.water { background: linear-gradient(120deg, rgba(0,229,255,0.45), rgba(30,91,255,0.25)); }
+  .wash.data  { background: linear-gradient(120deg, rgba(255,61,154,0.5), rgba(124,30,140,0.25)); }
+
+  .copy { position:relative; z-index:5; max-width: 40ch; }
+  .copy.right { margin-left:auto; text-align:right; }
+  .kicker { font: 600 0.78rem/1 var(--font-mono); letter-spacing:0.26em; text-transform:uppercase; opacity:0.85; margin:0 0 1rem; }
+  .disp { font-family:'Syne', var(--font-apercu); font-weight:800; text-transform:uppercase; line-height:0.9;
+          letter-spacing:-0.02em; margin:0; font-size: clamp(2.8rem, 10vw, 7.5rem); }
+  .lede { font-size: clamp(1.05rem,2vw,1.4rem); line-height:1.6; margin-top:1.3rem; text-shadow:0 2px 10px rgba(0,0,0,0.6); }
+  .motif { position:absolute; width:min(34vw,360px); opacity:0.5; mix-blend-mode:screen; }
+  .motif svg{ width:100%; height:auto; display:block; }
+  .context { padding: clamp(1.5rem,6vw,5rem); }
+  .context p { font: 400 0.92rem/1.6 var(--font-mono); max-width:60ch; opacity:0.65; }
+  .context a { color: var(--n-yellow); }
+</style>
+</head>
+<body>
+<a class="proto-ribbon" href="explore-index.html">◀ C · Botanical Collage</a>
+
+<!-- INTRO -->
+<section class="panel g-intro">
+  <div class="layer blend-screen" style="width:42vw; height:60vh; right:4%; top:14%; transform:rotate(4deg);">
+    <img loading="lazy" decoding="async" src="assets/images/plant-story/hero_image.jpg" alt=""/></div>
+  <div class="layer blend-lighten" style="width:22vw; height:30vh; right:30%; bottom:8%; transform:rotate(-6deg); opacity:0.85;">
+    <img loading="lazy" decoding="async" src="assets/images/plant-story/Scan%203%20copy.jpg" alt=""/></div>
+  <div class="copy">
+    <p class="kicker">Essentials Creative · a reciprocity installation</p>
+    <h1 class="disp glow-pink" style="color:var(--white)">Give<br>Back</h1>
+    <p class="lede">Land Back. Water Back. Data Back. Three literal cycles of return — soil, water, and data, each given and given back.</p>
+  </div>
+</section>
+
+<!-- LAND -->
+<section class="panel g-land">
+  <div class="layer" style="width:40vw; height:64vh; left:3%; top:16%; transform:rotate(-3deg);">
+    <img loading="lazy" decoding="async" src="assets/images/plant-story/Scan%205%20copy.jpg" alt=""/><div class="wash land"></div></div>
+  <div class="layer blend-screen" style="width:24vw; height:30vh; left:30%; bottom:7%; transform:rotate(5deg); opacity:0.9;">
+    <img loading="lazy" decoding="async" src="assets/images/plant-story/gallery_1.jpg" alt=""/></div>
+  <div class="motif" style="right:6%; bottom:8%; color:var(--n-orange)"><svg viewBox="0 0 100 100" fill="currentColor"><g transform="translate(50 50)"><g><path d="M0 0 L-2.5 -40 L0 -44 L2.5 -40 Z"/></g><g transform="rotate(45)"><path d="M0 0 L-2.5 -40 L0 -44 L2.5 -40 Z"/></g><g transform="rotate(90)"><path d="M0 0 L-2.5 -40 L0 -44 L2.5 -40 Z"/></g><g transform="rotate(135)"><path d="M0 0 L-2.5 -40 L0 -44 L2.5 -40 Z"/></g><g transform="rotate(180)"><path d="M0 0 L-2.5 -40 L0 -44 L2.5 -40 Z"/></g><g transform="rotate(225)"><path d="M0 0 L-2.5 -40 L0 -44 L2.5 -40 Z"/></g><g transform="rotate(270)"><path d="M0 0 L-2.5 -40 L0 -44 L2.5 -40 Z"/></g><g transform="rotate(315)"><path d="M0 0 L-2.5 -40 L0 -44 L2.5 -40 Z"/></g></g></svg></div>
+  <div class="copy right">
+    <p class="kicker glow-orange" style="color:var(--n-orange)">Movement one</p>
+    <h2 class="disp glow-orange" style="color:var(--n-orange)">Land<br>Back</h2>
+    <p class="lede">Press the soil into a living bed. A small, bodily act of return to the ground — leaving a mark the next visitor builds on.</p>
+  </div>
+</section>
+
+<!-- WATER -->
+<section class="panel g-water">
+  <div class="layer" style="width:44vw; height:62vh; right:3%; top:18%; transform:rotate(3deg);">
+    <img loading="lazy" decoding="async" src="assets/images/projections/Native_Waters_1.jpg" alt=""/><div class="wash water"></div></div>
+  <div class="layer blend-screen" style="width:24vw; height:30vh; right:32%; bottom:8%; transform:rotate(-5deg); opacity:0.9;">
+    <img loading="lazy" decoding="async" src="assets/images/projections/Native_Waters_2.jpg" alt=""/></div>
+  <div class="copy">
+    <p class="kicker glow-cyan" style="color:var(--n-cyan)">Movement two</p>
+    <h2 class="disp glow-cyan" style="color:var(--n-cyan)">Water<br>Back</h2>
+    <p class="lede">Pour your water into the reeds. It moves through a living phytoremediation loop and comes back measurably clearer. Real ecology — not a video of cleaning.</p>
+  </div>
+</section>
+
+<!-- DATA -->
+<section class="panel g-data">
+  <div class="layer" style="width:42vw; height:64vh; left:4%; top:15%; transform:rotate(-4deg);">
+    <img loading="lazy" decoding="async" src="assets/images/projections/EssentialsCreative_Projection_Mansion_PinkFloral.jpg" alt=""/><div class="wash data"></div></div>
+  <div class="copy right">
+    <p class="kicker glow-pink" style="color:var(--n-pink)">Movement three · the core test</p>
+    <h2 class="disp glow-pink" style="color:var(--n-pink)">Data<br>Back</h2>
+    <p class="lede">Give a word; watch it join a projection field. Then choose: <strong>Take it · Hear it · Gift it · Erase it.</strong> Here, deletion is the norm. Retention is the exception you choose.</p>
+  </div>
+</section>
+
+<!-- EXIT -->
+<section class="panel g-exit">
+  <div class="layer blend-screen" style="width:40vw; height:58vh; left:6%; top:20%; transform:rotate(3deg); opacity:0.85;">
+    <img loading="lazy" decoding="async" src="assets/images/projections/EssentialsCreative_Projection_Mansion_OrangeBlue.jpg" alt=""/></div>
+  <div class="copy right">
+    <h2 class="disp glow-yellow" style="color:var(--n-yellow)">You leave<br>receiving</h2>
+    <p class="lede">The loop the threshold opened closes. You gave first; the room gave back.</p>
+  </div>
+</section>
+
+<footer class="context">
+  <p>All of this sits on the I-35 corridor — one of the fastest-growing data-center markets in the country, consuming the same land, water, power, and data the work returns. <a href="data-back.html">See the figures →</a></p>
+</footer>
+</body>
+</html>
