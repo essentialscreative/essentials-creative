@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>B · Living Field — Give Back (exploration)</title>
+<meta name="robots" content="noindex"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&display=swap" rel="stylesheet"/>
+<link href="assets/css/explore-neon.css" rel="stylesheet"/>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin:0; font-family: var(--font-apercu); background: var(--ink); color: var(--white); }
+  /* fixed generative field behind everything */
+  #field { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 0; display:block; }
+  .spine { position: relative; z-index: 1; }
+  .step { min-height: 100vh; display:flex; flex-direction:column; justify-content:center; align-items:flex-start;
+          padding: clamp(1.5rem, 7vw, 8rem); max-width: 50ch; }
+  .step.center { align-items:center; text-align:center; max-width:none; }
+  .kicker { font: 600 0.78rem/1 var(--font-mono); letter-spacing:0.28em; text-transform:uppercase; opacity:0.75; margin:0 0 1.2rem; }
+  .disp { font-family:'Syne', var(--font-apercu); font-weight:800; text-transform:uppercase; line-height:0.9; letter-spacing:-0.02em; margin:0; font-size: clamp(2.8rem, 11vw, 8rem); }
+  .lede { font-size: clamp(1.05rem, 2vw, 1.45rem); line-height:1.6; margin-top:1.4rem; }
+  .lede strong { font-weight:700; }
+  .choices { display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:1.6rem; list-style:none; padding:0; }
+  .choices li { font: 600 0.95rem/1 var(--font-mono); letter-spacing:0.06em; text-transform:uppercase;
+                border:1px solid rgba(255,255,255,0.35); border-radius:999px; padding:0.7rem 1.1rem; }
+  .choices .erase { color: var(--n-pink); border-color: var(--n-pink); }
+  .context { position:relative; z-index:1; padding: clamp(1.5rem,6vw,5rem); }
+  .context p { font: 400 0.92rem/1.6 var(--font-mono); max-width:60ch; opacity:0.65; }
+  .context a { color: var(--n-yellow); }
+  .scrollcue { position:fixed; bottom:1.2rem; left:50%; transform:translateX(-50%); z-index:2; font: 600 0.7rem/1 var(--font-mono); letter-spacing:0.2em; opacity:0.6; }
+</style>
+</head>
+<body>
+<a class="proto-ribbon" href="explore-index.html">◀ B · Living Field</a>
+<canvas id="field"></canvas>
+
+<div class="spine">
+  <section class="step center" data-mode="rhizome">
+    <p class="kicker">Essentials Creative · a reciprocity installation</p>
+    <h1 class="disp glow-cyan">Give Back</h1>
+    <p class="lede" style="max-width:34ch">A living, centerless network — soil, water, and data, each given and returned. Scroll to move through the room.</p>
+  </section>
+
+  <section class="step" data-mode="rhizome">
+    <p class="kicker">The threshold · you give first</p>
+    <h2 class="disp">You enter by giving</h2>
+    <p class="lede">A handful of soil. A word. A pour of water. In return: an anonymous token — no name, no email, no trace.</p>
+  </section>
+
+  <section class="step" data-mode="land">
+    <p class="kicker glow-orange" style="color:var(--n-orange)">Movement one</p>
+    <h2 class="disp glow-orange" style="color:var(--n-orange)">Land Back</h2>
+    <p class="lede">Press the soil into a living bed. A small, bodily act of return to the ground — leaving a mark the next visitor builds on.</p>
+  </section>
+
+  <section class="step" data-mode="water">
+    <p class="kicker glow-cyan" style="color:var(--n-cyan)">Movement two</p>
+    <h2 class="disp glow-cyan" style="color:var(--n-cyan)">Water Back</h2>
+    <p class="lede">Pour your water into the reeds. It moves through a living loop and comes back <strong>measurably clearer</strong>. The cleaning is real ecology — not a video of cleaning.</p>
+  </section>
+
+  <section class="step" data-mode="data">
+    <p class="kicker glow-pink" style="color:var(--n-pink)">Movement three · the core test</p>
+    <h2 class="disp glow-pink" style="color:var(--n-pink)">Data Back</h2>
+    <p class="lede">Give a word. Watch it join a field woven with others'. Then choose — and watch some words erased, on screen, in front of you:</p>
+    <ul class="choices">
+      <li>Take it</li><li>Hear it</li><li>Gift it</li><li class="erase">Erase it</li>
+    </ul>
+    <p class="lede"><strong>Deletion is the norm here.</strong> Retention is the exception you choose.</p>
+  </section>
+
+  <section class="step center" data-mode="exit">
+    <h2 class="disp glow-yellow" style="color:var(--n-yellow)">You leave receiving</h2>
+    <p class="lede" style="max-width:34ch">The loop the threshold opened closes. You gave first; the room gave back.</p>
+  </section>
+</div>
+
+<footer class="context">
+  <p>All of this sits on the I-35 corridor — one of the fastest-growing data-center markets in the country, consuming the same land, water, power, and data the work returns. <a href="data-back.html">See the figures →</a></p>
+</footer>
+<div class="scrollcue">scroll ↓</div>
+
+<script src="assets/js/explore-b-field.js" defer></script>
+</body>
+</html>

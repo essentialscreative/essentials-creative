@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Essentials Creative — Studio · matrix → print</title>
+<meta name="description" content="Studio — an interactive matrix that composes Essentials Creative motifs live and exports to print or SVG.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Essentials Creative — Studio · matrix → print">
+<meta property="og:description" content="An interactive matrix that composes Essentials Creative motifs live and exports to print or SVG.">
+<meta property="og:url" content="https://essentialscreative.com/studio.html">
+<meta property="og:image" content="https://essentialscreative.com/assets/images/Essentials-Creative_Logo.png">
+<meta property="og:image:alt" content="Essentials Creative logo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Essentials Creative — Studio">
+<meta name="twitter:description" content="An interactive matrix that composes Essentials Creative motifs live and exports to print or SVG.">
+<meta name="twitter:image" content="https://essentialscreative.com/assets/images/Essentials-Creative_Logo.png">
+<link rel="canonical" href="https://essentialscreative.com/studio.html">
+<style>
+  :root {
+    --sumi:#1A1715;--aijiro:#EBF6F7;--torinoko:#E8D7B4;--shu:#E03A12;
+    --suo:#7E2639;--wakatake:#5E8456;--kihada:#E8B530;--fuji:#7C6A92;
+    --kohaku:#B8601F;--mizu:#6E9892;--rurikon:#1B294B;--ai:#1F3A40;--matsuba:#454D32;
+    --serif:"Bodoni Moda","Playfair Display",Didot,Georgia,serif;
+    --sans:"Inter",-apple-system,"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--aijiro);color:var(--sumi);font-family:var(--sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+
+  .edition-mark{position:fixed;bottom:1rem;right:1rem;z-index:100;font-family:var(--mono);font-size:.55rem;letter-spacing:.22em;color:var(--sumi);background:var(--aijiro);padding:.3rem .5rem;border:1px solid var(--sumi);text-transform:uppercase}
+
+  .masthead{background:var(--aijiro);border-top:8px solid var(--sumi);border-bottom:1px solid var(--sumi);padding:2rem 2rem 2.5rem;position:relative}
+  .masthead::before{content:"";position:absolute;top:0;right:0;width:30%;height:12px;background:var(--shu)}
+  .masthead-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr auto;align-items:end;gap:2rem}
+  .crumb{font-family:var(--mono);font-size:.7rem;letter-spacing:.22em;color:var(--shu);text-transform:uppercase;margin-bottom:1rem}
+  .crumb a{color:var(--sumi);text-decoration:none;border-bottom:1px solid currentColor}
+  h1{font-family:var(--serif);font-weight:900;font-style:italic;font-size:clamp(2.5rem,6vw,4.5rem);line-height:.88;letter-spacing:-.02em}
+  h1 em{font-style:normal;color:var(--shu)}
+  .lede{font-family:var(--serif);font-weight:700;font-style:italic;font-size:.95rem;line-height:1.4;max-width:60ch;margin-top:1rem;color:var(--matsuba)}
+  .meta-right{text-align:right;font-family:var(--mono);font-size:.65rem;letter-spacing:.18em;color:var(--matsuba);text-transform:uppercase;line-height:1.7}
+  .meta-right strong{color:var(--shu)}
+  .meta-right a{color:var(--sumi);text-decoration:none;border-bottom:1px solid currentColor}
+
+  .workspace{
+    max-width:1400px;margin:2rem auto;padding:0 2rem;
+    display:grid;grid-template-columns:340px 1fr;gap:2rem;
+  }
+
+  /* ─── controls panel (left) ─── */
+  .controls{
+    background:var(--sumi);color:var(--aijiro);
+    padding:1.5rem;
+    position:sticky;top:1rem;
+    align-self:start;
+    max-height:calc(100vh - 2rem);
+    overflow-y:auto;
+  }
+  .controls h2{
+    font-family:var(--serif);font-weight:800;font-style:italic;font-size:1.2rem;
+    color:var(--kihada);margin-bottom:.3rem;line-height:1;
+  }
+  .controls .sub{
+    font-family:var(--mono);font-size:.6rem;letter-spacing:.22em;color:var(--shu);
+    text-transform:uppercase;margin-bottom:1.5rem;line-height:1.5;
+  }
+  .field{margin-bottom:1.1rem}
+  .field label{
+    display:block;font-family:var(--mono);font-size:.55rem;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--kihada);margin-bottom:.4rem;
+  }
+  .field select,.field input[type="text"]{
+    width:100%;background:var(--aijiro);color:var(--sumi);
+    border:1px solid var(--aijiro);padding:.5rem .6rem;
+    font-family:var(--mono);font-size:.78rem;
+  }
+  .field select:focus,.field input:focus{outline:2px solid var(--shu);outline-offset:1px}
+  .chips{display:flex;flex-wrap:wrap;gap:.4rem}
+  .chip{
+    width:1.6rem;height:1.6rem;border:2px solid var(--aijiro);
+    background:var(--c);cursor:pointer;padding:0;
+    transition:transform .12s;border-radius:0;
+  }
+  .chip:hover{transform:scale(1.12)}
+  .chip.is-on{outline:2px solid var(--shu);outline-offset:2px}
+  .field .row2{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+
+  .action-bar{
+    margin-top:1.5rem;padding-top:1.5rem;
+    border-top:1px solid rgba(235,246,247,.3);
+    display:grid;gap:.6rem;
+  }
+  .action-bar button{
+    font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;
+    text-transform:uppercase;padding:.7rem .9rem;
+    background:var(--shu);color:var(--aijiro);
+    border:none;cursor:pointer;font-weight:700;
+  }
+  .action-bar button:hover{background:var(--kihada);color:var(--sumi)}
+  .action-bar button.secondary{background:transparent;color:var(--aijiro);border:1px solid var(--aijiro)}
+  .action-bar button.secondary:hover{background:var(--aijiro);color:var(--sumi)}
+
+  .ed-pill{
+    margin-top:1.2rem;padding:.6rem .7rem;
+    border:1px solid var(--kihada);color:var(--kihada);
+    font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;
+    text-transform:uppercase;line-height:1.5;
+  }
+  .ed-pill strong{color:var(--aijiro);font-weight:700;display:block;font-size:.9rem;letter-spacing:.1em;margin-top:.2rem}
+
+  /* ─── canvas area (right) ─── */
+  .canvas-wrap{
+    background:var(--aijiro);
+    padding:2rem;border:1px solid var(--sumi);
+    display:flex;flex-direction:column;align-items:center;
+    min-height:600px;
+    position:relative;
+  }
+  .canvas-wrap::before{
+    content:"PREVIEW · LIVE";
+    position:absolute;top:.5rem;left:.7rem;
+    font-family:var(--mono);font-size:.55rem;letter-spacing:.22em;
+    color:var(--matsuba);text-transform:uppercase;opacity:.6;
+  }
+  .canvas-wrap::after{
+    content:"";position:absolute;top:0;right:0;
+    width:30px;height:6px;background:var(--shu);
+  }
+
+  /* the composition canvas — sized per medium */
+  #composition{
+    background:var(--c-paper,var(--aijiro));
+    position:relative;overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.18),0 0 0 1px var(--sumi);
+    transition:all .25s ease;
+    margin-top:1.5rem;
+  }
+  #composition .field-block{position:absolute;background:var(--c-spark,var(--shu));z-index:1}
+  #composition .key-figure{position:absolute;color:var(--c-key,var(--sumi));z-index:3}
+  #composition .key-figure svg{width:100%;height:100%;display:block}
+  #composition .word-mark{
+    position:absolute;z-index:4;
+    font-family:var(--serif);font-weight:900;font-style:italic;
+    line-height:.85;text-transform:uppercase;letter-spacing:-.015em;
+    color:var(--c-key,var(--sumi));
+    padding:0 .15em;
+  }
+  #composition .lockup{
+    position:absolute;left:5%;top:4%;z-index:5;
+    font-family:var(--mono);letter-spacing:.22em;text-transform:uppercase;
+    color:var(--c-key,var(--sumi));opacity:.85;
+  }
+  #composition .colophon-block{
+    position:absolute;left:5%;right:5%;bottom:3%;z-index:5;
+    display:flex;justify-content:space-between;
+    font-family:var(--mono);letter-spacing:.18em;text-transform:uppercase;
+    color:var(--c-key,var(--sumi));opacity:.85;
+  }
+  #composition .seal{
+    position:absolute;right:5%;top:4%;z-index:5;
+    border:1.5px solid var(--c-key,var(--sumi));
+    padding:.25em .4em;
+    font-family:var(--mono);letter-spacing:.2em;text-transform:uppercase;
+    color:var(--c-key,var(--sumi));
+    line-height:1.3;text-align:center;
+  }
+
+  /* medium-specific sizing — preserve aspect ratio at fit-to-canvas */
+  #composition.poster-a2  { width: 380px; aspect-ratio: 420/594; }
+  #composition.ig-square  { width: 480px; aspect-ratio: 1; }
+  #composition.ig-story   { width: 280px; aspect-ratio: 9/16; }
+  #composition.slide-169  { width: 640px; aspect-ratio: 16/9; }
+  #composition.letter     { width: 380px; aspect-ratio: 8.5/11; }
+  #composition.postcard   { width: 480px; aspect-ratio: 6/4; }
+
+  .canvas-meta{
+    margin-top:1.5rem;display:flex;justify-content:space-between;
+    width:100%;max-width:640px;
+    font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;
+    color:var(--matsuba);text-transform:uppercase;
+  }
+  .canvas-meta .spec{color:var(--suo);font-weight:700}
+
+  .help{
+    margin-top:2rem;padding:1.2rem;
+    background:var(--torinoko);border:1px solid var(--sumi);
+    font-size:.8rem;line-height:1.55;
+  }
+  .help .lbl{
+    font-family:var(--mono);font-size:.6rem;letter-spacing:.22em;
+    color:var(--suo);text-transform:uppercase;margin-bottom:.4rem;display:block;
+  }
+  .help p{margin-bottom:.4rem}
+  .help kbd{
+    font-family:var(--mono);font-size:.7rem;
+    background:var(--sumi);color:var(--aijiro);padding:1px 5px;
+  }
+
+  /* print: only the composition */
+  @media print {
+    @page { size: auto; margin: 0; }
+    body * { visibility: hidden; }
+    #composition, #composition * { visibility: visible; }
+    #composition {
+      position: absolute; left: 0; top: 0;
+      width: 100%; height: 100vh;
+      box-shadow: none;
+      page-break-after: avoid;
+    }
+    .canvas-wrap::before, .canvas-wrap::after { display: none; }
+  }
+
+  @media (max-width: 900px) {
+    .workspace { grid-template-columns: 1fr; }
+    .controls { position: relative; max-height: none; }
+    .masthead-grid { grid-template-columns: 1fr; }
+    .meta-right { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<div class="edition-mark">STUDIO · v0.1 · DRAFT</div>
+
+<header class="masthead">
+  <div class="masthead-grid">
+    <div>
+      <div class="crumb"><a href="system.html">← system</a> · studio · matrix → print</div>
+      <h1>Studio<em>.</em></h1>
+      <p class="lede">
+        Pick a matrix cell. Pick a motif. Pick a spark. Pick a medium. The composition assembles itself
+        live. Export to print or SVG. <em>The matrix is now a machine.</em>
+      </p>
+    </div>
+    <div class="meta-right">
+      <strong>STUDIO v0.1 · DRAFT</strong><br>
+      No save (yet) · refresh resets<br><br>
+      See also:<br>
+      <a href="system.html">system</a> · <a href="protocol.html">protocol</a>
+    </div>
+  </div>
+</header>
+
+<div class="workspace">
+
+  <!-- ─── CONTROLS ─── -->
+  <aside class="controls" id="controls">
+    <h2>The brief.</h2>
+    <div class="sub">PICK · OBEY · EXPORT</div>
+
+    <div class="field">
+      <label for="month">MONTH · cell row</label>
+      <select id="month"></select>
+    </div>
+
+    <div class="field">
+      <label for="register">REGISTER · cell column</label>
+      <select id="register">
+        <option value="figural">R1 · Figural</option>
+        <option value="pictorial">R2 · Pictorial</option>
+        <option value="typographic" selected>R3 · Typographic</option>
+        <option value="ornamental">R4 · Ornamental</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="motif">MOTIF · the key</label>
+      <select id="motif"></select>
+    </div>
+
+    <div class="field">
+      <label>SPARK · the importance mark</label>
+      <div class="chips" id="sparks"></div>
+    </div>
+
+    <div class="field">
+      <label>PAPER · the ground</label>
+      <div class="chips" id="papers"></div>
+    </div>
+
+    <div class="field">
+      <label for="medium">MEDIUM · output size</label>
+      <select id="medium">
+        <option value="poster-a2">Riso poster · A2 (420×594mm)</option>
+        <option value="ig-square">IG square · 1080×1080</option>
+        <option value="ig-story">IG story · 1080×1920</option>
+        <option value="slide-169">Slide · 16:9 (1920×1080)</option>
+        <option value="letter">US Letter · 8.5×11in</option>
+        <option value="postcard">Postcard · 6×4in</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="headline">HEADLINE · type at fidelity</label>
+      <input type="text" id="headline" value="ARRIVAL." maxlength="40"/>
+    </div>
+
+    <div class="field row2">
+      <div>
+        <label for="drop">DROP #</label>
+        <input type="text" id="drop" value="04"/>
+      </div>
+      <div>
+        <label for="position">POSITION</label>
+        <input type="text" id="position" value="15/30"/>
+      </div>
+    </div>
+
+    <div class="ed-pill">
+      <span id="ed-preview">EC · DROP 04 · 2026/Q2</span>
+      <strong id="ed-pos">15 / 30</strong>
+    </div>
+
+    <div class="action-bar">
+      <button id="btn-print">Export · Print to PDF</button>
+      <button class="secondary" id="btn-svg">Download · SVG</button>
+      <button class="secondary" id="btn-random">Random cell · for play</button>
+    </div>
+  </aside>
+
+  <!-- ─── CANVAS ─── -->
+  <main>
+    <div class="canvas-wrap">
+      <div id="composition" class="poster-a2"></div>
+      <div class="canvas-meta">
+        <span>CELL · <span id="meta-cell" class="spec">04 × R3</span></span>
+        <span>PALETTE · <span id="meta-palette" class="spec">kihada + shu</span></span>
+        <span>SIZE · <span id="meta-size" class="spec">A2 · 420×594mm</span></span>
+      </div>
+    </div>
+
+    <div class="help">
+      <span class="lbl">HOW IT WORKS · THE LEAP</span>
+      <p>
+        Every change above updates the composition live. The composition obeys the matrix (month palette + register mode), the kappazuri grammar (max 2 inks + 1 spark, one mon, cropped figure, type at fidelity, mis-register where the edges meet), and the kamon discipline (the motif fits a circle, carved negative space, single ink).
+      </p>
+      <p>
+        <kbd>Export · Print to PDF</kbd> opens the system print dialog — choose "Save as PDF" for a press-ready output. <kbd>Download · SVG</kbd> saves the composition as editable vector. <kbd>Random</kbd> picks a cell for play.
+      </p>
+      <p style="font-family:var(--mono);font-size:.7rem;color:var(--suo);margin-top:.6rem;">
+        v0.1 LIMITS · single-image export · no real riso channel separation yet · no save/load · no motif library upload. These are the next-pass improvements.
+      </p>
+    </div>
+  </main>
+</div>
+
+<!-- ─── MOTIF LIBRARY (referenced by the generator) ─── -->
+<script>
+// Motif SVG library — each entry: { name, svg (path-only inner SVG), kind }
+// kind: nature/system/cultural — controls whether attribution-warning shows
+const MOTIFS = {
+  monarch:       { name: "Monarch", kind: "nature",
+    svg: `<path d="M50 48 Q30 22 12 30 Q8 44 22 52 Q34 56 50 48 Z M44 38 Q34 32 26 36 Q24 42 30 46 Q36 48 44 44 Z"/><path d="M50 48 Q70 22 88 30 Q92 44 78 52 Q66 56 50 48 Z M56 38 Q66 32 74 36 Q76 42 70 46 Q64 48 56 44 Z"/><path d="M50 48 Q38 72 26 84 Q40 82 48 74 Q52 64 50 48 Z"/><path d="M50 48 Q62 72 74 84 Q60 82 52 74 Q48 64 50 48 Z"/><ellipse cx="50" cy="48" rx="3.5" ry="24"/>` },
+  milkweedPod:   { name: "Milkweed pod", kind: "nature",
+    svg: `<path d="M50 90 Q32 76 30 50 Q34 30 50 22 Q66 30 70 50 Q68 76 50 90 Z M50 78 Q42 72 40 60 Q44 50 50 46 Q56 50 60 60 Q58 72 50 78 Z"/><circle cx="50" cy="14" r="2.5"/><circle cx="40" cy="10" r="2"/><circle cx="60" cy="10" r="2"/>` },
+  liveOak:       { name: "Live oak leaf", kind: "nature",
+    svg: `<path d="M50 10 Q62 14 64 26 Q72 30 72 42 Q78 48 72 56 Q76 66 66 70 Q70 80 58 82 Q60 92 50 92 Q40 92 42 82 Q30 80 34 70 Q24 66 28 56 Q22 48 28 42 Q28 30 36 26 Q38 14 50 10 Z"/><rect x="49" y="14" width="2" height="76" fill="var(--c-paper,#EBF6F7)"/>` },
+  mountainLaurel:{ name: "Mountain laurel", kind: "nature",
+    svg: `<path d="M50 50 m-13 0 a13 13 0 1 1 26 0 a13 13 0 1 1 -26 0 M50 50 m-4 0 a4 4 0 1 0 8 0 a4 4 0 1 0 -8 0"/><path d="M50 22 m-11 0 a11 11 0 1 1 22 0 a11 11 0 1 1 -22 0 M50 22 m-3 0 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0"/><path d="M74 36 m-11 0 a11 11 0 1 1 22 0 a11 11 0 1 1 -22 0 M74 36 m-3 0 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0"/><path d="M74 64 m-11 0 a11 11 0 1 1 22 0 a11 11 0 1 1 -22 0 M74 64 m-3 0 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0"/><path d="M50 78 m-11 0 a11 11 0 1 1 22 0 a11 11 0 1 1 -22 0 M50 78 m-3 0 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0"/><path d="M26 64 m-11 0 a11 11 0 1 1 22 0 a11 11 0 1 1 -22 0 M26 64 m-3 0 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0"/><path d="M26 36 m-11 0 a11 11 0 1 1 22 0 a11 11 0 1 1 -22 0 M26 36 m-3 0 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0"/>` },
+  bluebonnet:    { name: "Bluebonnet", kind: "nature",
+    svg: `<rect x="48.5" y="62" width="3" height="32"/><ellipse cx="50" cy="12" rx="8" ry="5"/><ellipse cx="50" cy="12" rx="4" ry="2.5" fill="var(--c-paper,#EBF6F7)"/><ellipse cx="40" cy="22" rx="7" ry="4.5"/><ellipse cx="60" cy="22" rx="7" ry="4.5"/><ellipse cx="42" cy="32" rx="6.5" ry="4"/><ellipse cx="58" cy="32" rx="6.5" ry="4"/><ellipse cx="44" cy="52" rx="5.5" ry="3.4"/><ellipse cx="56" cy="52" rx="5.5" ry="3.4"/>` },
+  mesquite:      { name: "Mesquite pod", kind: "nature",
+    svg: `<path d="M8 50 Q22 38 38 48 Q56 60 72 48 Q86 40 92 50 Q88 58 76 56 Q60 60 50 56 Q38 52 24 56 Q14 58 8 50 Z M22 50 Q34 46 44 52 Q58 56 70 52 Q80 50 84 50 Q80 54 70 53 Q58 56 50 53 Q40 50 28 54 Q20 54 22 50 Z"/><circle cx="24" cy="50" r="3.5"/><circle cx="38" cy="51" r="3.5"/><circle cx="50" cy="51" r="3.5"/><circle cx="62" cy="50" r="3.5"/><circle cx="76" cy="50" r="3.5"/>` },
+  bat:           { name: "Free-tailed bat", kind: "nature",
+    svg: `<path d="M50 50 Q35 30 12 28 Q18 38 24 42 Q14 44 8 50 Q22 50 30 50 Q22 56 18 64 Q30 58 40 56 Q44 60 50 60 Q56 60 60 56 Q70 58 82 64 Q78 56 70 50 Q78 50 92 50 Q86 44 76 42 Q82 38 88 28 Q65 30 50 50 Z M44 44 Q41 44 41 47 Q41 50 44 50 Q47 50 47 47 Q47 44 44 44 Z M56 44 Q53 44 53 47 Q53 50 56 50 Q59 50 59 47 Q59 44 56 44 Z"/>` },
+  sotol:         { name: "Sotol", kind: "nature",
+    svg: `<g transform="translate(50 50)"><g><path d="M0 0 L-2.5 -40 L0 -44 L2.5 -40 Z"/></g><g transform="rotate(45)"><path d="M0 0 L-2.5 -40 L0 -44 L2.5 -40 Z"/></g><g transform="rotate(90)"><path d="M0 0 L-2.5 -40 L0 -44 L2.5 -40 Z"/></g><g transform="rotate(135)"><path d="M0 0 L-2.5 -40 L0 -44 L2.5 -40 Z"/></g><g transform="rotate(180)"><path d="M0 0 L-2.5 -40 L0 -44 L2.5 -40 Z"/></g><g transform="rotate(225)"><path d="M0 0 L-2.5 -40 L0 -44 L2.5 -40 Z"/></g><g transform="rotate(270)"><path d="M0 0 L-2.5 -40 L0 -44 L2.5 -40 Z"/></g><g transform="rotate(315)"><path d="M0 0 L-2.5 -40 L0 -44 L2.5 -40 Z"/></g></g><circle cx="50" cy="50" r="6"/>` },
+  cempasuchil:   { name: "Cempasúchil", kind: "cultural",
+    svg: `<g><ellipse cx="50" cy="22" rx="7" ry="13"/><ellipse cx="50" cy="78" rx="7" ry="13"/><ellipse cx="22" cy="50" rx="13" ry="7"/><ellipse cx="78" cy="50" rx="13" ry="7"/><ellipse cx="30" cy="30" rx="12" ry="7" transform="rotate(-45 30 30)"/><ellipse cx="70" cy="30" rx="12" ry="7" transform="rotate(45 70 30)"/><ellipse cx="30" cy="70" rx="12" ry="7" transform="rotate(45 30 70)"/><ellipse cx="70" cy="70" rx="12" ry="7" transform="rotate(-45 70 70)"/></g><path d="M50 50 m-7 0 a7 7 0 1 1 14 0 a7 7 0 1 1 -14 0 M50 50 m-2.5 0 a2.5 2.5 0 1 0 5 0 a2.5 2.5 0 1 0 -5 0"/>` },
+  flame:         { name: "Flame · mitsu-tomoe", kind: "system",
+    svg: `<path d="M50 50 Q50 30 45 22 Q42 15 50 8 Q56 18 55 26 Q58 38 50 50 Z"/><g transform="rotate(120 50 50)"><path d="M50 50 Q50 30 45 22 Q42 15 50 8 Q56 18 55 26 Q58 38 50 50 Z"/></g><g transform="rotate(240 50 50)"><path d="M50 50 Q50 30 45 22 Q42 15 50 8 Q56 18 55 26 Q58 38 50 50 Z"/></g><path d="M50 50 m-3 0 a3 3 0 1 1 6 0 a3 3 0 1 1 -6 0"/>` },
+  spring:        { name: "Spring source", kind: "nature",
+    svg: `<path d="M30 78 L50 28 L70 78 Z M40 70 L50 44 L60 70 Z"/><circle cx="50" cy="14" r="3"/><circle cx="38" cy="18" r="2.5"/><circle cx="62" cy="18" r="2.5"/><rect x="14" y="84" width="72" height="2"/><rect x="10" y="88" width="80" height="2"/>` },
+  rhizome:       { name: "Rhizome runner", kind: "system",
+    svg: `<rect x="8" y="62" width="84" height="4"/><circle cx="26" cy="64" r="5"/><circle cx="50" cy="64" r="5"/><circle cx="74" cy="64" r="5"/><rect x="25" y="34" width="2" height="26"/><rect x="49" y="18" width="2" height="44"/><rect x="73" y="38" width="2" height="24"/>` },
+  seam:          { name: "The seam", kind: "system",
+    svg: `<circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="3"/><path d="M50 50 m-32 0 a32 32 0 0 1 28 -28 L48 50 Z"/><path d="M50 50 m32 0 a32 32 0 0 1 -28 28 L52 50 Z"/><rect x="48" y="18" width="4" height="64"/>` },
+  overprint:     { name: "Overprint", kind: "system",
+    svg: `<path d="M38 50 m-26 0 a26 26 0 1 1 52 0 a26 26 0 1 1 -52 0 M62 50 m-26 0 a26 26 0 1 1 52 0 a26 26 0 1 1 -52 0" fill-rule="evenodd"/>` }
+};
+
+// Matrix anchors — month → palette + suggested motifs + default headline
+const MATRIX = {
+  "01": { name: "January",   natural: "Live oak · dormancy",         palette: { key: "sumi",  paper: "aijiro",  spark: "matsuba" }, motifs: ["liveOak","rhizome"],        headline: "DORMANT" },
+  "02": { name: "February",  natural: "Mountain laurel · bloom",     palette: { key: "fuji",  paper: "aijiro",  spark: "fuji" },    motifs: ["mountainLaurel"],            headline: "LAUREL" },
+  "03": { name: "March",     natural: "Bluebonnet · equinox",         palette: { key: "ai",    paper: "aijiro",  spark: "ai" },      motifs: ["bluebonnet","rhizome"],      headline: "TEJAS" },
+  "04": { name: "April",     natural: "Milkweed + monarch · arrival",palette: { key: "sumi",  paper: "kihada",  spark: "shu" },     motifs: ["monarch","milkweedPod"],     headline: "ARRIVAL." },
+  "05": { name: "May",       natural: "Yucca · nopal · flush",        palette: { key: "wakatake", paper: "aijiro", spark: "wakatake" }, motifs: ["sotol","spring"],          headline: "FLUSH" },
+  "06": { name: "June",      natural: "Mesquite · heat",              palette: { key: "kohaku", paper: "aijiro",  spark: "kohaku" },  motifs: ["mesquite"],                   headline: "HEAT" },
+  "07": { name: "July",      natural: "Bat · emergence",              palette: { key: "sumi",  paper: "rurikon", spark: "shu" },     motifs: ["bat"],                        headline: "EMERGE" },
+  "08": { name: "August",    natural: "Sotol · drought",              palette: { key: "sumi",  paper: "torinoko", spark: "kohaku" }, motifs: ["sotol"],                      headline: "SOTOL" },
+  "09": { name: "September", natural: "Hummingbird · norther",        palette: { key: "shu",   paper: "aijiro",  spark: "kohaku" },  motifs: ["bluebonnet","spring"],        headline: "NORTHER" },
+  "10": { name: "October",   natural: "Monarch return · home",        palette: { key: "shu",   paper: "sumi",    spark: "kihada" }, motifs: ["monarch"],                    headline: "HOME" },
+  "11": { name: "November",  natural: "Cempasúchil · ofrenda",        palette: { key: "kohaku", paper: "suo",    spark: "kihada" }, motifs: ["cempasuchil"],                headline: "OFRENDA." },
+  "12": { name: "December",  natural: "Fire · solstice",              palette: { key: "shu",   paper: "rurikon", spark: "kihada" }, motifs: ["flame"],                      headline: "SOLSTICE" }
+};
+
+const SPARKS = ["shu","kihada","suo","wakatake","fuji","kohaku","mizu"];
+const PAPERS = ["aijiro","torinoko","sumi","rurikon","wakatake","kihada"];
+
+const COLORS = {
+  aijiro:"#EBF6F7", sumi:"#1A1715", torinoko:"#E8D7B4", shu:"#E03A12",
+  ai:"#1F3A40", suo:"#7E2639", wakatake:"#5E8456", kihada:"#E8B530",
+  fuji:"#7C6A92", kohaku:"#B8601F", mizu:"#6E9892", rurikon:"#1B294B",
+  matsuba:"#454D32", murasaki:"#4F284B"
+};
+
+// ─── UI population ───────────────────────────────────────────────
+const $ = id => document.getElementById(id);
+const composition = $("composition");
+
+(function populateMonths(){
+  const sel = $("month");
+  Object.entries(MATRIX).forEach(([k,v])=>{
+    const o = document.createElement("option");
+    o.value = k; o.textContent = `${k} · ${v.name} · ${v.natural}`;
+    sel.appendChild(o);
+  });
+  sel.value = "04";
+})();
+
+(function populateMotifs(){
+  const sel = $("motif");
+  Object.entries(MOTIFS).forEach(([k,v])=>{
+    const o = document.createElement("option");
+    o.value = k; o.textContent = v.name;
+    sel.appendChild(o);
+  });
+  sel.value = "monarch";
+})();
+
+(function populateSparks(){
+  const c = $("sparks");
+  SPARKS.forEach(s=>{
+    const b = document.createElement("button");
+    b.className = "chip"; b.style.setProperty("--c", COLORS[s]);
+    b.dataset.color = s; b.title = s;
+    b.addEventListener("click", ()=>{
+      c.querySelectorAll(".chip").forEach(x=>x.classList.remove("is-on"));
+      b.classList.add("is-on");
+      render();
+    });
+    c.appendChild(b);
+  });
+  c.firstChild.classList.add("is-on");
+})();
+
+(function populatePapers(){
+  const c = $("papers");
+  PAPERS.forEach(s=>{
+    const b = document.createElement("button");
+    b.className = "chip"; b.style.setProperty("--c", COLORS[s]);
+    b.dataset.color = s; b.title = s;
+    b.addEventListener("click", ()=>{
+      c.querySelectorAll(".chip").forEach(x=>x.classList.remove("is-on"));
+      b.classList.add("is-on");
+      render();
+    });
+    c.appendChild(b);
+  });
+  c.firstChild.classList.add("is-on");
+})();
+
+// when month changes, suggest defaults (palette, motif, headline)
+$("month").addEventListener("change", ()=>{
+  const m = MATRIX[$("month").value];
+  // suggest spark + paper
+  selectChip("sparks", m.palette.spark);
+  selectChip("papers", m.palette.paper);
+  // suggest motif
+  $("motif").value = m.motifs[0];
+  // suggest headline
+  $("headline").value = m.headline;
+  render();
+});
+
+function selectChip(containerId, colorName){
+  const c = $(containerId);
+  c.querySelectorAll(".chip").forEach(x=>{
+    x.classList.toggle("is-on", x.dataset.color === colorName);
+  });
+}
+
+// also wire the trivial inputs
+["register","motif","medium","headline","drop","position"].forEach(id=>{
+  $(id).addEventListener("input", render);
+  $(id).addEventListener("change", render);
+});
+
+// ─── render the composition ─────────────────────────────────────
+function render(){
+  const month = $("month").value;
+  const register = $("register").value;
+  const motifKey = $("motif").value;
+  const motif = MOTIFS[motifKey];
+  const spark = $("sparks").querySelector(".is-on")?.dataset.color || "shu";
+  const paper = $("papers").querySelector(".is-on")?.dataset.color || "aijiro";
+  const medium = $("medium").value;
+  const headline = $("headline").value || "";
+  const drop = $("drop").value || "00";
+  const position = $("position").value || "1/1";
+
+  // determine key color: contrast against paper
+  const paperHex = COLORS[paper];
+  const isDarkPaper = ["sumi","rurikon","suo","ai","wakatake","kohaku"].includes(paper);
+  const key = isDarkPaper ? "aijiro" : "sumi";
+
+  composition.className = medium;
+  composition.style.setProperty("--c-paper", COLORS[paper]);
+  composition.style.setProperty("--c-spark", COLORS[spark]);
+  composition.style.setProperty("--c-key",   COLORS[key]);
+
+  // compose based on register
+  composition.innerHTML = compose(register, motif, headline, drop, position, key, isDarkPaper, medium);
+
+  // meta update
+  $("meta-cell").textContent = `${month} × ${register.toUpperCase().slice(0,1)}${
+    register==="figural"?1:register==="pictorial"?2:register==="typographic"?3:4}`;
+  $("meta-palette").textContent = `${paper} ground · ${key} key · ${spark} spark`;
+  $("meta-size").textContent = SIZE_LABELS[medium] || medium;
+
+  $("ed-preview").textContent = `EC · DROP ${drop} · 2026/Q2`;
+  $("ed-pos").textContent = position.replace("/", " / ");
+}
+
+const SIZE_LABELS = {
+  "poster-a2":"A2 · 420×594mm","ig-square":"IG · 1080×1080","ig-story":"IG · 1080×1920",
+  "slide-169":"16:9 · 1920×1080","letter":"US Letter · 8.5×11in","postcard":"Postcard · 6×4in"
+};
+
+function compose(register, motif, headline, drop, position, key, isDark, medium){
+  const lockup = `<div class="lockup" style="font-size:8px;">ESSENTIALS CREATIVE · DROP ${drop} · 2026/Q2</div>`;
+  const seal = `<div class="seal" style="font-size:7px;">${drop}<br><span style="font-size:6px;">${position}</span></div>`;
+  const colophon = `<div class="colophon-block" style="font-size:7px;"><span>essentialscreative.com</span><span>${position}</span></div>`;
+
+  const svgWrap = (innerSVG, style="") => `
+    <div class="key-figure" style="${style}">
+      <svg viewBox="0 0 100 100" fill="currentColor" fill-rule="evenodd">${innerSVG}</svg>
+    </div>`;
+
+  if (register === "figural") {
+    // one silhouette · cropped past edges
+    return `${lockup}${seal}
+      ${svgWrap(motif.svg, "left:-8%;top:18%;width:90%;aspect-ratio:1;")}
+      ${colophon}`;
+  }
+
+  if (register === "pictorial") {
+    // motif + scene element (a flat field as second plane)
+    return `${lockup}${seal}
+      <div class="field-block" style="left:0;bottom:0;width:60%;height:35%;"></div>
+      ${svgWrap(motif.svg, "right:8%;top:25%;width:45%;aspect-ratio:1;")}
+      ${colophon}`;
+  }
+
+  if (register === "typographic") {
+    // word as the figure · small motif accent
+    const lines = headline.split(" ");
+    return `${lockup}${seal}
+      <div class="word-mark" style="left:5%;top:18%;right:5%;font-size:clamp(40px,12vw,120px);">
+        ${lines.join("<br>")}
+      </div>
+      ${svgWrap(motif.svg, "right:6%;bottom:14%;width:22%;aspect-ratio:1;color:var(--c-spark)")}
+      ${colophon}`;
+  }
+
+  if (register === "ornamental") {
+    // repeated motif as pattern
+    const tile = `<svg viewBox="0 0 100 100" fill="${COLORS[key]}" fill-rule="evenodd" style="width:50px;height:50px;">${motif.svg}</svg>`;
+    const tiles = Array.from({length:24}, (_,i)=>{
+      const r = i%6, c = Math.floor(i/6);
+      return `<div style="position:absolute;left:${r*16+2}%;top:${c*24+8}%;width:50px;height:50px;color:${COLORS[i%2?key:"shu"]}">${tile.replace(`fill="${COLORS[key]}"`,'fill="currentColor"')}</div>`;
+    }).join("");
+    return `${lockup}${seal}${tiles}${colophon}`;
+  }
+
+  return "";
+}
+
+// ─── actions ───────────────────────────────────────────────────
+$("btn-print").addEventListener("click", ()=>window.print());
+
+$("btn-svg").addEventListener("click", ()=>{
+  const rect = composition.getBoundingClientRect();
+  const w = Math.round(rect.width);
+  const h = Math.round(rect.height);
+  // serialize composition as standalone SVG
+  // (simplification: we wrap the inner HTML in an SVG foreignObject — works as illustration; for true vector use the motif SVG directly)
+  const motifKey = $("motif").value;
+  const motif = MOTIFS[motifKey];
+  const paper = $("papers").querySelector(".is-on")?.dataset.color || "aijiro";
+  const key = ["sumi","rurikon","suo","ai","wakatake","kohaku"].includes(paper) ? "aijiro" : "sumi";
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${w} ${h}">
+    <rect width="100%" height="100%" fill="${COLORS[paper]}"/>
+    <g transform="translate(${w*0.1},${h*0.2}) scale(${Math.min(w,h)*0.005})">
+      <g fill="${COLORS[key]}" fill-rule="evenodd">${motif.svg}</g>
+    </g>
+  </svg>`;
+  const blob = new Blob([svg], {type:"image/svg+xml"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = `ec-${$("month").value}-${$("register").value}-${motifKey}.svg`;
+  a.click();
+  setTimeout(()=>URL.revokeObjectURL(url), 1000);
+});
+
+$("btn-random").addEventListener("click", ()=>{
+  const months = Object.keys(MATRIX);
+  const m = months[Math.floor(Math.random()*months.length)];
+  const registers = ["figural","pictorial","typographic","ornamental"];
+  $("month").value = m;
+  $("register").value = registers[Math.floor(Math.random()*registers.length)];
+  $("month").dispatchEvent(new Event("change"));
+});
+
+// initial render
+render();
+</script>
+
+</body>
+</html>
