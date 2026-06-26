@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Essentials Creative — Broadside · v0.3</title>
+<meta name="description" content="Broadside — Essentials Creative as a stencil-print school in the Austin–San Antonio corridor, in the kappazuri lineage. The technique is the school.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Essentials Creative — Broadside · v0.3">
+<meta property="og:description" content="Essentials Creative as a stencil-print school in the Austin–San Antonio corridor, in the kappazuri lineage. The technique is the school.">
+<meta property="og:url" content="https://essentialscreative.com/system.html">
+<meta property="og:image" content="https://essentialscreative.com/assets/images/Essentials-Creative_Logo.png">
+<meta property="og:image:alt" content="Essentials Creative logo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Essentials Creative — Broadside">
+<meta name="twitter:description" content="Essentials Creative as a stencil-print school in the Austin–San Antonio corridor, in the kappazuri lineage.">
+<meta name="twitter:image" content="https://essentialscreative.com/assets/images/Essentials-Creative_Logo.png">
+<link rel="canonical" href="https://essentialscreative.com/system.html">
+<style>
+  /*  ─── EC BROADSIDE v0.3 · 12 panels · the system as a printed object ──
+      Mitate: 1920s Mingei catalogue × Edo saijiki almanac
+      Each panel = one notan-tested kappa-zuri composition.
+      Print-CSS outputs a 12-page riso zine.                                */
+
+  :root {
+    --sumi:    #1A1715;
+    --aijiro:  #EBF6F7;
+    --torinoko:#E8D7B4;
+    --shu:     #E03A12;
+    --suo:     #7E2639;
+    --wakatake:#5E8456;
+    --kihada:  #E8B530;
+    --fuji:    #7C6A92;
+    --kohaku:  #B8601F;
+    --mizu:    #6E9892;
+    --rurikon: #1B294B;
+    --ai:      #1F3A40;
+
+    --serif: "Bodoni Moda","Playfair Display",Didot,Georgia,serif;
+    --sans:  "Inter",-apple-system,"Helvetica Neue",Arial,sans-serif;
+    --mono:  ui-monospace,"SF Mono","JetBrains Mono",Menlo,monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--aijiro);
+    color: var(--sumi);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /*  ─── PANEL SHELL ───────────────────────────────────────────  */
+  .panel {
+    width: 100%;
+    min-height: 100vh;
+    padding: clamp(2rem, 5vw, 4rem);
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+    display: grid;
+  }
+  .panel + .panel { border-top: 1px solid var(--sumi); }
+
+  /* universal folio bar — bottom edge of every panel */
+  .folio {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 0.6rem clamp(2rem, 5vw, 4rem);
+    border-top: 1px solid currentColor;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 1rem;
+    opacity: 0.85;
+  }
+  .folio .center { text-align: center; }
+  .folio .right { text-align: right; }
+  .folio strong { font-weight: 700; }
+
+  /* universal panel head — top kanji marker */
+  .panel-head {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1.5rem;
+    align-items: baseline;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 0.5rem;
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  .panel-head .kanji {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+  .panel-head .num {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    color: var(--shu);
+  }
+  .panel-head .roman {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-align: right;
+    opacity: 0.7;
+  }
+
+  /* ─────────────────────────────────────────────────────────── */
+  /*  PANEL 01 · COVER ·  表紙                                     */
+  /* ─────────────────────────────────────────────────────────── */
+  .p01 {
+    background: var(--sumi);
+    color: var(--aijiro);
+    grid-template-rows: 1fr auto;
+    align-items: end;
+  }
+  .p01::before {
+    content:"";
+    position: absolute;
+    top: 0; right: 0;
+    width: 14px; height: 100%;
+    background: var(--shu);
+  }
+  .p01 .stamp {
+    position: absolute;
+    top: clamp(2rem, 5vw, 4rem);
+    left: clamp(2rem, 5vw, 4rem);
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    border: 2px solid var(--shu);
+    color: var(--shu);
+    padding: 0.5rem 0.9rem;
+    line-height: 1.3;
+  }
+  .p01 .stamp .ed { display: block; color: var(--aijiro); margin-top: 0.2rem; font-size: 0.6rem; opacity: 0.7; }
+  .p01 .seal {
+    position: absolute;
+    top: clamp(2rem, 5vw, 4rem);
+    right: clamp(3rem, 7vw, 5rem);
+    width: 70px; height: 70px;
+    color: var(--shu);
+  }
+  .p01 h1 {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-style: italic;
+    font-size: clamp(3rem, 11vw, 9rem);
+    line-height: 0.86;
+    letter-spacing: -0.025em;
+    max-width: 18ch;
+  }
+  .p01 h1 em { font-style: normal; color: var(--shu); }
+  .p01 h1 .small {
+    display: block;
+    font-family: var(--sans);
+    font-style: normal;
+    font-weight: 500;
+    font-size: clamp(0.85rem, 1.4vw, 1.1rem);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--kihada);
+    margin-top: 2rem;
+    line-height: 1.5;
+    max-width: 50ch;
+  }
+  .p01 .seam-glyph {
+    position: absolute;
+    right: clamp(2rem, 5vw, 4rem);
+    bottom: 6rem;
+    width: clamp(120px, 18vw, 200px);
+    color: var(--aijiro);
+    opacity: 0.95;
+  }
+  .p01 .folio { border-top-color: rgba(235,246,247,0.4); color: var(--aijiro); }
+
+  /* ─────────────────────────────────────────────────────────── */
+  /*  PANEL 02 · POSITION ·  位                                    */
+  /* ─────────────────────────────────────────────────────────── */
+  .p02 {
+    background: var(--aijiro);
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: clamp(2rem, 5vw, 5rem);
+  }
+  .p02 .left .pre {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: var(--shu);
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .p02 .left .pre::before { content:""; height: 1px; width: 50px; background: var(--sumi); }
+  .p02 .left .statement {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-style: italic;
+    font-size: clamp(1.3rem, 2.6vw, 2.1rem);
+    line-height: 1.2;
+    max-width: 26ch;
+  }
+  .p02 .left .statement em { font-style: normal; color: var(--shu); }
+  .p02 .left .statement strong { color: var(--suo); }
+  .p02 .right {
+    border-left: 1px solid var(--sumi);
+    padding-left: clamp(1.5rem, 3vw, 3rem);
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .p02 .right .ann {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    line-height: 1.7;
+    color: var(--sumi);
+    opacity: 0.85;
+  }
+  .p02 .right .ann .label {
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.22em;
+    color: var(--shu);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+  .p02 .rhz-glyph {
+    width: 90px; height: 90px;
+    color: var(--sumi);
+    margin-top: 1.5rem;
+  }
+
+  /* ─────────────────────────────────────────────────────────── */
+  /*  PANEL 03 · LINEAGE ·  系                                     */
+  /* ─────────────────────────────────────────────────────────── */
+  .p03 {
+    background: var(--torinoko);
+    align-items: stretch;
+    grid-template-rows: auto 1fr auto 1fr auto;
+    gap: 0;
+  }
+  .p03 .row-label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    color: var(--suo);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .p03 .row-head {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-style: italic;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .p03 .row {
+    padding: 0 clamp(0, 2vw, 2rem);
+    align-self: center;
+  }
+  .p03 .tejas .row-head { color: var(--suo); }
+  .p03 .japan .row-head { color: var(--ai); }
+  .p03 .row p {
+    font-family: var(--sans);
+    font-size: clamp(0.78rem, 1vw, 0.9rem);
+    line-height: 1.6;
+    max-width: 90ch;
+  }
+  .p03 .row p strong { color: var(--suo); font-weight: 700; }
+  .p03 .japan p strong { color: var(--ai); }
+  .p03 .row p em { font-style: italic; }
+  .p03 .seam-bar {
+    background: var(--sumi);
+    color: var(--aijiro);
+    padding: 1.2rem clamp(2rem, 4vw, 3rem);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    align-items: baseline;
+  }
+  .p03 .seam-bar .lbl {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    color: var(--kihada);
+    text-transform: uppercase;
+  }
+  .p03 .seam-bar p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+    line-height: 1.4;
+  }
+  .p03 .seam-bar p em { color: var(--shu); font-style: normal; }
+
+  /* ─────────────────────────────────────────────────────────── */
+  /*  PANEL 04 · TECHNIQUE ·  技                                   */
+  /* ─────────────────────────────────────────────────────────── */
+  .p04 {
+    background: var(--aijiro);
+    grid-template-rows: auto 1fr;
+  }
+  .p04 .stack {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    align-self: center;
+    border: 2px solid var(--sumi);
+    max-width: 90ch;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .p04 .tier {
+    display: grid;
+    grid-template-columns: 110px 1fr auto;
+    align-items: center;
+    padding: 1.5rem 1.5rem;
+    border-bottom: 1px solid var(--sumi);
+    gap: 1.5rem;
+  }
+  .p04 .tier:last-child { border-bottom: 0; }
+  .p04 .tier.primary { background: var(--kihada); }
+  .p04 .tier .rank {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--sumi);
+    text-align: center;
+  }
+  .p04 .tier.primary .rank { color: var(--shu); }
+  .p04 .tier h3 {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 1.4rem;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .p04 .tier .ja {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    color: var(--shu);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .p04 .tier p {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    max-width: 50ch;
+  }
+  .p04 .tier .badge {
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--sumi);
+    white-space: nowrap;
+  }
+
+  /* ─────────────────────────────────────────────────────────── */
+  /*  PANEL 05 · MINGEI · 民藝                                     */
+  /* ─────────────────────────────────────────────────────────── */
+  .p05 {
+    background: var(--wakatake);
+    color: var(--aijiro);
+    grid-template-columns: 1.3fr 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+  .p05 .left h2 {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-style: italic;
+    font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  .p05 .left blockquote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+    line-height: 1.55;
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--kihada);
+    max-width: 45ch;
+  }
+  .p05 .left blockquote cite {
+    display: block;
+    font-style: normal;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    color: var(--kihada);
+    text-transform: uppercase;
+    margin-top: 0.6rem;
+  }
+  .p05 .doctrine {
+    border: 2px solid var(--aijiro);
+    padding: 1.25rem;
+    margin-top: 1.5rem;
+    max-width: 45ch;
+  }
+  .p05 .doctrine .lbl {
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.25em;
+    color: var(--kihada);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .p05 .doctrine .words {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .p05 .doctrine .word {
+    text-align: center;
+    border-right: 1px solid rgba(235,246,247,0.4);
+    padding-right: 0.5rem;
+  }
+  .p05 .doctrine .word:last-child { border-right: 0; }
+  .p05 .doctrine .word .kanji {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 1.8rem;
+    line-height: 1;
+    color: var(--kihada);
+  }
+  .p05 .doctrine .word .romaji {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 0.85rem;
+    font-style: italic;
+    margin: 0.3rem 0 0.1rem;
+  }
+  .p05 .doctrine .word .en {
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+  .p05 .right ol {
+    list-style: none;
+    counter-reset: m;
+  }
+  .p05 .right li {
+    counter-increment: m;
+    padding: 0.8rem 0 0.9rem 2.5rem;
+    border-bottom: 1px solid rgba(235,246,247,0.25);
+    position: relative;
+  }
+  .p05 .right li:last-child { border-bottom: 0; }
+  .p05 .right li::before {
+    content: counter(m, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 0.9rem;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    color: var(--kihada);
+    font-weight: 700;
+  }
+  .p05 .right li b {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--aijiro);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+  .p05 .right li span {
+    font-size: 0.78rem;
+    line-height: 1.5;
+    opacity: 0.9;
+  }
+  .p05 .folio { border-top-color: rgba(235,246,247,0.3); color: var(--aijiro); }
+
+  /* ─────────────────────────────────────────────────────────── */
+  /*  PANEL 06 · 4 OPERATIVE CONCEPTS · 概念                       */
+  /* ─────────────────────────────────────────────────────────── */
+  .p06 {
+    background: var(--aijiro);
+  }
+  .p06 .grid4 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0;
+    border: 2px solid var(--sumi);
+    height: calc(100% - 6rem);
+  }
+  .p06 .op {
+    padding: clamp(1rem, 2.5vw, 2rem);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto 1fr;
+    gap: 0.8rem 1.5rem;
+    border-right: 1px solid var(--sumi);
+    border-bottom: 1px solid var(--sumi);
+    position: relative;
+  }
+  .p06 .op:nth-child(2n) { border-right: 0; }
+  .p06 .op:nth-last-child(-n+2) { border-bottom: 0; }
+  .p06 .op .kanji {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    line-height: 0.85;
+    color: var(--mizu);
+    grid-row: 1 / 3;
+  }
+  .p06 .op .name {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-style: italic;
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+  .p06 .op .romaji {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    color: var(--shu);
+    text-transform: uppercase;
+  }
+  .p06 .op .body {
+    grid-column: 1 / -1;
+    margin-top: 0.5rem;
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+  .p06 .op .body strong { color: var(--suo); font-weight: 700; }
+  .p06 .op .num {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.7rem;
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    color: var(--mizu);
+    opacity: 0.6;
+  }
+
+  /* ─────────────────────────────────────────────────────────── */
+  /*  PANEL 07 · 7 ZEN · 禅                                        */
+  /* ─────────────────────────────────────────────────────────── */
+  .p07 {
+    background: var(--sumi);
+    color: var(--aijiro);
+    grid-template-rows: auto 1fr;
+  }
+  .p07 .panel-head { color: var(--aijiro); border-bottom-color: rgba(235,246,247,0.4); }
+  .p07 .panel-head .num { color: var(--kohaku); }
+  .p07 .seven {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    align-self: stretch;
+    height: 100%;
+    border: 1px solid rgba(235,246,247,0.4);
+  }
+  .p07 .z {
+    padding: 1.2rem 0.9rem 4rem;
+    border-right: 1px solid rgba(235,246,247,0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .p07 .z:last-child { border-right: 0; }
+  .p07 .z .kanji {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    line-height: 0.9;
+    color: var(--kohaku);
+  }
+  .p07 .z .romaji {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 800;
+    font-size: 1.05rem;
+    line-height: 1;
+    color: var(--aijiro);
+  }
+  .p07 .z .en {
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--kihada);
+  }
+  .p07 .z .trans {
+    margin-top: auto;
+    padding-top: 0.8rem;
+    border-top: 1px dashed rgba(235,246,247,0.3);
+    font-size: 0.7rem;
+    line-height: 1.4;
+    font-style: italic;
+    color: var(--aijiro);
+    opacity: 0.92;
+  }
+  .p07 .folio { color: var(--aijiro); border-top-color: rgba(235,246,247,0.4); }
+
+  /* ─────────────────────────────────────────────────────────── */
+  /*  PANEL 08 · 8 RULES · 則                                      */
+  /* ─────────────────────────────────────────────────────────── */
+  .p08 {
+    background: var(--aijiro);
+  }
+  .p08 .eight {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-self: stretch;
+    border: 2px solid var(--sumi);
+  }
+  .p08 .r {
+    padding: 1.1rem 1.3rem 1.3rem;
+    border-right: 1px solid var(--sumi);
+    border-bottom: 1px solid var(--sumi);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.6rem 1rem;
+  }
+  .p08 .r:nth-child(2n) { border-right: 0; }
+  .p08 .r:nth-last-child(-n+2) { border-bottom: 0; }
+  .p08 .r .n {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: 2.5rem;
+    line-height: 0.9;
+    color: var(--ai);
+    grid-row: 1 / 3;
+  }
+  .p08 .r h3 {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.1;
+  }
+  .p08 .r p {
+    font-size: 0.78rem;
+    line-height: 1.5;
+    grid-column: 2;
+    max-width: 36ch;
+  }
+  .p08 .r p em { color: var(--suo); font-style: italic; font-weight: 600; }
+
+  /* ─────────────────────────────────────────────────────────── */
+  /*  PANEL 09 · CONTRADICTIONS · 矛盾                              */
+  /* ─────────────────────────────────────────────────────────── */
+  .p09 {
+    background: var(--torinoko);
+  }
+  .p09 .panel-head { color: var(--sumi); border-bottom-color: var(--sumi); }
+  .p09 .three {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    align-self: stretch;
+    border: 2px solid var(--sumi);
+  }
+  .p09 .c {
+    padding: 1.3rem;
+    border-right: 1px solid var(--sumi);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .p09 .c:last-child { border-right: 0; }
+  .p09 .c .greek {
+    font-family: var(--serif);
+    font-weight: 900;
+    font-style: italic;
+    font-size: 4rem;
+    line-height: 0.85;
+    color: var(--suo);
+  }
+  .p09 .c h3 {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: 0.95rem;
+    line-height: 1.15;
+  }
+  .p09 .c h3 .vs {
+    color: var(--shu);
+    font-weight: 400;
+    padding: 0 0.2rem;
+    font-style: italic;
+  }
+  .p09 .c .pair {
+    font-size: 0.78rem;
+    line-height: 1.55;
+    margin: 0.3rem 0;
+  }
+  .p09 .c .pair em { font-style: italic; color: var(--sumi); }
+  .p09 .c .resolution {
+    margin-top: auto;
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--suo);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: var(--suo);
+  }
+  .p09 .c .resolution strong { color: var(--suo); font-style: normal; font-weight: 700; }
+
+  /* ─────────────────────────────────────────────────────────── */
+  /*  PANEL 10 · MATRIX · 通暦                                     */
+  /* ─────────────────────────────────────────────────────────── */
+  .p10 {
+    background: var(--aijiro);
+  }
+  .p10 .matrix-wrap { align-self: center; margin: 0 auto; width: 100%; max-width: 920px; }
+  .p10 .mtx {
+    display: grid;
+    grid-template-columns: 90px repeat(4, 1fr);
+    gap: 1px;
+    background: var(--sumi);
+    border: 2px solid var(--sumi);
+    margin-bottom: 1.5rem;
+  }
+  .p10 .mtx .corner,
+  .p10 .mtx .rh,
+  .p10 .mtx .mh {
+    background: var(--sumi);
+    color: var(--aijiro);
+    padding: 0.4rem 0.6rem;
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .p10 .mtx .rh { text-align: center; font-family: var(--serif); font-weight: 800; font-style: italic; font-size: 0.8rem; letter-spacing: 0; text-transform: none; }
+  .p10 .mtx .rh span {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.5rem;
+    color: var(--kihada);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.1rem;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .p10 .mtx .mh {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .p10 .mtx .mh .month {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-style: italic;
+    font-size: 0.78rem;
+    color: var(--aijiro);
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  .p10 .mtx .mh .anchor {
+    font-size: 0.5rem;
+    color: var(--mizu);
+    line-height: 1.3;
+    letter-spacing: 0;
+    text-transform: none;
+    margin-top: 0.2rem;
+    font-family: var(--sans);
+  }
+  .p10 .mtx .mh .nm {
+    color: var(--shu);
+    font-size: 0.5rem;
+  }
+  .p10 .mtx .cell {
+    aspect-ratio: 1;
+    background: var(--aijiro);
+    position: relative;
+    overflow: hidden;
+  }
+  .p10 .mtx .cell svg { width: 100%; height: 100%; display: block; padding: 18%; color: var(--sumi); }
+  .p10 .mtx .cell.shu { background: var(--kihada); }
+  .p10 .mtx .cell.shu svg { color: var(--sumi); }
+  .p10 .mtx .cell.dark { background: var(--sumi); }
+  .p10 .mtx .cell.dark svg { color: var(--shu); }
+  .p10 .mtx .cell.purple { background: var(--suo); }
+  .p10 .mtx .cell.purple svg { color: var(--kihada); }
+  .p10 .mtx .cell .word {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-weight: 900;
+    font-size: clamp(0.55rem, 1.2vw, 0.85rem);
+    text-transform: uppercase;
+    line-height: 0.95;
+    text-align: center;
+  }
+  .p10 .mtx .cell.shu .word { color: var(--shu); }
+  .p10 .mtx .cell.dark .word { color: var(--shu); }
+  .p10 .mtx .cell.purple .word { color: var(--kihada); }
+  .p10 .mtx .cell .pat {
+    position: absolute;
+    inset: 0;
+  }
+  .p10 .legend {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    color: var(--sumi);
+    text-transform: uppercase;
+    text-align: center;
+    opacity: 0.7;
+  }
+  .p10 .legend strong { color: var(--shu); }
+
+  /* ─────────────────────────────────────────────────────────── */
+  /*  PANEL 11 · MOTIFS · 紋                                       */
+  /* ─────────────────────────────────────────────────────────── */
+  .p11 {
+    background: var(--aijiro);
+  }
+  .p11 .mons {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1px;
+    background: var(--sumi);
+    border: 2px solid var(--sumi);
+    align-self: stretch;
+  }
+  .p11 .mon {
+    background: var(--aijiro);
+    aspect-ratio: 1;
+    padding: 12%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .p11 .mon svg { width: 100%; height: 75%; color: var(--sumi); }
+  .p11 .mon .lbl {
+    position: absolute;
+    bottom: 6%;
+    left: 6%;
+    right: 6%;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 0.5rem;
+    letter-spacing: 0.16em;
+    color: var(--sumi);
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+  .p11 .note {
+    margin-top: 1.5rem;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    color: var(--suo);
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.6;
+  }
+  .p11 .note em { font-style: italic; }
+
+  /* ─────────────────────────────────────────────────────────── */
+  /*  PANEL 12 · COLOPHON ·  奥書                                  */
+  /* ─────────────────────────────────────────────────────────── */
+  .p12 {
+    background: var(--sumi);
+    color: var(--aijiro);
+    grid-template-rows: auto 1fr auto;
+  }
+  .p12 .panel-head { color: var(--aijiro); border-bottom-color: rgba(235,246,247,0.4); }
+  .p12 .panel-head .num { color: var(--kihada); }
+  .p12 .colo {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: clamp(2rem, 4vw, 4rem);
+    align-self: center;
+  }
+  .p12 .colo .left h2 {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-style: italic;
+    font-size: clamp(1.6rem, 3.4vw, 2.6rem);
+    line-height: 1.05;
+    margin-bottom: 1rem;
+  }
+  .p12 .colo .left h2 em { font-style: normal; color: var(--shu); }
+  .p12 .colo .left p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 0.7rem;
+    max-width: 55ch;
+    color: var(--aijiro);
+    opacity: 0.92;
+  }
+  .p12 .colo .left p em { color: var(--kihada); font-style: italic; }
+  .p12 .colo .left p strong { color: var(--shu); }
+  .p12 .colo .right {
+    border-left: 1px solid rgba(235,246,247,0.4);
+    padding-left: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  .p12 .ed-mark {
+    border: 2px solid var(--kihada);
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  .p12 .ed-mark .lbl {
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.22em;
+    color: var(--kihada);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .p12 .ed-mark .demo {
+    font-family: var(--mono);
+    font-size: 1.2rem;
+    letter-spacing: 0.18em;
+    color: var(--aijiro);
+    text-transform: uppercase;
+    line-height: 1.3;
+  }
+  .p12 .ed-mark .demo .small {
+    display: block;
+    font-size: 0.55rem;
+    color: var(--shu);
+    letter-spacing: 0.22em;
+    margin-bottom: 0.25rem;
+  }
+  .p12 .stack {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    line-height: 1.7;
+    color: var(--aijiro);
+    opacity: 0.85;
+    letter-spacing: 0.05em;
+  }
+  .p12 .stack .lbl {
+    font-family: var(--mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.22em;
+    color: var(--kihada);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .p12 .stack q {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--aijiro);
+    opacity: 1;
+  }
+  .p12 .signature {
+    margin-top: 1.5rem;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--shu);
+  }
+  .p12 .signature::before { content: "— "; }
+  .p12 .folio { color: var(--aijiro); border-top-color: rgba(235,246,247,0.4); }
+  .p12 .end-glyph {
+    width: 60px; height: 60px;
+    color: var(--shu);
+    margin: 1rem 0 0 auto;
+    display: block;
+  }
+  .p12 .land-seal {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .p12 .seal-ring {
+    width: 130px; height: 130px;
+    border: 2px solid var(--kihada);
+    border-radius: 50%;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .p12 .seal-inner {
+    width: 100%; height: 100%;
+    border: 1px solid var(--kihada);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.5rem;
+    font-family: var(--mono);
+    color: var(--kihada);
+    line-height: 1.3;
+  }
+  .p12 .seal-top {
+    font-size: 0.5rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+    opacity: 0.7;
+  }
+  .p12 .seal-mid {
+    font-size: 0.55rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--shu);
+  }
+  .p12 .seal-bot {
+    font-size: 0.48rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-top: 0.3rem;
+    opacity: 0.7;
+    line-height: 1.3;
+  }
+
+  /* ─── RESPONSIVE / MOBILE ──────────────────────────────────── */
+  @media (max-width: 900px) {
+    .p02, .p05, .p12 .colo { grid-template-columns: 1fr; }
+    .p02 .right { border-left: 0; padding-left: 0; border-top: 1px solid var(--sumi); padding-top: 1.5rem; }
+    .p06 .grid4 { grid-template-columns: 1fr; grid-template-rows: repeat(4, 1fr); }
+    .p06 .op { border-right: 0; }
+    .p06 .op:nth-last-child(-n+2) { border-bottom: 1px solid var(--sumi); }
+    .p06 .op:last-child { border-bottom: 0; }
+    .p07 .seven { grid-template-columns: repeat(2, 1fr); }
+    .p07 .z { border-bottom: 1px solid rgba(235,246,247,0.25); }
+    .p09 .three { grid-template-columns: 1fr; }
+    .p09 .c { border-right: 0; border-bottom: 1px solid var(--sumi); }
+    .p10 .mtx { grid-template-columns: 70px repeat(4, 1fr); font-size: 0.6em; }
+    .p11 .mons { grid-template-columns: repeat(3, 1fr); }
+    .p12 .colo .right { border-left: 0; padding-left: 0; border-top: 1px solid rgba(235,246,247,0.4); padding-top: 1.5rem; }
+  }
+  @media (max-width: 600px) {
+    .p04 .tier { grid-template-columns: 80px 1fr; }
+    .p04 .tier .badge { grid-column: 2; justify-self: start; }
+    .p08 .eight { grid-template-columns: 1fr; }
+    .p08 .r { border-right: 0; }
+    .p10 .mtx .mh .anchor { display: none; }
+  }
+
+  /* ─── PRINT — output as a 12-page riso zine ────────────────── */
+  @media print {
+    @page { size: A4 portrait; margin: 0; }
+    html, body { background: var(--aijiro); }
+    .panel { min-height: auto; height: 100vh; page-break-after: always; }
+    .panel + .panel { border-top: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ───────────────────────────────────────────────────────── -->
+<!--  PANEL 01 · COVER                                          -->
+<!-- ───────────────────────────────────────────────────────── -->
+<div class="panel p01">
+  <div class="stamp">
+    ESSENTIALS CREATIVE
+    <span class="ed">DROP 00 · 2026 / Q2 · 01 / 12</span>
+  </div>
+  <svg class="seal" viewBox="0 0 100 100" fill="currentColor" fill-rule="evenodd">
+    <circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" stroke-width="3"/>
+    <path d="M50 50 m-32 0 a32 32 0 0 1 28 -28 L48 50 Z"/>
+    <path d="M50 50 m32 0 a32 32 0 0 1 -28 28 L52 50 Z"/>
+    <rect x="48" y="18" width="4" height="64"/>
+  </svg>
+  <div>
+    <h1>
+      A <em>stencil-print<br>school</em><br>in the corridor.
+      <span class="small">
+        Indigenous Tejas Futurism · Japanese × Tejas Native · v0.3 broadside ·
+        Austin–San Antonio, on Tonkawa · Comanche · Lipan Apache · Coahuiltecan land.
+      </span>
+    </h1>
+  </div>
+  <svg class="seam-glyph" viewBox="0 0 200 200" fill="currentColor" fill-rule="evenodd">
+    <!-- the seam, large, low right corner -->
+    <rect x="20" y="20" width="70" height="160"/>
+    <rect x="110" y="20" width="70" height="160"/>
+  </svg>
+  <div class="folio">
+    <span><strong>EC · v0.3</strong> · BROADSIDE</span>
+    <span class="center">表紙 · COVER</span>
+    <span class="right">PANEL 01 / 12</span>
+  </div>
+</div>
+
+<!-- ───────────────────────────────────────────────────────── -->
+<!--  PANEL 02 · POSITION                                       -->
+<!-- ───────────────────────────────────────────────────────── -->
+<div class="panel p02">
+  <div class="panel-head" style="grid-column: 1 / -1;">
+    <div class="kanji">位</div>
+    <div class="num">02 · POSITION · WHAT WE ARE</div>
+    <div class="roman">i · the school statement</div>
+  </div>
+  <div class="left">
+    <div class="pre">THE POSITION</div>
+    <p class="statement">
+      <strong>Essentials Creative</strong> is a <em>stencil-print school</em> in the
+      Austin–San Antonio corridor, in the lineage from <em>kappazuri</em> through
+      Mori Yoshitoshi and Takahashi Hiromitsu, grounded in the heritage of our members.
+      <em>We adopt the constraint, not the imagery.</em>
+      The technique is the school.
+    </p>
+    <svg class="rhz-glyph" viewBox="0 0 100 100" fill="currentColor" fill-rule="evenodd">
+      <rect x="8" y="62" width="84" height="4"/>
+      <circle cx="26" cy="64" r="5"/><circle cx="50" cy="64" r="5"/><circle cx="74" cy="64" r="5"/>
+      <rect x="25" y="34" width="2" height="26"/>
+      <rect x="49" y="18" width="2" height="44"/>
+      <rect x="73" y="38" width="2" height="24"/>
+    </svg>
+  </div>
+  <div class="right">
+    <div class="ann">
+      <span class="label">AMENDABLE</span>
+      A position statement is not a slogan. It is a thesis we can be argued out of. Members may amend.
+    </div>
+    <div class="ann">
+      <span class="label">SIGNED IN THE WORK</span>
+      The byline is the work itself. No member is named on the artifact; <em>EC</em> is the named anonymous.
+    </div>
+    <div class="ann">
+      <span class="label">VOLATILITY OF "WE"</span>
+      Misa Yamamoto · Fabian Villa · Steven Casanova · Sixto-Juan Zavala · plus collaborators. The "we" rotates without erasing.
+    </div>
+  </div>
+  <div class="folio">
+    <span><strong>EC · v0.3</strong></span>
+    <span class="center">位 · POSITION</span>
+    <span class="right">02 / 12</span>
+  </div>
+</div>
+
+<!-- ───────────────────────────────────────────────────────── -->
+<!--  PANEL 03 · LINEAGE                                        -->
+<!-- ───────────────────────────────────────────────────────── -->
+<div class="panel p03">
+  <div class="panel-head" style="color: var(--sumi); border-bottom-color: var(--sumi);">
+    <div class="kanji">系</div>
+    <div class="num">03 · LINEAGE · TWO-ROW</div>
+    <div class="roman">iii · the named ancestors</div>
+  </div>
+  <div class="row tejas">
+    <div class="row-label">ROW A · TEJAS · LAND + PEOPLE</div>
+    <h3 class="row-head">Where the work is from.</h3>
+    <p>
+      <strong>Otomí</strong> amate cutters · <strong>Purépecha</strong> <em>maque</em> · <strong>Apache</strong> coiled basketry · <strong>Cherokee</strong> Sequoyah-script (honored trace) · Mexican-American <em>rasquachismo</em> (Ybarra-Frausto) · Latinx taller (TGP · OSPAAAL · DIVEDCO · Justseeds) · African (Adinkra · kente · Gee's Bend) · Spanish al-Andalus / Mudéjar · <strong>Anzaldúa</strong> · <strong>Glissant</strong> · <strong>Cajete</strong> · <strong>Vizenor</strong> · <strong>Dillon</strong> · <strong>Kimmerer</strong> · the Edwards Aquifer · Yanaguana · the monarch · the bat.
+    </p>
+  </div>
+  <div class="seam-bar">
+    <div class="lbl">THE SEAM · CRYSTAL CITY, TX</div>
+    <p>
+      One town braids both rows: the WWII <em>internment camp</em> (Japanese-American + Japanese-Latin American) and the 1969 <em>Chicano walkouts</em> / La Raza Unida. Two-Row is not a metaphor — it is historical fact.
+    </p>
+  </div>
+  <div class="row japan">
+    <div class="row-label">ROW B · JAPAN · TECHNIQUE + FORM</div>
+    <h3 class="row-head">How the work is made.</h3>
+    <p>
+      <strong>Kappazuri</strong> 合羽摺り (the production constraint) · <strong>Hanafuda</strong> · ukiyo-e block construction · <strong>kamon</strong> · <strong>Onchi Kōshirō</strong> · <strong>Mori Yoshitoshi</strong> · <strong>Takahashi Hiromitsu</strong> · <strong>Serizawa Keisuke</strong> (Living National Treasure · katazome) · <em>sōsaku-hanga</em> · <em>Mingei</em> (Yanagi Sōetsu) · the engimono cutters · Hisamatsu Shin'ichi · <em>ma · iki · notan · mitate</em> · <em>wabi-sabi</em>.
+    </p>
+  </div>
+  <div class="folio" style="color: var(--sumi); border-top-color: var(--sumi);">
+    <span><strong>EC · v0.3</strong></span>
+    <span class="center">系 · LINEAGE</span>
+    <span class="right">03 / 12</span>
+  </div>
+</div>
+
+<!-- ───────────────────────────────────────────────────────── -->
+<!--  PANEL 04 · TECHNIQUE                                      -->
+<!-- ───────────────────────────────────────────────────────── -->
+<div class="panel p04">
+  <div class="panel-head">
+    <div class="kanji">技</div>
+    <div class="num">04 · TECHNIQUE · THE 3 TIERS</div>
+    <div class="roman">iv · pick a tool · forbid the rest</div>
+  </div>
+  <div class="stack">
+    <div class="tier primary">
+      <div class="rank">i</div>
+      <div>
+        <h3>Riso · 2-ink + overprint</h3>
+        <div class="ja">理想 · risō · automatic stencil duplicator</div>
+        <p>Two ink drums. Two passes. The overlap is a third color born of the meeting. The misregister is automatic; the grain stays visible.</p>
+      </div>
+      <div class="badge">PRIMARY · 主</div>
+    </div>
+    <div class="tier">
+      <div class="rank">ii</div>
+      <div>
+        <h3>Single-ink screenprint</h3>
+        <div class="ja">シルク · by hand · gallery scale</div>
+        <p>One color, by hand. For larger formats and tactile, deliberate, slow work. Mori's medium.</p>
+      </div>
+      <div class="badge">SECONDARY · 副</div>
+    </div>
+    <div class="tier">
+      <div class="rank">iii</div>
+      <div>
+        <h3>Cut paper · kappazuri proper</h3>
+        <div class="ja">合羽摺り · knife in hand · 1 of 1</div>
+        <p>For ceremony · signage · installation pieces. Knife in hand, ink through the cut. The most original form.</p>
+      </div>
+      <div class="badge">TERTIARY · 第三</div>
+    </div>
+  </div>
+  <div class="folio">
+    <span><strong>EC · v0.3</strong></span>
+    <span class="center">技 · TECHNIQUE</span>
+    <span class="right">04 / 12</span>
+  </div>
+</div>
+
+<!-- ───────────────────────────────────────────────────────── -->
+<!--  PANEL 05 · MINGEI + SŌSAKU-HANGA                          -->
+<!-- ───────────────────────────────────────────────────────── -->
+<div class="panel p05">
+  <div class="panel-head" style="color: var(--aijiro); border-bottom-color: rgba(235,246,247,0.4); grid-column: 1 / -1;">
+    <div class="kanji" style="color: var(--kihada);">民</div>
+    <div class="num" style="color: var(--kihada);">05 · MINGEI 民藝 + SŌSAKU-HANGA 創作版画</div>
+    <div class="roman">v · anonymous, useful, made-in-quantity · self-drawn, -carved, -printed</div>
+  </div>
+  <div class="left">
+    <h2>Anonymous, useful, made-in-quantity.<br>And — own every step.</h2>
+    <blockquote>
+      "The print is an art form that makes use of its creative process as a means of expression."
+      <cite>— Onchi Kōshirō · 1891–1955 · founder, sōsaku-hanga</cite>
+    </blockquote>
+    <div class="doctrine">
+      <div class="lbl">THE DOCTRINE</div>
+      <div class="words">
+        <div class="word"><div class="kanji">自画</div><div class="romaji">Ji-ga</div><div class="en">self-drawn</div></div>
+        <div class="word"><div class="kanji">自刻</div><div class="romaji">Ji-koku</div><div class="en">self-carved</div></div>
+        <div class="word"><div class="kanji">自摺</div><div class="romaji">Ji-zuri</div><div class="en">self-printed</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <ol>
+      <li><b>Anonymous</b><span>The brand is the work, not the designer's name. EC is the named anonymous.</span></li>
+      <li><b>Useful</b><span>The work serves a purpose for many. Not a vision for one viewer.</span></li>
+      <li><b>Cheap materials</b><span>The discipline, not the constraint. Torinoko · riso ink · cotton canvas.</span></li>
+      <li><b>Made in quantity</b><span>Editions of 30–300. The design must survive 10,000 pulls.</span></li>
+      <li><b>Selfless</b><span>The work points outward — to the land, the community, the ancestor.</span></li>
+    </ol>
+  </div>
+  <div class="folio">
+    <span><strong>EC · v0.3</strong></span>
+    <span class="center">民 · MINGEI</span>
+    <span class="right">05 / 12</span>
+  </div>
+</div>
+
+<!-- ───────────────────────────────────────────────────────── -->
+<!--  PANEL 06 · 4 OPERATIVE CONCEPTS                           -->
+<!-- ───────────────────────────────────────────────────────── -->
+<div class="panel p06">
+  <div class="panel-head">
+    <div class="kanji">概</div>
+    <div class="num">06 · 4 OPERATIVE CONCEPTS · MOVES</div>
+    <div class="roman">vi · ma · iki · notan · mitate</div>
+  </div>
+  <div class="grid4">
+    <div class="op">
+      <div class="kanji">間</div>
+      <div>
+        <div class="name">Ma</div>
+        <div class="romaji">the charged interval</div>
+      </div>
+      <div class="num">i</div>
+      <div class="body">
+        Not "negative space." Ma is the active interval. <strong>Budget the interval first;</strong> size the element to fit it. The empty is load-bearing, not leftover.
+      </div>
+    </div>
+    <div class="op">
+      <div class="kanji">粋</div>
+      <div>
+        <div class="name">Iki</div>
+        <div class="romaji">concealed effort · allure</div>
+      </div>
+      <div class="num">ii</div>
+      <div class="body">
+        Bitai + ikiji + akirame. <strong>Hide the effort.</strong> The most expensive detail is the smallest. Never tell the audience you're cool.
+      </div>
+    </div>
+    <div class="op">
+      <div class="kanji">濃淡</div>
+      <div>
+        <div class="name">Notan</div>
+        <div class="romaji">dark/light is the composition</div>
+      </div>
+      <div class="num">iii</div>
+      <div class="body">
+        Squint at the work. Before color, before type — <strong>reduce to 2cm grayscale thumbnail.</strong> If the dark/light pattern is weak, nothing will save it.
+      </div>
+    </div>
+    <div class="op">
+      <div class="kanji">見立</div>
+      <div>
+        <div class="name">Mitate</div>
+        <div class="romaji">visual substitution · high/low collision</div>
+      </div>
+      <div class="num">iv</div>
+      <div class="body">
+        Cast X in the role of Y. Both readings present at once. <strong>The viewer's intelligence is the design material.</strong> Not parody — parody flattens.
+      </div>
+    </div>
+  </div>
+  <div class="folio">
+    <span><strong>EC · v0.3</strong></span>
+    <span class="center">概 · CONCEPTS</span>
+    <span class="right">06 / 12</span>
+  </div>
+</div>
+
+<!-- ───────────────────────────────────────────────────────── -->
+<!--  PANEL 07 · 7 ZEN DISCIPLINES                              -->
+<!-- ───────────────────────────────────────────────────────── -->
+<div class="panel p07">
+  <div class="panel-head">
+    <div class="kanji" style="color: var(--kohaku);">禅</div>
+    <div class="num">07 · 7 ZEN DISCIPLINES · HISAMATSU</div>
+    <div class="roman">vii · tests the work must pass</div>
+  </div>
+  <div class="seven">
+    <div class="z">
+      <div class="kanji">簡素</div>
+      <div class="romaji">Kanso</div>
+      <div class="en">simplicity</div>
+      <div class="trans">Cut until the meaning trembles.</div>
+    </div>
+    <div class="z">
+      <div class="kanji">不均整</div>
+      <div class="romaji">Fukinsei</div>
+      <div class="en">asymmetry</div>
+      <div class="trans">Refuse the centered axis. Balance by weight.</div>
+    </div>
+    <div class="z">
+      <div class="kanji">渋味</div>
+      <div class="romaji">Shibui</div>
+      <div class="en">understated</div>
+      <div class="trans">Reserved palette. Depth on second look.</div>
+    </div>
+    <div class="z">
+      <div class="kanji">自然</div>
+      <div class="romaji">Shizen</div>
+      <div class="en">naturalness</div>
+      <div class="trans">No cleverness. The form arrives as if grown.</div>
+    </div>
+    <div class="z">
+      <div class="kanji">幽玄</div>
+      <div class="romaji">Yūgen</div>
+      <div class="en">suggestion</div>
+      <div class="trans">Don't show everything. The viewer completes.</div>
+    </div>
+    <div class="z">
+      <div class="kanji">脱俗</div>
+      <div class="romaji">Datsuzoku</div>
+      <div class="en">freedom from formula</div>
+      <div class="trans">One unexpected move per piece. Break the rule once.</div>
+    </div>
+    <div class="z">
+      <div class="kanji">清寂</div>
+      <div class="romaji">Seijaku</div>
+      <div class="en">energized calm</div>
+      <div class="trans">Stillness with tension. Not deadness.</div>
+    </div>
+  </div>
+  <div class="folio">
+    <span><strong>EC · v0.3</strong></span>
+    <span class="center">禅 · ZEN</span>
+    <span class="right">07 / 12</span>
+  </div>
+</div>
+
+<!-- ───────────────────────────────────────────────────────── -->
+<!--  PANEL 08 · 8 PROCEDURAL RULES                             -->
+<!-- ───────────────────────────────────────────────────────── -->
+<div class="panel p08">
+  <div class="panel-head">
+    <div class="kanji">則</div>
+    <div class="num">08 · 8 RULES · OPERATIONAL</div>
+    <div class="roman">viii · what you do · every time · in order</div>
+  </div>
+  <div class="eight">
+    <div class="r">
+      <div class="n">i</div>
+      <h3>Technique first.</h3>
+      <p>Decide the medium before anything else. Riso · screen · cut. <em>The medium decides 80% of what follows.</em></p>
+    </div>
+    <div class="r">
+      <div class="n">ii</div>
+      <h3>Pick a cell.</h3>
+      <p>Open the matrix. Month × register. The intersection IS the brief.</p>
+    </div>
+    <div class="r">
+      <div class="n">iii</div>
+      <h3>Design at viewing size.</h3>
+      <p>Phone thumbnail? A2 wall? Billboard? <em>Set the true size first.</em></p>
+    </div>
+    <div class="r">
+      <div class="n">iv</div>
+      <h3>One mon · circle frame.</h3>
+      <p>One motif, large, in a clear field. Need richer? Conjugate (basic / maru-ni / mitsu / chigai).</p>
+    </div>
+    <div class="r">
+      <div class="n">v</div>
+      <h3>Spark = importance.</h3>
+      <p>Accent color marks <em>the most important zone</em>. Not category. Heat-mapping, not description.</p>
+    </div>
+    <div class="r">
+      <div class="n">vi</div>
+      <h3>Crop · type at fidelity.</h3>
+      <p>Stop centering. Let figures bleed past. Type shares the drawing's edge — never pasted-over.</p>
+    </div>
+    <div class="r">
+      <div class="n">vii</div>
+      <h3>Amplify · then reduce.</h3>
+      <p>Keep the misregister, the bleed, the grain. Then: remove one element. Still reads? Remove again.</p>
+    </div>
+    <div class="r">
+      <div class="n">viii</div>
+      <h3>Number visible. Stop.</h3>
+      <p>Edition mark is part of the design. <em>Commit and finish.</em></p>
+    </div>
+  </div>
+  <div class="folio">
+    <span><strong>EC · v0.3</strong></span>
+    <span class="center">則 · RULES</span>
+    <span class="right">08 / 12</span>
+  </div>
+</div>
+
+<!-- ───────────────────────────────────────────────────────── -->
+<!--  PANEL 09 · CONTRADICTIONS                                 -->
+<!-- ───────────────────────────────────────────────────────── -->
+<div class="panel p09">
+  <div class="panel-head">
+    <div class="kanji">矛</div>
+    <div class="num">09 · 3 CONTRADICTIONS · THE ENGINE</div>
+    <div class="roman">ix · kept alive — the fights are the design questions</div>
+  </div>
+  <div class="three">
+    <div class="c">
+      <div class="greek">α</div>
+      <h3>Sōsaku-hanga<span class="vs">vs.</span>Mingei</h3>
+      <p class="pair">"The artist owns every step and signs the work." <em>vs.</em> "The craftsman is anonymous and serves utility."</p>
+      <div class="resolution"><strong>After Serizawa:</strong> the collective is named, the members anonymous. EC signs; no individual byline. The named anonymous.</div>
+    </div>
+    <div class="c">
+      <div class="greek">β</div>
+      <h3>Mingei<span class="vs">vs.</span>Zen aesthetic</h3>
+      <p class="pair">Beauty in <em>everyday utility</em> · rice bowl every meal. <em>vs.</em> Tea-ceremony Zen · rice bowl used once.</p>
+      <div class="resolution"><strong>Both registers:</strong> everyday work = Mingei (IG drops, planting flyers, zines hand-to-hand). Ceremonial work = Zen (installations, the FAE deck, one-off cut paper). Same grammar.</div>
+    </div>
+    <div class="c">
+      <div class="greek">γ</div>
+      <h3>Onchi expression<span class="vs">vs.</span>Seijaku calm</h3>
+      <p class="pair">Print as <em>expression</em> — emotional, dynamic. <em>vs.</em> Energized calm — stillness.</p>
+      <div class="resolution"><strong>Mori's struggle, our brand tone:</strong> the subject is urgent (Land Back · Water Back · the monarch refusing the border). The medium is still. Pressure inside calm.</div>
+    </div>
+  </div>
+  <div class="folio">
+    <span><strong>EC · v0.3</strong></span>
+    <span class="center">矛 · CONTRADICTIONS</span>
+    <span class="right">09 / 12</span>
+  </div>
+</div>
+
+<!-- ───────────────────────────────────────────────────────── -->
+<!--  PANEL 10 · MATRIX                                         -->
+<!-- ───────────────────────────────────────────────────────── -->
+<div class="panel p10">
+  <div class="panel-head">
+    <div class="kanji">暦</div>
+    <div class="num">10 · MATRIX · 12 × 4 = 48 CELLS</div>
+    <div class="roman">x · lock the grammar · vary the sentences</div>
+  </div>
+  <div class="matrix-wrap">
+    <div class="mtx">
+      <div class="corner">M ↓ R →</div>
+      <div class="rh"><span>r1</span>Figural</div>
+      <div class="rh"><span>r2</span>Pictorial</div>
+      <div class="rh"><span>r3</span>Typographic</div>
+      <div class="rh"><span>r4</span>Ornamental</div>
+
+      <div class="mh"><div><span class="nm">01</span><div class="month">January</div></div><div class="anchor">Live oak · dormancy</div></div>
+      <div class="cell"><svg viewBox="0 0 100 100" fill="currentColor"><path d="M50 8 Q62 14 64 28 Q72 34 70 46 Q76 54 66 60 Q70 70 58 76 Q60 88 50 92 Q40 88 42 76 Q30 70 34 60 Q24 54 30 46 Q28 34 36 28 Q38 14 50 8 Z"/></svg></div>
+      <div class="cell"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M-5 30 Q30 32 50 45 Q70 58 105 60"/><circle cx="38" cy="38" r="5" fill="currentColor"/><circle cx="58" cy="50" r="4" fill="currentColor"/></svg></div>
+      <div class="cell"><div class="word">DOR<br>MANT</div></div>
+      <div class="cell"><div class="pat" style="background-image:radial-gradient(ellipse 4px 3px at 25% 25%,var(--sumi) 99%,transparent 100%),radial-gradient(ellipse 4px 3px at 75% 75%,var(--sumi) 99%,transparent 100%),radial-gradient(ellipse 4px 3px at 75% 25%,var(--sumi) 99%,transparent 100%),radial-gradient(ellipse 4px 3px at 25% 75%,var(--sumi) 99%,transparent 100%)"></div></div>
+
+      <div class="mh"><div><span class="nm">02</span><div class="month">February</div></div><div class="anchor">Mountain laurel · first bloom</div></div>
+      <div class="cell"><svg viewBox="0 0 100 100" fill="currentColor"><circle cx="40" cy="40" r="9"/><circle cx="60" cy="40" r="9"/><circle cx="50" cy="55" r="9"/><circle cx="40" cy="70" r="8"/><circle cx="60" cy="70" r="8"/></svg></div>
+      <div class="cell"><svg viewBox="0 0 100 100" fill="currentColor"><rect x="49" y="0" width="2" height="40" fill="#454D32"/><circle cx="50" cy="40" r="8"/><circle cx="42" cy="55" r="7"/><circle cx="58" cy="55" r="7"/><circle cx="50" cy="68" r="7"/></svg></div>
+      <div class="cell"><div class="word">LAUREL</div></div>
+      <div class="cell"><div class="pat" style="background-image:radial-gradient(circle 5px at 25% 25%,var(--fuji) 99%,transparent 100%),radial-gradient(circle 5px at 75% 25%,var(--fuji) 99%,transparent 100%),radial-gradient(circle 5px at 25% 75%,var(--fuji) 99%,transparent 100%),radial-gradient(circle 5px at 75% 75%,var(--fuji) 99%,transparent 100%),radial-gradient(circle 4px at 50% 50%,var(--fuji) 99%,transparent 100%)"></div></div>
+
+      <div class="mh"><div><span class="nm">03</span><div class="month">March</div></div><div class="anchor">Bluebonnet · equinox</div></div>
+      <div class="cell"><svg viewBox="0 0 100 100" fill="currentColor"><path d="M48 100 L48 30 L52 30 L52 100 Z"/><ellipse cx="50" cy="30" rx="7" ry="5"/><ellipse cx="43" cy="40" rx="6" ry="4.5"/><ellipse cx="57" cy="40" rx="6" ry="4.5"/><ellipse cx="45" cy="50" rx="5" ry="4"/><ellipse cx="55" cy="50" rx="5" ry="4"/></svg></div>
+      <div class="cell"><svg viewBox="0 0 100 100" fill="currentColor"><ellipse cx="50" cy="32" rx="8" ry="6" fill="var(--aijiro)" stroke="currentColor" stroke-width="2"/><ellipse cx="50" cy="42" rx="7" ry="5"/><ellipse cx="50" cy="52" rx="6" ry="4"/></svg></div>
+      <div class="cell"><div class="word">TEJAS</div></div>
+      <div class="cell"><div class="pat" style="background:repeating-linear-gradient(90deg,var(--ai) 0 2px,transparent 2px 14px)"></div></div>
+
+      <div class="mh"><div><span class="nm">04</span><div class="month">April</div></div><div class="anchor">Milkweed · monarch arrival</div></div>
+      <div class="cell shu"><svg viewBox="0 0 100 100" fill="currentColor"><path d="M50 52 Q32 30 14 38 Q12 50 24 56 Q36 58 50 52 Z"/><path d="M50 52 Q68 30 86 38 Q88 50 76 56 Q64 58 50 52 Z"/><path d="M50 52 Q38 72 28 80 Q40 78 46 72 Q50 64 50 52 Z"/><path d="M50 52 Q62 72 72 80 Q60 78 54 72 Q50 64 50 52 Z"/><ellipse cx="50" cy="52" rx="3" ry="22"/></svg></div>
+      <div class="cell shu"><svg viewBox="0 0 100 100" fill="currentColor"><path d="M30 90 Q22 70 22 50 Q26 35 35 30 Q40 35 40 50 Q40 75 30 90 Z"/></svg></div>
+      <div class="cell shu"><div class="word">ARRI<br>VAL.</div></div>
+      <div class="cell shu"><div class="pat" style="background-image:repeating-radial-gradient(circle at 25% 25%,var(--sumi) 0 3px,transparent 3px 14px),repeating-radial-gradient(circle at 75% 75%,var(--shu) 0 3px,transparent 3px 14px)"></div></div>
+
+      <div class="mh"><div><span class="nm">05</span><div class="month">May</div></div><div class="anchor">Yucca · nopal · flush</div></div>
+      <div class="cell"><svg viewBox="0 0 100 100" fill="currentColor"><g transform="translate(50 100)"><path d="M0 0 L-5 -85 L0 -100 L5 -85 Z"/><path d="M0 0 L-5 -85 L0 -100 L5 -85 Z" transform="rotate(30)"/><path d="M0 0 L-5 -85 L0 -100 L5 -85 Z" transform="rotate(60)"/><path d="M0 0 L-5 -85 L0 -100 L5 -85 Z" transform="rotate(-30)"/><path d="M0 0 L-5 -85 L0 -100 L5 -85 Z" transform="rotate(-60)"/></g></svg></div>
+      <div class="cell"><svg viewBox="0 0 100 100" fill="currentColor"><ellipse cx="40" cy="65" rx="22" ry="28"/><ellipse cx="65" cy="35" rx="14" ry="18"/></svg></div>
+      <div class="cell"><div class="word">FLUSH</div></div>
+      <div class="cell"><div class="pat" style="background:conic-gradient(from 0deg at 50% 50%,var(--wakatake) 0 8%,transparent 8% 25%,var(--wakatake) 25% 33%,transparent 33% 50%,var(--wakatake) 50% 58%,transparent 58% 75%,var(--wakatake) 75% 83%,transparent 83% 100%)"></div></div>
+
+      <div class="mh"><div><span class="nm">06</span><div class="month">June</div></div><div class="anchor">Mesquite · heat</div></div>
+      <div class="cell"><svg viewBox="0 0 100 100" fill="currentColor"><path d="M5 50 Q22 38 38 48 Q55 60 70 46 Q85 38 95 50 Q92 60 78 56 Q62 62 50 56 Q35 50 22 56 Q12 58 5 50 Z"/></svg></div>
+      <div class="cell"><svg viewBox="0 0 100 100" fill="currentColor"><path d="M10 50 Q25 38 42 48 Q60 62 78 48 Q92 40 95 52 Q90 58 78 55 Q65 60 50 55 Q35 50 22 56 Q15 58 10 50 Z"/><circle cx="42" cy="52" r="3"/><circle cx="62" cy="51" r="3"/></svg></div>
+      <div class="cell"><div class="word">HEAT</div></div>
+      <div class="cell"><div class="pat" style="background:repeating-linear-gradient(135deg,var(--kohaku) 0 3px,transparent 3px 12px)"></div></div>
+
+      <div class="mh"><div><span class="nm">07</span><div class="month">July</div></div><div class="anchor">Bat · emergence</div></div>
+      <div class="cell dark"><svg viewBox="0 0 100 100" fill="currentColor"><path d="M50 50 Q35 30 12 28 Q18 38 24 42 Q14 44 8 50 Q22 50 30 50 Q22 56 18 64 Q30 58 40 56 Q44 60 50 60 Q56 60 60 56 Q70 58 82 64 Q78 56 70 50 Q78 50 92 50 Q86 44 76 42 Q82 38 88 28 Q65 30 50 50 Z"/></svg></div>
+      <div class="cell dark"><div style="position:absolute;left:0;bottom:30%;width:100%;height:6%;background:var(--shu)"></div><svg viewBox="0 0 100 100" fill="currentColor" style="padding:20% 30%"><path d="M50 50 Q35 30 12 28 Q22 47 28 47 Q22 55 30 55 Q22 65 18 70 Q35 60 50 50 Z"/><path d="M50 50 Q65 30 88 28 Q78 47 72 47 Q78 55 70 55 Q78 65 82 70 Q65 60 50 50 Z"/></svg></div>
+      <div class="cell dark"><div class="word">EMERGE</div></div>
+      <div class="cell dark"><div class="pat" style="background-image:radial-gradient(ellipse 3px 2px at 15% 20%,var(--shu) 99%,transparent 100%),radial-gradient(ellipse 3px 2px at 45% 30%,var(--shu) 99%,transparent 100%),radial-gradient(ellipse 3px 2px at 80% 20%,var(--shu) 99%,transparent 100%),radial-gradient(ellipse 3px 2px at 25% 55%,var(--shu) 99%,transparent 100%),radial-gradient(ellipse 3px 2px at 65% 60%,var(--shu) 99%,transparent 100%),radial-gradient(ellipse 3px 2px at 40% 80%,var(--shu) 99%,transparent 100%),radial-gradient(ellipse 3px 2px at 85% 78%,var(--shu) 99%,transparent 100%)"></div></div>
+
+      <div class="mh"><div><span class="nm">08</span><div class="month">August</div></div><div class="anchor">Sotol · drought</div></div>
+      <div class="cell"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2"><g transform="translate(50 100)"><line x1="0" y1="0" x2="0" y2="-90"/><line x1="0" y1="0" x2="10" y2="-86"/><line x1="0" y1="0" x2="-10" y2="-86"/><line x1="0" y1="0" x2="22" y2="-78"/><line x1="0" y1="0" x2="-22" y2="-78"/><line x1="0" y1="0" x2="34" y2="-65"/><line x1="0" y1="0" x2="-34" y2="-65"/></g></svg></div>
+      <div class="cell"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2"><rect x="48" y="20" width="4" height="60" fill="currentColor"/><g transform="translate(50 90)"><line x1="0" y1="0" x2="20" y2="-15"/><line x1="0" y1="0" x2="-20" y2="-15"/><line x1="0" y1="0" x2="30" y2="-8"/><line x1="0" y1="0" x2="-30" y2="-8"/></g></svg></div>
+      <div class="cell"><div class="word">SOTOL</div></div>
+      <div class="cell"><div class="pat" style="background:repeating-linear-gradient(75deg,var(--sumi) 0 1px,transparent 1px 6px),repeating-linear-gradient(105deg,var(--sumi) 0 1px,transparent 1px 6px)"></div></div>
+
+      <div class="mh"><div><span class="nm">09</span><div class="month">September</div></div><div class="anchor">Hummingbird · norther</div></div>
+      <div class="cell"><svg viewBox="0 0 100 100" fill="currentColor"><ellipse cx="55" cy="50" rx="22" ry="10"/><path d="M30 50 L5 38 L8 52 L5 65 Z"/><circle cx="74" cy="48" r="6"/><path d="M76 48 L92 40 L88 50 L92 56 Z"/></svg></div>
+      <div class="cell"><svg viewBox="0 0 100 100" fill="currentColor"><ellipse cx="32" cy="55" rx="18" ry="8"/><circle cx="47" cy="52" r="5"/><path d="M50 52 L62 45 L60 55 L62 60 Z"/><circle cx="80" cy="50" r="10"/></svg></div>
+      <div class="cell"><div class="word">NOR<br>THER</div></div>
+      <div class="cell"><div class="pat" style="background:radial-gradient(circle at 50% 50%,var(--shu) 0 6%,transparent 6.5%),conic-gradient(from 45deg at 50% 50%,transparent 0 10%,var(--kohaku) 10% 15%,transparent 15% 35%,var(--kohaku) 35% 40%,transparent 40% 60%,var(--kohaku) 60% 65%,transparent 65% 85%,var(--kohaku) 85% 90%,transparent 90% 100%)"></div></div>
+
+      <div class="mh"><div><span class="nm">10</span><div class="month">October</div></div><div class="anchor">Monarch return · home</div></div>
+      <div class="cell dark"><svg viewBox="0 0 100 100" fill="currentColor"><path d="M50 52 Q32 30 14 38 Q12 50 24 56 Q36 58 50 52 Z"/><path d="M50 52 Q68 30 86 38 Q88 50 76 56 Q64 58 50 52 Z"/><path d="M50 52 Q38 72 28 80 Q40 78 46 72 Q50 64 50 52 Z"/><path d="M50 52 Q62 72 72 80 Q60 78 54 72 Q50 64 50 52 Z"/><ellipse cx="50" cy="52" rx="3" ry="22"/></svg></div>
+      <div class="cell dark"><div style="position:absolute;inset:5%;border-top:2px dashed var(--kihada);border-right:2px dashed var(--kihada);border-radius:0 100% 0 0;opacity:.7"></div><svg viewBox="0 0 100 100" fill="currentColor" style="padding:30%"><path d="M50 52 Q32 30 14 38 Q12 50 24 56 Q36 58 50 52 Z"/><path d="M50 52 Q68 30 86 38 Q88 50 76 56 Q64 58 50 52 Z"/><ellipse cx="50" cy="52" rx="3" ry="20"/></svg></div>
+      <div class="cell dark"><div class="word">HOME</div></div>
+      <div class="cell dark"><div class="pat" style="background:repeating-conic-gradient(from 0deg at 50% 50%,var(--shu) 0 8%,transparent 8% 25%);background-size:24px 24px"></div></div>
+
+      <div class="mh"><div><span class="nm">11</span><div class="month">November</div></div><div class="anchor">Cempasúchil · ofrenda</div></div>
+      <div class="cell purple"><svg viewBox="0 0 100 100" fill="currentColor"><circle cx="50" cy="50" r="7"/><ellipse cx="50" cy="22" rx="7" ry="13"/><ellipse cx="50" cy="78" rx="7" ry="13"/><ellipse cx="22" cy="50" rx="13" ry="7"/><ellipse cx="78" cy="50" rx="13" ry="7"/><ellipse cx="30" cy="30" rx="12" ry="7" transform="rotate(-45 30 30)"/><ellipse cx="70" cy="30" rx="12" ry="7" transform="rotate(45 70 30)"/><ellipse cx="30" cy="70" rx="12" ry="7" transform="rotate(45 30 70)"/><ellipse cx="70" cy="70" rx="12" ry="7" transform="rotate(-45 70 70)"/></svg></div>
+      <div class="cell purple"><svg viewBox="0 0 100 100"><g fill="currentColor"><circle cx="35" cy="60" r="7"/><ellipse cx="35" cy="40" rx="6" ry="10"/><ellipse cx="20" cy="55" rx="10" ry="6"/><ellipse cx="50" cy="55" rx="10" ry="6"/></g><path d="M75 90 Q75 70 80 60 Q85 50 80 40 Q75 30 78 18 Q81 8 75 0" fill="none" stroke="var(--aijiro)" stroke-width="3" stroke-linecap="round"/></svg></div>
+      <div class="cell purple"><div class="word">OFREN<br>DA.</div></div>
+      <div class="cell purple"><div class="pat" style="background:repeating-radial-gradient(circle at 30% 30%,var(--kohaku) 0 3px,transparent 3px 16px),repeating-radial-gradient(circle at 75% 70%,var(--kohaku) 0 3px,transparent 3px 16px)"></div></div>
+
+      <div class="mh"><div><span class="nm">12</span><div class="month">December</div></div><div class="anchor">Fire · solstice</div></div>
+      <div class="cell dark"><svg viewBox="0 0 100 100" fill="currentColor"><path d="M50 95 Q35 80 35 60 Q30 50 38 40 Q35 30 45 25 Q42 14 50 5 Q58 14 55 25 Q65 30 62 40 Q70 50 65 60 Q65 80 50 95 Z"/></svg></div>
+      <div class="cell dark"><div style="position:absolute;left:0;bottom:35%;width:100%;height:2%;background:var(--shu)"></div><svg viewBox="0 0 100 100" fill="currentColor" style="padding:20%"><path d="M25 95 Q18 78 22 60 Q15 50 30 30 Q35 50 40 60 Q42 78 35 95 Z" transform="translate(-10 0)"/><path d="M65 95 Q58 78 62 60 Q55 50 70 30 Q75 50 80 60 Q82 78 75 95 Z" transform="translate(10 0)"/></svg></div>
+      <div class="cell dark"><div class="word">SOL<br>STICE</div></div>
+      <div class="cell dark"><div class="pat" style="background:radial-gradient(ellipse 10px 14px at 20% 80%,var(--shu) 99%,transparent 100%),radial-gradient(ellipse 10px 14px at 50% 80%,var(--shu) 99%,transparent 100%),radial-gradient(ellipse 10px 14px at 80% 80%,var(--shu) 99%,transparent 100%),radial-gradient(ellipse 7px 10px at 35% 50%,var(--shu) 99%,transparent 100%),radial-gradient(ellipse 7px 10px at 65% 50%,var(--shu) 99%,transparent 100%)"></div></div>
+    </div>
+    <div class="legend">12 months × 4 registers = <strong>48 cells</strong> · pick one · the intersection is the brief</div>
+  </div>
+  <div class="folio">
+    <span><strong>EC · v0.3</strong></span>
+    <span class="center">暦 · MATRIX</span>
+    <span class="right">10 / 12</span>
+  </div>
+</div>
+
+<!-- ───────────────────────────────────────────────────────── -->
+<!--  PANEL 11 · MOTIFS                                         -->
+<!-- ───────────────────────────────────────────────────────── -->
+<div class="panel p11">
+  <div class="panel-head">
+    <div class="kanji">紋</div>
+    <div class="num">11 · MOTIFS · KAMON DISCIPLINE</div>
+    <div class="roman">xi · carved negative space · circle frame · generative family</div>
+  </div>
+  <div class="mons">
+    <div class="mon"><svg viewBox="0 0 100 100" fill="currentColor" fill-rule="evenodd"><circle cx="50" cy="50" r="42" fill="none" stroke="currentColor" stroke-width="3"/><path d="M50 50 m-32 0 a32 32 0 0 1 28 -28 L48 50 Z"/><path d="M50 50 m32 0 a32 32 0 0 1 -28 28 L52 50 Z"/><rect x="48" y="18" width="4" height="64"/></svg><div class="lbl">seam</div></div>
+    <div class="mon"><svg viewBox="0 0 100 100" fill="currentColor" fill-rule="evenodd"><path d="M38 50 m-26 0 a26 26 0 1 1 52 0 a26 26 0 1 1 -52 0 M62 50 m-26 0 a26 26 0 1 1 52 0 a26 26 0 1 1 -52 0"/></svg><div class="lbl">overprint</div></div>
+    <div class="mon"><svg viewBox="0 0 100 100" fill="currentColor" fill-rule="evenodd"><path d="M50 48 Q30 22 12 30 Q8 44 22 52 Q34 56 50 48 Z M44 38 Q34 32 26 36 Q24 42 30 46 Q36 48 44 44 Z"/><path d="M50 48 Q70 22 88 30 Q92 44 78 52 Q66 56 50 48 Z M56 38 Q66 32 74 36 Q76 42 70 46 Q64 48 56 44 Z"/><path d="M50 48 Q38 72 26 84 Q40 82 48 74 Q52 64 50 48 Z"/><path d="M50 48 Q62 72 74 84 Q60 82 52 74 Q48 64 50 48 Z"/><ellipse cx="50" cy="48" rx="3.5" ry="24"/></svg><div class="lbl">monarch</div></div>
+    <div class="mon"><svg viewBox="0 0 100 100" fill="currentColor" fill-rule="evenodd"><path d="M50 90 Q32 76 30 50 Q34 30 50 22 Q66 30 70 50 Q68 76 50 90 Z M50 78 Q42 72 40 60 Q44 50 50 46 Q56 50 60 60 Q58 72 50 78 Z"/><circle cx="50" cy="14" r="2.5"/><circle cx="40" cy="10" r="2"/><circle cx="60" cy="10" r="2"/></svg><div class="lbl">milkweed pod</div></div>
+    <div class="mon"><svg viewBox="0 0 100 100" fill="currentColor" fill-rule="evenodd"><path d="M50 50 m-13 0 a13 13 0 1 1 26 0 a13 13 0 1 1 -26 0 M50 50 m-4 0 a4 4 0 1 0 8 0 a4 4 0 1 0 -8 0"/><path d="M50 22 m-11 0 a11 11 0 1 1 22 0 a11 11 0 1 1 -22 0 M50 22 m-3 0 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0"/><path d="M74 36 m-11 0 a11 11 0 1 1 22 0 a11 11 0 1 1 -22 0 M74 36 m-3 0 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0"/><path d="M74 64 m-11 0 a11 11 0 1 1 22 0 a11 11 0 1 1 -22 0 M74 64 m-3 0 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0"/><path d="M50 78 m-11 0 a11 11 0 1 1 22 0 a11 11 0 1 1 -22 0 M50 78 m-3 0 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0"/><path d="M26 64 m-11 0 a11 11 0 1 1 22 0 a11 11 0 1 1 -22 0 M26 64 m-3 0 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0"/><path d="M26 36 m-11 0 a11 11 0 1 1 22 0 a11 11 0 1 1 -22 0 M26 36 m-3 0 a3 3 0 1 0 6 0 a3 3 0 1 0 -6 0"/></svg><div class="lbl">mountain laurel</div></div>
+    <div class="mon"><svg viewBox="0 0 100 100" fill="currentColor" fill-rule="evenodd"><path d="M50 10 Q62 14 64 26 Q72 30 72 42 Q78 48 72 56 Q76 66 66 70 Q70 80 58 82 Q60 92 50 92 Q40 92 42 82 Q30 80 34 70 Q24 66 28 56 Q22 48 28 42 Q28 30 36 26 Q38 14 50 10 Z"/><rect x="49" y="14" width="2" height="76" fill="var(--aijiro)"/></svg><div class="lbl">live oak</div></div>
+    <div class="mon"><svg viewBox="0 0 100 100" fill="currentColor"><g transform="translate(50 50)"><g><path d="M0 0 L-2.5 -40 L0 -44 L2.5 -40 Z"/></g><g transform="rotate(45)"><path d="M0 0 L-2.5 -40 L0 -44 L2.5 -40 Z"/></g><g transform="rotate(90)"><path d="M0 0 L-2.5 -40 L0 -44 L2.5 -40 Z"/></g><g transform="rotate(135)"><path d="M0 0 L-2.5 -40 L0 -44 L2.5 -40 Z"/></g><g transform="rotate(180)"><path d="M0 0 L-2.5 -40 L0 -44 L2.5 -40 Z"/></g><g transform="rotate(225)"><path d="M0 0 L-2.5 -40 L0 -44 L2.5 -40 Z"/></g><g transform="rotate(270)"><path d="M0 0 L-2.5 -40 L0 -44 L2.5 -40 Z"/></g><g transform="rotate(315)"><path d="M0 0 L-2.5 -40 L0 -44 L2.5 -40 Z"/></g></g><circle cx="50" cy="50" r="6"/></svg><div class="lbl">sotol</div></div>
+    <div class="mon"><svg viewBox="0 0 100 100" fill="currentColor" fill-rule="evenodd"><path d="M50 50 Q35 30 12 28 Q18 38 24 42 Q14 44 8 50 Q22 50 30 50 Q22 56 18 64 Q30 58 40 56 Q44 60 50 60 Q56 60 60 56 Q70 58 82 64 Q78 56 70 50 Q78 50 92 50 Q86 44 76 42 Q82 38 88 28 Q65 30 50 50 Z M44 44 Q41 44 41 47 Q41 50 44 50 Q47 50 47 47 Q47 44 44 44 Z M56 44 Q53 44 53 47 Q53 50 56 50 Q59 50 59 47 Q59 44 56 44 Z"/></svg><div class="lbl">bat</div></div>
+    <div class="mon"><svg viewBox="0 0 100 100" fill="currentColor" fill-rule="evenodd"><g><ellipse cx="50" cy="22" rx="7" ry="13"/><ellipse cx="50" cy="78" rx="7" ry="13"/><ellipse cx="22" cy="50" rx="13" ry="7"/><ellipse cx="78" cy="50" rx="13" ry="7"/><ellipse cx="30" cy="30" rx="12" ry="7" transform="rotate(-45 30 30)"/><ellipse cx="70" cy="30" rx="12" ry="7" transform="rotate(45 70 30)"/><ellipse cx="30" cy="70" rx="12" ry="7" transform="rotate(45 30 70)"/><ellipse cx="70" cy="70" rx="12" ry="7" transform="rotate(-45 70 70)"/></g><path d="M50 50 m-7 0 a7 7 0 1 1 14 0 a7 7 0 1 1 -14 0 M50 50 m-2.5 0 a2.5 2.5 0 1 0 5 0 a2.5 2.5 0 1 0 -5 0"/></svg><div class="lbl">cempasúchil</div></div>
+    <div class="mon"><svg viewBox="0 0 100 100" fill="currentColor" fill-rule="evenodd"><path d="M50 50 Q50 30 45 22 Q42 15 50 8 Q56 18 55 26 Q58 38 50 50 Z M50 22 Q48 26 49 30 Q51 26 50 22 Z"/><g transform="rotate(120 50 50)"><path d="M50 50 Q50 30 45 22 Q42 15 50 8 Q56 18 55 26 Q58 38 50 50 Z M50 22 Q48 26 49 30 Q51 26 50 22 Z"/></g><g transform="rotate(240 50 50)"><path d="M50 50 Q50 30 45 22 Q42 15 50 8 Q56 18 55 26 Q58 38 50 50 Z M50 22 Q48 26 49 30 Q51 26 50 22 Z"/></g><path d="M50 50 m-3 0 a3 3 0 1 1 6 0 a3 3 0 1 1 -6 0"/></svg><div class="lbl">flame</div></div>
+    <div class="mon"><svg viewBox="0 0 100 100" fill="currentColor" fill-rule="evenodd"><path d="M30 78 L50 28 L70 78 Z M40 70 L50 44 L60 70 Z M48 64 L50 58 L52 64 Z"/><circle cx="50" cy="14" r="3"/><circle cx="38" cy="18" r="2.5"/><circle cx="62" cy="18" r="2.5"/><circle cx="46" cy="10" r="2"/><circle cx="54" cy="10" r="2"/><rect x="14" y="84" width="72" height="2"/><rect x="10" y="88" width="80" height="2"/></svg><div class="lbl">spring</div></div>
+    <div class="mon"><svg viewBox="0 0 100 100" fill="currentColor" fill-rule="evenodd"><rect x="8" y="62" width="84" height="4"/><circle cx="26" cy="64" r="5"/><circle cx="50" cy="64" r="5"/><circle cx="74" cy="64" r="5"/><rect x="25" y="34" width="2" height="26"/><rect x="49" y="18" width="2" height="44"/><rect x="73" y="38" width="2" height="24"/></svg><div class="lbl">rhizome</div></div>
+  </div>
+  <div class="note">
+    twelve mons of twenty-four · the heritage placeholders ( <em>tenango · amate · maque · sequoyah · apache coil · japanese family mon · african · spanish · tejano</em> ) are <em>visibly absent</em> from this broadside · they require member sourcing before they appear in real work.
+  </div>
+  <div class="folio">
+    <span><strong>EC · v0.3</strong></span>
+    <span class="center">紋 · MOTIFS</span>
+    <span class="right">11 / 12</span>
+  </div>
+</div>
+
+<!-- ───────────────────────────────────────────────────────── -->
+<!--  PANEL 12 · COLOPHON                                       -->
+<!-- ───────────────────────────────────────────────────────── -->
+<div class="panel p12">
+  <div class="panel-head">
+    <div class="kanji" style="color: var(--kihada);">奥</div>
+    <div class="num">12 · COLOPHON · 奥書</div>
+    <div class="roman">xii · commit · finish · stop</div>
+  </div>
+  <div class="colo">
+    <div class="left">
+      <h2>The cap is the cap. The work begins.</h2>
+      <p>
+        This is the broadside. <em>Twelve panels</em> — one for each month, in obedience to the matrix. Every panel a notan-pass kappa-zuri composition, mitate-borrowed from the register of a 1920s Mingei catalogue crossed with an Edo <em>saijiki</em> almanac. <strong>The system is the broadside; the broadside is the system.</strong>
+      </p>
+      <p>
+        The grammar is locked at <em>4 · 7 · 8 · 3</em> — four operative concepts, seven Zen disciplines, eight procedural rules, three productive contradictions. Hanafuda has been the same deck for one hundred and fifty years. We aim for the same fidelity.
+      </p>
+      <p>
+        Heritage motifs (Tenango · amate · maque · Sequoyah · Apache coil · Mon · Adinkra · Azulejo · Placa) remain <em>visibly absent</em>. They will appear when member-sourced and consented to, not before. The absence is the system.
+      </p>
+      <p>
+        <strong>The path to presence:</strong> a member sketches the mark by hand on paper; the sketch passes through <em>~/Tools/sketch-to-svg/</em> for faithful vector translation; the resulting SVG enters the library with the member-chosen attribution line on Panel 11. No member-mark is drawn by my hand. <strong>The full four-step protocol</strong> — propose · carve · review · enter — is published as <a href="protocol.html" style="color:var(--shu);font-weight:700;">protocol.html</a> (the Hanga Protocol), governed by CARE Principles.
+      </p>
+      <p>
+        <strong>The matrix is now a machine:</strong> the <a href="studio.html" style="color:var(--shu);font-weight:700;">studio</a> takes a cell × motif × spark × medium and outputs a print-ready composition. The machine-readable token spine lives at <a href="tokens.json" style="color:var(--shu);font-weight:700;">tokens.json</a> (DTCG spec). Decisions are recorded in <a href="decisions/" style="color:var(--shu);font-weight:700;">decisions/</a>. History at <a href="DESIGN-CHANGELOG.md" style="color:var(--shu);font-weight:700;">DESIGN-CHANGELOG.md</a>.
+      </p>
+      <p style="margin-top:1rem;font-family:var(--mono);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--kihada);">
+        TO PRINT AS A 12-PAGE RISO ZINE: ⌘P → A4 PORTRAIT → SCALE 100% → BACKGROUNDS ON.
+      </p>
+      <div class="signature">Essentials Creative</div>
+    </div>
+    <div class="right">
+      <div class="ed-mark">
+        <div class="lbl">THE EDITION MARK</div>
+        <div class="demo">
+          <span class="small">EC · BROADSIDE v0.3 · 2026/Q2</span>
+          DROP 00 / ∞
+        </div>
+      </div>
+      <div class="stack">
+        <span class="lbl">THE 4-TEST · BEFORE SHIPPING</span>
+        <q>Does it pass notan at 2cm?</q><br>
+        <q>Is the interval doing structural work?</q><br>
+        <q>What is being withheld?</q><br>
+        <q>What is this also?</q>
+      </div>
+      <div class="land-seal">
+        <div class="seal-ring">
+          <div class="seal-inner">
+            <span class="seal-top">MADE ON</span>
+            <span class="seal-mid">TONKAWA · COMANCHE<br>LIPAN APACHE<br>COAHUILTECAN</span>
+            <span class="seal-bot">LAND · EDWARDS AQUIFER<br>RECHARGE ZONE</span>
+          </div>
+        </div>
+      </div>
+      <svg class="end-glyph" viewBox="0 0 100 100" fill="currentColor" fill-rule="evenodd">
+        <circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" stroke-width="3"/>
+        <circle cx="50" cy="50" r="20"/>
+      </svg>
+    </div>
+  </div>
+  <div class="folio">
+    <span><strong>EC · v0.3 · 2026-05-28</strong></span>
+    <span class="center">奥書 · END</span>
+    <span class="right">12 / 12 · 終</span>
+  </div>
+</div>
+
+</body>
+</html>

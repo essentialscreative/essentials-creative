@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>D · Ritual Sequence — Give Back (exploration)</title>
+<meta name="robots" content="noindex"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+<link href="assets/css/explore-neon.css" rel="stylesheet"/>
+<style>
+  body { margin:0; font-family: var(--font-apercu); background: var(--ink); color: var(--white);
+         min-height:100vh; display:flex; flex-direction:column; }
+  .topbar { display:flex; align-items:center; gap:1rem; padding:1.2rem clamp(1rem,4vw,3rem); }
+  .pg { display:flex; gap:0.5rem; margin-left:auto; }
+  .pg-dot { width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.2); transition:background .3s, box-shadow .3s; }
+  .pg-dot.on { background: var(--n-cyan); box-shadow:0 0 12px var(--n-cyan); }
+  .stage { flex:1; display:flex; align-items:center; justify-content:center; padding: clamp(1.2rem,5vw,4rem); }
+  .step { width:100%; max-width: 760px; text-align:center; }
+  .kicker { font: 600 0.78rem/1 var(--font-mono); letter-spacing:0.26em; text-transform:uppercase; opacity:0.75; margin:0 0 1rem; }
+  .disp { font-family:'Syne', var(--font-apercu); font-weight:800; text-transform:uppercase; line-height:0.92;
+          letter-spacing:-0.02em; margin:0 0 1rem; font-size: clamp(2.4rem, 8vw, 5rem); }
+  .lede { font-size: clamp(1rem,1.9vw,1.3rem); line-height:1.6; opacity:0.92; margin:0 auto 1.6rem; max-width: 48ch; }
+  /* neon buttons */
+  .btn { font: 600 0.95rem/1 var(--font-mono); letter-spacing:0.06em; text-transform:uppercase; cursor:pointer;
+         background:transparent; color:var(--white); border:1.5px solid rgba(255,255,255,0.4);
+         border-radius:999px; padding:0.9rem 1.4rem; transition: all .2s; }
+  .btn:hover:not(:disabled) { border-color: var(--n-cyan); color: var(--n-cyan); box-shadow:0 0 16px rgba(0,229,255,0.4); }
+  .btn:disabled { opacity:0.35; cursor:not-allowed; }
+  .btn.given { border-color: var(--n-yellow); color: var(--n-yellow); }
+  .btn.go { background: var(--n-cyan); color: var(--ink); border-color: var(--n-cyan); }
+  .btn.go:hover:not(:disabled){ box-shadow:0 0 24px rgba(0,229,255,0.6); color:var(--ink); }
+  .row { display:flex; gap:0.8rem; flex-wrap:wrap; justify-content:center; margin:1.4rem 0; }
+  .field { font: 400 1.1rem var(--font-apercu); background:rgba(255,255,255,0.06); border:1.5px solid rgba(255,255,255,0.3);
+           color:#fff; border-radius:12px; padding:0.9rem 1.1rem; width:min(420px,90%); text-align:center; }
+  .field:focus { outline:none; border-color: var(--n-pink); box-shadow:0 0 16px rgba(255,61,154,0.4); }
+
+  /* land bed */
+  #bed { position:relative; height: 42vh; max-height:360px; margin:1.2rem auto; width:min(620px,92%);
+         border:1.5px dashed rgba(255,106,0,0.5); border-radius:14px; cursor:crosshair;
+         background: radial-gradient(120% 140% at 50% 120%, rgba(255,106,0,0.18), transparent 70%); }
+  .soil-dot { position:absolute; width:14px; height:14px; margin:-7px 0 0 -7px; border-radius:50%;
+              background: var(--n-orange); box-shadow:0 0 14px var(--n-orange); animation: pop .3s ease; }
+  @keyframes pop { from{ transform:scale(0);} to{ transform:scale(1);} }
+
+  /* water clarity */
+  .clarity-track { width:min(560px,92%); height:22px; margin:1.4rem auto 0.6rem; border-radius:999px; overflow:hidden;
+                   background: linear-gradient(90deg, #2a1a00, #1a2a2a); border:1px solid rgba(255,255,255,0.2); }
+  #clarity-bar { height:100%; width:0%; background: linear-gradient(90deg, var(--n-blue), var(--n-cyan));
+                 box-shadow:0 0 18px rgba(0,229,255,0.5); transition: width .04s linear; }
+
+  /* data word */
+  #data-word { font-family:'Syne'; font-weight:800; font-size: clamp(2.2rem,7vw,4.4rem); color:var(--n-pink);
+               text-shadow:0 0 18px rgba(255,61,154,0.6); transition: opacity .8s, filter .8s, transform .8s; margin:1rem 0; }
+  #data-word.erased { opacity:0; filter:blur(14px); transform:scale(0.7); }
+  #data-status { font: 400 1rem var(--font-apercu); opacity:0.9; min-height:1.4em; }
+  .choice-take{ --ca:var(--n-orange);} .choice-hear{ --ca:var(--n-cyan);} .choice-gift{ --ca:var(--n-yellow);} .choice-erase{ --ca:var(--n-pink);}
+  .row .btn[data-choice]:hover { border-color: var(--ca); color: var(--ca); box-shadow:0 0 16px var(--ca); }
+
+  /* toast */
+  #toast { position:fixed; left:50%; bottom:1.4rem; transform:translateX(-50%); z-index:50;
+           font: 600 0.9rem var(--font-mono); background:rgba(11,11,15,0.92); border:1px solid rgba(255,255,255,0.2);
+           padding:0.8rem 1.2rem; border-radius:999px; opacity:0; pointer-events:none; transition: opacity .25s, transform .25s; }
+  #toast.show { opacity:1; transform:translateX(-50%) translateY(-4px); }
+  .small { font: 400 0.85rem/1.5 var(--font-mono); opacity:0.6; }
+</style>
+</head>
+<body>
+<a class="proto-ribbon" href="explore-index.html">◀ D · Ritual Sequence</a>
+<div class="topbar">
+  <span class="kicker" style="margin:0">Give Back · a reciprocity ritual</span>
+  <div class="pg"><span class="pg-dot on"></span><span class="pg-dot"></span><span class="pg-dot"></span><span class="pg-dot"></span><span class="pg-dot"></span></div>
+</div>
+
+<main class="stage">
+  <!-- THRESHOLD -->
+  <section class="step" id="step-threshold">
+    <p class="kicker glow-yellow" style="color:var(--n-yellow)">The threshold</p>
+    <h1 class="disp">You enter<br>by giving</h1>
+    <p class="lede">Not by being admitted — by giving. Offer three things. In return you'll be handed an anonymous token: no name, no email, no trace.</p>
+    <input id="give-word" class="field" type="text" maxlength="40" placeholder="give a word to carry in…" aria-label="give a word"/>
+    <div class="row">
+      <button id="give-soil" class="btn">take a handful of soil</button>
+      <button id="give-water" class="btn">pour a cup of water</button>
+    </div>
+    <button id="to-land" class="btn go" disabled>receive your token →</button>
+  </section>
+
+  <!-- LAND -->
+  <section class="step" id="step-land" hidden>
+    <p class="kicker glow-orange" style="color:var(--n-orange)">Movement one · Land Back</p>
+    <h2 class="disp glow-orange" style="color:var(--n-orange)">Press the soil<br>into the bed</h2>
+    <p class="lede">A small, bodily act of return to the ground. Tap the bed to press in your soil — leave a mark the next visitor builds on. <span class="small">(<span id="press-count">0</span> pressed · 3 to continue)</span></p>
+    <div id="bed" aria-label="living planting bed — click to press soil"></div>
+    <button id="to-water" class="btn go" disabled>the bed is alive →</button>
+  </section>
+
+  <!-- WATER -->
+  <section class="step" id="step-water" hidden>
+    <p class="kicker glow-cyan" style="color:var(--n-cyan)">Movement two · Water Back</p>
+    <h2 class="disp glow-cyan" style="color:var(--n-cyan)">Pour into<br>the reeds</h2>
+    <p class="lede">Your water joins a living phytoremediation loop. Watch it come back clearer — real ecology, not a video of cleaning.</p>
+    <button id="pour" class="btn">pour your water</button>
+    <div class="clarity-track"><div id="clarity-bar"></div></div>
+    <p class="small">clarity <span id="clarity-pct">0%</span></p>
+    <p class="lede" id="water-note" style="min-height:1.4em;color:var(--n-cyan)"></p>
+    <button id="to-data" class="btn go" disabled>carry your word on →</button>
+  </section>
+
+  <!-- DATA -->
+  <section class="step" id="step-data" hidden>
+    <p class="kicker glow-pink" style="color:var(--n-pink)">Movement three · Data Back · the core test</p>
+    <div id="data-word">“gift”</div>
+    <p class="lede">Your word joins a projection field woven with others'. Now choose what becomes of it — this is the test data usually fails:</p>
+    <div class="row">
+      <button class="btn choice-take" data-choice="take">Take it</button>
+      <button class="btn choice-hear" data-choice="hear">Hear it</button>
+      <button class="btn choice-gift" data-choice="gift">Gift it</button>
+      <button class="btn choice-erase" data-choice="erase">Erase it</button>
+    </div>
+    <p id="data-status"></p>
+    <p class="small">Default is deletion. Retention is the exception you actively choose.</p>
+    <button id="to-exit" class="btn go" disabled>leave the room →</button>
+  </section>
+
+  <!-- EXIT -->
+  <section class="step" id="step-exit" hidden>
+    <p class="kicker glow-yellow" style="color:var(--n-yellow)">The exit · you receive</p>
+    <h2 class="disp">You leave<br>receiving</h2>
+    <p class="lede">You gave <strong id="exit-word">a word</strong>, soil, and water. You chose to <strong id="exit-choice">gift</strong> your data. The loop the threshold opened closes — the room gave back.</p>
+    <p class="small">Every technology here is held to the same test you were: does it give back more than it takes?</p>
+    <div class="row"><button id="restart" class="btn">begin again</button></div>
+  </section>
+</main>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="assets/js/explore-d-ritual.js" defer></script>
+</body>
+</html>
