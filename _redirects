@@ -1,10 +1,6 @@
 # Netlify Redirects File - Essentials Creative
 
-# Shop & tapestries are still in development — keep them offline.
-# The trailing ! forces the redirect to win over the committed .html files.
-/shop              /  302!
-/shop/*            /  302!
-/shop.html         /  302!
+# Shop is LIVE (its redirects removed). Tapestries page not built yet — keep offline.
 /tapestries        /  302!
 /tapestries.html   /  302!
 
