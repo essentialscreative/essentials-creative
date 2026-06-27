@@ -65,26 +65,7 @@
   to = "/social-media.html"
   status = 200
 
-# Shop / tapestries are not ready for launch — keep them offline.
-# force = true makes these win over the committed shop.html / tapestries.html files.
-[[redirects]]
-  from = "/shop"
-  to = "/"
-  status = 302
-  force = true
-
-[[redirects]]
-  from = "/shop/*"
-  to = "/"
-  status = 302
-  force = true
-
-[[redirects]]
-  from = "/shop.html"
-  to = "/"
-  status = 302
-  force = true
-
+# Shop is LIVE — its redirects removed so shop.html serves. Tapestries page not built yet.
 [[redirects]]
   from = "/tapestries"
   to = "/"
