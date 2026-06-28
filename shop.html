@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Shop — Essentials Creative</title>
-<meta name="description" content="Collect the Essentials Creative body of work — wearable tapestries, hoodies, totes, open-edition posters & wall tapestries, archival prints.">
+<meta name="description" content="Collect the Essentials Creative body of work — wearable fabric tapestries, archival giclée prints, tees, and totes. Made to order, shipped from the studio.">
 <link rel="icon" href="assets/images/favicon.png">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Shop — Essentials Creative">
@@ -198,7 +198,7 @@ html,body{overflow-x:hidden}
   <section class="hero">
     <div class="eyebrow">Shop · 60 works · 240 products</div>
     <h1>Collect the work</h1>
-    <p class="lead">Each piece from the Essentials Creative body of work — available as wearable tapestries, hoodies, totes, archival giclée prints, and digital prints on fabric. Printed to order, shipped from the studio.</p>
+    <p class="lead">Each piece from the Essentials Creative body of work — available as wearable fabric tapestries, archival giclée prints, tees, and totes. Printed to order, shipped from the studio.</p>
   </section>
   <div class="filters"><div class="fwrap"><button class="chip on" data-s="all">All<i>60</i></button><button class="chip" data-s="Afterworld">Afterworld<i>6</i></button><button class="chip" data-s="Graphic">Graphic<i>9</i></button><button class="chip" data-s="Typography">Typography<i>2</i></button><button class="chip" data-s="Photography">Photography<i>30</i></button><button class="chip" data-s="Rhizomatic">Rhizomatic<i>13</i></button>
     <input id="search" type="search" placeholder="Search title or tag…" autocomplete="off" aria-label="Search the shop">
@@ -638,9 +638,9 @@ function openLB(i){const d=D[i];let sel=0,selDim=0,selSize=2,selColor=0;
   const opts=d.products.map((p,j)=>`<div class="opt ${j==0?'sel':''}" data-j="${j}"><span>${p.label}</span><span class="pp">${p.price}</span></div>`).join('');
   const note=d.gated?'Original artwork — acquisition routed through our cultural-accountability process.':'';
   const tagline=(d.tags&&d.tags.length)?'<div class=tags>'+d.tags.map(t=>`<span>${t}</span>`).join('')+'</div>':'';
-  lbx.innerHTML=`<div class=pic><img src="${d.art}" alt="${d.design}" loading="lazy" decoding="async"></div><div class=info><div class=ct>${d.series}</div><h2>${d.design.replace('Afterworld · ','')}</h2>
+  lbx.innerHTML=`<div class=pic><img src="${d.art}" alt="${d.design}" loading="eager" decoding="async"></div><div class=info><div class=ct>${d.series}</div><h2>${d.design.replace('Afterworld · ','')}</h2>
     <div class=opts>${opts}</div><div class=dimsel id=dimsel></div><div class=lbmeta id=lbmeta></div>${tagline}
-    <a class=buybtn id=buy href="#">${d.gated?'Inquire':'Buy'}</a><p style="font-size:.72rem;color:#6b7064;margin:10px 0 0">${note}</p></div>`;
+    <a class=buybtn id=buy href="#">${d.gated?'Inquire':'Buy'}</a><p style="font-size:.72rem;color:#6b7064;margin:10px 0 0;text-align:center">${d.gated?note:'Secure checkout via Square · made to order'}</p></div>`;
   const meta=lbx.querySelector('#lbmeta'),buy=lbx.querySelector('#buy'),dimsel=lbx.querySelector('#dimsel');
   function upd(){const p=d.products[sel];
     let html='';
