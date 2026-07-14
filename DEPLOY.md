@@ -9,7 +9,7 @@ you must follow on the free plan with a **private** repo.
 Every commit must be authored by the connected GitHub account, whose address is:
 
 ```
-218395904+flv2496@users.noreply.github.com
+53064867+essentialscreative@users.noreply.github.com
 ```
 
 This repo is already configured to use it (`git config --local user.email`), so you don't
@@ -32,10 +32,10 @@ That's it — no Pro needed, as long as commits stay authored by the address abo
 Run these once inside the repo so commits are recognized:
 ```bash
 git config --local user.name  "Essentials Creative"
-git config --local user.email "218395904+flv2496@users.noreply.github.com"
+git config --local user.email "53064867+essentialscreative@users.noreply.github.com"
 git config --local core.hooksPath .githooks   # enable the safety hook below
 ```
-Also make sure the **flv2496** GitHub account stays connected in
+Also make sure the **essentialscreative** GitHub account stays connected in
 Netlify → Project → **Git Contributors**.
 
 ## Safety net (pre-push hook)
@@ -45,8 +45,8 @@ wrong-author commit can never reach Netlify and fail the build. If you ever need
 it: `git push --no-verify` (rarely needed).
 
 ## If a deploy fails: "unrecognized Git contributor"
-1. **Netlify → Git Contributors** → confirm the **flv2496** GitHub account is connected/verified.
-2. Confirm the commit author email is `218395904+flv2496@users.noreply.github.com`
+1. **Netlify → Git Contributors** → confirm the **essentialscreative** GitHub account is connected/verified.
+2. Confirm the commit author email is `53064867+essentialscreative@users.noreply.github.com`
    (`git log -1 --format='%ae'`).
 3. Free fallbacks that remove the restriction entirely:
    - **Make the repo public** (GitHub → Settings → Change visibility). Netlify has no

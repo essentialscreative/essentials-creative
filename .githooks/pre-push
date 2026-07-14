@@ -6,7 +6,7 @@
 # Enabled via:  git config --local core.hooksPath .githooks
 # Bypass once:  git push --no-verify   (not recommended)
 
-EXPECTED="218395904+flv2496@users.noreply.github.com"
+EXPECTED="53064867+essentialscreative@users.noreply.github.com"
 ZERO="0000000000000000000000000000000000000000"
 status=0
 
