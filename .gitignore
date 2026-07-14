@@ -95,3 +95,9 @@ WEBSITE_OPTIMIZATION_WORKFLOW.md
 
 # Local shop backend (never deploy)
 shop-admin/
+
+# Font license docs/desktop files — never deploy (webfonts only in assets/fonts/apercu/*.woff2)
+assets/fonts/apercu/Lisence/
+assets/fonts/apercu/licence.doc
+assets/fonts/apercu/*.otf
+assets/fonts/apercu/*.ttf
