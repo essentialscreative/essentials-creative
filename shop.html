@@ -678,7 +678,7 @@ const D=[{"slug": "afterworld-zen-garden", "design": "Afterworld \u00b7 Zen Gard
 const cards=[...document.querySelectorAll('.ec-shop .card')];
 const rescount=document.getElementById('rescount'),empty=document.getElementById('empty');
 const grid=document.getElementById('grid');
-// per-work min price, used by sort
+// per-work max price, used by sort
 const MAXP=D.map(d=>{let ps=[];d.products.forEach(p=>{if(p.dims&&p.dims.length)p.dims.forEach(x=>ps.push(x.p));else{const n=parseInt(String(p.price).replace(/[^0-9]/g,''),10);if(!isNaN(n))ps.push(n);}});return ps.length?Math.max(...ps):0;});
 const BLURB={Afterworld:'A site-responsive installation across four named afterlife traditions — Mictlān, Obon, purgatory, and moksha. Presa House Gallery, San Antonio, 2022.',
   Rhizomatic:'A site-responsive textile installation built around the plants of each venue — Chicago Botanic Garden (2024), Austin Central Library (2025).',
@@ -695,7 +695,8 @@ function toggleWish(i){let w=getWish();if(w.includes(i))w=w.filter(x=>x!==i);els
 function renderWishState(){const w=getWish();document.querySelectorAll('.wishbtn').forEach(b=>{const i=+b.dataset.idx;b.classList.toggle('on',w.includes(i));b.textContent=w.includes(i)?'♥':'♡';});
   document.getElementById('savedCount').textContent=w.length;
   if(savedOnly)applyFilters();}
-cards.forEach(k=>{const im=k.querySelector('.im');const btn=document.createElement('button');btn.type='button';btn.className='wishbtn';const idx=+k.dataset.idx;btn.dataset.idx=idx;btn.setAttribute('aria-label','Save '+D[idx].design);btn.textContent=isWished(idx)?'♥':'♡';btn.onclick=e=>{e.stopPropagation();toggleWish(idx);};im.appendChild(btn);});
+cards.forEach(k=>{const im=k.querySelector('.im');const btn=document.createElement('button');btn.type='button';btn.className='wishbtn';const idx=+k.dataset.idx;btn.dataset.idx=idx;btn.setAttribute('aria-label','Save '+D[idx].design);btn.onclick=e=>{e.stopPropagation();toggleWish(idx);};im.appendChild(btn);});
+renderWishState();
 document.getElementById('savedChip').onclick=()=>{savedOnly=!savedOnly;document.getElementById('savedChip').classList.toggle('on',savedOnly);applyFilters();};
 function applyFilters(){let n=0;cards.forEach(k=>{const idx=+k.dataset.idx;const okS=cur==='all'||k.dataset.series===cur;const okQ=!q||k.dataset.search.includes(q);const okW=!savedOnly||isWished(idx);const show=okS&&okQ&&okW;k.classList.toggle('hide',!show);if(show)n++;});rescount.textContent=n+(n===1?' work':' works');empty.hidden=n>0;}
 document.querySelectorAll('.ec-shop .chip:not(.savedchip)').forEach(c=>c.onclick=()=>{document.querySelectorAll('.ec-shop .chip:not(.savedchip)').forEach(x=>x.classList.remove('on'));c.classList.add('on');cur=c.dataset.s;
