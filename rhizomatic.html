@@ -347,6 +347,100 @@
 </div>
 </section>
 
+<!-- Tapestry Designs -->
+<section class="section-standard">
+<div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
+<h2 class="section-title rise" data-reveal style="font-size: 2.25rem; margin-bottom: 1rem;">Tapestry Designs</h2>
+<p style="text-align: center; color: #666; font-size: 1.125rem; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">Each tapestry carries a plant across two designs — one figural, one botanical — bordered in a pattern drawn for that plant.</p>
+<div class="design-gallery" id="rhiz-designs"></div>
+<script>
+const rhizDesigns = [
+    { plant: 'Metl', panels: [
+        { src: 'metl-maguey', label: 'Maguey', alt: 'Metl / Maguey tapestry design — a figure crowned with agave leaves against a burst of yellow spines, in a chartreuse patterned border' },
+        { src: 'metl-agave', label: 'Agave', alt: 'Metl / Agave tapestry design — agave rosettes and a flowering stalk with moths on a deep teal ground, in a brown and chartreuse border' }
+    ]},
+    { plant: 'Nochtli', panels: [
+        { src: 'nochtli-nopal', label: 'Nopal', alt: 'Nochtli / Nopal tapestry design — a hawk above prickly pear pads with glyph figures below, on a painted pastel ground in a magenta border' },
+        { src: 'nochtli-opuntia', label: 'Opuntia', alt: 'Nochtli / Opuntia tapestry design — a javelina and a roadrunner among prickly pear fruit and blossoms, in a green and magenta border' }
+    ]},
+    { plant: 'Ichahpe Hu', panels: [
+        { src: 'ichahpe-hu-purple-coneflower', label: 'Purple Coneflower', alt: 'Ichahpe Hu / Purple Coneflower tapestry design — coneflowers and a monarch butterfly in saturated pink and violet, in a patterned orange border' },
+        { src: 'ichahpe-hu-echinacea', label: 'Echinacea', alt: 'Ichahpe Hu / Echinacea tapestry design — songbirds and butterflies circling a coneflower inside a ring of bubbles, in a violet and magenta border' }
+    ]},
+    { plant: 'Huautli', panels: [
+        { src: 'huautli-amaranth', label: 'Amaranth', alt: 'Huautli / Amaranth tapestry design — a figure in calavera face paint before amaranth plumes and green seed, in a green and violet border' },
+        { src: 'huautli-amaranthus', label: 'Amaranthus', alt: 'Huautli / Amaranthus tapestry design — hummingbirds, a moth and a bunting among amaranth stalks on a yellow ground, in a magenta border' }
+    ]},
+    { plant: 'Chiltepin', panels: [
+        { src: 'chiltepin-chili-pequin', label: 'Chili Pequin', alt: 'Chiltepin / Chili Pequin tapestry design — wild peppers and foliage in shifting red and green, in a border of eyes on a checkered ground' },
+        { src: 'chiltepin-capsicum', label: 'Capsicum', alt: 'Chiltepin / Capsicum tapestry design — a bird and a turkey silhouetted in black against a red field of pepper leaves, in a border of eyes' }
+    ]},
+    { plant: 'Snake Grass', panels: [
+        { src: 'snake-grass-horsetail', label: 'Horsetail', alt: 'Snake Grass / Horsetail tapestry design — a stone point, an archer and a canoe over horsetail stalks, in an olive border' },
+        { src: 'snake-grass-equisetum', label: 'Equisetum', alt: 'Snake Grass / Equisetum tapestry design — horsetail stems in green and gold against black, in a blue and chartreuse border' }
+    ]},
+    { plant: 'Tolin', panels: [
+        { src: 'tolin-cattail', label: 'Cattail', alt: 'Tolin / Cattail tapestry design — cattail heads and seed fluff in a dense photographic layer, in a checkered gold and violet border' },
+        { src: 'tolin-typha', label: 'Typha', alt: 'Tolin / Typha tapestry design — a goose, a dragonfly, a snake and a turtle among cattails on an amber ground, in a checkered border' }
+    ]},
+    { plant: 'Giizisomashkiki', panels: [
+        { src: 'giizisomashkiki-solidago', label: 'Solidago', alt: 'Giizisomashkiki / Solidago tapestry design — monarchs, bees and a caterpillar on goldenrod, in a green and gold border' }
+    ]},
+    { plant: 'Atlazompilili', panels: [
+        { src: 'atlazompilili-malvaviscus', label: 'Malvaviscus', alt: 'Atlazompilili / Malvaviscus tapestry design — a hummingbird at a red star bloom above a figure in a red skirt, in a green and white border' }
+    ]}
+];
+document.addEventListener('DOMContentLoaded', () => {
+    const root = document.getElementById('rhiz-designs');
+    if (!root) return;
+    const base = 'assets/images/gallery/Projects/Rhizomatic/Designs/';
+    rhizDesigns.forEach((group) => {
+        const wrap = document.createElement('div');
+        wrap.className = 'plant-group';
+
+        const heading = document.createElement('h3');
+        heading.className = 'plant-name';
+        heading.textContent = group.plant;
+        wrap.appendChild(heading);
+
+        const grid = document.createElement('div');
+        grid.className = 'design-grid';
+
+        group.panels.forEach((panel) => {
+            const fig = document.createElement('figure');
+            fig.className = 'design-figure lightbox-trigger';
+
+            const picture = document.createElement('picture');
+            const source = document.createElement('source');
+            source.srcset = base + panel.src + '.webp';
+            source.type = 'image/webp';
+
+            const img = document.createElement('img');
+            img.src = base + panel.src + '.jpg';
+            img.alt = panel.alt;
+            img.width = 1200;
+            img.height = 1600;
+            img.loading = 'lazy';
+            img.decoding = 'async';
+
+            picture.append(source, img);
+
+            const caption = document.createElement('figcaption');
+            caption.textContent = panel.label;
+
+            fig.append(picture, caption);
+            grid.appendChild(fig);
+        });
+
+        wrap.appendChild(grid);
+        root.appendChild(wrap);
+    });
+    if (window.initLightbox) window.initLightbox();
+});
+</script>
+</div>
+</section>
+
 <!-- Installation Documentation -->
 <section class="section-standard" style="background: #f9f9f9;">
 <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
@@ -359,7 +453,6 @@
 <div class="editorial" id="rhiz-cbg"></div>
 <script>
 const rhizCBG = [
-    { src: 'assets/images/gallery/Installations/Installations4.jpg', alt: 'Chicago Botanic Garden installation featuring collaborative textile works exploring plant diversity' },
     { src: 'assets/images/gallery/Projects/Rhizomatic/Rhizomatic_1.jpg', alt: 'Rhizomatic exhibition entrance showing large-scale botanical textile installations' },
     { src: 'assets/images/gallery/Projects/Rhizomatic/Rhizomatic_3.jpeg', alt: 'Close-up view of Rhizomatic textile details featuring native plant illustrations and cultural patterns' }
 ];
@@ -373,14 +466,11 @@ document.addEventListener('DOMContentLoaded', () => renderEditorial('rhiz-cbg', 
 <div class="editorial" id="rhiz-acl"></div>
 <script>
 const rhizACL = [
-    { src: 'assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7625.JPG', alt: 'Overhead view of Rhizomatic installation at Austin Central Library rooftop with MEZL and plant name textiles under solar panels' },
-    { src: 'assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7786.JPG', alt: 'Side view of Austin rooftop installation showing textile works integrated with urban garden environment' },
-    { src: 'assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8463.JPG', alt: 'Wide overhead view of complete Austin installation showing multiple hanging textiles under solar canopy with city skyline' },
-    { src: 'assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8304.JPG', alt: 'Austin Central Library rooftop installation featuring colorful hanging textiles with Texas native plant themes' },
-    { src: 'assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7626.JPG', alt: 'Close-up view of Austin textile installation showing detailed plant name labels and cultural design elements' },
-    { src: 'assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7627.JPG', alt: 'Angular view of hanging textiles under solar panel grid showing integration of sustainable technology with art' },
-    { src: 'assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7791.JPG', alt: 'Detail shot of Rhizomatic textile work featuring botanical illustrations and Indigenous design patterns' },
-    { src: 'assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8462.JPG', alt: 'Evening view of Austin Central Library rooftop installation with illuminated textiles and urban landscape backdrop' }
+    { src: 'assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8304.JPG', alt: 'Wide view of the Austin Central Library rooftop garden with tapestries hanging beneath the solar canopy, downtown towers behind' },
+    { src: 'assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7786.JPG', alt: 'Rooftop planting in the foreground, a ponytail palm beside a line of tapestries strung under the solar panels' },
+    { src: 'assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7627.JPG', alt: 'The Metl / Maguey and Snake Grass / Horsetail tapestries hanging together under the solar panel grid' },
+    { src: 'assets/images/gallery/Projects/Rhizomatic/Austin/EK2A8462.JPG', alt: 'A row of tapestries above the rooftop courtyard tree, daylight through the solar canopy' },
+    { src: 'assets/images/gallery/Projects/Rhizomatic/Austin/EK2A7791.JPG', alt: 'The full line of hanging tapestries seen at a distance, city buildings visible through the rooftop screen' }
 ];
 document.addEventListener('DOMContentLoaded', () => renderEditorial('rhiz-acl', rhizACL));
 </script>
