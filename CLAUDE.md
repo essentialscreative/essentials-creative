@@ -21,10 +21,9 @@ Deploy via the **Netlify ↔ GitHub** connection: pushing `main` makes it live.
 **Free-plan deploy rule (private repo):** Netlify's free plan only deploys commits from the **one verified Git contributor**. Every commit must be authored by the connected GitHub account — email `53064867+essentialscreative@users.noreply.github.com` (already set as this repo's `git config --local user.email`; do not change it). If a build fails with *"unrecognized Git contributor,"* see **[DEPLOY.md](DEPLOY.md)** (reconnect the account in Netlify → Git Contributors, or fall back to a public repo / Cloudflare Pages).
 
 **A push landing on GitHub does not mean the site published.** Netlify can reject a deploy
-before it builds. Check with:
-```bash
-npx netlify api listSiteDeploys --data '{"site_id":"23ee8761-7f24-4e91-ba4e-de97ca0de990"}'
-```
+before it builds. Check with `npx netlify status` (from a linked folder) or
+`npx netlify api listSiteDeploys` with this project's site id, which you can get from
+`npx netlify sites:list`.
 Two failure modes seen so far: *"Unrecognized Git contributor"* (the rule above), and
 *"Skipped due to account credit usage exceeded"* — free-tier credits are gone, which blocks
 `netlify deploy --prod` too (returns `Forbidden`), not just Git-triggered builds. Credits
