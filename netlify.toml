@@ -263,6 +263,39 @@
 # Form handling — using Netlify Forms (native), no functions needed.
 # (Removed /api/contact -> /.netlify/functions/contact redirect; function archived.)
 
+# Internal files are not site content. publish = "." means every tracked file
+# is served, so these were all reachable (e.g. /CLAUDE.md, /DEPLOY.md and
+# /automate.sh each returned 200). Nothing in the site links to them.
+[[redirects]]
+  from = "/*.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/*.sh"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/*.py"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/package.json"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/package-lock.json"
+  to = "/404.html"
+  status = 404
+  force = true
+
 # 404 handling - This should be the last redirect rule
 # and only applies when no other files or rules match
 [[redirects]]
