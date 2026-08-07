@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <title>Plant Story Portraits: A Collage Workshop - Essentials Creative</title>
+    <meta name="description" content="A free collage and portrait workshop at the Native American Cultural Center. Saturday, September 5, 2026, noon to 3pm. Sit for a portrait, build a collage, write your plant story.">
+    <meta name="keywords" content="collage workshop, Austin, free workshop, native plants, Indigenous art, portrait, Native American Cultural Center">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Plant Story Portraits: A Collage Workshop">
+    <meta property="og:description" content="Free. Saturday, September 5, 2026, noon to 3pm at the Native American Cultural Center, Austin. How do we see ourselves in the plants around us?">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://essentialscreative.com/plant-story-portraits.html">
+    <meta property="og:image" content="https://essentialscreative.com/assets/images/plant-story/hero_image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Plant Story Portraits: A Collage Workshop">
+    <meta name="twitter:description" content="Free. Saturday, September 5, 2026, noon to 3pm at the Native American Cultural Center, Austin.">
+    <meta name="twitter:image" content="https://essentialscreative.com/assets/images/plant-story/hero_image.jpg">
+
+    <link rel="canonical" href="https://essentialscreative.com/plant-story-portraits.html"/>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" sizes="32x32">
+
+    <!-- CSS -->
+    <link href="assets/css/navigation.css?v=4.6" rel="stylesheet">
+    <link href="assets/css/main.css?v=4.4" rel="stylesheet">
+    <link href="assets/css/design-system.css?v=2.0" rel="stylesheet">
+    <link href="assets/css/mobile-optimization.css?v=1.1" rel="stylesheet">
+
+    <!-- Event structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Plant Story Portraits: A Collage Workshop",
+      "startDate": "2026-09-05T12:00:00-05:00",
+      "endDate": "2026-09-05T15:00:00-05:00",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "Native American Cultural Center",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "84 Robert T. Martinez Jr. St.",
+          "addressLocality": "Austin",
+          "addressRegion": "TX",
+          "postalCode": "78702",
+          "addressCountry": "US"
+        }
+      },
+      "image": "https://essentialscreative.com/assets/images/plant-story/hero_image.jpg",
+      "description": "A free afternoon of self-portraiture, collage, and plant knowledge. Participants leave with a printed portrait, a finished collage, and a completed Plant Story Card.",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Essentials Creative",
+        "url": "https://essentialscreative.com"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://essentialscreative.com/plant-story-portraits.html"
+      }
+    }
+    </script>
+
+    <style>
+        .event-hero {
+            position: relative;
+            min-height: 62vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            overflow: hidden;
+            text-align: center;
+            background: #1a1a1a;
+        }
+        .event-hero__bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('assets/images/plant-story/hero_image.jpg');
+            background-position: center;
+            background-size: cover;
+            opacity: 0.55;
+        }
+        .event-hero__inner {
+            position: relative;
+            z-index: 2;
+            max-width: 820px;
+            padding: 4rem 1.5rem;
+        }
+        .event-hero__eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            font-size: 0.8rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+        .event-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.4rem);
+            line-height: 1.1;
+            margin: 0 0 1.2rem;
+            color: #fff;
+        }
+        .event-hero__subtitle {
+            font-size: clamp(1rem, 2.4vw, 1.35rem);
+            line-height: 1.4;
+            margin: 0 0 1.4rem;
+            opacity: 0.95;
+        }
+        .event-hero__when {
+            font-size: clamp(1rem, 2.2vw, 1.3rem);
+            margin: 0 0 1.8rem;
+        }
+        .event-cta {
+            display: inline-block;
+            background: #fff;
+            color: #1a1a1a;
+            padding: 0.9rem 2rem;
+            border-radius: 2px;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+        .event-cta:hover { transform: translateY(-2px); opacity: 0.9; }
+        .event-cta--ghost {
+            background: transparent;
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.7);
+            margin-left: 0.6rem;
+        }
+
+        .event-section {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 3.5rem 1.5rem;
+        }
+        .event-section h2 {
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            margin: 0 0 1.2rem;
+        }
+        .event-section p { line-height: 1.75; margin: 0 0 1.2rem; }
+
+        .event-facts {
+            background: #f8f8f8;
+            padding: 2rem 1.5rem;
+        }
+        .event-facts__grid {
+            max-width: 780px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+        }
+        .event-fact__label {
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 0.72rem;
+            color: #777;
+            margin: 0 0 0.35rem;
+        }
+        .event-fact__value { margin: 0; font-size: 1rem; line-height: 1.5; }
+
+        .event-list { line-height: 1.8; padding-left: 1.2rem; margin: 0 0 1.5rem; }
+        .event-list li { margin-bottom: 0.6rem; }
+
+        .event-quote {
+            font-size: clamp(1.3rem, 3vw, 1.9rem);
+            line-height: 1.4;
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+            font-style: italic;
+        }
+
+        .event-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 4px;
+        }
+        .event-strip img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .event-credit {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 0 1.5rem 3.5rem;
+            text-align: center;
+        }
+        .event-credit p {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #777;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Links -->
+    <div class="skip-links skip-links--bar">
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+        <a href="#main-navigation" class="skip-link">Skip to navigation</a>
+    </div>
+
+    <!-- Navigation -->
+    <header class="header" role="banner">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html" aria-label="Essentials Creative - Home">
+                    <img alt="Essentials Creative logo" src="assets/images/Essentials-Creative_Logo.png" width="180" height="45">
+                </a>
+            </div>
+            <nav id="main-navigation" class="nav-links" role="navigation" aria-label="Main navigation">
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle" id="nav-services-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-services-menu">
+                        Services <span class="nav-dropdown-arrow" aria-hidden="true">▼</span>
+                    </button>
+                    <div class="nav-dropdown-menu" id="nav-services-menu" role="group" aria-label="Services">
+                        <a href="photography.html" class="nav-dropdown-item">Photography</a>
+                        <a href="design.html" class="nav-dropdown-item">Design</a>
+                        <a href="video.html" class="nav-dropdown-item">Video</a>
+                        <a href="projections.html" class="nav-dropdown-item">Projections</a>
+                        <a href="installations.html" class="nav-dropdown-item">Installations</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <button type="button" class="nav-dropdown-toggle active" id="nav-projects-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="nav-projects-menu">
+                        Projects <span class="nav-dropdown-arrow" aria-hidden="true">▼</span>
+                    </button>
+                    <div class="nav-dropdown-menu" id="nav-projects-menu" role="group" aria-label="Projects">
+                        <a href="projects.html" class="nav-dropdown-item" style="font-weight:600;">All Projects</a>
+                        <a href="/macc/" class="nav-dropdown-item">Emma S. Barrientos MACC</a>
+                        <a href="afterworld.html" class="nav-dropdown-item">Afterworld</a>
+                        <a href="rhizomatic.html" class="nav-dropdown-item">Rhizomatic</a>
+                        <a href="node.html" class="nav-dropdown-item">Node</a>
+                        <a href="plant-story-cards.html" class="nav-dropdown-item">Plant Story Cards</a>
+                        <a href="plant-story-portraits.html" class="nav-dropdown-item active">Plant Story Portraits</a>
+                        <a href="yanaguana.html" class="nav-dropdown-item">Yanaguana Garden</a>
+                        <a href="native-waters.html" class="nav-dropdown-item">Native Waters</a>
+                        <a href="interwoven-throughout-eternity.html" class="nav-dropdown-item">Interwoven throughout Eternity</a>
+                        <a href="biochromatic.html" class="nav-dropdown-item">Biochromatic</a>
+                        <a href="love-letter-to-austin.html" class="nav-dropdown-item">Love Letter to Austin</a>
+                        <a href="the-last-sky.html" class="nav-dropdown-item">The Last Sky</a>
+                        <a href="siloed.html" class="nav-dropdown-item">Siloed</a>
+                        <a href="stay-wild.html" class="nav-dropdown-item">Stay Wild</a>
+                    </div>
+                </div>
+                <a class="nav-link" href="shop.html">Shop</a>
+                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="contact.html">Contact</a>
+            </nav>
+            <div class="hamburger-nav">
+                <button type="button" class="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                <div class="hamburger-menu" id="mobile-menu">
+                    <div class="hamburger-section">
+                        <span class="hamburger-section-title">Services</span>
+                        <a href="photography.html" class="hamburger-link">Photography</a>
+                        <a href="design.html" class="hamburger-link">Design</a>
+                        <a href="video.html" class="hamburger-link">Video</a>
+                        <a href="projections.html" class="hamburger-link">Projections</a>
+                        <a href="installations.html" class="hamburger-link">Installations</a>
+                    </div>
+                    <div class="hamburger-section">
+                        <span class="hamburger-section-title">Projects</span>
+                        <a href="projects.html" class="hamburger-link" style="font-weight:600;">All Projects</a>
+                        <a href="/macc/" class="hamburger-link">Emma S. Barrientos MACC</a>
+                        <a href="afterworld.html" class="hamburger-link">Afterworld</a>
+                        <a href="rhizomatic.html" class="hamburger-link">Rhizomatic</a>
+                        <a href="node.html" class="hamburger-link">Node</a>
+                        <a href="plant-story-cards.html" class="hamburger-link">Plant Story Cards</a>
+                        <a href="plant-story-portraits.html" class="hamburger-link active">Plant Story Portraits</a>
+                        <a href="yanaguana.html" class="hamburger-link">Yanaguana Garden</a>
+                        <a href="native-waters.html" class="hamburger-link">Native Waters</a>
+                        <a href="interwoven-throughout-eternity.html" class="hamburger-link">Interwoven throughout Eternity</a>
+                        <a href="biochromatic.html" class="hamburger-link">Biochromatic</a>
+                        <a href="love-letter-to-austin.html" class="hamburger-link">Love Letter to Austin</a>
+                        <a href="the-last-sky.html" class="hamburger-link">The Last Sky</a>
+                        <a href="siloed.html" class="hamburger-link">Siloed</a>
+                        <a href="stay-wild.html" class="hamburger-link">Stay Wild</a>
+                    </div>
+                    <a href="shop.html" class="hamburger-link">Shop</a>
+                    <a href="about.html" class="hamburger-link">About</a>
+                    <a href="contact.html" class="hamburger-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero -->
+        <section class="event-hero">
+            <div class="event-hero__bg" aria-hidden="true"></div>
+            <div class="event-hero__inner">
+                <p class="event-hero__eyebrow">Free Workshop &middot; Austin, Texas</p>
+                <h1>Plant Story Portraits: A Collage Workshop</h1>
+                <p class="event-hero__subtitle">Exploring Personal Ancestry through Texas Native Plant Knowledge</p>
+                <p class="event-hero__when">Saturday, September 5, 2026 &middot; Noon to 3pm<br>Native American Cultural Center, East Austin</p>
+                <!-- TODO: replace # with the Eventbrite URL once the listing is published -->
+                <a class="event-cta" href="#">RSVP on Eventbrite</a>
+                <a class="event-cta event-cta--ghost" href="contact.html">Ask a question</a>
+            </div>
+        </section>
+
+        <!-- Facts -->
+        <section class="event-facts">
+            <div class="event-facts__grid">
+                <div class="event-fact">
+                    <p class="event-fact__label">When</p>
+                    <p class="event-fact__value">Saturday, September 5, 2026<br>12:00&ndash;3:00pm</p>
+                </div>
+                <div class="event-fact">
+                    <p class="event-fact__label">Where</p>
+                    <p class="event-fact__value">Native American Cultural Center<br>84 Robert T. Martinez Jr. St.<br>Austin, TX 78702</p>
+                </div>
+                <div class="event-fact">
+                    <p class="event-fact__label">Cost</p>
+                    <p class="event-fact__value">Free and open to the public</p>
+                </div>
+                <div class="event-fact">
+                    <p class="event-fact__label">Room For</p>
+                    <p class="event-fact__value">20 to 35 people. Walk-ins welcome until we're full.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core question -->
+        <p class="event-quote">How do we see ourselves in the plants around us?</p>
+
+        <!-- Body -->
+        <section class="event-section">
+            <h2>What happens that day</h2>
+            <p>Sit for a studio portrait. We print it right there. Then you cut into it, layer it, and build a collage with images of native plant photography. Last, you fill out our Plant Story Card for our research, in your own words: the plant you carry, and why.</p>
+            <p>You leave with all three, the printed portrait, the finished collage, and the card. We photograph the card first, with your permission.</p>
+
+            <h2>Come as you are</h2>
+            <p>Everyday clothes, traditional dress, or regalia, all of it belongs in the room. If you'd rather not be photographed, bring a photo of a relative and collage that instead.</p>
+            <p>There's a community potluck. Bring a dish if you'd like to.</p>
+
+            <h2>Where the work goes</h2>
+            <p>With your permission, each piece is photographed, and those photographs inform a series of tapestries and printed fabric designed by Essentials Creative. Those tapestries come back to this community at the <strong>Austin Powwow and Native American Heritage Festival</strong> on Saturday, November 21, 2026, at the Travis County Expo Center.</p>
+            <p>Nothing is photographed without your say-so, and you take your own work home the same day.</p>
+
+            <h2>Part of Plant Story Cards</h2>
+            <p>This workshop is part of <a href="plant-story-cards.html">Plant Story Cards</a>, an ongoing project pairing Indigenous, Latinx, and Asian plant knowledge with community-collected stories.</p>
+        </section>
+
+        <!-- Image strip -->
+        <section class="event-strip" aria-label="Images from Plant Story Cards">
+            <img src="assets/images/plant-story/gallery_1.jpg" alt="Plant Story Cards collage detail" loading="lazy">
+            <img src="assets/images/plant-story/gallery_2.jpg" alt="Plant Story Cards collage detail" loading="lazy">
+            <img src="assets/images/plant-story/Scan 1 copy.jpg" alt="Scanned plant material from the Plant Story Cards archive" loading="lazy">
+        </section>
+
+        <!-- Closing CTA -->
+        <section class="event-section" style="text-align:center;">
+            <h2>Save your spot</h2>
+            <p>RSVP helps us plan materials and food. It isn't a gate &mdash; walk-ins are welcome until the room is full.</p>
+            <!-- TODO: replace # with the Eventbrite URL once the listing is published -->
+            <a class="event-cta" href="#" style="background:#1a1a1a; color:#fff;">RSVP on Eventbrite</a>
+        </section>
+
+        <!-- Funder credit -->
+        <section class="event-credit">
+            <p>This project is supported in part by a Nexus Grant of Austin Arts, Culture, Music and Entertainment.</p>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo" style="background: #f8f8f8; padding: 3rem 2rem 2rem; text-align: center;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="border-top: 1px solid #ddd; padding-top: 2rem; color: #666; font-size: 0.9rem;">
+                <p>&copy; 2026 Essentials Creative. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/navigation.js?v=4.5" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js" defer></script>
+    <script src="assets/js/motion.js?v=3" defer></script>
+    <script data-goatcounter="https://essentialscreative.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
