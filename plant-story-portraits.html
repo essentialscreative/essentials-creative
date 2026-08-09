@@ -171,12 +171,14 @@
         .event-list li { margin-bottom: 0.6rem; }
 
         .event-quote {
-            font-size: clamp(1.3rem, 3vw, 1.9rem);
+            /* sized off the viewport so the question always sits on one line */
+            font-size: clamp(0.85rem, 3.4vw, 1.9rem);
+            white-space: nowrap;
             line-height: 1.4;
             text-align: center;
-            max-width: 720px;
+            max-width: none;
             margin: 0 auto;
-            padding: 3rem 1.5rem;
+            padding: 3rem 1rem;
             font-style: italic;
         }
 
@@ -387,7 +389,7 @@
         <section class="event-strip" aria-label="Images from Plant Story Cards">
             <img src="assets/images/plant-story/carousel_055_EK2A8791%20copy.jpg" alt="A participant writing their answers on a Plant Story Card at a table spread with printed cards and stacked colored paper." loading="lazy">
             <img src="assets/images/plant-story/carousel_025_EK2A8761%20copy.jpg" alt="Plant Story Cards clipped to boards on an outdoor table, ready for people to fill in." loading="lazy">
-            <img class="event-strip__art" src="assets/images/plant-story/Scan%208%20copy.jpg" alt="A completed Plant Story Card beside the printed snake grass artwork." loading="lazy">
+            <img class="event-strip__art" src="assets/images/plant-story/Scan%2010%20copy.jpg" alt="A handwritten Plant Story Card response beside the printed snake grass artwork." loading="lazy">
         </section>
 
         <!-- Closing CTA -->
