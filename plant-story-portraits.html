@@ -187,10 +187,12 @@
         }
         .event-strip img {
             width: 100%;
-            height: 260px;
+            height: 320px;
             object-fit: cover;
             display: block;
         }
+        /* the card scan is a wide sheet — keep the printed artwork in frame, not the blank paper */
+        .event-strip__art { object-position: right center; }
 
         .event-flyer {
             max-width: 780px;
@@ -383,9 +385,9 @@
 
         <!-- Image strip -->
         <section class="event-strip" aria-label="Images from Plant Story Cards">
-            <img src="assets/images/plant-story/gallery_1.jpg" alt="Plant Story Cards collage detail" loading="lazy">
-            <img src="assets/images/plant-story/gallery_2.jpg" alt="Plant Story Cards collage detail" loading="lazy">
-            <img src="assets/images/plant-story/Scan 1 copy.jpg" alt="Scanned plant material from the Plant Story Cards archive" loading="lazy">
+            <img src="assets/images/plant-story/carousel_055_EK2A8791%20copy.jpg" alt="A participant writing their answers on a Plant Story Card at a table spread with printed cards and stacked colored paper." loading="lazy">
+            <img src="assets/images/plant-story/carousel_025_EK2A8761%20copy.jpg" alt="Plant Story Cards clipped to boards on an outdoor table, ready for people to fill in." loading="lazy">
+            <img class="event-strip__art" src="assets/images/plant-story/Scan%208%20copy.jpg" alt="A completed Plant Story Card beside the printed snake grass artwork." loading="lazy">
         </section>
 
         <!-- Closing CTA -->
