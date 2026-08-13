@@ -112,6 +112,30 @@
             border: 1px solid rgba(255,255,255,0.7);
             margin-left: 0.6rem;
         }
+        @media (max-width: 640px) {
+            .event-hero { padding-top: 62px; }
+            .event-hero__actions {
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+                padding: 1.4rem 1.25rem 1.8rem;
+            }
+            .event-cta {
+                display: block;
+                text-align: center;
+                padding: 1rem 1.5rem;
+            }
+            .event-cta--ghost { margin-left: 0; }
+            .event-facts__grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.25rem 1rem;
+            }
+            .event-quote {
+                white-space: normal;
+                font-size: 1.15rem;
+                padding: 2.25rem 1.5rem;
+            }
+        }
 
         .event-section {
             max-width: 780px;
@@ -309,9 +333,13 @@
         <!-- Hero -->
         <section class="event-hero">
             <h1 class="sr-only">Plant Story Portraits: A Collage Workshop &mdash; Exploring Personal Ancestry through Texas Native Plant Knowledge. Free workshop, Saturday, September 5, 2026, noon to 3pm, Native American Cultural Center, East Austin.</h1>
-            <img class="event-hero__flyer" src="assets/images/plant-story/portraits-hero.jpg?v=20260812"
-                 alt="Plant Story Portraits: A Collage Workshop — exploring personal ancestry through Texas native plant knowledge. Free. Saturday, Sept. 5, 2026, noon to 3pm, Native American Cultural Center, 84 Robert T. Martinez Jr. St., Austin, TX 78702."
-                 width="2400" height="1200" fetchpriority="high">
+            <picture>
+                <source media="(max-width: 640px)" srcset="assets/images/plant-story/flyer-story.webp?v=20260812" type="image/webp">
+                <source media="(max-width: 640px)" srcset="assets/images/plant-story/flyer-story.jpg?v=20260812">
+                <img class="event-hero__flyer" src="assets/images/plant-story/portraits-hero.jpg?v=20260812"
+                     alt="Plant Story Portraits: A Collage Workshop — exploring personal ancestry through Texas native plant knowledge. Free. Saturday, Sept. 5, 2026, noon to 3pm, Native American Cultural Center, 84 Robert T. Martinez Jr. St., Austin, TX 78702."
+                     width="2400" height="1200" fetchpriority="high">
+            </picture>
             <div class="event-hero__actions">
                 <a class="event-cta" href="https://www.eventbrite.com/e/plant-story-portraits-a-collage-workshop-tickets-1997092439246" target="_blank" rel="noopener">RSVP on Eventbrite</a>
                 <a class="event-cta event-cta--ghost" href="contact.html">Ask a question</a>
