@@ -101,3 +101,6 @@ assets/fonts/apercu/Lisence/
 assets/fonts/apercu/licence.doc
 assets/fonts/apercu/*.otf
 assets/fonts/apercu/*.ttf
+
+# Design canvas build output (regenerated from the .dc.html sources)
+design-source/**/*-comps.html

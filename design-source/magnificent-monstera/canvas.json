@@ -1,0 +1,36 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html",       "title": "A · Kappazuri",  "x": 0,    "y": 0,    "w": 1728, "h": 2304, "print": "fixed" },
+    { "file": "DirectionB.dc.html", "title": "B · Rhizo Land", "x": 1928, "y": 0,    "w": 1728, "h": 2304, "print": "fixed" },
+    { "file": "DirectionC.dc.html", "title": "C · Rhizo Water","x": 0,    "y": 3100, "w": 1728, "h": 2304, "print": "fixed" },
+    { "file": "DirectionD.dc.html", "title": "D · Kira Kira",  "x": 1928, "y": 3100, "w": 1728, "h": 2304, "print": "fixed" }
+  ],
+  "annotations": [
+    {
+      "id": "brief",
+      "x": 0, "y": -420, "w": 3656,
+      "text": "MAGNIFICENT MONSTERA · four comps · 18 × 24 in\n\nOne leaf drawing is shared across all four, so the directions differ on register — ink, frame, voice — rather than on draughtsmanship. Copy is real botany: Araceae, southern Mexico to Panama, hemiepiphyte, costilla de Adán / piñanona. Anything in [brackets] is a placeholder for you to fill in — edition size, paper, plate number.\n\nType here is Space Grotesk / Archivo Black / Instrument Serif / Bricolage Grotesque standing in for Apercu, which can't load in this environment."
+    },
+    {
+      "id": "note-a",
+      "x": 0, "y": 2380, "w": 1728,
+      "text": "A · KAPPAZURI — the studio's own base register: two inks and one spark, stencil-flat, with a deliberate off-register pull and a halftone screen under the type.\n\nWhy: it looks like Essentials Creative and like nothing else on the wall. Cheapest to print — two spot inks — and the strongest of the four in grayscale.\n\nTradeoff: the quietest at a distance, and it asks the leaf to carry the whole poster alone."
+    },
+    {
+      "id": "note-b",
+      "x": 1928, "y": 2380, "w": 1728,
+      "text": "B · RHIZO LAND — the devotional frame from the Rhizomatic border system: zigzag band, agave mat, Yokoo ray field, bilingual cartouches top and bottom.\n\nWhy: reads immediately as community work, and it is the only direction that puts Spanish first.\n\nTradeoff: the frame competes with the leaf for attention, and the ray field is a great deal of ink on paper."
+    },
+    {
+      "id": "note-c",
+      "x": 0, "y": 5480, "w": 1728,
+      "text": "C · RHIZO WATER — a botanical plate, submerged. The only direction carrying the real information: family, range, habit, names.\n\nWhy: it earns time up close, and it reads as a series — \"Plate [__]\" implies more leaves to come.\n\nTradeoff: a full-bleed indigo ground drinks ink and shows every handling mark, and it is the weakest across a room."
+    },
+    {
+      "id": "note-d",
+      "x": 1928, "y": 5480, "w": 1728,
+      "text": "D · KIRA KIRA — the prismatic register: the leaf as a light-refracting form on a pearl ground.\n\nWhy: the outlier, and the one most likely to travel well on a phone screen.\n\nTradeoff: farthest from the studio's usual voice, and flat-ink printing will not hold that gradient — this one wants foil or a digital press."
+    }
+  ],
+  "launch": { "view": "canvas" }
+}

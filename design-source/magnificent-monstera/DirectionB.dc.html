@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap">
+  <style>
+    body { margin: 0; }
+    a { color: #D6381C; text-decoration: none; }
+    a:hover { color: #1A1715; }
+  </style>
+</helmet>
+
+<div style="width: 1728px; height: 2304px; box-sizing: border-box; font-family: 'Space Grotesk', 'Helvetica Neue', Helvetica, sans-serif; color: #1A1715; padding: 30px; background: repeating-linear-gradient(45deg, {{accent}} 0 26px, #E9A11B 26px 52px);">
+  <div style="height: 100%; box-sizing: border-box; padding: 34px; background: #3E7C6B;">
+    <div style="height: 100%; box-sizing: border-box; border: 8px solid #1A1715; background: #F3EAD3; display: flex; flex-direction: column; position: relative; overflow: hidden;">
+
+      <div style="background: #1A1715; color: #F3EAD3; text-align: center; text-transform: uppercase; letter-spacing: 0.28em; font-weight: 900; font-family: 'Archivo Black', 'Arial Black', sans-serif; font-size: 52px; padding: 24px 16px;">Magnífica Monstera</div>
+
+      <div style="flex-grow: 1; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <div style="position: absolute; left: 50%; top: 46%; width: 1500px; height: 1500px; transform: translate(-50%, -50%); border-radius: 50%; background: repeating-conic-gradient(#E9A11B 0deg 3.4deg, transparent 3.4deg 7.2deg); opacity: {{rayOpacity}};"></div>
+        <div style="position: absolute; left: 50%; top: 46%; width: 1040px; height: 1040px; transform: translate(-50%, -50%); border-radius: 50%; background: #F3EAD3; box-shadow: 0 0 0 14px #5A3B8E, 0 0 0 26px #F3EAD3, 0 0 0 34px #1A1715;"></div>
+
+        <svg viewBox="-10 34 620 762" style="height: 940px; width: auto; display: block; position: relative;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Monstera deliciosa leaf">
+          <defs>
+            <mask id="b-leaf" maskUnits="userSpaceOnUse" x="-40" y="0" width="700" height="820">
+              <path d="M 300 44 C 398 96 512 200 566 336 C 604 424 602 530 562 614 C 524 694 448 744 372 772 C 348 780 322 768 308 714 C 305 700 295 700 292 714 C 278 768 252 780 228 772 C 152 744 76 694 38 614 C -2 530 -4 424 34 336 C 88 200 202 96 300 44 Z" fill="#fff"></path>
+              <path d="M 674.5 -137.0 Q 518.7 11.2 355.5 151.6 Q 345.9 153.9 348.5 144.4 Q 502.9 -5.2 648.1 -164.4 Z M 794.0 71.8 Q 596.7 169.2 394.7 257.3 Q 382.9 256.6 389.3 246.7 Q 584.8 145.7 774.1 32.6 Z M 797.2 300.5 Q 575.0 336.4 351.0 361.9 Q 340.0 357.8 349.0 350.1 Q 570.2 309.2 789.2 255.2 Z M 838.0 534.7 Q 615.0 504.5 393.3 464.0 Q 383.9 456.8 394.7 452.0 Q 618.2 478.3 843.3 491.0 Z M 733.3 755.9 Q 539.2 663.2 349.9 560.5 Q 344.3 552.4 354.1 551.5 Q 549.4 641.4 750.2 719.6 Z M 659.6 892.2 Q 522.6 767.8 392.7 635.7 Q 389.7 626.3 399.3 628.3 Q 536.3 752.7 682.3 866.9 Z M 324.4 185.2 A 12 30 -46.0 1 1 367.6 226.8 A 12 30 -46.0 1 1 324.4 185.2 Z M 331.0 263.6 A 15 42 -30.0 1 1 373.0 336.4 A 15 42 -30.0 1 1 331.0 263.6 Z M 336.9 368.7 A 13 34 -12.0 1 1 351.1 435.3 A 13 34 -12.0 1 1 336.9 368.7 Z M 363.0 455.6 A 16 45 9.0 1 1 349.0 544.4 A 16 45 9.0 1 1 363.0 455.6 Z M 361.0 566.6 A 13 33 27.0 1 1 331.0 625.4 A 13 33 27.0 1 1 361.0 566.6 Z M -48.1 -164.4 Q 97.1 -5.2 251.5 144.4 Q 254.1 153.9 244.5 151.6 Q 81.3 11.2 -74.5 -137.0 Z M -174.1 32.6 Q 15.2 145.7 210.7 246.7 Q 217.1 256.6 205.3 257.3 Q 3.3 169.2 -194.0 71.8 Z M -189.2 255.2 Q 29.8 309.2 251.0 350.1 Q 260.0 357.8 249.0 361.9 Q 25.0 336.4 -197.2 300.5 Z M -243.3 491.0 Q -18.2 478.3 205.3 452.0 Q 216.1 456.8 206.7 464.0 Q -15.0 504.5 -238.0 534.7 Z M -150.2 719.6 Q 50.6 641.4 245.9 551.5 Q 255.7 552.4 250.1 560.5 Q 60.8 663.2 -133.3 755.9 Z M -82.3 866.9 Q 63.7 752.7 200.7 628.3 Q 210.3 626.3 207.3 635.7 Q 77.4 767.8 -59.6 892.2 Z M 275.6 185.2 A 12 30 46.0 1 1 232.4 226.8 A 12 30 46.0 1 1 275.6 185.2 Z M 269.0 263.6 A 15 42 30.0 1 1 227.0 336.4 A 15 42 30.0 1 1 269.0 263.6 Z M 263.1 368.7 A 13 34 12.0 1 1 248.9 435.3 A 13 34 12.0 1 1 263.1 368.7 Z M 237.0 455.6 A 16 45 -9.0 1 1 251.0 544.4 A 16 45 -9.0 1 1 237.0 455.6 Z M 239.0 566.6 A 13 33 -27.0 1 1 269.0 625.4 A 13 33 -27.0 1 1 239.0 566.6 Z" fill="#000"></path>
+            </mask>
+            <pattern id="b-dots" width="17" height="17" patternUnits="userSpaceOnUse">
+              <rect width="17" height="17" fill="#2E8B45"></rect>
+              <circle cx="8.5" cy="8.5" r="3.1" fill="#C7A93B"></circle>
+            </pattern>
+          </defs>
+          <g transform="translate(11 13)">
+            <path d="M 300 44 C 398 96 512 200 566 336 C 604 424 602 530 562 614 C 524 694 448 744 372 772 C 348 780 322 768 308 714 C 305 700 295 700 292 714 C 278 768 252 780 228 772 C 152 744 76 694 38 614 C -2 530 -4 424 34 336 C 88 200 202 96 300 44 Z" fill="#5A3B8E" mask="url(#b-leaf)"></path>
+          </g>
+          <path d="M 300 44 C 398 96 512 200 566 336 C 604 424 602 530 562 614 C 524 694 448 744 372 772 C 348 780 322 768 308 714 C 305 700 295 700 292 714 C 278 768 252 780 228 772 C 152 744 76 694 38 614 C -2 530 -4 424 34 336 C 88 200 202 96 300 44 Z" fill="url(#b-dots)" mask="url(#b-leaf)"></path>
+          <g mask="url(#b-leaf)">
+            <path d="M 300 44 C 398 96 512 200 566 336 C 604 424 602 530 562 614 C 524 694 448 744 372 772 C 348 780 322 768 308 714 C 305 700 295 700 292 714 C 278 768 252 780 228 772 C 152 744 76 694 38 614 C -2 530 -4 424 34 336 C 88 200 202 96 300 44 Z" fill="none" stroke="#1A1715" stroke-width="13"></path>
+            <path d="M 674.5 -137.0 Q 518.7 11.2 355.5 151.6 Q 345.9 153.9 348.5 144.4 Q 502.9 -5.2 648.1 -164.4 Z M 794.0 71.8 Q 596.7 169.2 394.7 257.3 Q 382.9 256.6 389.3 246.7 Q 584.8 145.7 774.1 32.6 Z M 797.2 300.5 Q 575.0 336.4 351.0 361.9 Q 340.0 357.8 349.0 350.1 Q 570.2 309.2 789.2 255.2 Z M 838.0 534.7 Q 615.0 504.5 393.3 464.0 Q 383.9 456.8 394.7 452.0 Q 618.2 478.3 843.3 491.0 Z M 733.3 755.9 Q 539.2 663.2 349.9 560.5 Q 344.3 552.4 354.1 551.5 Q 549.4 641.4 750.2 719.6 Z M 659.6 892.2 Q 522.6 767.8 392.7 635.7 Q 389.7 626.3 399.3 628.3 Q 536.3 752.7 682.3 866.9 Z M 324.4 185.2 A 12 30 -46.0 1 1 367.6 226.8 A 12 30 -46.0 1 1 324.4 185.2 Z M 331.0 263.6 A 15 42 -30.0 1 1 373.0 336.4 A 15 42 -30.0 1 1 331.0 263.6 Z M 336.9 368.7 A 13 34 -12.0 1 1 351.1 435.3 A 13 34 -12.0 1 1 336.9 368.7 Z M 363.0 455.6 A 16 45 9.0 1 1 349.0 544.4 A 16 45 9.0 1 1 363.0 455.6 Z M 361.0 566.6 A 13 33 27.0 1 1 331.0 625.4 A 13 33 27.0 1 1 361.0 566.6 Z M -48.1 -164.4 Q 97.1 -5.2 251.5 144.4 Q 254.1 153.9 244.5 151.6 Q 81.3 11.2 -74.5 -137.0 Z M -174.1 32.6 Q 15.2 145.7 210.7 246.7 Q 217.1 256.6 205.3 257.3 Q 3.3 169.2 -194.0 71.8 Z M -189.2 255.2 Q 29.8 309.2 251.0 350.1 Q 260.0 357.8 249.0 361.9 Q 25.0 336.4 -197.2 300.5 Z M -243.3 491.0 Q -18.2 478.3 205.3 452.0 Q 216.1 456.8 206.7 464.0 Q -15.0 504.5 -238.0 534.7 Z M -150.2 719.6 Q 50.6 641.4 245.9 551.5 Q 255.7 552.4 250.1 560.5 Q 60.8 663.2 -133.3 755.9 Z M -82.3 866.9 Q 63.7 752.7 200.7 628.3 Q 210.3 626.3 207.3 635.7 Q 77.4 767.8 -59.6 892.2 Z M 275.6 185.2 A 12 30 46.0 1 1 232.4 226.8 A 12 30 46.0 1 1 275.6 185.2 Z M 269.0 263.6 A 15 42 30.0 1 1 227.0 336.4 A 15 42 30.0 1 1 269.0 263.6 Z M 263.1 368.7 A 13 34 12.0 1 1 248.9 435.3 A 13 34 12.0 1 1 263.1 368.7 Z M 237.0 455.6 A 16 45 -9.0 1 1 251.0 544.4 A 16 45 -9.0 1 1 237.0 455.6 Z M 239.0 566.6 A 13 33 -27.0 1 1 269.0 625.4 A 13 33 -27.0 1 1 239.0 566.6 Z" fill="none" stroke="#1A1715" stroke-width="11"></path>
+            <path d="M 300 66 C 303 300 303 520 300 700 M 300 200 Q 413.7 155.4 527.3 60.7 M 300 304 Q 432.1 282.1 564.1 235.7 M 300 407 Q 439.4 410.9 578.7 419.2 M 300 507 Q 431.1 537.5 562.2 602.4 M 300 594 Q 405.8 645.9 511.5 756.3 M 300 662 Q 354.0 727.0 408.0 865.1 M 300 200 Q 186.3 155.4 72.7 60.7 M 300 304 Q 167.9 282.1 35.9 235.7 M 300 407 Q 160.6 410.9 21.3 419.2 M 300 507 Q 168.9 537.5 37.8 602.4 M 300 594 Q 194.2 645.9 88.5 756.3 M 300 662 Q 246.0 727.0 192.0 865.1" fill="none" stroke="#D6381C" stroke-width="6"></path>
+          </g>
+        </svg>
+      </div>
+
+      <div style="text-align: center; padding: 0 90px 26px;">
+        <h1 style="margin: 0; font-family: 'Archivo Black', 'Arial Black', sans-serif; font-size: 178px; line-height: 0.9; text-transform: uppercase; letter-spacing: -0.02em; color: #1A1715; text-shadow: 12px 12px 0 #E9A11B, 24px 24px 0 {{accent}};">Monstera</h1>
+        <p style="margin: 44px 0 0; font-size: 38px; line-height: 1.35; color: #6B4A32; text-wrap: pretty;">Southern Mexico to Panama. It begins on the forest floor and climbs toward the light.</p>
+      </div>
+
+      <div style="color: #1A1715; text-align: center; text-transform: uppercase; letter-spacing: 0.28em; font-weight: 700; font-size: 32px; padding: 22px 16px; border-top: 8px solid #1A1715; background-image: radial-gradient(#D6381C 2.6px, transparent 2.8px); background-size: 15px 15px;">
+        <span style="background: #F3EAD3; padding: 10px 28px; display: inline-block;">Costilla de Adán · Piñanona · [EDITION OF __]</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+
+<script data-dc-script data-props='{
+  "accent": {"editor": "color", "default": "#D6381C", "options": ["#D6381C", "#C22B7A", "#2C49AE", "#B5217E"], "section": "Ink"},
+  "rays": {"editor": "boolean", "default": true, "section": "Ground"},
+  "$preview": {"width": 1728, "height": 2304}
+}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      accent: this.props.accent ?? '#D6381C',
+      rayOpacity: (this.props.rays ?? true) ? 0.85 : 0,
+    };
+  }
+}
+</script>
+</body>
+</html>
