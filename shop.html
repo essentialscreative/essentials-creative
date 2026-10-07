@@ -727,7 +727,7 @@ function renderCart(){const c=getCart();const cartBtn=document.getElementById('c
     cartItems.querySelectorAll('.ci-rm').forEach(b=>b.onclick=()=>removeFromCart(+b.dataset.k));}
   cartSub.textContent='$'+cartTotal(c);
   const lines=c.map(it=>'- '+it.design+' — '+it.variant+' ($'+it.p+')').join('%0D%0A');
-  cartCheckout.href='mailto:essentialscreative@gmail.com?subject='+encodeURIComponent('Order request — '+c.length+' item'+(c.length===1?'':'s'))+'&body='+encodeURIComponent('Hi — I\'d like to order:\n\n')+lines+encodeURIComponent('\n\nTotal: $'+cartTotal(c)+'\n\nPlease confirm sizes/colors and send a Square invoice.');}
+  cartCheckout.href='mailto:'+['essentialscreative','gmail.com'].join('@')+'?subject='+encodeURIComponent('Order request — '+c.length+' item'+(c.length===1?'':'s'))+'&body='+encodeURIComponent('Hi — I\'d like to order:\n\n')+lines+encodeURIComponent('\n\nTotal: $'+cartTotal(c)+'\n\nPlease confirm sizes/colors and send a Square invoice.');}
 document.getElementById('cartBtn').onclick=()=>{document.getElementById('cartDrawer').classList.add('on');document.getElementById('cartOverlay').classList.add('on');};
 function closeCart(){document.getElementById('cartDrawer').classList.remove('on');document.getElementById('cartOverlay').classList.remove('on');}
 document.getElementById('cartClose').onclick=closeCart;
@@ -767,7 +767,7 @@ function openLB(i){const d=D[i];let sel=0,selDim=0,selSize=2,selColor=0;
     const link=(d.links&&d.links[key])||'';
     if(link&&!d.gated){buy.href=link;buy.target='_blank';buy.rel='noopener';buy.textContent='Buy'+(cd?(' · $'+cd.p):'');}
     else{const chosen=cd?(' — '+cd.d+' ($'+cd.p+')'):((gcolor||gsize)?(' — '+[gcolor,gsize].filter(Boolean).join(' ')):'');
-      buy.href='mailto:essentialscreative@gmail.com?subject='+encodeURIComponent((d.gated?'Inquiry — ':'Order — ')+d.design+' — '+p.label+chosen);
+      buy.href='mailto:'+['essentialscreative','gmail.com'].join('@')+'?subject='+encodeURIComponent((d.gated?'Inquiry — ':'Order — ')+d.design+' — '+p.label+chosen);
       buy.target='';buy.textContent=d.gated?'Inquire':'Order by email';}
     if(addcart){addcart.onclick=()=>{const price=cd?cd.p:parseInt(String(p.price).replace(/[^0-9]/g,''),10)||0;
       const variant=p.label+(cd?(' — '+cd.d):((gcolor||gsize)?(' — '+[gcolor,gsize].filter(Boolean).join(' ')):''));
