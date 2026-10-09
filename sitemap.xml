@@ -76,6 +76,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://essentialscreative.com/lotic-beings.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://essentialscreative.com/native-waters.html</loc>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
