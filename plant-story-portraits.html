@@ -140,7 +140,13 @@
         .psp-note {margin-top: 1.25rem; color: #555; max-width: 44rem; line-height: 1.6; font-size: .95rem;}
         .psp-credits {padding: 4rem 0 5rem; border-top: 1px solid #e6e6e6; margin-top: 4.5rem;}
         .psp-credits h2 {font-size: 1.1rem; margin-bottom: .75rem;}
-        .psp-powwow {background: #1a1a1a; color: #fff; padding: 4rem 0; margin-top: 4.5rem;}
+        .psp-powwow {background: #1a1a1a; color: #fff; padding: 4rem 0; margin-top: 0; scroll-margin-top: 3.5rem;}
+        .psp-powwow-grid {display: grid; grid-template-columns: minmax(0, 420px) 1fr; gap: 3rem; align-items: center;}
+        .psp-powwow-flier img {width: 100%; height: auto; display: block; box-shadow: 0 6px 30px rgba(0,0,0,.5);}
+        .psp-powwow-eyebrow {font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: #e3b12f; margin-bottom: .9rem;}
+        .psp-powwow-when {font-weight: 600; font-size: 1.2rem; color: #fff; margin-top: 1.5rem;}
+        .psp-powwow-dl {color: #fff; text-decoration: underline;}
+        @media (max-width: 760px) {.psp-powwow-grid {grid-template-columns: 1fr; gap: 2rem;} .psp-powwow-flier {max-width: 420px;}}
         .psp-powwow h2 {font-size: clamp(1.5rem,3vw,2rem); margin-bottom: .75rem;}
         .psp-powwow p {color: rgba(255,255,255,.85); font-size: 1.1rem; line-height: 1.6; max-width: 40rem;}
     </style>
@@ -242,10 +248,26 @@
             <dl class="psp-facts">
                 <div class="psp-fact"><dt>Date</dt><dd>Saturday, September 5, 2026</dd></div>
                 <div class="psp-fact"><dt>Place</dt><dd>Native American Cultural Center, East Austin</dd></div>
-                <div class="psp-fact"><dt>Next</dt><dd>Tapestries at the Austin Powwow, November&nbsp;21</dd></div>
+                <div class="psp-fact"><dt>Next</dt><dd><a href="#powwow" style="color:inherit;text-decoration:underline">Tapestries at the Austin Powwow, November&nbsp;21</a></dd></div>
             </dl>
         </div>
     </section>
+
+    <section class="psp-powwow" id="powwow" aria-labelledby="powwow-h">
+        <div class="container psp-powwow-grid">
+            <div class="psp-powwow-flier">
+                <img src="assets/images/plant-story/powwow-tapestry-flier-v2.jpg" alt="Flier: Plant Story Tapestries at Austin Powwow. Four workshop portraits collaged with corn, agave and flowers inside a red and gold triangle border. Portraits and collages from Essentials Creative's community workshop at the Native American Cultural Center, printed on fabric and on display. Saturday, November 21, 2026, Travis County Expo Center, Austin." width="1125" height="1500" decoding="async">
+            </div>
+            <div class="psp-powwow-text">
+                <p class="psp-powwow-eyebrow">Coming up</p>
+                <h2 id="powwow-h">Plant Story Tapestries at Austin Powwow</h2>
+                <p>Made from the Plant Story Portraits collage workshop at the Native American Cultural Center. The tapestries will be on display at the Austin Powwow Native Arts &amp; Heritage Festival.</p>
+                <p class="psp-powwow-when">Saturday, November 21, 2026<br>Travis County Expo Center, Austin</p>
+                <p><a class="psp-powwow-dl" href="assets/images/plant-story/powwow-tapestry-flier-hires-v2.jpg" download>Download the flier to print and share</a></p>
+            </div>
+        </div>
+    </section>
+
 
     <nav class="psp-nav" aria-label="Gallery sections"><div class="container"><ul>
         <li><a href="#the-day">The day</a></li>
@@ -292,21 +314,6 @@
         <div class="container">
             <div class="psp-section-head"><h2 id="tapestries-h">Tapestry designs</h2><p>Ten designs. The photographs from the workshop inform a series of tapestries and printed fabric designed by Essentials Creative.</p></div>
             <div class="psp-grid psp-grid--tapestry" id="tapestries-grid" data-gallery="tapestries"></div>
-        </div>
-    </section>
-
-    <section class="psp-powwow">
-        <div class="container">
-            <h2>Plant Story Portraits: Tapestries for the Powwow</h2>
-            <p>Made from the Plant Story Portraits collage workshop at the Native American Cultural Center. The tapestries will be on display at the Austin Powwow Native Arts &amp; Heritage Festival, Saturday, November 21, 2026, at the Travis County Expo Center.</p>
-        </div>
-    </section>
-
-    <section class="psp-section" id="flier" aria-labelledby="flier-h" style="padding-bottom:0">
-        <div class="container" style="text-align:center">
-            <h2 id="flier-h" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Tapestries for the Powwow flier</h2>
-            <img src="assets/images/plant-story/powwow-tapestry-flier-v2.jpg" alt="Flier: Plant Story Tapestries at Austin Powwow. Four workshop portraits collaged with corn, agave and flowers inside a red and gold triangle border. Portraits and collages from Essentials Creative's community workshop at the Native American Cultural Center, printed on fabric and on display. Saturday, November 21, 2026, Travis County Expo Center, Austin." width="1125" height="1500" loading="lazy" style="width:100%;max-width:560px;height:auto;display:block;margin:0 auto 1.2rem;box-shadow:0 2px 18px rgba(0,0,0,.18)">
-            <p style="display:flex;justify-content:center;margin:0;max-width:none;width:100%"><a href="assets/images/plant-story/powwow-tapestry-flier-hires-v2.jpg" download style="color:inherit;text-decoration:underline">Download the flier to print and share</a></p>
         </div>
     </section>
 
