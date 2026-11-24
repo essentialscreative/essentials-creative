@@ -278,7 +278,7 @@
             <p class="psp-lede">Ten designs made from the portraits and collages created at our Plant Story Portraits workshop at the Native American Cultural Center. Each one is assembled digitally, printed on fabric, and finished with ribbon embellishments. They first hung at the Austin Powwow on November 21, 2026.</p>
             <dl class="tc-order">
                 <div><dt>Giving back</dt><dd>10% of every sale goes to the Native American Cultural Center.</dd></div>
-                <div><dt>Price</dt><dd>$300 each, shipping included. We ship, or we deliver in Austin.</dd></div>
+                <div><dt>Size and price</dt><dd>30&Prime; &times; 40&Prime;. $300 each, shipping included. We ship, or we deliver in Austin.</dd></div>
                 <div><dt>To order</dt><dd>Tap Buy under any design to check out securely with Square. Questions? Message us: <a href="mailto:essentialscreative@gmail.com?subject=Plant%20Story%20Portraits%20tapestry" style="color:inherit;text-decoration:underline">essentialscreative@gmail.com</a></dd></div>
             </dl>
         </div>
@@ -286,7 +286,7 @@
 
     <section class="psp-section" id="designs" aria-labelledby="designs-h" style="padding-top: 2rem;">
         <div class="container">
-            <div class="psp-section-head"><h2 id="designs-h">Ten options</h2><p>Tap any design to see it full size. Each one is $300, shipping included, and 10% goes to the Native American Cultural Center.</p></div>
+            <div class="psp-section-head"><h2 id="designs-h">Ten options</h2><p>Tap any design to see it full size. Each one is 30&Prime; &times; 40&Prime; and $300, shipping included, and 10% goes to the Native American Cultural Center.</p></div>
             <div class="psp-grid psp-grid--tapestry psp-grid--options" id="designs-grid"></div>
         </div>
     </section>
@@ -361,7 +361,7 @@ document.addEventListener('DOMContentLoaded', () => {
     b.addEventListener('click', () => open(designs, i, b));
     const cap = document.createElement('figcaption'); cap.innerHTML = it.label + ' <span>View</span>';
     const buy = document.createElement('div'); buy.className = 'tc-buy';
-    buy.innerHTML = '<span class="tc-price">$300</span><a href="' + it.buy + '" target="_blank" rel="noopener" aria-label="Buy ' + it.label + ' for $300 on Square">Buy</a>';
+    buy.innerHTML = '<span class="tc-price">30&Prime; &times; 40&Prime; &middot; $300</span><a href="' + it.buy + '" target="_blank" rel="noopener" aria-label="Buy ' + it.label + ' for $300 on Square">Buy</a>';
     fig.appendChild(b); fig.appendChild(cap); fig.appendChild(buy); grid.appendChild(fig);
   });
   const dgrid = document.getElementById('details-grid');
