@@ -4,5 +4,9 @@
 /tapestries        /  302!
 /tapestries.html   /  302!
 
+# Tapestry buyers page was renamed (Nov 2026)
+/tapestry-collection        /plant-story-portraits-tapestries  301!
+/tapestry-collection.html   /plant-story-portraits-tapestries  301!
+
 # Fallback for any other 404s - show 404 page
 /*    /404.html    404
