@@ -130,6 +130,16 @@
         .psp-grid--contain .psp-tile {background: #fff; border: 1px solid #eee;}
         .psp-grid--contain img {object-fit: contain; object-position: center;}
         .psp-grid--wide {--ar: 3/2; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));}
+        .psp-tile {padding: 0 !important; min-height: 0 !important;}
+        .tc-grid-4 {grid-template-columns: repeat(4, minmax(0, 1fr));}
+        .tc-grid-4 img {object-position: center;}
+        .tc-process {--ar: 4/3;}
+        .tc-hanging {--ar: 4/5;}
+        .tc-banner {--ar: 21/8; margin: 1rem 0;}
+        .tc-banner img {object-position: center 55%;}
+        .tc-subhead {font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: #777; margin: 2.5rem 0 .9rem;}
+        .tc-subhead:first-child {margin-top: 0;}
+        @media (max-width: 760px) {.tc-grid-4 {grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem;} .tc-banner {--ar: 3/2;}}
         .psp-grid--tapestry {--ar: 3/4; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));}
 
         .psp-lb {position: fixed; inset: 0; z-index: 10000; background: rgba(10,10,10,.96); display: none; align-items: center; justify-content: center; touch-action: pan-y;}
@@ -164,6 +174,8 @@
         .tc-order div {padding: 1.1rem 1.5rem 1.1rem 0;}
         .tc-order dt {font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: #777; margin-bottom: .35rem;}
         .tc-order dd {font-size: 1.05rem; color: #1a1a1a;}
+        .psp-grid--options {grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 2rem 1rem;}
+        @media (max-width: 1000px) {.psp-grid--options {grid-template-columns: repeat(2, minmax(0, 1fr));}}
         .psp-grid--options .psp-item {margin: 0;}
         .psp-grid--options figcaption {display: flex; justify-content: space-between; align-items: baseline; padding: .7rem .1rem 0; font-weight: 600; font-size: 1.05rem;}
         .psp-grid--options figcaption span {font-weight: 400; color: #777; font-size: .85rem;}
@@ -172,6 +184,7 @@
         .psp-lb-full {position: absolute; bottom: 1rem; right: 1rem; color: #fff; font-size: .85rem; text-decoration: underline;}
         .tc-buy {display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-top: .6rem;}
         .tc-price {color: #555; font-size: .95rem;}
+        @media (max-width: 600px) {.tc-buy {flex-direction: column; align-items: stretch; gap: .45rem;} .tc-buy a {text-align: center;}}
         .tc-buy a, .psp-lb-buy {display: inline-block; padding: .55rem 1.1rem; background: #1a1a1a; color: #fff; border: 2px solid #1a1a1a; border-radius: 6px; font-weight: 600; font-size: .95rem; text-decoration: none; transition: background .2s, color .2s;}
         .tc-buy a:hover, .tc-buy a:focus-visible {background: #fff; color: #1a1a1a;}
         .psp-lb-buy {position: absolute; bottom: .75rem; left: 1rem; background: #fff; color: #1a1a1a; border-color: #fff;}
@@ -294,7 +307,11 @@
     <section class="psp-section" id="details" aria-labelledby="details-h">
         <div class="container">
             <div class="psp-section-head"><h2 id="details-h">Prints and ribbons</h2><p>A closer look at the printed fabric and the ribbon work stitched along each border, and the tapestries hanging at the Travis County Expo Center for the Austin Powwow.</p></div>
-            <div class="psp-grid psp-grid--wide" id="details-grid"></div>
+            <p class="tc-subhead">In the studio</p>
+            <div class="psp-grid tc-grid-4 tc-process" id="process-grid"></div>
+            <div class="psp-grid tc-banner" id="banner-grid" style="grid-template-columns: 1fr"></div>
+            <p class="tc-subhead">At the Austin Powwow</p>
+            <div class="psp-grid tc-grid-4 tc-hanging" id="hanging-grid"></div>
         </div>
     </section>
 
@@ -321,6 +338,18 @@ document.addEventListener('DOMContentLoaded', () => {
     { src: DD + 'detail-04-cutting-ribbon.jpg', alt: 'Hands cutting orange ribbon to length along the bottom border of a tapestry.', label: 'Cutting ribbon to length' },
     { src: DD + 'detail-05-installed.jpg', alt: 'Two strands of tapestries hanging across the open front of the Travis County Expo Center barn under a blue sky.', label: 'At the Expo Center' }
   ];
+  const HD = 'assets/images/gallery/Projects/PlantStoryPortraits/tapestry-hanging/';
+  const hanging = [
+    'yellow and brown triangle border with neon green and purple ribbon bands',
+    'lavender and orange border with pink and orange ribbon bands',
+    'pink and teal border with brown and hot pink ribbon bands',
+    'pink and teal triangle border with purple, yellow and orange ribbon bands',
+    'red and yellow triangle border with brown and orange ribbon bands',
+    'orange and yellow triangle border with red, yellow and white ribbon bands',
+    'purple and teal border with neon green and lavender ribbon bands',
+    'orange and purple border with pink and orange ribbon bands'
+  ].map((d, i) => { const n = String(i + 1).padStart(2, '0');
+    return { src: HD + 'hanging-' + n + '.jpg', alt: 'A tapestry hanging from a chain at the Travis County Expo Center: portraits and plants collaged inside a ' + d + '.', label: 'At the powwow' }; });
   let items = designs;
   const lb = document.createElement('div');
   lb.className = 'psp-lb'; lb.setAttribute('role','dialog'); lb.setAttribute('aria-modal','true'); lb.setAttribute('aria-label','Image viewer');
@@ -364,13 +393,17 @@ document.addEventListener('DOMContentLoaded', () => {
     buy.innerHTML = '<span class="tc-price">30&Prime; &times; 40&Prime; &middot; $300</span><a href="' + it.buy + '" target="_blank" rel="noopener" aria-label="Buy ' + it.label + ' for $300 on Square">Buy</a>';
     fig.appendChild(b); fig.appendChild(cap); fig.appendChild(buy); grid.appendChild(fig);
   });
-  const dgrid = document.getElementById('details-grid');
-  details.forEach((it, i) => {
-    const b = document.createElement('button');
-    b.type = 'button'; b.className = 'psp-tile'; b.setAttribute('aria-label', 'View ' + it.label + ' full size');
-    b.innerHTML = `<picture><source srcset="${it.src.replace(/\.jpg$/, '.webp')}" type="image/webp"><img src="${it.src}" alt="${it.alt}" loading="lazy" decoding="async"></picture>`;
-    b.addEventListener('click', () => open(details, i, b));
-    dgrid.appendChild(b);
+  const gallery = details.slice(0, 4).concat(details.slice(4), hanging);
+  const groups = [['process-grid', 0, 4], ['banner-grid', 4, 5], ['hanging-grid', 5, gallery.length]];
+  groups.forEach(([id, a, z]) => {
+    const g = document.getElementById(id);
+    gallery.slice(a, z).forEach((it, k) => {
+      const i = a + k, b = document.createElement('button');
+      b.type = 'button'; b.className = 'psp-tile'; b.setAttribute('aria-label', 'View photo ' + (i + 1) + ' of ' + gallery.length + ' full size');
+      b.innerHTML = `<picture><source srcset="${it.src.replace(/\.jpg$/, '.webp')}" type="image/webp"><img src="${it.src}" alt="${it.alt}" loading="lazy" decoding="async"></picture>`;
+      b.addEventListener('click', () => open(gallery, i, b));
+      g.appendChild(b);
+    });
   });
 });
 </script>
