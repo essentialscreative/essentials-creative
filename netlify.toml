@@ -65,6 +65,19 @@
   to = "/social-media.html"
   status = 200
 
+# Tapestry buyers page was renamed (Nov 2026)
+[[redirects]]
+  from = "/tapestry-collection"
+  to = "/plant-story-portraits-tapestries"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/tapestry-collection.html"
+  to = "/plant-story-portraits-tapestries"
+  status = 301
+  force = true
+
 # Shop is LIVE — its redirects removed so shop.html serves. Tapestries page not built yet.
 [[redirects]]
   from = "/tapestries"
