@@ -170,7 +170,14 @@
         .psp-grid--options .psp-tile {background: #fff;}
         .psp-grid--options img {object-fit: contain; object-position: center;}
         .psp-lb-full {position: absolute; bottom: 1rem; right: 1rem; color: #fff; font-size: .85rem; text-decoration: underline;}
-        @media (max-width: 600px) {.psp-lb-full {bottom: 4.5rem;}}
+        .tc-buy {display: flex; align-items: center; justify-content: space-between; gap: .75rem; margin-top: .6rem;}
+        .tc-price {color: #555; font-size: .95rem;}
+        .tc-buy a, .psp-lb-buy {display: inline-block; padding: .55rem 1.1rem; background: #1a1a1a; color: #fff; border: 2px solid #1a1a1a; border-radius: 6px; font-weight: 600; font-size: .95rem; text-decoration: none; transition: background .2s, color .2s;}
+        .tc-buy a:hover, .tc-buy a:focus-visible {background: #fff; color: #1a1a1a;}
+        .psp-lb-buy {position: absolute; bottom: .75rem; left: 1rem; background: #fff; color: #1a1a1a; border-color: #fff;}
+        .psp-lb-buy[hidden] {display: none;}
+        .tc-note {margin-top: 1.25rem; color: #555; font-size: .95rem; max-width: 44rem; line-height: 1.6;}
+        @media (max-width: 600px) {.psp-lb-full {bottom: 4.5rem;} .psp-lb-buy {bottom: 4.25rem;}}
     </style>
 </head>
 <body>
@@ -271,15 +278,15 @@
             <p class="psp-lede">Ten designs made from the portraits and collages created at our Plant Story Portraits workshop at the Native American Cultural Center. Each one is assembled digitally, printed on fabric, and finished with ribbon embellishments. They first hung at the Austin Powwow on November 21, 2026.</p>
             <dl class="tc-order">
                 <div><dt>Giving back</dt><dd>10% of every sale goes to the Native American Cultural Center.</dd></div>
-                <div><dt>Getting it to you</dt><dd>We ship, or we deliver in Austin.</dd></div>
-                <div><dt>To order</dt><dd>Message us with the option number you'd like: <a href="mailto:essentialscreative@gmail.com?subject=Plant%20Story%20Portraits%20tapestry" style="color:inherit;text-decoration:underline">essentialscreative@gmail.com</a></dd></div>
+                <div><dt>Price</dt><dd>$300 each, shipping included. We ship, or we deliver in Austin.</dd></div>
+                <div><dt>To order</dt><dd>Tap Buy under any design to check out securely with Square. Questions? Message us: <a href="mailto:essentialscreative@gmail.com?subject=Plant%20Story%20Portraits%20tapestry" style="color:inherit;text-decoration:underline">essentialscreative@gmail.com</a></dd></div>
             </dl>
         </div>
     </section>
 
     <section class="psp-section" id="designs" aria-labelledby="designs-h" style="padding-top: 2rem;">
         <div class="container">
-            <div class="psp-section-head"><h2 id="designs-h">Ten options</h2><p>Tap any design to see it full size.</p></div>
+            <div class="psp-section-head"><h2 id="designs-h">Ten options</h2><p>Tap any design to see it full size. Each one is $300, shipping included, and 10% goes to the Native American Cultural Center.</p></div>
             <div class="psp-grid psp-grid--tapestry psp-grid--options" id="designs-grid"></div>
         </div>
     </section>
@@ -301,9 +308,10 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const DIR = 'assets/images/gallery/Projects/PlantStoryPortraits/tapestry-designs/';
+  const BUY = ["https://square.link/u/DR3UYMP9", "https://square.link/u/ZEL3A4AQ", "https://square.link/u/R4o0HCST", "https://square.link/u/CXEq5WTC", "https://square.link/u/znvWEWQy", "https://square.link/u/prSLmzhx", "https://square.link/u/7Rmagoow", "https://square.link/u/lhKHbwiO", "https://square.link/u/ZZUezoFj", "https://square.link/u/hiIYpnR0"];
   const designs = Array.from({length: 10}, (_, i) => {
     const n = String(i + 1).padStart(2, '0');
-    return { src: DIR + 'tapestry-' + n + '.jpg', alt: 'Tapestry option ' + (i + 1) + ': portraits and plants collaged inside a patterned border', label: 'Option ' + (i + 1) };
+    return { src: DIR + 'tapestry-' + n + '.jpg', alt: 'Tapestry option ' + (i + 1) + ': portraits and plants collaged inside a patterned border', label: 'Option ' + (i + 1), buy: BUY[i] };
   });
   const DD = 'assets/images/gallery/Projects/PlantStoryPortraits/tapestry-details/';
   const details = [
@@ -316,14 +324,14 @@ document.addEventListener('DOMContentLoaded', () => {
   let items = designs;
   const lb = document.createElement('div');
   lb.className = 'psp-lb'; lb.setAttribute('role','dialog'); lb.setAttribute('aria-modal','true'); lb.setAttribute('aria-label','Image viewer');
-  lb.innerHTML = '<button class="close" aria-label="Close">&times;</button><button class="prev" aria-label="Previous design">&#8249;</button><div class="psp-lb-stage"><img alt=""></div><button class="next" aria-label="Next design">&#8250;</button><div class="psp-lb-meta" aria-live="polite"></div><a class="psp-lb-full" target="_blank" rel="noopener">Open full image</a>';
+  lb.innerHTML = '<button class="close" aria-label="Close">&times;</button><button class="prev" aria-label="Previous design">&#8249;</button><div class="psp-lb-stage"><img alt=""></div><button class="next" aria-label="Next design">&#8250;</button><div class="psp-lb-meta" aria-live="polite"></div><a class="psp-lb-full" target="_blank" rel="noopener">Open full image</a><a class="psp-lb-buy" target="_blank" rel="noopener" hidden>Buy &middot; $300</a>';
   document.body.appendChild(lb);
-  const img = lb.querySelector('img'), meta = lb.querySelector('.psp-lb-meta'), full = lb.querySelector('.psp-lb-full');
+  const img = lb.querySelector('img'), meta = lb.querySelector('.psp-lb-meta'), full = lb.querySelector('.psp-lb-full'), lbBuy = lb.querySelector('.psp-lb-buy');
   let idx = 0, opener = null;
   const preload = (src) => { const i = new Image(); i.src = src; };
   function show(i, animate) {
     idx = (i + items.length) % items.length; const it = items[idx];
-    const set = () => { img.src = it.src; img.alt = it.alt; img.classList.remove('fade'); full.href = it.src;
+    const set = () => { img.src = it.src; img.alt = it.alt; img.classList.remove('fade'); full.href = it.src; if (it.buy) { lbBuy.href = it.buy; lbBuy.hidden = false; lbBuy.setAttribute('aria-label', 'Buy ' + it.label + ' for $300 on Square'); } else { lbBuy.hidden = true; }
       meta.textContent = it.label + '  \u00b7  ' + (idx + 1) + ' / ' + items.length; };
     if (animate) { img.classList.add('fade'); setTimeout(set, 120); } else set();
     preload(items[(idx + 1) % items.length].src); preload(items[(idx - 1 + items.length) % items.length].src);
@@ -352,7 +360,9 @@ document.addEventListener('DOMContentLoaded', () => {
     b.innerHTML = `<picture><source srcset="${it.src.replace(/\.jpg$/, '.webp')}" type="image/webp"><img src="${it.src}" alt="${it.alt}" loading="lazy" decoding="async" width="1500" height="2000"></picture>`;
     b.addEventListener('click', () => open(designs, i, b));
     const cap = document.createElement('figcaption'); cap.innerHTML = it.label + ' <span>View</span>';
-    fig.appendChild(b); fig.appendChild(cap); grid.appendChild(fig);
+    const buy = document.createElement('div'); buy.className = 'tc-buy';
+    buy.innerHTML = '<span class="tc-price">$300</span><a href="' + it.buy + '" target="_blank" rel="noopener" aria-label="Buy ' + it.label + ' for $300 on Square">Buy</a>';
+    fig.appendChild(b); fig.appendChild(cap); fig.appendChild(buy); grid.appendChild(fig);
   });
   const dgrid = document.getElementById('details-grid');
   details.forEach((it, i) => {
