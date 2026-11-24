@@ -284,6 +284,13 @@
         </div>
     </section>
 
+    <section class="psp-section" id="details" aria-labelledby="details-h">
+        <div class="container">
+            <div class="psp-section-head"><h2 id="details-h">Prints and ribbons</h2><p>A closer look at the printed fabric and the ribbon work stitched along each border, and the tapestries hanging at the Travis County Expo Center for the Austin Powwow.</p></div>
+            <div class="psp-grid psp-grid--wide" id="details-grid"></div>
+        </div>
+    </section>
+
     <section class="psp-credits">
         <div class="container">
             <h2>About the work</h2>
@@ -294,10 +301,19 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const DIR = 'assets/images/gallery/Projects/PlantStoryPortraits/tapestry-designs/';
-  const items = Array.from({length: 10}, (_, i) => {
+  const designs = Array.from({length: 10}, (_, i) => {
     const n = String(i + 1).padStart(2, '0');
     return { src: DIR + 'tapestry-' + n + '.jpg', alt: 'Tapestry option ' + (i + 1) + ': portraits and plants collaged inside a patterned border', label: 'Option ' + (i + 1) };
   });
+  const DD = 'assets/images/gallery/Projects/PlantStoryPortraits/tapestry-details/';
+  const details = [
+    { src: DD + 'detail-01-sewing.jpg', alt: 'A tapestry on a sewing machine as ribbon is stitched along its printed border.', label: 'Stitching the ribbon' },
+    { src: DD + 'detail-02-ribbon-stitch.jpg', alt: 'Close-up of satin ribbons in pink, brown, black and mint joined with white zigzag stitching beside a printed triangle pattern.', label: 'Ribbon and zigzag stitch' },
+    { src: DD + 'detail-03-ribbon-border.jpg', alt: 'A finished tapestry edge with layered orange, pink and green ribbon bands framing the printed collage.', label: 'Finished border' },
+    { src: DD + 'detail-04-cutting-ribbon.jpg', alt: 'Hands cutting orange ribbon to length along the bottom border of a tapestry.', label: 'Cutting ribbon to length' },
+    { src: DD + 'detail-05-installed.jpg', alt: 'Two strands of tapestries hanging across the open front of the Travis County Expo Center barn under a blue sky.', label: 'At the Expo Center' }
+  ];
+  let items = designs;
   const lb = document.createElement('div');
   lb.className = 'psp-lb'; lb.setAttribute('role','dialog'); lb.setAttribute('aria-modal','true'); lb.setAttribute('aria-label','Image viewer');
   lb.innerHTML = '<button class="close" aria-label="Close">&times;</button><button class="prev" aria-label="Previous design">&#8249;</button><div class="psp-lb-stage"><img alt=""></div><button class="next" aria-label="Next design">&#8250;</button><div class="psp-lb-meta" aria-live="polite"></div><a class="psp-lb-full" target="_blank" rel="noopener">Open full image</a>';
@@ -312,7 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (animate) { img.classList.add('fade'); setTimeout(set, 120); } else set();
     preload(items[(idx + 1) % items.length].src); preload(items[(idx - 1 + items.length) % items.length].src);
   }
-  function open(i, btn) { opener = btn; lb.classList.add('open'); document.body.classList.add('psp-lock'); show(i, false); lb.querySelector('.close').focus(); }
+  function open(list, i, btn) { items = list; opener = btn; lb.classList.add('open'); document.body.classList.add('psp-lock'); show(i, false); lb.querySelector('.close').focus(); }
   function close() { lb.classList.remove('open'); document.body.classList.remove('psp-lock'); img.removeAttribute('src'); if (opener) opener.focus(); }
   lb.querySelector('.prev').onclick = () => show(idx - 1, true);
   lb.querySelector('.next').onclick = () => show(idx + 1, true);
@@ -329,14 +345,22 @@ document.addEventListener('DOMContentLoaded', () => {
   lb.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
     if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) show(idx + (dx < 0 ? 1 : -1), true); else if (dy > 80 && Math.abs(dy) > Math.abs(dx)) close(); }, { passive: true });
   const grid = document.getElementById('designs-grid');
-  items.forEach((it, i) => {
+  designs.forEach((it, i) => {
     const fig = document.createElement('figure'); fig.className = 'psp-item';
     const b = document.createElement('button');
     b.type = 'button'; b.className = 'psp-tile'; b.setAttribute('aria-label', 'View ' + it.label + ' full size');
     b.innerHTML = `<picture><source srcset="${it.src.replace(/\.jpg$/, '.webp')}" type="image/webp"><img src="${it.src}" alt="${it.alt}" loading="lazy" decoding="async" width="1500" height="2000"></picture>`;
-    b.addEventListener('click', () => open(i, b));
+    b.addEventListener('click', () => open(designs, i, b));
     const cap = document.createElement('figcaption'); cap.innerHTML = it.label + ' <span>View</span>';
     fig.appendChild(b); fig.appendChild(cap); grid.appendChild(fig);
+  });
+  const dgrid = document.getElementById('details-grid');
+  details.forEach((it, i) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'psp-tile'; b.setAttribute('aria-label', 'View ' + it.label + ' full size');
+    b.innerHTML = `<picture><source srcset="${it.src.replace(/\.jpg$/, '.webp')}" type="image/webp"><img src="${it.src}" alt="${it.alt}" loading="lazy" decoding="async"></picture>`;
+    b.addEventListener('click', () => open(details, i, b));
+    dgrid.appendChild(b);
   });
 });
 </script>
